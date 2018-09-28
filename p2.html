@@ -1,0 +1,110 @@
+
+<?php
+    include("sesion.php");
+    $user = $_SESSION["‘username’"];
+    $rol = $_SESSION["‘descripcionrol’"];
+    $nom = $_SESSION["‘nombre’"];
+    $ap = $_SESSION["‘apellido’"];
+    $meil = $_SESSION["‘meil’"];
+    $idrol = $_SESSION["‘idrol’"];
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos-login.css">
+</head>
+<body class="h">
+    <header>
+        <div class="container">
+          <h1 class="text-center error">Viajeros <span class="label label-default">Mi perfil</span></h1>
+        <div class="card">
+                <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                <div class="avatar">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
+                        </div>
+                        <div class="col-xs-8">
+                            <input type="text" id="nom-form" disabled="" name="nombre" value="Pepe Jamon" class="form-control" placeholder="Nombre"  />
+                            <p id="p-nom" class="error"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">Pais</label>
+                <input type="text" id="pai-form" disabled="" name="nombre" value="muy muy lejano" class="form-control" placeholder="Nombre"  />
+                <p id="p-pai" class="error"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">Edad</label>
+                <input type="number" id="eda-form" disabled="" name="nombre" value="632" class="form-control" placeholder="Nombre"  />
+                <p id="p-eda" class="error"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">Intereses</label>
+                <input type="text" id="int-form" disabled="" name="nombre" value="comida, bebida y mujeres" class="form-control" placeholder="Nombre"  />
+                <p id="p-int" class="error"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">Idioma</label>
+                <input type="text" id="idi-form" disabled="" name="nombre" value="Amor" class="form-control" placeholder="Nombre"  />
+                <p id="p-idi" class="error"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">Contacto</label>
+                <input type="text" id="con-form" disabled="" name="nombre" value="Telepatia <3" class="form-control" placeholder="Nombre"  />
+                <p id="p-con" class="error"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">Descripcion</label>
+                <textarea name="des-form" id="des-form" rows="2" disabled class="form-control">Solia ser un jamon comun y corriente hasta que un dia me empece a llamar Pepe</textarea>
+                <p id="p-des" class="error"></p>
+            </div>
+        </div>
+        <div class="col col-xs-10 ">
+            <a href="p1.html"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+        </div>
+        <div class="col col-xs-2 text-right">
+              <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil "></button>
+        </div>
+        </div>
+        <div class="row hidden" id="btnedit">
+            <div class="col-xs-5 col-xs-offset-1">
+                  <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">
+                  <section class="visible-xs">Editar</section>
+                  </button>
+            </div>
+            <div class="col-xs-5 col-md-6">
+                  <a href="p2.html"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>                       
+            </div>
+        </div> 
+        </div>
+    </header>
+    <script
+              src="https://code.jquery.com/jquery-3.2.1.min.js"
+              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/funciones.js"></script>
+</body>
+</html>
