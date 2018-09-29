@@ -10,11 +10,30 @@ body{
 
 .right {
 	float: right;
+
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.ovalo {
+  height: 30px;
+  width: 50px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+}
+
+.glylg {
+  font-size: 25px;
+}
+
+
 .ze {
-  font-size: 20px;
-  
+  font-size: 20px; 
 }
 
 .fr {
@@ -77,6 +96,7 @@ body{
 
 #nom-form{
 	font-size: 30px;
+  font-size: 7vw;
 	color: #707070;
 	background-color: #FFFFFF;
 	border-width:0;
@@ -95,5 +115,6 @@ body{
   border-radius: 50%;
   border: 5px solid rgba(0,0,30,0.8);
 }
+
 
 .big-checkbox {width: 18px; height: 18px;}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2018 a las 07:52:03
+-- Tiempo de generación: 30-09-2018 a las 00:12:34
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -23,6 +23,24 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `mochileros` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `mochileros`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `interes`
+--
+
+CREATE TABLE `interes` (
+  `ID_Interes` int(11) NOT NULL,
+  `ID_Punto` int(11) NOT NULL,
+  `Nombre` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `interes`:
+--   `ID_Punto`
+--       `punto` -> `ID_Punto`
+--
 
 -- --------------------------------------------------------
 
@@ -89,6 +107,13 @@ CREATE TABLE `viaje` (
 --
 
 --
+-- Indices de la tabla `interes`
+--
+ALTER TABLE `interes`
+  ADD PRIMARY KEY (`ID_Interes`),
+  ADD KEY `ID_Punto` (`ID_Punto`);
+
+--
 -- Indices de la tabla `punto`
 --
 ALTER TABLE `punto`
@@ -113,6 +138,12 @@ ALTER TABLE `viaje`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `interes`
+--
+ALTER TABLE `interes`
+  MODIFY `ID_Interes` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `punto`
 --
 ALTER TABLE `punto`
@@ -133,6 +164,12 @@ ALTER TABLE `viaje`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `interes`
+--
+ALTER TABLE `interes`
+  ADD CONSTRAINT `interes_ibfk_1` FOREIGN KEY (`ID_Punto`) REFERENCES `punto` (`ID_Punto`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `punto`
