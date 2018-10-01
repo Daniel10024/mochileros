@@ -84,8 +84,8 @@ body{
 }
 
 .card .avatar img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -105,7 +105,16 @@ body{
 	background-color:transparent;
 }
 
-
+#ape-form{
+  font-size: 30px;
+  font-size: 7vw;
+  color: #707070;
+  background-color: #FFFFFF;
+  border-width:0;
+  color: white;
+  background: inherit;
+  background-color:transparent;
+}
 
 
 

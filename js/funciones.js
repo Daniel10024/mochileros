@@ -1,4 +1,4 @@
-//boton de editar
+//boton de activar editar
 
 $(document).ready(function() {
     $("#edit").on("click", function() {
@@ -21,6 +21,8 @@ $(document).ready(function() {
     });
 
 });
+
+
 
 
 //boton agregar y eliminar fila    ----------------------------------------------------------------
