@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
+
+    <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 <body class="h">
     <header>
@@ -13,7 +17,8 @@
 
         	<h1 class="text-center error">Viajeros <span class="label label-default">Log in</span></h1>
         	<br><br><br><br>
-         	<a href="p1.html"><button class="btn btn-lg btn-danger btn-block">ingresar con google</button></a>
+         	<!--<a href="p1.html"><button class="btn btn-lg btn-danger btn-block">ingresar con google</button></a>-->
+         	<div class="g-signin2" data-onsuccess="onSignIn"></div>
          	<br>
          	<button class="btn btn-lg btn-primary btn-block">ingresar como invitado</button>
         </div>
