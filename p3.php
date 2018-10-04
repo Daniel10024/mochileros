@@ -1,3 +1,20 @@
+<?php
+  session_start();
+  include("sesion.php");
+  $use = $_SESSION["‘ID_user’"];
+  $nom = $_SESSION["‘Nombre’"];
+  $ape = $_SESSION["‘Apellido’"];
+
+
+?>
+
+<?php
+if(!isset($_SESSION["‘ID_user’"])) {
+ header("location: index.html");
+} else {
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +23,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
+
+    <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
 <body class="h">
     <header>
@@ -13,7 +32,7 @@
           <div class="row">
   <div class="col-sm-12">
 <ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.html"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 
     <ul class="nav navbar-right">
       <li class="dropdown right">
@@ -31,7 +50,7 @@
                               </p>
                           </div>
                           <div>
-                              <p id="user" class="text-center"><strong>Pepe Jamon</strong></p>
+                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
                           </div>
                       </div>
                       <div class="row">
@@ -44,14 +63,14 @@
                       <div class="row">
                           <div class="col-sm-12">
                               <p>
-                                  <a href="p4.html" class="btn btn-primary btn-block">Mis viajes</a>
+                                  <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
                               </p>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-sm-12">
                               <p>
-                                  <a href="p7.html" class="btn btn-success btn-block">Contactos</a>
+                                  <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
                               </p>
                           </div>
                       </div>
@@ -63,7 +82,7 @@
                       <div class="row">
                           <div class="col-lg-12">
                               <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                  <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
                               </p>
                           </div>
                       </div>
@@ -119,7 +138,7 @@
 <br>
         <div class="row">
           <div class="col col-xs-4 ">
-            <a href="p1.html"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+            <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
           </div>
           <div class="col-xs-8">
             <a href="#"><button id="buscar" type="button" class="btn btn-lg  btn-block btn-success">Realizar busqueda</button></a>
@@ -133,5 +152,11 @@
               crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="js/scrips.js"></script>
 </body>
 </html>
+
+
+<?php } ?>

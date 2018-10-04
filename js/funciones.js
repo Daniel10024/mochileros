@@ -85,9 +85,9 @@ $(document).ready(function() {
         });
         return $helper;
     };
-    $(".table-sortable tbody").sortable({
+    /*$(".table-sortable tbody").sortable({
         helper: fixHelperModified      
     }).disableSelection();
     $(".table-sortable thead").disableSelection();
-    $("#add_row").trigger("click");
+    $("#add_row").trigger("click");*/
 });

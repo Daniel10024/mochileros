@@ -1,9 +1,18 @@
 
 
+<?php
+  session_start();
+  include("sesion.php");
+  $use = $_SESSION["‘ID_user’"];
+  $nom = $_SESSION["‘Nombre’"];
+  $ape = $_SESSION["‘Apellido’"];
+
+
+?>
+
 <?php 
-include("sesion.php");
 $usuario_id = 1;
-$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $usuario_id");
+$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
 while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
     $nom = $data_cli['Nombre'];
     $ape = $data_cli['Apellido'];
@@ -16,6 +25,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     }
 
  ?>
+
+ <?php
+if(!isset($_SESSION["‘ID_user’"])) {
+ header("location: index.html");
+} else {
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +48,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           <div class="row">
   <div class="col-sm-12">
 <ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.html"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 
     <ul class="nav navbar-right">
       <li class="dropdown right">
@@ -159,7 +175,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
         <div class="row">
             <div class="col col-xs-9 ">
-                <a href="p1.html"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+                <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
             </div>
             <div class="col col-xs-3">
                   <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil "></button>
@@ -189,3 +205,5 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     <script src="js/funciones.js"></script>
 </body>
 </html>
+
+<?php } ?>

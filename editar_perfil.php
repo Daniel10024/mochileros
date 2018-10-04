@@ -1,6 +1,7 @@
 <?php
   session_start();
   include("sesion.php");
+  $use = $_SESSION["‘ID_user’"];
 ?>
 
 
@@ -26,7 +27,7 @@ $des = $_POST["des_form"];
 if (!empty($nombre)) {
 
 
-  $editar_perfil = "UPDATE usuario SET Nombre = '$nombre', Apellido = '$apellido', Edad = '$edad', Idioma = '$idioma', Pais = '$pais', Intereses = '$intereses', Contacto = '$contacto', Descripcion = '$des' WHERE ID_Usuario = 1";
+  $editar_perfil = "UPDATE usuario SET Nombre = '$nombre', Apellido = '$apellido', Edad = '$edad', Idioma = '$idioma', Pais = '$pais', Intereses = '$intereses', Contacto = '$contacto', Descripcion = '$des' WHERE ID_Usuario = $use";
 
 
 /*echo '<script language="javascript">alert("$descripcion");</script>'; */

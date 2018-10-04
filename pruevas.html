@@ -1,103 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos-login.css">
-</head>
-<body class="h">
-    <header>
-        <div class="container">
-
-
-<div class="row">
-  <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.html"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
-  <li><a href="p3.html"><button class="btn btn-sm btn-primary "><span class="glyphicon glyphicon-search"></span> buscar viajes</button></a></li>
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
-                              </p>
-                          </div>
-                          <div>
-                              <p id="user" class="text-center"><strong>Pepe Jamon</strong></p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.html" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.html" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.html" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-          </ul>
-      </li>
-  </ul>
-  </ul>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-xs-4">dolares</div>
-  <div class="col-xs-3">pesos</div>
-  <div class="col-xs-3">euros</div>
-  <div class="col-xs-2"><button> <span class="glyphicon glyphicon-plus"></button></span></div>
-</div>
-<br><br>
-<div class="row">
-  aca va el muro
-</div>  	
-         	
-
-          
-        </div>
-    </header>
-    <script
-              src="https://code.jquery.com/jquery-3.2.1.min.js"
-              integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-              crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/funciones.js"></script>
-</body>
+<html>
+    <head>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script type="text/javascript">
+            function init() {
+                gapi.load('auth2', function() {
+                    auth2 = gapi.auth2.init({
+                        client_id: '1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com',
+                        fetch_basic_profile: false,
+                        scope: 'profile'
+                    });
+                    gapi.signin2.render("g-signin-btn", {
+                            scope: 'email',
+                            width: 200,
+                            height: 50,
+                            longtitle: false,
+                            theme: 'dark',
+                            onsuccess: onSignIn,
+                            onfailure: null
+                        });
+                });
+            }
+            function onSignIn(googleUser) {
+                console.log("on sign in, granted scopes: " + googleUser.getGrantedScopes());
+                console.log("ID token: " + googleUser.getAuthResponse().id_token);
+                var profile = googleUser.getBasicProfile();
+                var message = 'ID: ' + profile.getId() + "\n" 
+                    + 'Name: ' + profile.getName() + "\n"
+                    + 'Image URL: ' + profile.getImageUrl() + "\n"
+                    + 'Email: ' + profile.getEmail();
+                document.getElementById("message").value = message;
+                setProfileImage(profile.getImageUrl());
+            }
+            function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log("on sign out");
+                    setMessage("User signed out");
+                    setProfileImage(null);
+                });
+            }
+            function disconnect() {
+                console.log("on disconnect");
+                var auth2 = gapi.auth2.getAuthInstance();
+                if (!auth2.isSignedIn.get()) {
+                    setMessage("Not signed in, cannot disconnect");
+                    return;
+                }
+                auth2.disconnect();
+                setProfileImage(null);
+                setMessage("Disconnected");
+            }
+            function setMessage(message) {
+                document.getElementById("message").value = message;
+            }
+            function setProfileImage(srcUrl) {
+                var element = document.getElementById("profileImage");
+                if (srcUrl == null) {
+                    element.style.display = "none";
+                    element.src = "";
+                } else {
+                    element.style.display = "block";
+                    element.src = srcUrl;
+                }
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <div id="g-signin-btn"></div>
+        <div><a href="#" onclick="signOut();">Sign out</a></div>
+        <div><a href="#" onclick="disconnect();">Disconnect</a></div>
+        <div><img id="profileImage" src="" /></div>
+        <textarea id="message" cols="80" rows="10"></textarea>
+    </body>
 </html>
+
+
+
+
+
+<?php
+  session_start();
+  include("sesion.php");
+  $use = $_SESSION["‘ID_user’"];
+  $nom = $_SESSION["‘Nombre’"];
+  $ape = $_SESSION["‘Apellido’"];
+  $eda = $_SESSION["‘Edad’"];
+  $idi = $_SESSION["‘Idioma’"];
+  $pai = $_SESSION["‘Pais’"];
+  $int = $_SESSION["‘Intereses’"];
+  $con = $_SESSION["‘Contacto’"];
+  $des = $_SESSION["‘Descripcion’"];
+
+
+?>
