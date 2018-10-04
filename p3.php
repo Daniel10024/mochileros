@@ -46,13 +46,25 @@ if(!isset($_SESSION["‘ID_user’"])) {
                       <div class="row">
                           <div>
                               <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
+                                  <?php 
+                              if ($use == 1) {
+                                echo '<span><img class="cardo" src="img/1.jpg"/></span>';
+                               } 
+                               else {?>
+                                <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
+                              <?php  } ?>
+                                
                               </p>
                           </div>
                           <div>
                               <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
                           </div>
                       </div>
+                      <?php if ($use == 1) {?>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                     <?php  }; ?> 
+                     <?php if ($use != 1) {?>
+
                       <div class="row">
                           <div class="col-sm-12">
                               <p>
@@ -74,6 +86,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               </p>
                           </div>
                       </div>
+                       <?php   } ?>
                   </div>
               </li>
               <li class="divider"></li>

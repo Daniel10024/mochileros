@@ -91,3 +91,5 @@ $(document).ready(function() {
     $(".table-sortable thead").disableSelection();
     $("#add_row").trigger("click");*/
 });
+
+

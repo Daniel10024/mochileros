@@ -8,6 +8,10 @@
 
 ?>
 
+<?php if ($use == 1) {
+  header("location: p1.php");
+} ?>
+
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");

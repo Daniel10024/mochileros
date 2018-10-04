@@ -10,6 +10,10 @@
 
 ?>
 
+<?php if ($use == 1) {
+  header("location: p1.php");
+} ?>
+
 <?php 
 $usuario_id = 1;
 $query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");

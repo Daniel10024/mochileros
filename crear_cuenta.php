@@ -29,19 +29,20 @@ if ($numero > 0) {
         $db_ID=$row['ID_Usuario'];
         $db_nombre=$row['Nombre'];
         $db_apellido=$row['Apellido'];
+        $db_foto=$row['Imagen'];
         
       }
       $_SESSION[‘ID_user’] = "$db_ID";
       $_SESSION[‘Nombre’] = "$db_nombre";
       $_SESSION[‘Apellido’] = "$db_apellido";
-      
+      $_SESSION[‘Foto’] = "$db_foto";
     
   
   
 }
 else {
-  $insert_Usuario = "INSERT INTO usuario (ID_Usuario, Nombre, Apellido)
-                      VALUES ('$id', '$nombre', '$apellido')";
+  $insert_Usuario = "INSERT INTO usuario (ID_Usuario, Nombre, Apellido, Imagen)
+                      VALUES ('$id', '$nombre', '$apellido', '$foto')";
  /* echo '<script language="javascript">console.log("grabo algo no me mientas");</script>';*/
   if ($mysqli->query($insert_Usuario) === TRUE) { 
 

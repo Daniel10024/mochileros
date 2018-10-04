@@ -93,3 +93,18 @@
 
 
 ?>
+
+
+
+
+
+
+
+                            <?php 
+                              if ($use == 1) {
+                                echo '<span><img class="cardo" src="img/1.jpg"/></span>';
+                               } 
+                               else {?>
+                                <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
+                              <?php  }
+                              /*echo '<span><img class="cardo" src="data:image/jpeg;base64,'.base64_encode( $fot ).'"/></span>';*/  ?> 

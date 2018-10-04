@@ -11,13 +11,19 @@ function onSignIn (googleUser)
       var user_lastname = profile.getFamilyName();
       var user_image = profile.getImageUrl();
       var user_email = profile.getEmail();
-      alert("hola");
 var _urlform ='crear_cuenta.php';
     $.post(_urlform,{id:user_id, nombre:user_firstname, apellido:user_lastname, foto:user_image, contacto:user_email},
     function(data){
         if(data != 1){
         	
         	location.href ="p1.php";
+
+          console.log('ID: ' + profile.getId());
+          console.log('Full Name: ' + profile.getName());
+          console.log('first Name: ' + profile.getGivenName());
+          console.log('last Name: ' + profile.getFamilyName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail());
                       
         }
         else{
@@ -25,12 +31,7 @@ var _urlform ='crear_cuenta.php';
         }
     });
       
-		console.log('ID: ' + profile.getId());
-		console.log('Full Name: ' + profile.getName());
-		console.log('first Name: ' + profile.getGivenName());
-		console.log('last Name: ' + profile.getFamilyName());
-		console.log('Image URL: ' + profile.getImageUrl());
-		console.log('Email: ' + profile.getEmail());
+		
 
 	
 
@@ -59,3 +60,18 @@ function onLoad() {
       });
     }
 
+
+function invitado(){
+  var _urlform ='crear_cuenta.php';
+    $.post(_urlform,{id:'1', nombre:"Invitado", apellido:" ", foto:"foto", contacto:"contacto"},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p1.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}
