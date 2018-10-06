@@ -93,3 +93,6 @@ $(document).ready(function() {
 });
 
 
+$("#select_pais").load("buscar_pais.php")
+
+$("#select_idioma").load("buscar_idioma.php")

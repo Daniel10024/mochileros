@@ -110,10 +110,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <br>
 
 
-
-          <div class="col-md-12">
+</div>
+          
         <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
+      <div class="container">
       <div class="row">
         <div class="col-xs-6">
           <label class="licki" for="desde">fecha de llegada</label>
@@ -124,7 +124,53 @@ if(!isset($_SESSION["‘ID_user’"])) {
           <input id="hasta" ="" class="form-control" type="date">
         </div>
       </div>
+      <br>
       <div class="row">
+        <div class="col-xs-6">
+          <label class="licki" for="desde">Seleccione pais</label>
+          <select class="form-control" id="select_pais" name="select_pais"></select>
+        </div>
+        <div class="col-xs-6">
+          <label class="licki" for="desde">Seleccione idioma</label>
+          <select class="form-control" id="select_idioma" name="select_idioma"></select>
+        </div>
+      </div>
+      
+      <br>
+
+
+      <div class="dropdown">
+            <button class="btn btn-lg fb dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Intereses <span class="caret"></span></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><div class="row">
+                <div class="col-xs-7">
+                  <div class="checkbox">
+                    <label for="op1" class=""> &nbsp<input type="checkbox" id="op1" class="big-checkbox" value="" >Extraterrestres</label>
+                  </div>
+                </div>
+                <div class="col-xs-5">
+                  <div class="checkbox">
+                     <label for="op2" class="">&nbsp<input type="checkbox" id="op2" class="big-checkbox"  value="" >Volar</label>
+                  </div>
+                </div>
+              </div></li>
+              <li role="separator" class="divider"></li>
+              <li><div class="row">
+                <div class="col-xs-7">
+                  <div class="checkbox">
+                    <label for="op3" class="">&nbsp<input type="checkbox" id="op3" class="big-checkbox" value="" >Capturar pokemons</label>
+                  </div>
+                </div>
+                <div class="col-xs-5">
+                  <div class="checkbox">
+                     <label for="op4" class="">&nbsp<input type="checkbox" id="op4" class="big-checkbox"  value="" >Otros</label>
+                  </div>
+                </div>
+              </div></li>
+            </ul>
+          </div>
+
+      <!-- <div class="row">
         <div class="col-xs-6">
           <div class="checkbox">
             <label class="licki"><input type="checkbox" class="big-checkbox" value="" >Extraterrestres</label>
@@ -147,7 +193,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <label class="licki"><input type="checkbox" class="big-checkbox" value="" >Otros</label>
           </div> 
         </div>
-      </div>
+      </div> -->
 <br>
         <div class="row">
           <div class="col col-xs-4 ">

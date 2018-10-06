@@ -109,7 +109,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de viajes</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p5.php
+                        <a href="p5.php">agregar viaje</a> 
                       <div class="col-xs-12">
                         <form action="#" method="get">
                         <div class="input-group">
@@ -134,7 +134,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <th><p>Nº</p></th>
                           <th><p>Viaje</p></th>
                           <th><p>Ver/Eliminar</p></th>
-                          
                         </tr> 
                       </thead>
                       <tbody>
@@ -144,9 +143,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                 <td data-name="nom"><p name="nom1">nombre de viaje</p></td>
                                 <td data-name="opt" align="center">
                                   <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
-                                  
                                   <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
-                  
                                 </td>
                             </tr>
                        </tbody>
@@ -154,7 +151,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   </div>
                   <div class="panel-footer">
                     <div class="row">
-                     
                       <div class="col col-xs-9">
                         <ul class="pagination pull-right">
                           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>

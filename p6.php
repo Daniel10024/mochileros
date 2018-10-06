@@ -111,7 +111,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
       </div>
       <div class="row">
         <div class="col-xs-6">
-          <label class="licki" for="desde">fecha de llegada a destino</label>
+          <label class="licki" for="desde">fecha de llegada</label>
           <input id="desde" disabled="" class="form-control" type="date">
         </div>
         <div class="col-xs-6">
