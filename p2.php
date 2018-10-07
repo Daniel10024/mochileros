@@ -6,7 +6,7 @@
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
-
+  $fot = $_SESSION["‘Foto’"];
 
 ?>
 
@@ -46,72 +46,90 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
 </head>
-<body class="h">
+<body class="f_PC">
     <header>
         <div class="container">
-          <div class="row">
+<div class="row">
   <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
-
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
-                              </p>
+  <ul class="nav nav-tabs">
+    <div class="row">
+      <div class="col-xs-2">
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+      </div>
+      <div class="col-xs-8">
+        
+      </div>
+      <div class="col-xs-2">
+        <ul class="nav navbar-right">
+              <li class="dropdown right">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-th-list glylg"></span> 
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <div class="navbar-login">
+                              <div class="row">
+                                  <div>
+                                      <p class="text-center">
+                                      <?php 
+                                      if ($use == 1) {
+                                        echo '<span><img class="cardo" src="img/1.jpg"/></span>';
+                                       } 
+                                       else {?>
+                                        <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
+                                      <?php  } ?>
+                                      </p>
+                                  </div>
+                                <div>
+                                    <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                                </div>
+                              </div>
+                            <?php if ($use == 1) {?>
+                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                           <?php  }; ?> 
+                           <?php if ($use != 1) {?>
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <p>
+                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                      </p>
+                                  </div>
+                              </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                    </p>
+                                </div>
+                            </div>
+                              <?php   } ?> 
                           </div>
-                          <div>
-                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                          <div class="navbar-login navbar-login-session">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                      <p>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                      </p>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.html" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.html" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
+                      </li>
+                  </ul>
               </li>
           </ul>
-      </li>
-  </ul>
-  </ul>
+      </div>
+    </div>
+    </ul>
   </div>
 </div>
 <br>
@@ -121,7 +139,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="avatar">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
+                            <img src="<?php echo $fot;?>" alt="" />
                         </div>
                         <div class="col-xs-8">
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control " placeholder="Nombre"  />
@@ -178,21 +196,19 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
 
         <div class="row">
-            <div class="col col-xs-9 ">
+            <div class="col col-xs-9 col-sm-10 col-md-11">
                 <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
             </div>
-            <div class="col col-xs-3">
-                  <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil "></button>
+            <div class="col col-xs-3 col-sm-2 col-md-1">
+                  <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil right"></button>
             </div>
         </div>
 
         <div class="row hidden" id="btnedit">
-            <div class="col-xs-5 col-xs-offset-1">
-                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" type="submit" >
-                  <section class="visible-xs">Editar</section>
-                  </button>
+            <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Editar</button>
             </div>
-            <div class="col-xs-5 col-md-6">
+            <div class="col-xs-5 col-sm-6">
                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>                       
             </div>
         </div> 

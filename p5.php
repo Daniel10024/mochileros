@@ -4,6 +4,7 @@
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
+  $fot = $_SESSION["‘Foto’"];
 
 
 ?>
@@ -31,82 +32,99 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="h">
+<body class="f_PC">
     <header>
         <div class="container">
-          <div class="row">
+<div class="row">
   <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
-
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
-                              </p>
+  <ul class="nav nav-tabs">
+    <div class="row">
+      <div class="col-xs-2">
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+      </div>
+      <div class="col-xs-8">
+        
+      </div>
+      <div class="col-xs-2">
+        <ul class="nav navbar-right">
+              <li class="dropdown right">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-th-list glylg"></span> 
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <div class="navbar-login">
+                              <div class="row">
+                                  <div>
+                                      <p class="text-center">
+                                      <?php 
+                                      if ($use == 1) {
+                                        echo '<span><img class="cardo" src="img/1.jpg"/></span>';
+                                       } 
+                                       else {?>
+                                        <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
+                                      <?php  } ?>
+                                      </p>
+                                  </div>
+                                <div>
+                                    <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                                </div>
+                              </div>
+                            <?php if ($use == 1) {?>
+                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                           <?php  }; ?> 
+                           <?php if ($use != 1) {?>
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <p>
+                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                      </p>
+                                  </div>
+                              </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                    </p>
+                                </div>
+                            </div>
+                              <?php   } ?> 
                           </div>
-                          <div>
-                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                          <div class="navbar-login navbar-login-session">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                      <p>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                      </p>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
+                      </li>
+                  </ul>
               </li>
           </ul>
-      </li>
-  </ul>
-  </ul>
+      </div>
+    </div>
+    </ul>
   </div>
 </div>
 <br>
 
-<form action="">
-
-          <div class="col-md-12">
+</div>
+          
             <p class="licki text-center">Marque el lugar del viaje</p>
         <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
+<div class="container">
       <div class="row">
         <div class="col-xs-6">
           <label class="licki" for="desde">fecha de llegada</label>
@@ -118,55 +136,75 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
       </div>
       <br>
-          <div class="dropdown">
-            <button class="btn btn-lg fb dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Intereses <span class="caret"></span></button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <div class="row">
+        <div class="col-xs-6">
+          <label class="licki" for="desde">intereses</label>
+
+
+      <div class="dropdown dropdown-large">
+        <button class="btn dropdown-toggle form-control" id="dropdownMenu1" data-toggle="dropdown">Intereses <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-large row">
+          <li class="col-xs-12">
+            <ul>
+              <li class="dropdown-header">Intereses</li>
               <li><div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-4">
                   <div class="checkbox">
-                    <label for="op1" class=""> &nbsp<input type="checkbox" id="op1" class="big-checkbox" value="" >Extraterrestres</label>
+                    <label for="op1" class=""><input type="checkbox" id="op1" class="big-checkbox" value="">Extraterrestres</label>
                   </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-4">
                   <div class="checkbox">
-                     <label for="op2" class="">&nbsp<input type="checkbox" id="op2" class="big-checkbox"  value="" >Volar</label>
+                     <label for="op2" class=""><input type="checkbox" id="op2" class="big-checkbox"  value="">Volar</label>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                  <div class="checkbox">
+                     <label for="op5" class=""><input type="checkbox" id="op5" class="big-checkbox"  value="">escabiar</label>
                   </div>
                 </div>
               </div></li>
-              <li role="separator" class="divider"></li>
+              <li role="separator" class="divider hidden-xs"></li>
               <li><div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                   <div class="checkbox">
-                    <label for="op3" class="">&nbsp<input type="checkbox" id="op3" class="big-checkbox" value="" >Capturar pokemons</label>
+                    <label for="op3" class=""><input type="checkbox" id="op3" class="big-checkbox" value="">Capturar pokemons</label>
                   </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                   <div class="checkbox">
-                     <label for="op4" class="">&nbsp<input type="checkbox" id="op4" class="big-checkbox"  value="" >Otros</label>
+                     <label for="op4" class=""><input type="checkbox" id="op4" class="big-checkbox"  value="">Otros</label>
                   </div>
                 </div>
               </div></li>
-              
             </ul>
-          </div>
+          </li>
+        </ul>
+      </div>
 
-</form>
-
-<br>
-        <div class="row">
-          <div class="col col-xs-6 ">
-            <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
-          </div>
-          <div class="col col-xs-6 ">
-            <button id="atras" type="submit" class="btn btn-lg  btn-block btn-primary">Agregar punto</button> 
-          </div>
         </div>
-        <br>
+        <div class="col-xs-6">
+          <label class="licki" for="desde"></label>
+          <button id="atras" type="submit" class="btn btn-lg  btn-block btn-primary">
+            <section class="hidden-xs">Agregar punto</section>
+            <section class="visible-xs">Mas</section> 
+          </button>
+        </div>
+      </div> 
+<br>
+
         <div class="row">
           <div class="col-xs-12">
             <button id="atras" type="submit" class="btn btn-lg  btn-block btn-success">Agregar viaje</button>
           </div>
         </div>
+        <br>
+         <div class="row">
+          <div class="col col-xs-12 ">
+            <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+          </div>
+        </div>
+
       </div>
     </header>
     <script

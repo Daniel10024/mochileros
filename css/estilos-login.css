@@ -1,8 +1,26 @@
-body{
-    background: url(../img/tulo.jpg);
-    background-repeat: no-repeat;
-    background-size: 414px 736px;
+html {
+    height: 100%;
+    
 }
+
+@media (max-width: 420px) {
+    .f_PC {
+        background: url(../img/tulo.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+}
+
+@media (min-width: 420px) {
+    .f_PC {
+        background: url(../img/imgf.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100% ;
+        background-attachment: fixed;
+    }
+}
+
 
 .error {
     color: red;
@@ -11,11 +29,6 @@ body{
 .right {
 	float: right;
 
-}
-
-.center {
-  display: flex;
-  justify-content: center;
 }
 
 .ovalo {
@@ -96,7 +109,7 @@ body{
 
 #nom-form{
 	font-size: 30px;
-  font-size: 7vw;
+  font-size: 6vh;
 	color: #707070;
 	background-color: #FFFFFF;
 	border-width:0;
@@ -107,7 +120,7 @@ body{
 
 #ape-form{
   font-size: 30px;
-  font-size: 7vw;
+  font-size: 6vh;
   color: #707070;
   background-color: #FFFFFF;
   border-width:0;
@@ -127,3 +140,49 @@ body{
 
 
 .big-checkbox {width: 18px; height: 18px;}
+
+.center {
+display:block;
+text-align:center;
+text-decoration:none; 
+}
+
+
+/*____________________________________*/
+
+
+.dropdown-large {
+  position: static !important;
+}
+.dropdown-menu-large {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 20px 0px;
+}
+.dropdown-menu-large > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-large > li > ul > li {
+  list-style: none;
+}
+.dropdown-menu-large .dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+  padding: 3px 175px !important;
+}
+@media (max-width: 768px) {
+  .dropdown-menu-large {
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 30px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+}

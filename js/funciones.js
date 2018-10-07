@@ -23,8 +23,6 @@ $(document).ready(function() {
 });
 
 
-
-
 //boton agregar y eliminar fila    ----------------------------------------------------------------
 
 $(document).ready(function() {
