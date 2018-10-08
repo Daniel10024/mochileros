@@ -18,7 +18,9 @@ if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
 } else {
 ?>
-
+<script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
 
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="f_PC">
+<body class="f_PC" onload="amigos()">
     <header>
         <div class="container">
 <div class="row">
@@ -155,25 +157,17 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           
                         </tr> 
                       </thead>
-                      <tbody>
-                            <tr id='addr1' data-id="1" class="hiddenlo">
-                                
-                                <td data-name="ID">
-
-
- 
-                        <img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
-
-
-                                  <!-- <p name="id1">Nº</p> --></td>
-                                <td data-name="nom"><p name="nom1">Pepe Jamon</p></td>
+                      <tbody id="tbody">
+                             <tr id='addr1' data-id="1" class="hiddenlo">
+                             <!--   <td data-name="ID">
+                                  <img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
+                                </td>
+                                <td data-name="nom"><p id="a_nom" name="nom1"></p></td>
                                 <td data-name="opt" align="center">
                                   <a name="ver1" href="p8.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
-                                  
                                   <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
-                  
-                                </td>
-                            </tr>
+                                </td>-->
+                            </tr> 
                        </tbody>
                     </table>
                   </div>
@@ -187,11 +181,11 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
                         </ul>
                       
-                        <a id="add_row" class="btn btn-default pull-right">Add Row</a>
+                        <!-- <a id="add_row" class="btn btn-default pull-right">Add Row</a> -->
                       </div>
                   </div>
               </div>
-                </div>
+            </div>
 
 
           <div class="col col-xs-12 ">

@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 //boton agregar y eliminar fila    ----------------------------------------------------------------
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     $("#add_row").on("click", function() {
         // Código dinámico de filas
         // Obtener la identificación máxima de la fila y establecer una nueva identificación
@@ -83,12 +83,12 @@ $(document).ready(function() {
         });
         return $helper;
     };
-    /*$(".table-sortable tbody").sortable({
+    $(".table-sortable tbody").sortable({
         helper: fixHelperModified      
     }).disableSelection();
     $(".table-sortable thead").disableSelection();
-    $("#add_row").trigger("click");*/
-});
+    $("#add_row").trigger("click");
+});*/
 
 
 $("#select_pais").load("buscar_pais.php")

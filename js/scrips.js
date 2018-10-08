@@ -1,9 +1,5 @@
 function onSignIn (googleUser)
 {
-
-	
-  	
-
  	var profile = googleUser.getBasicProfile();
       var user_fulname = profile.getName();
       var user_id = profile.getId();
@@ -30,14 +26,7 @@ var _urlform ='crear_cuenta.php';
         	alert(data)
         }
     });
-      
-		
-
-	
-
 }
-
-
 
 
 function signOut() {
@@ -75,3 +64,46 @@ function invitado(){
         }
     });
 }
+
+
+
+$(document).ready(function amigos() {
+    var _urlform ='amigos.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},
+    function(data){
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        texto += '<tr>'+
+                      '<td>'+
+                        '<img class="cardo" src='+json.foto+' alt="" />'+
+                      '</td>'+
+                      '<td><p>'+json.nombre + " " + json.apellido+'</p></td>'+
+                      '<td align="center">'+
+                        '<a name="ver1" href="p8.php?id='+json.ida+'" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>'+
+                        '<a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>'+
+                      '</td>'+
+                  '</tr>';
+        /*$('#a_nom').html(json.nombre + " " + json.apellido);*/
+        $("#tbody").html(texto);
+    });
+});
+
+
+
+
+/*
+$(document).ready(function amigos() {
+    var _urlform ='amigos.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},
+    function(data){
+      var json = JSON.parse(JSON.stringify(data));
+      var texto = "";
+      $.each(json, function (key, data) {
+        texto += "<option value='"+key+"'>"+data+"</option>";
+        alert(key + ": " + data)
+      });  
+    });
+});
+*/

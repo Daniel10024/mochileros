@@ -13,6 +13,23 @@
 } ?>
 
 <?php
+$amigo_id = $_GET['id'];
+
+$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $amigo_id");
+while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
+    $nom = $data_cli['Nombre'];
+    $ape = $data_cli['Apellido'];
+    $eda = $data_cli['Edad'];
+    $idi = $data_cli['Idioma'];
+    $pai = $data_cli['Pais'];
+    $int = $data_cli['Intereses'];
+    $con = $data_cli['Contacto'];
+    $des = $data_cli['Descripcion'];
+    $foto = $data_cli['Imagen'];
+    }
+
+
+
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
 } else {
@@ -123,15 +140,15 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="avatar">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
+                            <img src="<?php echo $foto;?>" alt="" />
                         </div>
 
 
                         <div class="col-xs-8">
-                            <input type="text" id="nom-form" disabled="" name="nombre" value="Pepe" class="form-control " placeholder="Nombre"  />
+                            <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control " placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
-                            <input type="text" id="ape-form" disabled="" name="apellido" value="Jamon" class="form-control " placeholder="Apellido"  />
+                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control " placeholder="Apellido"  />
                             <p id="p-nom" class="error"></p>
                         </div>
 
@@ -145,42 +162,42 @@ if(!isset($_SESSION["‘ID_user’"])) {
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Pais</label>
-                <input type="text" id="pai-form" disabled="" name="nombre" value="muy muy lejano" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="pai-form" disabled="" name="nombre" value="<?php echo $pai;?>" class="form-control" placeholder="Nombre"  />
                 <p id="p-pai" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Edad</label>
-                <input type="number" id="eda-form" disabled="" name="nombre" value="632" class="form-control" placeholder="Nombre"  />
+                <input type="number" id="eda-form" disabled="" name="nombre" value="<?php echo $eda;?>" class="form-control" placeholder="Nombre"  />
                 <p id="p-eda" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Intereses</label>
-                <input type="text" id="int-form" disabled="" name="nombre" value="comida, bebida y mujeres" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="int-form" disabled="" name="nombre" value="<?php echo $int;?>" class="form-control" placeholder="Nombre"  />
                 <p id="p-int" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Idioma</label>
-                <input type="text" id="idi-form" disabled="" name="nombre" value="Amor" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="idi-form" disabled="" name="nombre" value="<?php echo $idi;?>" class="form-control" placeholder="Nombre"  />
                 <p id="p-idi" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>
-                <input type="text" id="con-form" disabled="" name="nombre" value="El contacto esta en el <3" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="con-form" disabled="" name="nombre" value="<?php echo $con;?>" class="form-control" placeholder="Nombre"  />
                 <p id="p-con" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Descripcion</label>
-                <textarea name="des-form" id="des-form" rows="2" disabled class="form-control">Solia ser un jamon comun y corriente hasta que un dia me empece a llamar Pepe</textarea>
+                <textarea name="des-form" id="des-form" rows="2" disabled class="form-control"><?php echo $des;?></textarea>
                 <p id="p-des" class="error"></p>
             </div>
         </div>
