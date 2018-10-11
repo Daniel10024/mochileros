@@ -1,4 +1,4 @@
-//boton de activar editar
+//boton de activar editar________________________________________________________
 
 $(document).ready(function() {
     $("#edit").on("click", function() {
@@ -22,9 +22,35 @@ $(document).ready(function() {
 
 });
 
+// validar nueva foto de usuario__________________________________________________
+ $(document).ready(function(){  
+      $('#insert').click(function(){  
+           var image_name = $('#image').val();  
+           if(image_name == '')  
+           {  
+                alert("Please Select Image");  
+                return false;  
+           }  
+           else  
+           {  
+                var extension = $('#image').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                     alert('Invalid Image File');  
+                     $('#image').val('');  
+                     return false;  
+                }  
+           }  
+      });  
+ });  
 
-//boton agregar y eliminar fila    ----------------------------------------------------------------
+//cargar paises___________________________________________________________________________
+$("#select_pais").load("buscar_pais.php")
 
+//cargar idiomas____________________________________________________________________________
+$("#select_idioma").load("buscar_idioma.php")
+
+//boton agregar y eliminar fila_______________________________________________________________
 /*$(document).ready(function() {
     $("#add_row").on("click", function() {
         // Código dinámico de filas
@@ -89,8 +115,3 @@ $(document).ready(function() {
     $(".table-sortable thead").disableSelection();
     $("#add_row").trigger("click");
 });*/
-
-
-$("#select_pais").load("buscar_pais.php")
-
-$("#select_idioma").load("buscar_idioma.php")

@@ -1,14 +1,23 @@
-
-
 <?php
   session_start();
   include("sesion.php");
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
-  $fot = $_SESSION["‘Foto’"];
-
 ?>
+
+<?php 
+ if(isset($_POST["insert"]))  
+ {  
+      $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+      
+      $query = "UPDATE usuario SET Img_user = '$file' WHERE ID_Usuario = '$use'" ; 
+      if(mysqli_query($mysqli, $query))  
+      {  
+           //echo '<script>alert("Image Inserted into Database")</script>';  
+      }  
+ } 
+ ?>
 
 <?php if ($use == 1) {
   header("location: p1.php");
@@ -26,14 +35,15 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
     $des = $data_cli['Descripcion'];
+    $fot = $data_cli['Img_gmail'];
+    $fo2 = $data_cli['Img_user'];
     }
-
  ?>
 
  <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 
 
@@ -45,6 +55,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
+
+    <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
 <body class="f_PC">
     <header>
@@ -72,12 +84,13 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   <div>
                                       <p class="text-center">
                                       <?php 
-                                      if ($use == 1) {
-                                        echo '<span><img class="cardo" src="img/1.jpg"/></span>';
-                                       } 
-                                       else {?>
-                                        <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
-                                      <?php  } ?>
+                                        if (!is_null($fo2)) {
+                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/></span>';
+                                        }
+                                        else {
+                                          echo '<span><img class="cardo" alt="chau" src="'.$fot.'"/></span>';
+                                        } 
+                                      ?>
                                       </p>
                                   </div>
                                 <div>
@@ -133,15 +146,34 @@ if(!isset($_SESSION["‘ID_user’"])) {
   </div>
 </div>
 <br>
-<form action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
+
         <div class="card">
                 <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                 <div class="avatar">
                     <div class="row">
-                        <div class="col-xs-4">
-                            <img src="<?php echo $fot;?>" alt="" />
+                        <div class="col-xs-5">
+                          <form enctype="multipart/form-data" method="POST" >
+                             <div class="box12">
+                              <?php 
+                                if (!is_null($fo2)) {
+                                  echo '<img id="foto_user" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/>';
+                                }
+                                else {
+                                  echo '<img id="foto_user" alt="chau" src="'.$fot.'"/>';
+                                } 
+                              ?>
+                              <div class="box-content" align="right">
+                                <div class="icon">
+                                    <label for="image"><span class="glyphicon glyphicon-camera"></span></label>
+                                    <input name="image" id="image" type="file" class="hidden">
+                                  </div>
+                              </div>
+                            </div>
+                            <input name="insert" id="insert" type="submit" value="submit">
+                          </form>  
                         </div>
-                        <div class="col-xs-8">
+                        <form action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
+                        <div class="col-xs-7">
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control " placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
@@ -223,7 +255,32 @@ if(!isset($_SESSION["‘ID_user’"])) {
               crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="js/scrips.js"></script>
 </body>
 </html>
 
-<?php } ?>
+
+<!--  <script>  
+ $(document).ready(function(){  
+      $('#insert').click(function(){  
+           var image_name = $('#image').val();  
+           if(image_name == '')  
+           {  
+                alert("Please Select Image");  
+                return false;  
+           }  
+           else  
+           {  
+                var extension = $('#image').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                     alert('Invalid Image File');  
+                     $('#image').val('');  
+                     return false;  
+                }  
+           }  
+      });  
+ });  
+ </script>
+ -->

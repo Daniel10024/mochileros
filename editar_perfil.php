@@ -5,11 +5,15 @@
 ?>
 
 
-<?php 
-  
-  
+<?php
 
- ?>
+$aca = getcwd();
+
+$location = ''.$aca.'/img/foto/';
+$foto_name = $use;
+
+
+?>
 
 <?php 
 
@@ -23,7 +27,30 @@ $contacto = $_POST['contacto'];
 $des = $_POST["des_form"];
 
 
-/*echo '<script language="javascript">alert("hollaa");</script>'; */
+
+
+/*$new = $_FILES['input_file'];
+$name = $_FILES['input_file']['name'];
+$size = $_FILES['input_file']['size'];
+$type = $_FILES['input_file']['type'];
+$tmp_name = $_FILES['input_file']['tmp_name'];
+
+
+  
+$max_size = 100000;  
+$extension = substr($name, strpos($name, '.') + 1);
+$location = ''.$aca.'/img/foto/';
+$foto_name = $use;
+if(isset($name) && !empty($name)){
+  if(($extension == "jpg" || $extension == "jpeg") && $type == "image/jpeg" && $extension == $size<=$max_size){
+    
+    if(move_uploaded_file($tmp_name, $location.$foto_name)){
+      $smsg = "Uploaded Successfully";
+    }
+  }
+}*/
+
+
 if (!empty($nombre)) {
 
 
@@ -32,7 +59,8 @@ if (!empty($nombre)) {
 
 /*echo '<script language="javascript">alert("$descripcion");</script>'; */
     if ($mysqli->query($editar_perfil) === TRUE) {  
-        header("location: p2.php");
+        /*header("location: p2.php");*/
+        echo '<script language="javascript">alert($fot);</script>';
     }
     else 
     {

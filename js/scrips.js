@@ -33,7 +33,7 @@ function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
     	auth2.disconnect();
-    	location.href ="index.html";
+    	location.href ="index.html/../";
       
     });
   }
@@ -91,19 +91,3 @@ $(document).ready(function amigos() {
 
 
 
-
-/*
-$(document).ready(function amigos() {
-    var _urlform ='amigos.php';
-    var id_yo = myvar;
-    $.post(_urlform,{id:id_yo},
-    function(data){
-      var json = JSON.parse(JSON.stringify(data));
-      var texto = "";
-      $.each(json, function (key, data) {
-        texto += "<option value='"+key+"'>"+data+"</option>";
-        alert(key + ": " + data)
-      });  
-    });
-});
-*/

@@ -38,7 +38,7 @@ if ($numero > 0)
                 $db_ID=$row['ID_Usuario'];
                 $db_nombre=$row['Nombre'];
                 $db_apellido=$row['Apellido'];
-                $db_foto=$row['Imagen']; 
+                $db_foto=$row['Img_gmail']; 
               }
 
               $json = array(
@@ -65,7 +65,7 @@ if ($numero > 0)
                 $db_ID=$row['ID_Usuario'];
                 $db_nombre=$row['Nombre'];
                 $db_apellido=$row['Apellido'];
-                $db_foto=$row['Imagen']; 
+                $db_foto=$row['Img_gmail']; 
               }
               echo '<script language="javascript">alert("soy amigo");</script>';
         } 
