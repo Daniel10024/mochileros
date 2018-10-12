@@ -36,19 +36,20 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <title>Mochilero</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
+    <link rel="icon" type="image/png" href="img/backpack.png" />
     
 
 
 </head>
 <body class="f_PC">
     <header>
-        <div class="container">
+        <div class="container" id="cabezalMenu">
 
 
 <div class="row">
@@ -58,16 +59,19 @@ if(!isset($_SESSION["‘ID_user’"])) {
 			<div class="col-xs-2">
 				<li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 			</div>
-			<div class="col-xs-8">
-				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-primary "><span class="glyphicon glyphicon-search "></span> buscar viajes</button></a></li>
+			<div class="col-xs-8 ">
+				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-primary textoBuscarViajes"> <span class="glyphicon glyphicon-search"></span> Buscar viajes</button></a></li>
 			</div>
 			<div class="col-xs-2">
 				<ul class="nav navbar-right">
 	      			<li class="dropdown right">
-	          			<a href="#" class="dropdown-toggle " data-toggle="dropdown">
+
+	      				<!-- COSITO DEL MENU -->
+	          			<a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
 	              			<span class="glyphicon glyphicon-th-list glylg"></span> 
 	          			</a>
-	          			<ul class="dropdown-menu dropdown-menu-right">
+
+	          			<ul class="dropdown-menu dropdown-menu-right menucito menucito">
 	              			<li>
 	                  			<div class="navbar-login">
 	                      			<div class="row">
@@ -94,34 +98,35 @@ if(!isset($_SESSION["‘ID_user’"])) {
 			                      	<div class="row">
 			                          	<div class="col-sm-12">
 			                              	<p>
-			                                  	<a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+			                                  	<a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
 			                              	</p>
 			                          	</div>
 			                      	</div>
 				                    <div class="row">
 				                        <div class="col-sm-12">
 				                            <p>
-				                                <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+				                                <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
 				                            </p>
 				                        </div>
 				                    </div>
 				                    <div class="row">
 				                        <div class="col-sm-12">
 				                            <p>
-				                                <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+				                                <a href="p7.php" class="btn btn-success btn-block botoncitoBorrable">Contactos</a>
 				                            </p>
 				                        </div>
 				                    </div>
 	                       			<?php   } ?> 
 	                  			</div>
 	              			</li>
+
 	              			<li class="divider"></li>
 	              			<li>
 	                  			<div class="navbar-login navbar-login-session">
 	                      			<div class="row">
 	                          			<div class="col-lg-12">
 	                              			<p>
-	                                			<a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+	                                			<a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
 	                              			</p>
 	                          			</div>
 	                      			</div>
@@ -136,10 +141,30 @@ if(!isset($_SESSION["‘ID_user’"])) {
   </div>
 </div>
 
+<div id="muroDeNoticias" >
+	<div class="noticia">
+		<span class="textoViaje">Viaje 1</span>
+		<img src="img/map.png" class="mapa" alt="">
+	</div>
+	<div class="noticia">
+		<span class="textoViaje">Viaje 2</span>
 
-<div class="row">
-  
-</div>  	
+		<img src="img/map.png" class="mapa" alt="">
+		
+	</div>
+	<div class="noticia">
+		<span class="textoViaje">Viaje 3</span>
+
+		<img src="img/map.png" class="mapa" alt="">
+		
+	</div>
+	<div class="noticia">
+		<span class="textoViaje">Viaje 4</span>
+
+		<img src="img/map.png" class="mapa" alt="">
+		
+	</div>
+</div>
          	
 
           

@@ -208,3 +208,91 @@ text-decoration:none;
 .box12 .icon label{display:block;width:35px;height:35px;line-height:35px;border-radius:50%;border:1px solid #fff;font-size:18px;color:#fff;margin-right:10px;transition:all .3s ease 0s}
 .box12 .icon label:hover{border-radius:0}
 }
+
+
+/* ESTILOS PISADOS */
+
+.texto-mochileros{
+  display: none;
+  font-style: Serif;
+}
+
+.boton-invitado{
+  width: 57%;
+  left: 20%;
+  position: relative;
+}
+
+
+#botonGoogle{
+  position: relative;
+  left: 30%;
+}
+
+#botoncitoMenu{
+  position: relative;
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+#cabezalMenu{
+  position: relative;
+  top: 20px;
+}
+
+#muroDeNoticias{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  margin-top: 30px;
+  height: 500px;
+  //background-color: red;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #DDDDDD;
+  overflow: auto;
+  background-color: rgba(255,255,255,0.3);
+}
+
+.noticia{
+  position: relative;
+  left: 5%;
+  /* top: 5%; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 25%;
+  width: 90%;
+  background-color: #DDDDDD;
+  text-align: right;
+}
+
+.mapa{
+  position: relative;
+  height: 60%;
+  width: 30%;
+  right: 0px;
+  top:20%;
+  right: 10%;
+}
+
+.textoViaje{
+  position: absolute;
+  left: 20%;
+  top: 35%;
+  font-size: 20px;
+  font-family: verdana;
+}
+
+.menucito{
+  background: url(../img/tulo.jpg);
+}
+
+.botoncitoBorrable{
+  width: 90%;
+  left: 5%;
+  position: relative;
+}
+
+.textoBuscarViajes{
+  font-size: 13px;
+}

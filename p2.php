@@ -51,16 +51,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Perfil</title>
+    <title>Mochileros</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
+    <link rel="icon" type="image/png" href="img/backpack.png" />
+
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
 <body class="f_PC">
     <header>
-        <div class="container">
+        <div class="container" id="cabezalMenu">
 <div class="row">
   <div class="col-sm-12">
   <ul class="nav nav-tabs">
@@ -74,10 +76,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
       <div class="col-xs-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
-                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
                       <span class="glyphicon glyphicon-th-list glylg"></span> 
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-right">
+                  <ul class="dropdown-menu dropdown-menu-right menucito">
                       <li>
                           <div class="navbar-login">
                               <div class="row">
@@ -104,21 +106,21 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
                                     </p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                        <a href="p7.php" class="btn btn-success btn-block botoncitoBorrable">Contactos</a>
                                     </p>
                                 </div>
                             </div>
@@ -131,7 +133,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-lg-12">
                                       <p>
-                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
                                       </p>
                                   </div>
                               </div>
