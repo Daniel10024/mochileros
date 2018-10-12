@@ -55,7 +55,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <div class="row">
   <div class="col-sm-12">
 	<ul class="nav nav-tabs">
-		<div class="row">
+		<div class="row menuArriba">
 			<div class="col-xs-2">
 				<li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 			</div>
@@ -71,7 +71,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 	              			<span class="glyphicon glyphicon-th-list glylg"></span> 
 	          			</a>
 
-	          			<ul class="dropdown-menu dropdown-menu-right menucito menucito">
+	          			<ul class="dropdown-menu dropdown-menu-right menucito ">
 	              			<li>
 	                  			<div class="navbar-login">
 	                      			<div class="row">
@@ -92,7 +92,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 				                        </div>
 	                      			</div>
 			                      <?php if ($use == 1) {?>
-			                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+			                        <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div>
 			                     <?php  }; ?> 
 			                     <?php if ($use != 1) {?>
 			                      	<div class="row">
@@ -143,27 +143,34 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
 <div id="muroDeNoticias" >
 	<div class="noticia">
-		<span class="textoViaje">Viaje 1</span>
+		<span class="textoViaje">Noticia 1</span>
 		<img src="img/map.png" class="mapa" alt="">
 	</div>
 	<div class="noticia">
-		<span class="textoViaje">Viaje 2</span>
+		<span class="textoViaje">Noticia 2</span>
 
 		<img src="img/map.png" class="mapa" alt="">
 		
 	</div>
 	<div class="noticia">
-		<span class="textoViaje">Viaje 3</span>
+		<span class="textoViaje">Noticia 3</span>
 
 		<img src="img/map.png" class="mapa" alt="">
 		
 	</div>
 	<div class="noticia">
-		<span class="textoViaje">Viaje 4</span>
+		<span class="textoViaje">Noticia 4</span>
 
 		<img src="img/map.png" class="mapa" alt="">
 		
 	</div>
+	<div class="noticia">
+		<span class="textoViaje">Noticia 5</span>
+
+		<img src="img/map.png" class="mapa" alt="">
+		
+	</div>
+
 </div>
          	
 

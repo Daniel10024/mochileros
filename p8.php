@@ -62,7 +62,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <body class="f_PC">
     <header>
         <div class="container" id="cabezalMenu">
-<div class="row">
+<div class="row menuArriba">
   <div class="col-sm-12">
   <ul class="nav nav-tabs">
     <div class="row">
@@ -99,7 +99,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                 </div>
                               </div>
                             <?php if ($use == 1) {?>
-                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                              <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div>
                            <?php  }; ?> 
                            <?php if ($use != 1) {?>
                               <div class="row">

@@ -63,7 +63,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <body class="f_PC">
     <header>
         <div class="container" id="cabezalMenu">
-<div class="row">
+<div class="row menuArriba">
   <div class="col-sm-12">
   <ul class="nav nav-tabs">
     <div class="row">
@@ -100,7 +100,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                 </div>
                               </div>
                             <?php if ($use == 1) {?>
-                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                              <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div>
                            <?php  }; ?> 
                            <?php if ($use != 1) {?>
                               <div class="row">
@@ -166,20 +166,20 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               ?>
                               <div class="box-content" align="right">
                                 <div class="icon">
-                                    <label for="image"><span class="glyphicon glyphicon-camera"></span></label>
+                                    <label for="image"><span class="glyphicon glyphicon-camera camara-icono"></span></label>
                                     <input name="image" id="image" type="file" class="hidden">
                                   </div>
                               </div>
                             </div>
-                            <input name="insert" id="insert" type="submit" value="submit">
+                            <input name="insert" id="insert" type="submit" value="submit" hidden="true">
                           </form>  
                         </div>
                         <form action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
                         <div class="col-xs-7">
-                            <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control " placeholder="Nombre"  />
+                            <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control nombreUsuario" placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
-                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control " placeholder="Apellido"  />
+                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control nombreUsuario" placeholder="Apellido"  />
                             <p id="p-nom" class="error"></p>
                         </div>
                     </div>
