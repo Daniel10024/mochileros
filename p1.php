@@ -137,16 +137,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
 </div>
 
 
-<br>
 <div class="row">
-  <div class="col-xs-4">dolares</div>
-  <div class="col-xs-3">pesos</div>
-  <div class="col-xs-3">euros</div>
-  <div class="col-xs-2"><button> <span class="glyphicon glyphicon-plus"></button></span></div>
-</div>
-<br><br>
-<div class="row">
-  aca va el muro
+  
 </div>  	
          	
 
