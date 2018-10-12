@@ -14,7 +14,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
 } else {
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
