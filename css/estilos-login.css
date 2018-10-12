@@ -1,8 +1,26 @@
-body{
-    background: url(../img/tulo.jpg);
-    background-repeat: no-repeat;
-    background-size: 414px 736px;
+html {
+    height: 100%;
+    
 }
+
+@media (max-width: 420px) {
+    .f_PC {
+        background: url(../img/tulo.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+    }
+}
+
+@media (min-width: 420px) {
+    .f_PC {
+        background: url(../img/imgf.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100% ;
+        background-attachment: fixed;
+    }
+}
+
 
 .error {
     color: red;
@@ -11,11 +29,6 @@ body{
 .right {
 	float: right;
 
-}
-
-.center {
-  display: flex;
-  justify-content: center;
 }
 
 .ovalo {
@@ -54,49 +67,54 @@ body{
 .src-image {
   display: none;
 }
-
-.card {
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #CCC;
-  border-radius: 8px;
-  text-align: left;
-  padding: 0;
-  background-color:#610533;
-  color: rgb(136, 172, 217);
-}
-
-.card .header-bg {
-  /* This stretches the canvas across the entire hero unit */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px #FFF solid;
-  /* This positions the canvas under the text */
-  z-index: 1;
-}
-.card .avatar {
-  position: relative;
-  margin-top: 0px;
-  z-index: 100;
-}
-
-.card .avatar img {
-  width: 90px;
-  height: 90px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+/* foto pantalla de perfil de usuario _________________________ */
+.card {                                                         /**/
+  overflow: hidden;                                             /**/
+  position: relative;                                           /**/
+  border: 1px solid #CCC;                                       /**/
+  border-radius: 8px;                                           /**/
+  text-align: left;                                             /**/
+  padding: 0;                                                   /**/
+  background-color:#610533;                                     /**/
+  color: rgb(136, 172, 217);                                    /**/
+}                                                               /**/
+.card .header-bg {                                              /**/
+  /* This stretches the canvas across the entire hero unit */   /**/
+  position: absolute;                                           /**/
+  top: 0;                                                       /**/
+  left: 0;                                                      /**/
+  width: 100%;                                                  /**/
+  height: 50px;                                                 /**/
+  border-bottom: 1px #FFF solid;                                /**/
+  /* This positions the canvas under the text */                /**/
+  z-index: 1;                                                   /**/
+}                                                               /**/
+.card .avatar {                                                 /**/
+  position: relative;                                           /**/
+  margin-top: 0px;                                              /**/
+  z-index: 100;                                                 /**/
+}                                                               /**/
+.card .avatar img {                                             /**/
+  width: 90px;                                                  /**/
+  height: 90px;                                                 /**/
+  -webkit-border-radius: 50%;                                   /**/
+  -moz-border-radius: 50%;                                      /**/
+  border-radius: 50%;                                           /**/
   border: 5px solid rgba(0,0,30,0.8);
+
+}                                                               /**/
+/*_________________________________________________________________*/
+
+/*cambiar foto de perfil___________________________________________*/
+.card .avatar img:hover {
+  
 }
 
 
-
+/*nombre pantalla de perfil________________________________________*/
 #nom-form{
 	font-size: 30px;
-  font-size: 7vw;
+  font-size: 6vh;
 	color: #707070;
 	background-color: #FFFFFF;
 	border-width:0;
@@ -105,9 +123,10 @@ body{
 	background-color:transparent;
 }
 
+/*apellido pantalla de perfil________________________________________*/
 #ape-form{
   font-size: 30px;
-  font-size: 7vw;
+  font-size: 6vh;
   color: #707070;
   background-color: #FFFFFF;
   border-width:0;
@@ -117,7 +136,7 @@ body{
 }
 
 
-
+/*foto de perfil (miniatura)________________________________________*/
 .cardo {
   width: 50px;
   height: 50px;
@@ -125,5 +144,67 @@ body{
   border: 5px solid rgba(0,0,30,0.8);
 }
 
-
+/*tamaño de checkbox________________________________________________*/
 .big-checkbox {width: 18px; height: 18px;}
+
+/*centrar __________________________________________________________*/
+.center {
+display:block;
+text-align:center;
+text-decoration:none; 
+}
+
+
+/*dropdown de intereses de viaje____________________________________*/
+.dropdown-large {
+  position: static !important;
+}
+.dropdown-menu-large {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 20px 0px;
+}
+.dropdown-menu-large > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-large > li > ul > li {
+  list-style: none;
+}
+.dropdown-menu-large .dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+  padding: 3px 175px !important;
+}
+@media (max-width: 768px) {
+  .dropdown-menu-large {
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 30px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+}
+/*________________________________________________________________*/
+
+
+/*hover editar foto_______________________________________________*/
+.box12 {overflow:hidden}
+.box12 .icon label {text-align:center;}
+.box12 .icon label span{color: red;}
+.box12{position:relative}
+.box12 .box-content,.box12:after{position:absolute;transition:all .3s ease 0s}
+
+.box12 img{width:100%;height:auto}
+
+.box12 .box-content{width:90px;top:45px;opacity:0;z-index:1}
+.box12:hover .box-content{opacity:1}
+.box12 .icon label{display:block;width:35px;height:35px;line-height:35px;border-radius:50%;border:1px solid #fff;font-size:18px;color:#fff;margin-right:10px;transition:all .3s ease 0s}
+.box12 .icon label:hover{border-radius:0}
+}

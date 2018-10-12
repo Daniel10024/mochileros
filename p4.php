@@ -4,8 +4,17 @@
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
+?>
 
-
+<?php 
+$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
+$result = mysqli_query($mysqli, $query);  
+while($row = mysqli_fetch_assoc($result))  
+{  
+  $db_foto=$row['Img_gmail'];
+  $db_foto2=$row['Img_user'];
+}
+  
 ?>
 
 <?php if ($use == 1) {
@@ -31,144 +40,160 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="h">
+<body class="f_PC">
     <header>
         <div class="container">
-          <div class="row">
-  <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
-                              </p>
+
+<div class="row">
+  <div class="col-sm-12">
+  <ul class="nav nav-tabs">
+    <div class="row">
+      <div class="col-xs-2">
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+      </div>
+      <div class="col-xs-8">
+        
+      </div>
+      <div class="col-xs-2">
+        <ul class="nav navbar-right">
+              <li class="dropdown right">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-th-list glylg"></span> 
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <div class="navbar-login">
+                              <div class="row">
+                                  <div>
+                                      <p class="text-center">
+                                      <?php 
+                                        if (!is_null($db_foto2)) {
+                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
+                                        }
+                                        else {
+                                          echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
+                                        } 
+                                      ?>
+                                      </p>
+                                  </div>
+                                <div>
+                                    <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                                </div>
+                              </div>
+                            <?php if ($use == 1) {?>
+                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                           <?php  }; ?> 
+                           <?php if ($use != 1) {?>
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <p>
+                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                      </p>
+                                  </div>
+                              </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                    </p>
+                                </div>
+                            </div>
+                              <?php   } ?> 
                           </div>
-                          <div>
-                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                          <div class="navbar-login navbar-login-session">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                      <p>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                      </p>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
+                      </li>
+                  </ul>
               </li>
           </ul>
-      </li>
-  </ul>
-  </ul>
+      </div>
+    </div>
+    </ul>
   </div>
 </div>
+
+
 <br>
 
 
           <div class="panel panel-default panel-table">
-                  <div class="panel-heading">
-                    <div class="row">
+              <div class="panel-heading">
+                  <div class="row">
                       <div class="col col-xs-6 col-md-6">
                           <h3 class="panel-title">Lista de viajes</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p5.php
-                      <div class="col-xs-12">
-                        <form action="#" method="get">
-                        <div class="input-group">
-                            <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-                            <input class="form-control" id="system-search" name="q" placeholder="Buscar" required>
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                            </span>
-                        </div>
-                    </form>
+                          <a href="p5.php"><button class="btn btn-primary">agregar viaje</button> </a> 
                       </div>
-                    </div>
+                      <div class="col-xs-12">
+                          <form action="#" method="get">
+                              <div class="input-group">
+                                  <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+                                  <input class="form-control" id="system-search" name="q" placeholder="Buscar" required>
+                                  <span class="input-group-btn">
+                                      <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                                  </span>
+                              </div>
+                          </form>
+                      </div>
                   </div>
-                  <div class="panel-body">
-                    
-                
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
+              </div>
+              <div class="panel-body">
+              </div>
+              <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
                       <thead>
-                        <tr>
-                          <th><p>Nº</p></th>
-                          <th><p>Viaje</p></th>
-                          <th><p>Ver/Eliminar</p></th>
-                          
-                        </tr> 
+                          <tr>
+                              <th><p>Nº</p></th>
+                              <th><p>Viaje</p></th>
+                              <th><p>Ver/Eliminar</p></th>
+                          </tr> 
                       </thead>
                       <tbody>
-                            <tr id='addr1' data-id="1" class="hiddenlo">
-                                
-                                <td data-name="ID"><p name="id1">Nº</p></td>
-                                <td data-name="nom"><p name="nom1">nombre de viaje</p></td>
-                                <td data-name="opt" align="center">
-                                  <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
-                                  
-                                  <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
-                  
-                                </td>
-                            </tr>
-                       </tbody>
-                    </table>
-                  </div>
-                  <div class="panel-footer">
-                    <div class="row">
-                     
-                      <div class="col col-xs-9">
-                        <ul class="pagination pull-right">
+                          <tr id='addr1' data-id="1" class="hiddenlo">         
+                              <td data-name="ID"><p name="id1">Nº</p></td>
+                              <td data-name="nom"><p name="nom1">nombre de viaje</p></td>
+                              <td data-name="opt" align="center">
+                                <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
+                                <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="panel-footer">
+                  <div class="row">
+                      <div class="col col-xs-12 center">
+                        <ul class="pagination pull-center">
                           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
                           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
                         </ul>
-                      </div>
-                       <div class="col col-xs-3">
+                      
                         <a id="add_row" class="btn btn-default pull-right">Add Row</a>
                       </div>
-                    </div>
                   </div>
-                </div>
+              </div>
+          </div>
 
 
           <div class="col col-xs-12 ">

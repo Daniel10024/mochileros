@@ -1,14 +1,23 @@
-
-
 <?php
   session_start();
   include("sesion.php");
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
-
-
 ?>
+
+<?php 
+ if(isset($_POST["insert"]))  
+ {  
+      $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
+      
+      $query = "UPDATE usuario SET Img_user = '$file' WHERE ID_Usuario = '$use'" ; 
+      if(mysqli_query($mysqli, $query))  
+      {  
+           //echo '<script>alert("Image Inserted into Database")</script>';  
+      }  
+ } 
+ ?>
 
 <?php if ($use == 1) {
   header("location: p1.php");
@@ -26,14 +35,15 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
     $des = $data_cli['Descripcion'];
+    $fot = $data_cli['Img_gmail'];
+    $fo2 = $data_cli['Img_user'];
     }
-
  ?>
 
  <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 
 
@@ -45,85 +55,125 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
+
+    <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="h">
+<body class="f_PC">
     <header>
         <div class="container">
-          <div class="row">
+<div class="row">
   <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
-
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
-                              </p>
+  <ul class="nav nav-tabs">
+    <div class="row">
+      <div class="col-xs-2">
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+      </div>
+      <div class="col-xs-8">
+        
+      </div>
+      <div class="col-xs-2">
+        <ul class="nav navbar-right">
+              <li class="dropdown right">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-th-list glylg"></span> 
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <div class="navbar-login">
+                              <div class="row">
+                                  <div>
+                                      <p class="text-center">
+                                      <?php 
+                                        if (!is_null($fo2)) {
+                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/></span>';
+                                        }
+                                        else {
+                                          echo '<span><img class="cardo" alt="chau" src="'.$fot.'"/></span>';
+                                        } 
+                                      ?>
+                                      </p>
+                                  </div>
+                                <div>
+                                    <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                                </div>
+                              </div>
+                            <?php if ($use == 1) {?>
+                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                           <?php  }; ?> 
+                           <?php if ($use != 1) {?>
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <p>
+                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                      </p>
+                                  </div>
+                              </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                    </p>
+                                </div>
+                            </div>
+                              <?php   } ?> 
                           </div>
-                          <div>
-                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                          <div class="navbar-login navbar-login-session">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                      <p>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                      </p>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.html" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.html" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
+                      </li>
+                  </ul>
               </li>
           </ul>
-      </li>
-  </ul>
-  </ul>
+      </div>
+    </div>
+    </ul>
   </div>
 </div>
 <br>
-<form action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
+
         <div class="card">
                 <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
                 <div class="avatar">
                     <div class="row">
-                        <div class="col-xs-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
+                        <div class="col-xs-5">
+                          <form enctype="multipart/form-data" method="POST" >
+                             <div class="box12">
+                              <?php 
+                                if (!is_null($fo2)) {
+                                  echo '<img id="foto_user" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/>';
+                                }
+                                else {
+                                  echo '<img id="foto_user" alt="chau" src="'.$fot.'"/>';
+                                } 
+                              ?>
+                              <div class="box-content" align="right">
+                                <div class="icon">
+                                    <label for="image"><span class="glyphicon glyphicon-camera"></span></label>
+                                    <input name="image" id="image" type="file" class="hidden">
+                                  </div>
+                              </div>
+                            </div>
+                            <input name="insert" id="insert" type="submit" value="submit">
+                          </form>  
                         </div>
-                        <div class="col-xs-8">
+                        <form action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
+                        <div class="col-xs-7">
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control " placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
@@ -178,21 +228,19 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
 
         <div class="row">
-            <div class="col col-xs-9 ">
+            <div class="col col-xs-9 col-sm-10 col-md-11">
                 <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
             </div>
-            <div class="col col-xs-3">
-                  <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil "></button>
+            <div class="col col-xs-3 col-sm-2 col-md-1">
+                  <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil right"></button>
             </div>
         </div>
 
         <div class="row hidden" id="btnedit">
-            <div class="col-xs-5 col-xs-offset-1">
-                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" type="submit" >
-                  <section class="visible-xs">Editar</section>
-                  </button>
+            <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Editar</button>
             </div>
-            <div class="col-xs-5 col-md-6">
+            <div class="col-xs-5 col-sm-6">
                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>                       
             </div>
         </div> 
@@ -207,7 +255,32 @@ if(!isset($_SESSION["‘ID_user’"])) {
               crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="js/scrips.js"></script>
 </body>
 </html>
 
-<?php } ?>
+
+<!--  <script>  
+ $(document).ready(function(){  
+      $('#insert').click(function(){  
+           var image_name = $('#image').val();  
+           if(image_name == '')  
+           {  
+                alert("Please Select Image");  
+                return false;  
+           }  
+           else  
+           {  
+                var extension = $('#image').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                     alert('Invalid Image File');  
+                     $('#image').val('');  
+                     return false;  
+                }  
+           }  
+      });  
+ });  
+ </script>
+ -->

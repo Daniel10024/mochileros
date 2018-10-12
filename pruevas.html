@@ -100,11 +100,103 @@
 
 
 
-                            <?php 
-                              if ($use == 1) {
-                                echo '<span><img class="cardo" src="img/1.jpg"/></span>';
-                               } 
-                               else {?>
-                                <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
-                              <?php  }
-                              /*echo '<span><img class="cardo" src="data:image/jpeg;base64,'.base64_encode( $fot ).'"/></span>';*/  ?> 
+    <?php 
+      if ($use == 1) {
+        echo '<span><img class="cardo" src="img/1.jpg"/></span>';
+       } 
+       else {?>
+        <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
+      <?php  }
+      /*echo '<span><img class="cardo" src="data:image/jpeg;base64,'.base64_encode( $fot ).'"/></span>';*/  ?> 
+
+
+
+
+
+
+https://es.stackoverflow.com/questions/135928/cargar-diferentes-archivos-con-load
+
+<div id="box"></div> 
+
+<a href="#" name="dinamico" id="1">menu 1</a> 
+<a href="#" name="dinamico" id="2">menu 2</a> 
+<a href="#" name="dinamico" id="3">menu 3</a> 
+
+<script> 
+$(document).ready(function(){ 
+$('a[name="dinamico"]').click(function(){ 
+id=$(this).prop('id'); 
+$("#box").empty(); 
+$("#box").load("/file.php", {id:id}); 
+}); 
+}); 
+</script>
+
+
+<?php
+$id=$_POST['id'];
+
+if($id=="1"){
+// Aquí va información 1 para div dinámico
+}
+elseif($id=="2"){
+// Aquí va información 2 para div dinámico que es distinta a 1
+}
+else{
+// Aquí va información 3 para div dinámico distinta a 1 y 2
+}
+
+?>
+
+
+
+https://es.stackoverflow.com/questions/75953/ajax-cargar-valores-de-php-en-un-select-provincias
+
+
+
+function iniciar(){
+    $.ajax({
+        url: 'provincias_exam.php',
+        dataType: 'json',
+        error: function(){
+            alert("Error en la petición a la base de datos");
+        }
+    }).done( function(valor) {
+       var texto = "";
+       //Recorremos los valores con un for each.
+       $.each(function(i, valor){
+           texto += "<option value='"+i+"'>"+valor+"</option>";
+       });         
+       //Agregamos en el id "idprovincia" el valor que tenga la variable texto. (todas las provincias).
+       $("#idprovincia").html(texto);
+    });    
+}
+
+
+
+
+
+
+.f_PC {
+    background: url(../img/imgf.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% ;
+}
+
+.f_movil {
+  
+}
+
+
+body{
+    background: url(../img/tulo.jpg);
+    background-repeat: no-repeat;
+    background-size: 414px 736px;
+}
+
+
+
+
+
+                                      /*echo '<span><img class="cardo" src="data:image/jpeg;base64,'.base64_encode( $fot ).'"/></span>';*/ 
+                                    <!-- <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span> -->

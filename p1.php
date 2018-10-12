@@ -5,10 +5,23 @@
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
-  $fot = $_SESSION["‘Foto’"];
+
 
 
 ?>
+
+
+<?php 
+$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
+$result = mysqli_query($mysqli, $query);  
+while($row = mysqli_fetch_assoc($result))  
+{  
+	$db_foto=$row['Img_gmail'];
+	$db_foto2=$row['Img_user'];
+}
+  
+?> 
+
 
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
@@ -33,94 +46,97 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
 
 </head>
-<body class="h">
+<body class="f_PC">
     <header>
         <div class="container">
 
 
 <div class="row">
   <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
-  <li><a href="p3.php"><button class="btn btn-sm btn-primary "><span class="glyphicon glyphicon-search"></span> buscar viajes</button></a></li>
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-
-                              <?php 
-                              if ($use == 1) {
-                                echo '<span><img class="cardo" src="img/1.jpg"/></span>';
-                               } 
-                               else {?>
-                                <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span>
-                              <?php  }
-                              /*echo '<span><img class="cardo" src="data:image/jpeg;base64,'.base64_encode( $fot ).'"/></span>';*/  ?>
-                                  <!-- <span><img class="cardo" src="<?php echo $fot;?>" alt="" /></span> -->
-                              </p>
-                          </div>
-                          <div>
-                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
-                          </div>
-                      </div>
-                      <?php if ($use == 1) {?>
-                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                     <?php  }; ?> 
-                     <?php if ($use != 1) {?>
-                      
-                  
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                       <?php   } ?> 
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
-
-                                  <!--<a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a> -->
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-          </ul>
-      </li>
-  </ul>
-  </ul>
+	<ul class="nav nav-tabs">
+		<div class="row">
+			<div class="col-xs-2">
+				<li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+			</div>
+			<div class="col-xs-8">
+				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-primary "><span class="glyphicon glyphicon-search "></span> buscar viajes</button></a></li>
+			</div>
+			<div class="col-xs-2">
+				<ul class="nav navbar-right">
+	      			<li class="dropdown right">
+	          			<a href="#" class="dropdown-toggle " data-toggle="dropdown">
+	              			<span class="glyphicon glyphicon-th-list glylg"></span> 
+	          			</a>
+	          			<ul class="dropdown-menu dropdown-menu-right">
+	              			<li>
+	                  			<div class="navbar-login">
+	                      			<div class="row">
+	                          			<div>
+	                              			<p class="text-center">
+												<?php 
+												if (!is_null($db_foto2)) {
+													echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
+												}
+												else {
+													echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
+												} 
+												 ?>
+	                              			</p>
+	                          			</div>
+				                        <div>
+				                            <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+				                        </div>
+	                      			</div>
+			                      <?php if ($use == 1) {?>
+			                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+			                     <?php  }; ?> 
+			                     <?php if ($use != 1) {?>
+			                      	<div class="row">
+			                          	<div class="col-sm-12">
+			                              	<p>
+			                                  	<a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+			                              	</p>
+			                          	</div>
+			                      	</div>
+				                    <div class="row">
+				                        <div class="col-sm-12">
+				                            <p>
+				                                <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+				                            </p>
+				                        </div>
+				                    </div>
+				                    <div class="row">
+				                        <div class="col-sm-12">
+				                            <p>
+				                                <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+				                            </p>
+				                        </div>
+				                    </div>
+	                       			<?php   } ?> 
+	                  			</div>
+	              			</li>
+	              			<li class="divider"></li>
+	              			<li>
+	                  			<div class="navbar-login navbar-login-session">
+	                      			<div class="row">
+	                          			<div class="col-lg-12">
+	                              			<p>
+	                                			<a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+	                              			</p>
+	                          			</div>
+	                      			</div>
+	                  			</div>
+	              			</li>
+	          			</ul>
+	      			</li>
+	  			</ul>
+			</div>
+		</div>
+  	</ul>
   </div>
 </div>
+
+
 <br>
 <div class="row">
   <div class="col-xs-4">dolares</div>

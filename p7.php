@@ -4,8 +4,17 @@
   $use = $_SESSION["‘ID_user’"];
   $nom = $_SESSION["‘Nombre’"];
   $ape = $_SESSION["‘Apellido’"];
+?>
 
-
+<?php 
+$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
+$result = mysqli_query($mysqli, $query);  
+while($row = mysqli_fetch_assoc($result))  
+{  
+  $db_foto=$row['Img_gmail'];
+  $db_foto2=$row['Img_user'];
+}
+  
 ?>
 
 <?php if ($use == 1) {
@@ -17,86 +26,106 @@ if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
 } else {
 ?>
-
+<script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mis viajes</title>
+    <title>Contactos</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="h">
+<body class="f_PC" onload="amigos()">
     <header>
         <div class="container">
-          <div class="row">
+<div class="row">
   <div class="col-sm-12">
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
-
-    <ul class="nav navbar-right">
-      <li class="dropdown right">
-          <a href="#" class="dropdown-toggle " data-toggle="dropdown">
-              <span class="glyphicon glyphicon-th-list glylg"></span> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <div class="navbar-login">
-                      <div class="row">
-                          <div>
-                              <p class="text-center">
-                                  <span><img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" /></span>
-                              </p>
+  <ul class="nav nav-tabs">
+    <div class="row">
+      <div class="col-xs-2">
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+      </div>
+      <div class="col-xs-8">
+      </div>
+      <div class="col-xs-2">
+        <ul class="nav navbar-right">
+              <li class="dropdown right">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-th-list glylg"></span> 
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <div class="navbar-login">
+                              <div class="row">
+                                  <div>
+                                      <p class="text-center">
+                                      <?php 
+                                        if (!is_null($db_foto2)) {
+                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
+                                        }
+                                        else {
+                                          echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
+                                        } 
+                                      ?>
+                                      </p>
+                                  </div>
+                                <div>
+                                    <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                                </div>
+                              </div>
+                            <?php if ($use == 1) {?>
+                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                           <?php  }; ?> 
+                           <?php if ($use != 1) {?>
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <p>
+                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                      </p>
+                                  </div>
+                              </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p>
+                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                    </p>
+                                </div>
+                            </div>
+                              <?php   } ?> 
                           </div>
-                          <div>
-                              <p id="user" class="text-center"><strong><?php echo $nom;?> <?php echo $ape;?></strong></p>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                          <div class="navbar-login navbar-login-session">
+                              <div class="row">
+                                  <div class="col-lg-12">
+                                      <p>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                      </p>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <p>
-                                  <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li class="divider"></li>
-              <li>
-                  <div class="navbar-login navbar-login-session">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <p>
-                                  <a href="index.html" class="btn btn-danger btn-block">Cerrar Sesion</a>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
+                      </li>
+                  </ul>
               </li>
           </ul>
-      </li>
-  </ul>
-  </ul>
+      </div>
+    </div>
+    </ul>
   </div>
 </div>
 <br>
@@ -137,45 +166,35 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           
                         </tr> 
                       </thead>
-                      <tbody>
-                            <tr id='addr1' data-id="1" class="hiddenlo">
-                                
-                                <td data-name="ID">
-
-
- 
-                        <img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
-
-
-                                  <!-- <p name="id1">Nº</p> --></td>
-                                <td data-name="nom"><p name="nom1">Pepe Jamon</p></td>
+                      <tbody id="tbody">
+                             <tr id='addr1' data-id="1" class="hiddenlo">
+                             <!--   <td data-name="ID">
+                                  <img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
+                                </td>
+                                <td data-name="nom"><p id="a_nom" name="nom1"></p></td>
                                 <td data-name="opt" align="center">
                                   <a name="ver1" href="p8.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
-                                  
                                   <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
-                  
-                                </td>
-                            </tr>
+                                </td>-->
+                            </tr> 
                        </tbody>
                     </table>
                   </div>
                   <div class="panel-footer">
-                    <div class="row">
-                     
-                      <div class="col col-xs-9">
-                        <ul class="pagination pull-right">
+                  <div class="row">
+                      <div class="col col-xs-12 center">
+                        <ul class="pagination pull-center">
                           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
                           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
                         </ul>
+                      
+                        <!-- <a id="add_row" class="btn btn-default pull-right">Add Row</a> -->
                       </div>
-                       <div class="col col-xs-3">
-                        <a id="add_row" class="btn btn-default pull-right">Add Row</a>
-                      </div>
-                    </div>
                   </div>
-                </div>
+              </div>
+            </div>
 
 
           <div class="col col-xs-12 ">
