@@ -33,17 +33,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Agregar viajes</title>
+    <title>Mochileros</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
-
+    <link rel="icon" type="image/png" href="img/backpack.png" />
+  
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
 <body class="f_PC">
     <header>
-        <div class="container">
-<div class="row">
+        <div class="container" id="cabezalMenu">
+<div class="row menuArriba">
   <div class="col-sm-12">
   <ul class="nav nav-tabs">
     <div class="row">
@@ -56,10 +57,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
       <div class="col-xs-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
-                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">
+                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
                       <span class="glyphicon glyphicon-th-list glylg"></span> 
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-right">
+                  <ul class="dropdown-menu dropdown-menu-right menucito">
                       <li>
                           <div class="navbar-login">
                               <div class="row">
@@ -80,27 +81,27 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                 </div>
                               </div>
                             <?php if ($use == 1) {?>
-                              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                              <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div>
                            <?php  }; ?> 
                            <?php if ($use != 1) {?>
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
                                     </p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p7.php" class="btn btn-success btn-block">Contactos</a>
+                                        <a href="p7.php" class="btn btn-success btn-block botoncitoBorrable">Contactos</a>
                                     </p>
                                 </div>
                             </div>
@@ -113,7 +114,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-lg-12">
                                       <p>
-                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block">Cerrar Sesion</a>
+                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
                                       </p>
                                   </div>
                               </div>
@@ -129,11 +130,11 @@ if(!isset($_SESSION["‘ID_user’"])) {
 </div>
 <br>
 
-</div>
+<!-- </div> -->
           
             <p class="licki text-center">Marque el lugar del viaje</p>
-        <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
-<div class="container">
+        <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0;" allowfullscreen></iframe>
+<!-- <div class="container"> -->
       <div class="row">
         <div class="col-xs-6">
           <label class="licki" for="desde">fecha de llegada</label>
@@ -207,7 +208,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <button id="atras" type="submit" class="btn btn-lg  btn-block btn-success">Agregar viaje</button>
           </div>
         </div>
-        <br>
          <div class="row">
           <div class="col col-xs-12 ">
             <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 

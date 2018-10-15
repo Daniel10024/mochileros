@@ -31,7 +31,7 @@ html {
 }
 
 .ovalo {
-  height: 30px;
+  height: 40px;
   width: 50px;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -204,6 +204,133 @@ text-decoration:none;
 
 .box12 .box-content{width:90px;top:45px;opacity:0;z-index:1}
 .box12:hover .box-content{opacity:1}
-.box12 .icon label{display:block;width:35px;height:35px;line-height:35px;border-radius:50%;border:1px solid #fff;font-size:18px;color:#fff;margin-right:10px;transition:all .3s ease 0s}
+.box12 .icon label{display:block;width:35px;height:35px;line-height:35px;border-radius:50%;border:0px solid #fff;font-size:18px;color:#fff;margin-right:10px;transition:all .3s ease 0s}
 .box12 .icon label:hover{border-radius:0}
+<<<<<<< HEAD
+=======
+}
+
+/* NO BORRAR O SE ROMPE TODO */
+.EstiloDeContenedor{}
+
+#mochilaTexto{
+  top:20px;
+  position: relative;
+  background-color: rgba(255,255,255,0.3);
+  font-family: verdana;
+  color: #5d310e;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+
+.boton-invitado{
+  width: 57%;
+  left: 20%;
+  position: relative;
+}
+
+
+#botonGoogle{
+  position: relative;
+  left: 30%;
+}
+
+#botoncitoMenu{
+  position: relative;
+  padding: 0;
+  margin: 0;
+  top:7px;
+}
+
+
+
+/* #cabezalMenu{
+  position: relative;
+  top: 20px;
+}
+ */
+
+.menuArriba{
+  height: 60px;
+  line-height: 60px;
+}
+
+#muroDeNoticias{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  margin-top: 30px;
+  height: 500px;
+  //background-color: red;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #DDDDDD;
+  overflow: auto;
+  background-color: rgba(255,255,255,0.3);
+}
+
+.noticia{
+  position: relative;
+  left: 5%;
+  /* top: 5%; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 25%;
+  width: 90%;
+  background-color: #DDDDDD;
+  text-align: right;
+}
+
+.mapa{
+  position: relative;
+  height: 60%;
+  width: 30%;
+  right: 0px;
+  top:20%;
+  right: 10%;
+}
+
+.textoViaje{
+  position: absolute;
+  left: 15%;
+  top: 35%;
+  font-size: 20px;
+  font-family: verdana;
+}
+
+.menucito{
+  background: url(../img/tulo.jpg);
+}
+
+.botoncitoBorrable{
+  width: 90%;
+  left: 5%;
+  position: relative;
+}
+
+.textoBuscarViajes{
+  font-size: 14px;
+  height: 36px;
+
+}
+
+.botonLoginInvitado{
+  position: relative;
+  left: 12%;
+}
+
+.camara-icono{
+  outline: 0;
+}
+
+.nombreUsuario{
+  position: relative;
+  top:7px;
+}
+
+#atras{
+  margin-bottom: 15px;
+>>>>>>> 7b6e0f1347fd97694071f969c0c6d6d89eff8f43
 }
