@@ -33,7 +33,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $pai = $data_cli['Pais'];
     $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
-    $des = $data_cli['Descripcion'];
+    $des = $data_cli['Descripcion_U'];
     $foto = $data_cli['Img_gmail'];
     }
 
