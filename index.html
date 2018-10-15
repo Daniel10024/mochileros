@@ -16,11 +16,14 @@
 
     </style>
 
+
+
+
 </head>
 
 
 
-<body class="f_PC">
+<body class="f_PC" onload="startApp()">
   
     <header>
         <div class="container">
@@ -30,7 +33,13 @@
         	<div class= "data">
          	<button class="btn btn-lg btn-danger btn-block">ingresar con google</button>
          	</div>
-         	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+            <div id="customBtn" class="2customGPlusSignIn">
+              <button class="btn btn-lg btn-danger btn-block">ingresar con google</button>
+            </div>
+           <!-- <div id="my-signin2"></div>
+            
+         	 <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
          	
          	<br>
          	<div class="data2">
@@ -45,7 +54,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
     
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script src="js/scrips.js"></script>
 
 </body>

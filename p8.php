@@ -178,8 +178,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label class="licki">Edad</label>
-                <input type="number" id="eda-form" disabled="" name="nombre" value="<?php echo $eda;?>" class="form-control" placeholder="Nombre"  />
+                <label class="licki">Fecha de nacimiento</label>
+                <input type="date" id="eda-form" disabled="" name="nombre" value="<?php echo $eda;?>" class="form-control" placeholder="Edad"  />
                 <p id="p-eda" class="error"></p>
             </div>
         </div>

@@ -24,7 +24,7 @@ while($row = mysqli_fetch_assoc($result))
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 <script type="text/javascript">
     var myvar='<?php echo $use;?>';
@@ -241,6 +241,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="js/scrips.js"></script>
 </body>
 </html>
-
-
-<?php } ?>
