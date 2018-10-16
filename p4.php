@@ -142,7 +142,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de viajes</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p5.php"><button class="btn btn-primary">agregar viaje</button> </a> 
+                          <a href="p5.php"><button class="btn btn-primary">Agregar viaje</button> </a> 
                       </div>
                       <div class="col-xs-12">
                           <form action="#" method="get">
@@ -170,8 +170,16 @@ if(!isset($_SESSION["‘ID_user’"])) {
                       </thead>
                       <tbody>
                           <tr id='addr1' data-id="1" class="hiddenlo">         
-                              <td data-name="ID"><p name="id1">Nº</p></td>
-                              <td data-name="nom"><p name="nom1">nombre de viaje</p></td>
+                              <td data-name="ID"><p name="id1">Nº 1</p></td>
+                              <td data-name="nom"><p name="nom1">Viaje 1</p></td>
+                              <td data-name="opt" align="center">
+                                <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
+                                <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
+                              </td>
+                          </tr>
+                          <tr id='addr1' data-id="1" class="hiddenlo">         
+                              <td data-name="ID"><p name="id1">Nº 2</p></td>
+                              <td data-name="nom"><p name="nom1">Viaje 2</p></td>
                               <td data-name="opt" align="center">
                                 <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
                                 <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>

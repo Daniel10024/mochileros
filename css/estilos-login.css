@@ -138,10 +138,17 @@ html {
 
 /*foto de perfil (miniatura)________________________________________*/
 .cardo {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: 5px solid rgba(0,0,30,0.8);
+  position: relative;
+  margin-top: 20px;
+}
+
+#user{
+  height: 30px;
+  line-height: 30px;
 }
 
 /*tamaño de checkbox________________________________________________*/
@@ -215,11 +222,12 @@ text-decoration:none;
 #mochilaTexto{
   top:20px;
   position: relative;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.2);
   font-family: verdana;
   color: #5d310e;
   font-size: 40px;
   font-weight: bold;
+  border-radius: 4px;
 }
 
 
@@ -252,8 +260,8 @@ text-decoration:none;
  */
 
 .menuArriba{
-  height: 60px;
-  line-height: 60px;
+  height: 70px;
+  line-height: 70px;
 }
 
 #muroDeNoticias{
@@ -261,7 +269,7 @@ text-decoration:none;
   width: 90%;
   left: 5%;
   margin-top: 30px;
-  height: 500px;
+  height: 520px;
   //background-color: red;
   border-style: solid;
   border-width: 1.5px;
@@ -276,7 +284,7 @@ text-decoration:none;
   /* top: 5%; */
   margin-top: 10px;
   margin-bottom: 10px;
-  height: 25%;
+  height: 21%;
   width: 90%;
   background-color: #DDDDDD;
   text-align: right;
@@ -294,8 +302,8 @@ text-decoration:none;
 .textoViaje{
   position: absolute;
   left: 15%;
-  top: 35%;
-  font-size: 20px;
+  top: 40%;
+  font-size: 18px;
   font-family: verdana;
 }
 
