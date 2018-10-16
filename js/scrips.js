@@ -124,6 +124,7 @@ $(document).ready(function amigos() {
     function(data){
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
+        var ventana_modal2 = "";
         $.each(json, function(i, item) {
           if (item.ida != id_yo) {
             texto += '<tr>'+
@@ -133,11 +134,127 @@ $(document).ready(function amigos() {
                       '<td><p>'+item.nombre + " " + item.apellido+'</p></td>'+
                       '<td align="center">'+
                         '<a name="ver1" href="p8.php?id='+item.ida+'" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>'+
-                        '<a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>'+
+                        '<a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete'+item.ida+'"><em class="glyphicon glyphicon-trash"></em></a>'+
                       '</td>'+
                     '</tr>';
+
+            ventana_modal2 +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
+                              '<div class="modal-dialog">'+
+                                '<div class="modal-content">'+
+                                    '<div class="modal-header">'+
+                                      '<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'+
+                                      '<h4 class="modal-title custom_align" id="Heading">Eliminar contacto</h4>'+
+                                  '</div>'+
+                                     '<div class="modal-body">'+
+                                      '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>'+
+                                    '</div>'+
+                                    '<div class="modal-footer ">'+
+                                      '<button id="botonsi" onclick="eliminar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span> Si</button>'+
+                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>'+
+                                    '</div>'+
+                                '</div>'+
+                              '</div>'+
+                          '</div>';
           }
         })
         $("#tbody").html(texto);
+        $("#modal_aca2").html(ventana_modal2);
     });
 });
+
+
+$(document).ready(function solicitudes() {
+    var _urlform ='solisitudes.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},
+    function(data){
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        var ventana_modal = "";
+        $.each(json, function(i, item) {
+          if (item.ida != id_yo) {
+            texto += '<tr>'+
+                      '<td>'+
+                        '<img class="cardo" src='+item.foto+' alt="" />'+
+                      '</td>'+
+                      '<td><p>'+item.nombre + " " + item.apellido+'</p></td>'+
+                      '<td align="center">'+
+                        '<a name="aceptar" onclick="aceptar('+item.ida+')" title="Aceptar" class="btn btn-primary"><em class="glyphicon glyphicon-thumbs-up"></em></a>'+
+                        '<a name="rechazar" title="rechazar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete'+item.ida+'"><em class="glyphicon glyphicon-thumbs-down"></em></a>'+
+                      '</td>'+
+                    '</tr>';
+
+          ventana_modal +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
+                              '<div class="modal-dialog">'+
+                                '<div class="modal-content">'+
+                                    '<div class="modal-header">'+
+                                      '<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'+
+                                      '<h4 class="modal-title custom_align" id="Heading">Eliminar contacto</h4>'+
+                                  '</div>'+
+                                     '<div class="modal-body">'+
+                                      '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>'+
+                                    '</div>'+
+                                    '<div class="modal-footer ">'+
+                                      '<button id="botonsi" onclick="rechazar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span> Si</button>'+
+                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>'+
+                                    '</div>'+
+                                '</div>'+
+                              '</div>'+
+                          '</div>';
+              /*<a name="ver1" href="p7.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-thumbs-up"></em></a>
+              <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-thumbs-down"></em></a>*/
+          }
+        })
+        $("#tbody2").html(texto);
+        $("#modal_aca").html(ventana_modal);
+    });
+});
+
+
+function aceptar(soli){
+  var id_yo = myvar;
+  var _urlform ='aceptar_solicitud.php';
+    $.post(_urlform,{id_amigo:soli, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p9.php";
+                      
+        }
+        else{
+          alert("algo esta fincionando mal con la base de datos, porfavor cantacte con soporte para resolverlo")
+        }
+    });
+}
+
+function rechazar(soli){
+  var id_yo = myvar;
+  var _urlform ='rechazar_solicitud.php';
+    $.post(_urlform,{id_amigo:soli, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p9.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}
+
+function eliminar(soli){
+  var id_yo = myvar;
+  var _urlform ='eliminar_amigo.php';
+    $.post(_urlform,{id_amigo:soli, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p7.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}

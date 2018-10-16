@@ -67,9 +67,8 @@ $(document).ready(function() {
     $("#form_usuario").submit(function(){
 
     //validar nombre_____________________________________________________________________________________
-        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 32) {
-            /*$("#p-nom").text("* El nombre es obligatorio max 32 caracteres")*/
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 32 caracteres </div>'+
+        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 64 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
                     '</div>';
@@ -85,8 +84,8 @@ $(document).ready(function() {
         };
 
     //validar apellido_______________________________________________________________________________________
-        if($("#ape-form").val().length > 32) {
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El apellido puede ser de un maximo de 32 caracteres </div>'+
+        if($("#ape-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El apellido puede ser de un maximo de 64 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
                     '</div>';
@@ -102,47 +101,46 @@ $(document).ready(function() {
         };
 
     //validar fecha nacimiento__________________________________________________________________________________
-        
+    	var fecha = $("#eda-form").val()
+        // revisar el patrón
+        if(!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(fecha)) {
+        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                    '<div class="table-responsive">'+
+                    '<table class="table" id="tr_modal"></table>'+
+                '</div>';
+        	$('#mensaje_modal').html(data);
+            return false;
+		}
+        // convertir los numeros a enteros
+        var parts = fecha.split("/");
+        var day = parseInt(parts[2], 10);
+        var month = parseInt(parts[1], 10);
+        var year = parseInt(parts[0], 10);
 
+        // Revisar los rangos de año y mes
+        if( (year < 1000) || (year > 3000) || (month == 0) || (month > 12) ) {
+        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                    '<div class="table-responsive">'+
+                    '<table class="table" id="tr_modal"></table>'+
+                '</div>';
+        	$('#mensaje_modal').html(data);
+            return false;
+		}
+        var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
-        function isValidDate(dateString)
-        {
-            // revisar el patrón
-            if(!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(dateString))
-                return false;
+        // Ajustar para los años bisiestos
+        if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+            monthLength[1] = 29;
+        }
 
-            // convertir los numeros a enteros
-            var parts = dateString.split("/");
-            var day = parseInt(parts[2], 10);
-            var month = parseInt(parts[1], 10);
-            var year = parseInt(parts[0], 10);
-
-            // Revisar los rangos de año y mes
-            if( (year < 1000) || (year > 3000) || (month == 0) || (month > 12) )
-                return false;
-
-            var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
-
-            // Ajustar para los años bisiestos
-            if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
-                monthLength[1] = 29;
-
-            // Revisar el rango del dia
-            return day > 0 && day <= monthLength[month - 1];
-        };
-
-
-        $("button").click(function() {
-        alert( isValidDate($("#fechaentrega").val()) );
-        });
-
-        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 32) {
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 32 caracteres </div>'+
-                        '<div class="table-responsive">'+
-                        '<table class="table" id="tr_modal"></table>'+
-                    '</div>';
-            $('#mensaje_modal').html(data);
-            return false;   
+        // Revisar el rango del dia
+        if (day <= 0 || day > monthLength[month - 1]) {
+        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                    '<div class="table-responsive">'+
+                    '<table class="table" id="tr_modal"></table>'+
+                '</div>';
+        	$('#mensaje_modal').html(data);
+            return false;
         }
         else {
             data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
@@ -151,10 +149,10 @@ $(document).ready(function() {
                     '</div>';
             $('#mensaje_modal').html(data);
         };
-
+  
     //validar intereses______________________________________________________________________________________
-        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 32) {
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 32 caracteres </div>'+
+        if($("#int-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Los intereses pueden ocupar un maximo de 64 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
                     '</div>';
@@ -170,8 +168,8 @@ $(document).ready(function() {
         };
 
         //validar contacto_________________________________________________________________________________________
-        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 32) {
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 32 caracteres </div>'+
+        if($("#con-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El contacto puede acupar como maximo 64 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
                     '</div>';
@@ -187,8 +185,8 @@ $(document).ready(function() {
         };
 
         //validar descripcion_______________________________________________________________________________________
-        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 32) {
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 32 caracteres </div>'+
+        if($("#nom-form").val().length > 320) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> La descripcion no puede ocupar mas de 320 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
                     '</div>';

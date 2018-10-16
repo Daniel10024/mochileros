@@ -56,13 +56,13 @@ if(!isset($_SESSION["‘ID_user’"])) {
   <div class="col-sm-12">
 	<ul class="nav nav-tabs">
 		<div class="row menuArriba">
-			<div class="col-xs-2">
+			<div class="col-xs-3 col-sm-2 col-md-2">
 				<li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 			</div>
-			<div class="col-xs-8 ">
-				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-primary textoBuscarViajes"> <span class="glyphicon glyphicon-search"></span> Buscar viajes</button></a></li>
+			<div class="col-xs-6 col-sm-8 col-md-8">
+				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-block btn-primary textoBuscarViajes"> <span class="glyphicon glyphicon-search"></span> Buscar viajes</button></a></li>
 			</div>
-			<div class="col-xs-2">
+			<div class="col-xs-3 col-sm-2 col-md-2">
 				<ul class="nav navbar-right">
 	      			<li class="dropdown right">
 
