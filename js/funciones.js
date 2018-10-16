@@ -1,5 +1,4 @@
 //boton de activar editar________________________________________________________
-
 $(document).ready(function() {
     $("#edit").on("click", function() {
 
@@ -22,13 +21,26 @@ $(document).ready(function() {
 
 });
 
+//submit editar foto perfil________________________________________________________
+$(document).ready(function() {
+    $("#image").on("click", function() {
+        $("#insert").removeClass("hidden");
+    });
+
+});
+
 // validar nueva foto de usuario__________________________________________________
  $(document).ready(function(){  
-      $('#insert').click(function(){  
+      $('#form-foto').submit(function(){  
            var image_name = $('#image').val();  
            if(image_name == '')  
            {  
-                alert("Please Select Image");  
+                /*alert("Please Select Image");*/
+                data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Por favor seleccione una imagen </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>'; 
+                $('#mensaje_modal').html(data);  
                 return false;  
            }  
            else  
@@ -36,7 +48,12 @@ $(document).ready(function() {
                 var extension = $('#image').val().split('.').pop().toLowerCase();  
                 if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
                 {  
-                     alert('Invalid Image File');  
+                     /*alert('Invalid Image File');*/
+                     data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Por favor seleccione una imagen valida </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>'; 
+                    $('#mensaje_modal').html(data);   
                      $('#image').val('');  
                      return false;  
                 }  
@@ -44,74 +61,155 @@ $(document).ready(function() {
       });  
  });  
 
-//cargar paises___________________________________________________________________________
-$("#select_pais").load("buscar_pais.php")
 
-//cargar idiomas____________________________________________________________________________
-$("#select_idioma").load("buscar_idioma.php")
+//validaciones editar perfil_______________________________________________________________
+$(document).ready(function() {
+    $("#form_usuario").submit(function(){
 
-//boton agregar y eliminar fila_______________________________________________________________
-/*$(document).ready(function() {
-    $("#add_row").on("click", function() {
-        // Código dinámico de filas
-        // Obtener la identificación máxima de la fila y establecer una nueva identificación
-        var newid = 1;
-        $.each($("#tab_logic tr"), function() {
-            if (parseInt($(this).data("id")) > newid) {
-                newid = parseInt($(this).data("id"));
-            }
-        });
-        newid++;
-        // se crea la estructura tr
-        var tr = $("<tr></tr>", {
-            id: "addr"+newid,
-            "data-id": newid
-        });
-        // recorrer cada td y crear nuevos elementos con el nombre de newid
-        // por cada elemento td lo guarda en ua variable
-        $.each($("#tab_logic tbody tr:nth(0) td"), function() {
-            var cur_td = $(this);
-            var children = cur_td.children();
-            // agregar nuevo td y elemento si tiene un name
-            // crea una nueva estructura td y mete la variable
-            if ($(this).data("name") != undefined) {
-                var td = $("<td></td>", {
-                    "data-name": $(cur_td).data("name")
-                });
-                // crea un clon de la estructura que tenga dentro el td (por ejemplo: <p name=1>asd</p>)
-                // gregar al final un .text("") para que los elementos que clone esten vasios
-                var c = $(cur_td).find($(children[0]).prop('tagName')).clone();
-                c.attr("name", $(cur_td).data("name") + newid);
-                c.appendTo($(td));
-                td.appendTo($(tr));
-            } else {
-                var td = $("<td></td>", {
-                    'text': $('#tab_logic tr').length
-                }).appendTo($(tr));
-            }
-        });
-        // agregue la nueva fila
-        $(tr).appendTo($('#tab_logic'));
-        $(tr).find("a.row-remove").on("click", function() {
-            var aca = $(this);
-            $("#botonsi").click(function(){
-                $(aca).closest("tr").remove();
-            });
-        });
+    //validar nombre_____________________________________________________________________________________
+        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 64 caracteres </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;   
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+
+    //validar apellido_______________________________________________________________________________________
+        if($("#ape-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El apellido puede ser de un maximo de 64 caracteres </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;   
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+
+    //validar fecha nacimiento__________________________________________________________________________________
+    	var fecha = $("#eda-form").val()
+        // revisar el patrón
+        if(!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(fecha)) {
+        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                    '<div class="table-responsive">'+
+                    '<table class="table" id="tr_modal"></table>'+
+                '</div>';
+        	$('#mensaje_modal').html(data);
+            return false;
+		}
+        // convertir los numeros a enteros
+        var parts = fecha.split("/");
+        var day = parseInt(parts[2], 10);
+        var month = parseInt(parts[1], 10);
+        var year = parseInt(parts[0], 10);
+
+        // Revisar los rangos de año y mes
+        if( (year < 1000) || (year > 3000) || (month == 0) || (month > 12) ) {
+        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                    '<div class="table-responsive">'+
+                    '<table class="table" id="tr_modal"></table>'+
+                '</div>';
+        	$('#mensaje_modal').html(data);
+            return false;
+		}
+        var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+
+        // Ajustar para los años bisiestos
+        if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+            monthLength[1] = 29;
+        }
+
+        // Revisar el rango del dia
+        if (day <= 0 || day > monthLength[month - 1]) {
+        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                    '<div class="table-responsive">'+
+                    '<table class="table" id="tr_modal"></table>'+
+                '</div>';
+        	$('#mensaje_modal').html(data);
+            return false;
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+  
+    //validar intereses______________________________________________________________________________________
+        if($("#int-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Los intereses pueden ocupar un maximo de 64 caracteres </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;   
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+
+        //validar contacto_________________________________________________________________________________________
+        if($("#con-form").val().length > 64) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El contacto puede acupar como maximo 64 caracteres </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;   
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+
+        //validar descripcion_______________________________________________________________________________________
+        if($("#nom-form").val().length > 320) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> La descripcion no puede ocupar mas de 320 caracteres </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;   
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+   });
+});
+
+//tiempo de ventana modal de error_______________________________________________________
+$(function(){
+    $('#modal_error').on('show.bs.modal', function(){
+        var myModal = $(this);
+        clearTimeout(myModal.data('hideInterval'));
+        myModal.data('hideInterval', setTimeout(function(){
+            myModal.modal('hide');
+        }, 2500));
     });
-    // Código ordenable
-    var fixHelperModified = function(e, tr) {
-        var $originals = tr.children();
-        var $helper = tr.clone();
-    
-        $helper.children().each(function(index) {
-            $(this).width($originals.eq(index).width())
-        });
-        return $helper;
-    };
-    $(".table-sortable tbody").sortable({
-        helper: fixHelperModified      
-    }).disableSelection();
-    $(".table-sortable thead").disableSelection();
-    $("#add_row").trigger("click");
-});*/
+});

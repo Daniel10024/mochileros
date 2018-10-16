@@ -9,5 +9,4 @@
 	}
 	$bd = mysqli_select_db($mysqli, "mochileros");
 
-
 ?>

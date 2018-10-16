@@ -1,6 +1,5 @@
 html {
     height: 100%;
-    
 }
 
 @media (max-width: 420px) {
@@ -214,6 +213,8 @@ text-decoration:none;
 .box12:hover .box-content{opacity:1}
 .box12 .icon label{display:block;width:35px;height:35px;line-height:35px;border-radius:50%;border:0px solid #fff;font-size:18px;color:#fff;margin-right:10px;transition:all .3s ease 0s}
 .box12 .icon label:hover{border-radius:0}
+<<<<<<< HEAD
+=======
 }
 
 /* NO BORRAR O SE ROMPE TODO */
@@ -339,4 +340,5 @@ text-decoration:none;
 
 #atras{
   margin-bottom: 15px;
+>>>>>>> 7b6e0f1347fd97694071f969c0c6d6d89eff8f43
 }

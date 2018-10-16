@@ -24,25 +24,26 @@ while($row = mysqli_fetch_assoc($result))
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
-
+<script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mochilero</title>
+    <title>Mochileros</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
     <link rel="icon" type="image/png" href="img/backpack.png" />
 
-
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="f_PC">
+<body class="f_PC" onload="solicitudes()">
     <header>
         <div class="container" id="cabezalMenu">
 <div class="row menuArriba">
@@ -129,8 +130,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
   </div>
 </div>
 <br>
-
-
           <div class="panel panel-default panel-table">
                   <div class="panel-heading">
                     <div class="row">
@@ -138,13 +137,9 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de solicitudes</h3>
                       </div >
                       <br><br>
-
-
                     </div>
                   </div>
                   <div class="panel-body">
-                    
-                
                   </div>
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
@@ -153,28 +148,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <th><p>Foto</p></th>
                           <th><p>Nombre</p></th>
                           <th><p>Aceptar/Rechazar</p></th>
-                          
                         </tr> 
                       </thead>
-                      <tbody>
-                            <tr id='addr1' data-id="1" class="hiddenlo">
-                                
-                                <td data-name="ID">
-
-
- 
-                        <img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
-
-
-                                  <!-- <p name="id1">Nº</p> --></td>
-                                <td data-name="nom"><p name="nom1">Pepe Jamon</p></td>
-                                <td data-name="opt" align="center">
-                                  <a name="ver1" href="p7.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-thumbs-up"></em></a>
-                                  
-                                  <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-thumbs-down"></em></a>
-                  
-                                </td>
-                            </tr>
+                      <tbody id="tbody2">
+                            
                        </tbody>
                     </table>
                   </div>
@@ -187,8 +164,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
                         </ul>
-                      
-                        <a id="add_row" class="btn btn-default pull-right">Add Row</a>
                       </div>
                   </div>
               </div>
@@ -200,30 +175,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
        </div> 
             <!-- _________________________ventana modal de borrar__________________________ -->
-             
-
-                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                      <h4 class="modal-title custom_align" id="Heading">Eliminar solicitud</h4>
-                  </div>
-                     <div class="modal-body">
-                   
-                      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>
-                   
-                    </div>
-                    <div class="modal-footer ">
-                      <button id="botonsi" type="button" class="btn btn-success botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-ok-sign row-remove"></span> Si</button>
-                      <button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-                    </div>
-                </div>
-              
-              </div>
-               
-          </div>
-          
+             <div id="modal_aca">
+            </div> 
             <!-- ________________________________________________________ -->
 
           
@@ -240,6 +193,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="js/scrips.js"></script>
 </body>
 </html>
-
-
-<?php } ?>

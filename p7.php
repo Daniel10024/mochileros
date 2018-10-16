@@ -24,7 +24,7 @@ while($row = mysqli_fetch_assoc($result))
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 <script type="text/javascript">
     var myvar='<?php echo $use;?>';
@@ -139,7 +139,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                       <div class="col col-xs-6 col-md-6 text-right form-group">
                           <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span class="badge">1</span></button></a>
                       </div>
-
                       <div class="col-xs-12">
                         <form action="#" method="get">
                         <div class="input-group">
@@ -154,8 +153,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                     </div>
                   </div>
                   <div class="panel-body">
-                    
-                
                   </div>
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
@@ -164,20 +161,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <th><p>Foto</p></th>
                           <th><p>Nombre</p></th>
                           <th><p>Ver/Eliminar</p></th>
-                          
                         </tr> 
                       </thead>
                       <tbody id="tbody">
-                             <tr id='addr1' data-id="1" class="hiddenlo">
-                             <!--   <td data-name="ID">
-                                  <img class="cardo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAg5kaJfBJTNlwuPx8r3b6aJ7hEJb5jW9mMXEvbnDdu9aIuiaz" alt="" />
-                                </td>
-                                <td data-name="nom"><p id="a_nom" name="nom1"></p></td>
-                                <td data-name="opt" align="center">
-                                  <a name="ver1" href="p8.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
-                                  <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
-                                </td>-->
-                            </tr> 
+                            
                        </tbody>
                     </table>
                   </div>
@@ -190,8 +177,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
                         </ul>
-                      
-                        <!-- <a id="add_row" class="btn btn-default pull-right">Add Row</a> -->
                       </div>
                   </div>
               </div>
@@ -202,30 +187,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
         </div>
             <!-- _________________________ventana modal de borrar__________________________ -->
-             
-
-                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                      <h4 class="modal-title custom_align" id="Heading">Eliminar contacto</h4>
-                  </div>
-                     <div class="modal-body">
-                   
-                      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>
-                   
-                    </div>
-                    <div class="modal-footer ">
-                      <button id="botonsi" type="button" class="btn btn-success botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-ok-sign row-remove"></span> Si</button>
-                      <button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-                    </div>
-                </div>
-              
-              </div>
-               
-          </div>
-          
+             <div id="modal_aca2">
+            </div> 
             <!-- ________________________________________________________ -->
 
           
@@ -242,6 +205,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="js/scrips.js"></script>
 </body>
 </html>
-
-
-<?php } ?>

@@ -34,7 +34,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $pai = $data_cli['Pais'];
     $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
-    $des = $data_cli['Descripcion'];
+    $des = $data_cli['Descripcion_U'];
     $fot = $data_cli['Img_gmail'];
     $fo2 = $data_cli['Img_user'];
     }
@@ -50,7 +50,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" charset=UTF-8"> 
     <title>Mochileros</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -154,14 +154,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="avatar">
                     <div class="row">
                         <div class="col-xs-5">
-                          <form enctype="multipart/form-data" method="POST" >
+                          <form id="form-foto" enctype="multipart/form-data" method="POST" >
                              <div class="box12">
                               <?php 
                                 if (!is_null($fo2)) {
-                                  echo '<img id="foto_user" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/>';
+                                  echo '<label for="image"><img id="foto_user" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/></label>';
                                 }
                                 else {
-                                  echo '<img id="foto_user" alt="chau" src="'.$fot.'"/>';
+                                  echo '<label for="image"><img id="foto_user" alt="chau" src="'.$fot.'"/></label>';
                                 } 
                               ?>
                               <div class="box-content" align="right">
@@ -171,16 +171,16 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   </div>
                               </div>
                             </div>
-                            <input name="insert" id="insert" type="submit" value="submit" hidden="true">
+                            <input name="insert" id="insert" type="submit" value="submit" class="hidden" data-toggle="modal" data-target="#modal_error">
                           </form>  
                         </div>
-                        <form action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
+                        <form id="form_usuario" action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
                         <div class="col-xs-7">
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control nombreUsuario" placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
                             <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control nombreUsuario" placeholder="Apellido"  />
-                            <p id="p-nom" class="error"></p>
+                            <p id="p-ap" class="error"></p>
                         </div>
                     </div>
                 </div>
@@ -189,14 +189,22 @@ if(!isset($_SESSION["‘ID_user’"])) {
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Pais</label>
-                <input type="text" id="pai-form" disabled="" name="pais" value="<?php echo $pai;?>" class="form-control" placeholder="Pais"  />
+                <select class="form-control" disabled="" id="select_pais" name="pais">
+                  <option selected value="<?php echo $pai; ?>"><?php echo $pai; ?></option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Inglaterra">Inglaterra</option>
+                  <option value="Francia">Francia</option>
+                  <option value="Otro">Otro</option>
+                  <option value="">(Borrar Dato)</option>
+                </select>
+                <!-- <input type="text" id="pai-form" disabled="" name="pais" value="<?php echo $pai;?>" class="form-control" placeholder="Pais"  /> -->
                 <p id="p-pai" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label class="licki">Edad</label>
-                <input type="number" id="eda-form" disabled="" name="edad" value="<?php echo $eda;?>" class="form-control" placeholder="Edad"  />
+                <label class="licki">Fecha de nacimiento</label>
+                <input type="date" id="eda-form" disabled="" name="edad" value="<?php echo $eda;?>" class="form-control" placeholder="Edad"  />
                 <p id="p-eda" class="error"></p>
             </div>
         </div>
@@ -210,7 +218,15 @@ if(!isset($_SESSION["‘ID_user’"])) {
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Idioma</label>
-                <input type="text" id="idi-form" disabled="" name="idioma" value="<?php echo $idi;?>" class="form-control" placeholder="Idioma"  />
+                <select class="form-control" disabled="" id="select_idioma" name="idioma">
+                  <option selected value="<?php echo $idi; ?>"><?php echo $idi;?></option>
+                  <option value="Español">Español</option>
+                  <option value="Ingles">Ingles</option>
+                  <option value="Frances">Frances</option>
+                  <option value="Otro">Otro</option>
+                  <option value="">(Borrar Dato)</option>
+                </select>
+                <!-- <input type="text" id="idi-form" disabled="" name="idioma" value="<?php echo $idi;?>" class="form-control" placeholder="Idioma"  /> -->
                 <p id="p-idi" class="error"></p>
             </div>
         </div>
@@ -240,14 +256,20 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
         <div class="row hidden" id="btnedit">
             <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
-                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Editar</button>
+                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" data-toggle="modal" data-target="#modal_error" type="submit">Editar</button>
             </div>
             <div class="col-xs-5 col-sm-6">
                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>                       
             </div>
         </div> 
     </form>
-
+<!-- ventana modal _______________________________________________________________________________________________________ -->
+      <div class="modal fade" id="modal_error" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+          <div id="mensaje_modal" class="modal-body"></div>
+        </div>
+      </div>
+<!-- _____________________________________________________________________________________________________________________ -->
 
     </div>
     </header>
@@ -261,28 +283,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="js/scrips.js"></script>
 </body>
 </html>
-
-
-<!--  <script>  
- $(document).ready(function(){  
-      $('#insert').click(function(){  
-           var image_name = $('#image').val();  
-           if(image_name == '')  
-           {  
-                alert("Please Select Image");  
-                return false;  
-           }  
-           else  
-           {  
-                var extension = $('#image').val().split('.').pop().toLowerCase();  
-                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
-                {  
-                     alert('Invalid Image File');  
-                     $('#image').val('');  
-                     return false;  
-                }  
-           }  
-      });  
- });  
- </script>
- -->
