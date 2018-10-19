@@ -30,11 +30,24 @@ if(!isset($_SESSION["‘ID_user’"])) {
 ?>
 
 
-
+<script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+       
+--> 
+
+
     <meta charset="UTF-8">
     <title>Mochilero</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -141,41 +154,101 @@ if(!isset($_SESSION["‘ID_user’"])) {
   </div>
 </div>
 
-<div id="muroDeNoticias" >
-	<div class="noticia">
-		<span class="textoViaje">Noticia 1</span>
-		<img src="img/map.png" class="mapa" alt="">
-	</div>
-	<div class="noticia">
-		<span class="textoViaje">Noticia 2</span>
+<div class="row nav_muro">
+	<div class="col-md-12">
+        <div class="panel with-nav-tabs panel-info">
+            <div class="panel-heading center">
+                    <ul class="nav nav-tabs">
+                        <li class="active col-xs-6"><a href="#tab1info" data-toggle="tab">Amigos</a></li>
+                        <li class="col-xs-6"><a href="#tab2info" data-toggle="tab">Publico</a></li>
+                    </ul>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active muroDeNoticias" id="tab1info">
+                    	<div class="pensando">
+                    		<div class="row">
+					            <div class="col-md-12">
+					                <div class="with-nav-tabs">
+					                    <div class="esto">
+					                        <ul class="nav nav-tabs">
+					                            <li class="active"><a data-toggle="tab" href="#posts">publica un comentario</a></li>
+					                        </ul>
+					                    </div>
+					                    <div class="card-body">
+					                        <div class="tab-content" id="myTabContent">
+					                            <div class="tab-pane fade in active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+					                                <div class="form-group">
+					                                    <textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?"></textarea>
+					                                </div>
+					                            </div>
+					                        </div>
+					                        <div class="col-md-12">
+					                            <div class="btn-group">
+					                                <button type="submit" class="btn btn-primary compart">Compartir</button>
+					                            </div>
+					                            <div class="btn-group right">
+					                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" >
+					                                    <i class="glyphicon glyphicon-user"></i>
+					                                </button>
+					                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+					                                	<div class="navbar-login">
+								                      	<div class="row">
+								                          	<div class="col-sm-12">
+								                              	<p>
+								                                  	<a href="#" class="btn btn-info btn-block botoncitoBorrable">Public</a>
+								                              	</p>
+								                          	</div>
+								                      	</div>
+									                    <div class="row">
+									                        <div class="col-sm-12">
+									                            <p>
+									                                <a href="#" class="btn btn-primary btn-block botoncitoBorrable">Friends</a>
+									                            </p>
+									                        </div>
+									                    </div>
+						                  			</div>
+					                                </div>    
+					                            </div>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+                    		</div>
+                    	</div>
+                    	<div id="notice"></div>
+                    	  <!-- <div class="noticia">
 
-		<img src="img/map.png" class="mapa" alt="">
-		
-	</div>
-	<div class="noticia">
-		<span class="textoViaje">Noticia 3</span>
+						  <div class="row">
+						        <div class="col-md-12">
+						            <div class="testimonials">
+						            	<div class="active item">
+						                  <blockquote><a href="p8.php?id=111733596368903726939"><img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left cardo">
+						                  	<div class="pull-left">
+						                  	<span class="testimonials-name">Lina Mars</span>
+						                  </div></a>
+						                      <span class="testimonials-post">dd-mm-aaaa</span>
+						                  	</blockquote>
+						                  <div class="table-responsive">
+						                  	<table>
+						                  	<p class="coment">Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p>
+						                  </table>
+						                  </div>
+						                </div>
+						            </div>
+						        </div>
+						    </div> -->
 
-		<img src="img/map.png" class="mapa" alt="">
-		
-	</div>
-	<div class="noticia">
-		<span class="textoViaje">Noticia 4</span>
-
-		<img src="img/map.png" class="mapa" alt="">
-		
-	</div>
-	<div class="noticia">
-		<span class="textoViaje">Noticia 5</span>
-
-		<img src="img/map.png" class="mapa" alt="">
-		
-	</div>
-
-</div>
-         	
-
-          
+					</div>
+                    
+                    <div class="tab-pane fade muroDeNoticias" id="tab2info">
+                    	<div id="notice2"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    </div>
     </header>
     <script
               src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -189,7 +262,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
     
-</body>
+</body  onload="publicaciones()">
 </html>
 
 <?php } ?>

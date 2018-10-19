@@ -258,3 +258,70 @@ function eliminar(soli){
         }
     });
 }
+
+
+$(document).ready(function publicaciones() {
+    var _urlform ='publicaciones.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},    
+    function(data){
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        $.each(json, function(i, item) {
+            texto +='<div class="noticia">'+
+                      '<div class="row">'+
+                          '<div class="col-md-12">'+
+                              '<div class="testimonials">'+
+                                '<div class="active item">'+
+                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="'+item.foto+'" class="pull-left cardo">'+
+                                      '<div class="pull-left">'+
+                                      '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                    '</div></a>'+
+                                        '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                      '</blockquote>'+
+                                    '<div class="table-responsive">'+
+                                      '<table><p class="coment">'+item.coment+'</p></table>'+
+                                    '</div>'+
+                                  '</div>'+
+                              '</div>'+
+                          '</div>'+
+                      '</div>'+
+                    '</div>';
+          
+        })
+        $("#notice").html(texto);
+    });
+});
+
+$(document).ready(function publicaciones() {
+    var _urlform ='publicaciones2.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},    
+    function(data){
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        $.each(json, function(i, item) {
+            texto +='<div class="noticia">'+
+                      '<div class="row">'+
+                          '<div class="col-md-12">'+
+                              '<div class="testimonials">'+
+                                '<div class="active item">'+
+                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="'+item.foto+'" class="pull-left cardo">'+
+                                      '<div class="pull-left">'+
+                                      '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                    '</div></a>'+
+                                        '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                      '</blockquote>'+
+                                    '<div class="table-responsive">'+
+                                      '<table><p class="coment">'+item.coment+'</p></table>'+
+                                    '</div>'+
+                                  '</div>'+
+                              '</div>'+
+                          '</div>'+
+                      '</div>'+
+                    '</div>';
+          
+        })
+        $("#notice2").html(texto);
+    });
+});

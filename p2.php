@@ -50,7 +50,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-            <meta http-equiv="Content-Type" charset=UTF-8"> 
+    <meta http-equiv="Content-Type" charset=UTF-8"> 
     <title>Mochileros</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">

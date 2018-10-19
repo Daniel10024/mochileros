@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2018 a las 11:40:34
+-- Tiempo de generación: 19-10-2018 a las 06:15:51
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -41,6 +41,36 @@ CREATE TABLE `interes` (
 --   `ID_Punto`
 --       `punto` -> `ID_Punto`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `publicacion`
+--
+
+CREATE TABLE `publicacion` (
+  `ID_Publicacion` int(11) NOT NULL,
+  `ID_Usuario` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Comentario` varchar(640) NOT NULL,
+  `Publico` int(11) NOT NULL,
+  `Fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `publicacion`:
+--   `ID_Usuario`
+--       `usuario` -> `ID_Usuario`
+--
+
+--
+-- Volcado de datos para la tabla `publicacion`
+--
+
+INSERT INTO `publicacion` (`ID_Publicacion`, `ID_Usuario`, `Comentario`, `Publico`, `Fecha`) VALUES
+(1, '110433993825937047664', 'esto es un comentario (esto esta publico)', 2, '2018-10-18'),
+(8, '117974607496192147045', 'comento esto para probar (esto esta publico)', 2, '2018-10-18'),
+(9, '111733596368903726939', 'probamos esto con un texto un poco mas largo.\r\nprobamos esto con un texto un poco mas largo.\r\nprobamos esto con un texto un poco mas largo.\r\nprobamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largoprobamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.probamos esto con un texto un poco mas largo.(esto esta publico)', 2, '2018-10-18'),
+(10, '117974607496192147045', 'esto solo lo veo yo y mis amigos :D', 1, '2018-10-18');
 
 -- --------------------------------------------------------
 
@@ -136,6 +166,15 @@ ALTER TABLE `interes`
   ADD KEY `ID_Punto` (`ID_Punto`);
 
 --
+-- Indices de la tabla `publicacion`
+--
+ALTER TABLE `publicacion`
+  ADD PRIMARY KEY (`ID_Publicacion`),
+  ADD KEY `ID_Usuario` (`ID_Usuario`),
+  ADD KEY `ID_Usuario_2` (`ID_Usuario`),
+  ADD KEY `ID_Usuario_3` (`ID_Usuario`);
+
+--
 -- Indices de la tabla `punto`
 --
 ALTER TABLE `punto`
@@ -166,6 +205,12 @@ ALTER TABLE `interes`
   MODIFY `ID_Interes` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `publicacion`
+--
+ALTER TABLE `publicacion`
+  MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT de la tabla `punto`
 --
 ALTER TABLE `punto`
@@ -175,7 +220,7 @@ ALTER TABLE `punto`
 -- AUTO_INCREMENT de la tabla `solisitud`
 --
 ALTER TABLE `solisitud`
-  MODIFY `ID_solisitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_solisitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -186,6 +231,12 @@ ALTER TABLE `solisitud`
 --
 ALTER TABLE `interes`
   ADD CONSTRAINT `interes_ibfk_1` FOREIGN KEY (`ID_Punto`) REFERENCES `punto` (`ID_Punto`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `publicacion`
+--
+ALTER TABLE `publicacion`
+  ADD CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`);
 
 --
 -- Filtros para la tabla `punto`
