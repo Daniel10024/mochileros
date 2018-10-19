@@ -129,7 +129,7 @@ $(document).ready(function amigos() {
           if (item.ida != id_yo) {
             texto += '<tr>'+
                       '<td>'+
-                        '<img class="cardo" src='+item.foto+' alt="" />'+
+                        '<img class="cardo2" src='+item.foto+' alt="" />'+
                       '</td>'+
                       '<td><p>'+item.nombre + " " + item.apellido+'</p></td>'+
                       '<td align="center">'+
@@ -293,7 +293,7 @@ $(document).ready(function publicaciones() {
     });
 });
 
-$(document).ready(function publicaciones() {
+$(document).ready(function publicaciones2() {
     var _urlform ='publicaciones2.php';
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},    

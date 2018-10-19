@@ -6,25 +6,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
-    <link rel="icon" type="image/png" href="img/backpack.png" />
-    
-
+    <link rel="icon" type="image/png" href="img/backpack.png"/>
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
-    
-    <style>
-    	.data{
-    		display: none;
-    	}
-
-    </style>
-
-
-
-
 </head>
-
-
-
 <body class="f_PC" onload="startApp()">
   
     <header>
@@ -32,11 +16,9 @@
 
      	    <h1 class="text-center" id="mochilaTexto">MOCHILEROS</h1>
         	<br><br><br><br>
-        	<div class= "data">
-         	<button class="btn btn-lg btn-danger btn-block botonG">ingresar con google</button>
-         	</div>
             <div id="customBtn" class="2customGPlusSignIn">
-              <button class="btn btn-lg btn-danger btn-block boton-invitado">ingresar con google</button>
+              <button class="btn btn-lg btn-danger btn-block boton-invitado hidden-xs">ingresar con google</button>
+              <button class="btn btn-lg btn-danger btn-block boton-invitado visible-xs">google</button>
             </div>
          	<br>
          	<div class="data2">
@@ -51,7 +33,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
     
-	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="js/scrips.js"></script>
 
 </body>

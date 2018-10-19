@@ -36,7 +36,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="f_PC">
+<body class="f_PC" onload="startApp()">
     <header>
         <div class="container" id="cabezalMenu">
 <div class="row menuArriba">
@@ -52,7 +52,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
       <div class="col-xs-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
-                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
+                  <a href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown" id="botoncitoMenu">
                       <span class="glyphicon glyphicon-th-list glylg"></span> 
                   </a>
                   <ul class="dropdown-menu dropdown-menu-right menucito">
@@ -76,7 +76,9 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                 </div>
                               </div>
                             <?php if ($use == 1) {?>
-                              <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div>
+                              <div id="customBtn" class="2customGPlusSignIn">
+                                <button class="btn btn-info btn-block botoncitoBorrable">Iniciar sesion</button>
+                              </div>
                            <?php  }; ?> 
                            <?php if ($use != 1) {?>
                               <div class="row">
@@ -109,7 +111,12 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-lg-12">
                                       <p>
-                                        <a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
+                                        <?php if ($use ==1): ?>
+                                          <a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Salir</a>
+                                        <?php endif ?>
+                                        <?php if ($use != 1): ?>
+                                          <a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
+                                        <?php endif ?>
                                       </p>
                                   </div>
                               </div>

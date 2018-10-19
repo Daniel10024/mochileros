@@ -59,7 +59,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
       <div class="col-xs-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
-                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
+                  <a href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown" id="botoncitoMenu">
                       <span class="glyphicon glyphicon-th-list glylg"></span> 
                   </a>
                   <ul class="dropdown-menu dropdown-menu-right menucito">

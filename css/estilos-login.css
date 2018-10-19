@@ -113,7 +113,7 @@ html {
 /*nombre pantalla de perfil________________________________________*/
 #nom-form{
 	font-size: 30px;
-  font-size: 6vh;
+  font-size: 5vh;
 	color: #707070;
 	background-color: #FFFFFF;
 	border-width:0;
@@ -125,7 +125,7 @@ html {
 /*apellido pantalla de perfil________________________________________*/
 #ape-form{
   font-size: 30px;
-  font-size: 6vh;
+  font-size: 5vh;
   color: #707070;
   background-color: #FFFFFF;
   border-width:0;
@@ -143,6 +143,14 @@ html {
   border: 5px solid rgba(0,0,30,0.8);
   position: relative;
   margin-top: 20px;
+}
+
+.cardo2 {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 5px solid rgba(0,0,30,0.8);
+  position: relative;
 }
 
 #user{
@@ -248,9 +256,9 @@ text-decoration:none;
   position: relative;
   padding: 0;
   margin: 0;
-  top:7px;
+  top:19px;
+  background: transparent;
 }
-
 
 
 /* #cabezalMenu{
@@ -269,7 +277,7 @@ text-decoration:none;
   width: 100%;
   //left: 5%;
   //margin-top: 30px;
-  height: 520px;
+  height: 85%;
   //background-color: red;
   //border-style: solid;
   border-width: 1.5px;
@@ -474,10 +482,11 @@ text-decoration:none;
 }
 
 /*______________________________________________________________*/
+/*boton compartir*/
 .compart {
   margin-bottom: 7px;
 }
-
+/*comentario*/
 .coment {
   margin-right: 12px;
   margin-left: 15px;

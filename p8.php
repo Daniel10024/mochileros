@@ -75,7 +75,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
       <div class="col-xs-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
-                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
+                  <a href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown" id="botoncitoMenu">
                       <span class="glyphicon glyphicon-th-list glylg"></span> 
                   </a>
                   <ul class="dropdown-menu dropdown-menu-right menucito">
@@ -174,42 +174,42 @@ if(!isset($_SESSION["‘ID_user’"])) {
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Pais</label>
-                <input type="text" id="pai-form" disabled="" name="nombre" value="<?php echo $pai;?>" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="pai-form" disabled="" name="nombre" value="<?php echo $pai;?>" class="form-control" placeholder="Pais"  />
                 <p id="p-pai" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Fecha de nacimiento</label>
-                <input type="date" id="eda-form" disabled="" name="nombre" value="<?php echo $eda;?>" class="form-control" placeholder="Edad"  />
+                <input type="date" id="eda-form" disabled="" name="nombre" value="<?php echo $eda;?>" class="form-control" placeholder="Fecha de nacimiento"  />
                 <p id="p-eda" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Intereses</label>
-                <input type="text" id="int-form" disabled="" name="nombre" value="<?php echo $int;?>" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="int-form" disabled="" name="nombre" value="<?php echo $int;?>" class="form-control" placeholder="Intereses"  />
                 <p id="p-int" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Idioma</label>
-                <input type="text" id="idi-form" disabled="" name="nombre" value="<?php echo $idi;?>" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="idi-form" disabled="" name="nombre" value="<?php echo $idi;?>" class="form-control" placeholder="Idioma"  />
                 <p id="p-idi" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>
-                <input type="text" id="con-form" disabled="" name="nombre" value="<?php echo $con;?>" class="form-control" placeholder="Nombre"  />
+                <input type="text" id="con-form" disabled="" name="nombre" value="<?php echo $con;?>" class="form-control" placeholder="Contacto"  />
                 <p id="p-con" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Descripcion</label>
-                <textarea name="des-form" id="des-form" rows="2" disabled class="form-control"><?php echo $des;?></textarea>
+                <textarea name="des-form" id="des-form" rows="2" placeholder="Descripcion" disabled class="form-control"><?php echo $des;?></textarea>
                 <p id="p-des" class="error"></p>
             </div>
         </div>

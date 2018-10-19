@@ -37,33 +37,17 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
-
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous">
-       
---> 
-
-
     <meta charset="UTF-8">
     <title>Mochilero</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
-
-    <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
-    <link rel="icon" type="image/png" href="img/backpack.png" />
-    
-
-
+	<link rel="icon" type="image/png" href="img/backpack.png" />
+    <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">    
 </head>
-<body class="f_PC">
+<body class="f_PC" onload="startApp()">
     <header>
         <div class="container" id="cabezalMenu">
-
 
 <div class="row">
   <div class="col-sm-12">
@@ -80,7 +64,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 	      			<li class="dropdown right">
 
 	      				<!-- COSITO DEL MENU -->
-	          			<a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
+	          			<a href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown" id="botoncitoMenu">
 	              			<span class="glyphicon glyphicon-th-list glylg"></span> 
 	          			</a>
 
@@ -105,7 +89,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
 				                        </div>
 	                      			</div>
 			                      <?php if ($use == 1) {?>
-			                        <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div>
+			                      	<div id="customBtn" class="2customGPlusSignIn">
+						              <button class="btn btn-info btn-block botoncitoBorrable">Iniciar sesion</button>
+						            </div>
+			                        <!-- <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div> -->
 			                     <?php  }; ?> 
 			                     <?php if ($use != 1) {?>
 			                      	<div class="row">
@@ -139,7 +126,12 @@ if(!isset($_SESSION["‘ID_user’"])) {
 	                      			<div class="row">
 	                          			<div class="col-lg-12">
 	                              			<p>
-	                                			<a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
+	                              				<?php if ($use ==1): ?>
+	                              					<a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Salir</a>
+	                              				<?php endif ?>
+	                              				<?php if ($use != 1): ?>
+	                              					<a href="#" onclick="signOut();" class="btn btn-danger btn-block botoncitoBorrable">Cerrar Sesion</a>
+	                              				<?php endif ?>
 	                              			</p>
 	                          			</div>
 	                      			</div>

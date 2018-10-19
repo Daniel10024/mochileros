@@ -14,7 +14,14 @@ while($row = mysqli_fetch_assoc($result))
   $db_foto=$row['Img_gmail'];
   $db_foto2=$row['Img_user'];
 }
-  
+?>
+
+<?php 
+$queryexist = "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.Amigo WHERE solisitud.User = $use AND solisitud.Estado = 2
+UNION
+SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $use AND solisitud.Estado = 2";
+$respuesta = mysqli_query($mysqli, $queryexist);
+$numero = mysqli_num_rows($respuesta);
 ?>
 
 <?php if ($use == 1) {
@@ -58,7 +65,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
       <div class="col-xs-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
-                  <a href="#" class="dropdown-toggle " data-toggle="dropdown" id="botoncitoMenu">
+                  <a href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown" id="botoncitoMenu">
                       <span class="glyphicon glyphicon-th-list glylg"></span> 
                   </a>
                   <ul class="dropdown-menu dropdown-menu-right menucito">
@@ -137,19 +144,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de contactos</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span class="badge">1</span></button></a>
+                          <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span class="badge"><?php echo $numero; ?></span></button></a>
                       </div>
-                      <div class="col-xs-12">
+<!--                       <div class="col-xs-12">
                         <form action="#" method="get">
                         <div class="input-group">
-                            <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
                             <input class="form-control" id="system-search" name="q" placeholder="Buscar" required>
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                             </span>
                         </div>
                         </form>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="panel-body">
