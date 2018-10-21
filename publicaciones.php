@@ -37,6 +37,7 @@ if ($numero > 0)
         $db_apellido=$row['Apellido'];
         $db_foto=$row['Img_gmail'];
         $db_foto2=$row['Img_user'];
+        $db_imagen=$row['Imagen'];
         /*if (!is_null($db_foto2)) {
           $db_foto=$db_foto2;
         }*/
@@ -48,6 +49,7 @@ if ($numero > 0)
 	          'apellido' => $db_apellido,
 	          'foto' => $db_foto,
             'coment' => $db_coment,
+            'image' => '<img class="right" width="185" alt="" src="data:image/jpeg;base64,'.base64_encode( $db_imagen ).'"/>',
             'fecha' => $db_fecha
 	        );
 		array_push($posta, $json);

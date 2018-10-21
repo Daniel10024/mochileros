@@ -10,6 +10,26 @@
 
 ?>
 
+<?php 
+
+ if(isset($_POST["submit"]))  
+ {  
+$coment = $_POST["comentario"];
+$public = $_POST["gender"];
+$fechaactual = date('Y-m-d');
+
+$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
+
+$agregar_publicacion = "INSERT INTO publicacion (ID_Usuario, Comentario, Publico, Fecha, Imagen)
+                      VALUES ('$use', '$coment', '$public', '$fechaactual', '$file')";
+if ($mysqli->query($agregar_publicacion) === TRUE) { 
+ 
+  } 
+  else {  
+   /*echo "Error: " . $agregar_publicacion . "<br>" . $mysqli->error;*/
+  }
+  }  
+?>
 
 <?php 
 $query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
@@ -158,56 +178,68 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade in active muroDeNoticias" id="tab1info">
+
                     	<div class="pensando">
                     		<div class="row">
 					            <div class="col-md-12">
 					                <div class="with-nav-tabs">
-					                    <div class="esto">
-					                        <ul class="nav nav-tabs">
-					                            <li class="active"><a data-toggle="tab" href="#posts">publica un comentario</a></li>
-					                        </ul>
-					                    </div>
-					                    <div class="card-body">
-					                        <div class="tab-content" id="myTabContent">
-					                            <div class="tab-pane fade in active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-					                                <div class="form-group">
-					                                    <textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?"></textarea>
-					                                </div>
-					                            </div>
-					                        </div>
-					                        <div class="col-md-12">
-					                            <div class="btn-group">
-					                                <button type="submit" class="btn btn-primary compart">Compartir</button>
-					                            </div>
-					                            <div class="btn-group right">
-					                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" >
-					                                    <i class="glyphicon glyphicon-user"></i>
-					                                </button>
-					                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-					                                	<div class="navbar-login">
-								                      	<div class="row">
-								                          	<div class="col-sm-12">
-								                              	<p>
-								                                  	<a href="#" class="btn btn-info btn-block botoncitoBorrable">Public</a>
-								                              	</p>
-								                          	</div>
-								                      	</div>
-									                    <div class="row">
-									                        <div class="col-sm-12">
-									                            <p>
-									                                <a href="#" class="btn btn-primary btn-block botoncitoBorrable">Friends</a>
-									                            </p>
-									                        </div>
-									                    </div>
-						                  			</div>
-					                                </div>    
-					                            </div>
-					                        </div>
-					                    </div>
+										<form enctype="multipart/form-data" method="post" id="form-publicacion">
+						                    <div class="esto">
+						                        <ul class="nav nav-tabs">
+						                            <li class="active"><a data-toggle="tab" href="#posts">publica un comentario</a></li>
+						                        </ul>
+						                    </div>
+						                    <div class="card-body">
+						                        <div class="tab-content" id="myTabContent">
+						                            <div class="tab-pane fade in active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+						                                <div class="form-group row">
+						                                		<div class="col-sm-8 col-md-9">
+						                                			<textarea name="comentario" class="form-control" id="message" cols="70" rows="3" placeholder="¿Que estas pensando?"></textarea>
+						                                			
+						                                		</div>
+						                                		<div class="col-sm-4 col-md-3" id="aca">
+						                                			<!-- <img class="right" src="img/1.jpg" alt="soy una foto" width="185"> -->
+						                                		</div>
+						                                </div>
+						                            </div>
+						                        </div>
+						                        <div class="col-md-12">
+						                        	<div class="btn-group">
+						                                <label for="publicar-foto" class="btn btn-info compart">publicar foto</label>
+						                            </div>
+						                            <input type="file" name="image" id="publicar-foto" class="hidden">
+						                            <div class="btn-group">
+						                                <button name="submit" type="submit" class="btn btn-primary compart">Compartir</button>
+						                            </div>
+						                            <div class="btn-group right">
+						                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" >
+						                                    <i id="dibujito" class="glyphicon glyphicon-user"></i>
+						                                </button>
+						                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+						                                	<div class="navbar-login">
+									                      	<div class="row">
+									                          	<div class="col-sm-12">
+									                              	<p><label class="btn btn-info btn-block botoncitoBorrable" for="Public">Public</label></p>
+									                          	</div>
+									                      	</div>
+										                    <div class="row">
+										                        <div class="col-sm-12">
+										                            <p><label class="btn btn-primary btn-block botoncitoBorrable" for="Friends">Friends</label></p>
+										                        </div>
+										                    </div>
+							                  			</div>
+						                                </div>    
+						                            </div>
+						                        </div>
+						                    </div>
+						                    <input type="radio" id="Friends" name="gender" class="hidden" value="1" checked>
+  											<input type="radio" id="Public" name="gender" class="hidden" value="2">
+										</form> 
 					                </div>
 					            </div>
                     		</div>
                     	</div>
+
                     	<div id="notice"></div>
                     	  <!-- <div class="noticia">
 

@@ -210,6 +210,22 @@ $(document).ready(function solicitudes() {
     });
 });
 
+function enviar(){
+  var id_yo = myvar;
+  var id_el = suvar;
+  var _urlform ='enviar_solicitud.php';
+    $.post(_urlform,{id_amigo:id_el, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p1.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}
 
 function aceptar(soli){
   var id_yo = myvar;
@@ -279,8 +295,9 @@ $(document).ready(function publicaciones() {
                                     '</div></a>'+
                                         '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
                                       '</blockquote>'+
-                                    '<div class="table-responsive">'+
-                                      '<table><p class="coment">'+item.coment+'</p></table>'+
+                                    '<div class="table-responsive">'+ 
+                                      '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
+                                      '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
                                     '</div>'+
                                   '</div>'+
                               '</div>'+
@@ -324,4 +341,28 @@ $(document).ready(function publicaciones2() {
         })
         $("#notice2").html(texto);
     });
+});
+
+
+function filePreview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#aca + img').remove();
+            $('#aca').html('<img class="right" src="'+e.target.result+'" width="185"/>');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#publicar-foto").change(function () {
+    filePreview(this);
+});
+
+$("#Public").change(function () {
+  $("#dibujito").removeClass("glyphicon-user").addClass("glyphicon-globe");
+});
+
+$("#Friends").change(function () {
+  $("#dibujito").removeClass("glyphicon-globe").addClass("glyphicon-user");
 });

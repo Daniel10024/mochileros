@@ -14,12 +14,26 @@ while($row = mysqli_fetch_assoc($result))
   $db_foto=$row['Img_gmail'];
   $db_foto2=$row['Img_user'];
 }
-  
+?>
+
+<?php 
+$amigos = array();
+$queryexist = "SELECT ID_Usuario FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.Amigo WHERE solisitud.User = $use
+UNION
+SELECT ID_Usuario FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $use";
+$respuesta = mysqli_query($mysqli, $queryexist);
+    while($row=mysqli_fetch_assoc($respuesta))
+    {
+      $db_ID_user=$row['ID_Usuario'];
+      $amigo = $db_ID_user;
+      array_push($amigos, $amigo);
+    }
 ?>
 
 <?php if ($use == 1) {
   header("location: p1.php");
-} ?>
+} 
+?>
 
 <?php
 $amigo_id = $_GET['id'];
@@ -37,13 +51,16 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $foto = $data_cli['Img_gmail'];
     }
 
-
-
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 
+
+<script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+    var suvar='<?php echo $amigo_id;?>';
+</script>
 
 
 <!DOCTYPE html>
@@ -66,13 +83,15 @@ if(!isset($_SESSION["‘ID_user’"])) {
   <div class="col-sm-12">
   <ul class="nav nav-tabs">
     <div class="row">
-      <div class="col-xs-2">
+      <div class="col-xs-3 col-sm-2 col-md-2">
         <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
       </div>
-      <div class="col-xs-8">
-
+      <div class="col-xs-6 col-sm-8 col-md-8">
+        <?php if ($amigo_id != $use and !in_array($amigo_id, $amigos)): ?>
+          <li class="center"><button class="btn btn-sm btn-block btn-success textoBuscarViajes" onclick="enviar();"> <span class="glyphicon glyphicon-search"></span> Enviar solicitud</button></li>
+        <?php endif ?>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-3 col-sm-2 col-md-2">
         <ul class="nav navbar-right">
               <li class="dropdown right">
                   <a href="#" class="dropdown-toggle btn btn-link" data-toggle="dropdown" id="botoncitoMenu">
@@ -232,6 +251,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="js/scrips.js"></script>
 </body>
 </html>
-
-
-<?php } ?>

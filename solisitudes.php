@@ -14,9 +14,7 @@ header('Content-Type: application/json');
 
 $id = $_POST["id"];
 $posta = array();
-$queryexist = "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.Amigo WHERE solisitud.User = $id AND solisitud.Estado = 2
-UNION
-SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $id AND solisitud.Estado = 2";
+$queryexist = "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $id AND solisitud.Estado = 2";
 $respuesta = mysqli_query($mysqli, $queryexist);
 $numero = mysqli_num_rows($respuesta);
 if ($numero > 0) 
