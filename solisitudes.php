@@ -28,13 +28,11 @@ if ($numero > 0)
         $db_ID_user=$row['ID_Usuario'];
         $db_nombre=$row['Nombre'];
         $db_apellido=$row['Apellido'];
-        $db_foto=$row['Img_gmail'];
 
 		$json = array(
 	          'ida' => $db_ID_user,
 	          'nombre' => $db_nombre,
-	          'apellido' => $db_apellido,
-	          'foto' => $db_foto
+	          'apellido' => $db_apellido
 	        );
 		array_push($posta, $json);
       }

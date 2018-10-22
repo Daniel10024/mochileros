@@ -7,16 +7,6 @@
 ?>
 
 <?php 
-$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
-$result = mysqli_query($mysqli, $query);  
-while($row = mysqli_fetch_assoc($result))  
-{  
-  $db_foto=$row['Img_gmail'];
-  $db_foto2=$row['Img_user'];
-}
-?>
-
-<?php 
 $amigos = array();
 $queryexist = "SELECT ID_Usuario FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.Amigo WHERE solisitud.User = $use
 UNION
@@ -48,7 +38,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
     $des = $data_cli['Descripcion_U'];
-    $foto = $data_cli['Img_gmail'];
     }
 
 if(!isset($_SESSION["‘ID_user’"])) {
@@ -104,12 +93,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   <div>
                                       <p class="text-center">
                                       <?php 
-                                        if (!is_null($db_foto2)) {
-                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
-                                        }
-                                        else {
-                                          echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
-                                        } 
+                                        echo '<span><img class="cardo" alt="chau" src="img/foto/'.$use.'.jpg"/></span>'; 
                                       ?>
                                       </p>
                                   </div>
@@ -171,7 +155,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="avatar">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img src="<?php echo $foto;?>" alt="" />
+                            <?php echo '<label for="image"><div id="foto_perfil"><img id="foto_user" alt="chau" src="img/foto/'.$amigo_id.'.jpg"/></div></label>'; ?>
                         </div>
 
 

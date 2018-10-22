@@ -6,18 +6,6 @@
   $ape = $_SESSION["‘Apellido’"];
 ?>
 
-<?php 
- if(isset($_POST["insert"]))  
- {  
-      $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));  
-      
-      $query = "UPDATE usuario SET Img_user = '$file' WHERE ID_Usuario = '$use'" ; 
-      if(mysqli_query($mysqli, $query))  
-      {  
-           //echo '<script>alert("Image Inserted into Database")</script>';  
-      }  
- } 
- ?>
 
 <?php if ($use == 1) {
   header("location: p1.php");
@@ -35,8 +23,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
     $des = $data_cli['Descripcion_U'];
-    $fot = $data_cli['Img_gmail'];
-    $fo2 = $data_cli['Img_user'];
     }
  ?>
 
@@ -86,12 +72,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   <div>
                                       <p class="text-center">
                                       <?php 
-                                        if (!is_null($fo2)) {
-                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/></span>';
-                                        }
-                                        else {
-                                          echo '<span><img class="cardo" alt="chau" src="'.$fot.'"/></span>';
-                                        } 
+                                          echo '<span><img class="cardo" alt="chau" src="img/foto/'.$use.'.jpg"/></span>';
                                       ?>
                                       </p>
                                   </div>
@@ -154,15 +135,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="avatar">
                     <div class="row">
                         <div class="col-xs-5">
-                          <form id="form-foto" enctype="multipart/form-data" method="POST" >
+                          <form action="editar_foto.php" id="form-foto" enctype="multipart/form-data" method="POST" >
                              <div class="box12">
                               <?php 
-                                if (!is_null($fo2)) {
-                                  echo '<label for="image"><img id="foto_user" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $fo2 ).'"/></label>';
-                                }
-                                else {
-                                  echo '<label for="image"><img id="foto_user" alt="chau" src="'.$fot.'"/></label>';
-                                } 
+                                echo '<label for="image"><div id="foto_perfil"><img id="foto_user" alt="chau" src="img/foto/'.$use.'.jpg"/></div></label>';
                               ?>
                               <div class="box-content" align="right">
                                 <div class="icon">
@@ -197,7 +173,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   <option value="Otro">Otro</option>
                   <option value="">(Borrar Dato)</option>
                 </select>
-                <!-- <input type="text" id="pai-form" disabled="" name="pais" value="<?php echo $pai;?>" class="form-control" placeholder="Pais"  /> -->
                 <p id="p-pai" class="error"></p>
             </div>
         </div>
@@ -226,7 +201,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   <option value="Otro">Otro</option>
                   <option value="">(Borrar Dato)</option>
                 </select>
-                <!-- <input type="text" id="idi-form" disabled="" name="idioma" value="<?php echo $idi;?>" class="form-control" placeholder="Idioma"  /> -->
                 <p id="p-idi" class="error"></p>
             </div>
         </div>

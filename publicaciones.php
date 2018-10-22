@@ -12,7 +12,7 @@ header('Content-Type: application/json');
 
 <?php 
 
-
+$aca = getcwd();
 $posta = array();
 $id = $_POST["id"];
 
@@ -28,6 +28,7 @@ if ($numero > 0)
 {
       while($row=mysqli_fetch_assoc($respuesta))
       {
+        $tu_foto = NULL;
         $db_ID_publi=$row['ID_Publicacion'];
         $db_coment=$row['Comentario'];
         $db_publi=$row['Publico'];
@@ -35,21 +36,23 @@ if ($numero > 0)
         $db_ID_user=$row['ID_Usuario'];
         $db_nombre=$row['Nombre'];
         $db_apellido=$row['Apellido'];
-        $db_foto=$row['Img_gmail'];
-        $db_foto2=$row['Img_user'];
-        $db_imagen=$row['Imagen'];
-        /*if (!is_null($db_foto2)) {
-          $db_foto=$db_foto2;
-        }*/
         
+        $directory=''.$aca.'/img/publicaciones';
+        $dirint = dir($directory);
+        while (($archivo = $dirint->read()) !== false)
+        {
+            if ($archivo == $db_ID_publi.'.jpg'){
+                $tu_foto = $archivo;
+            }
+        }
+        $dirint->close();
 
 		$json = array(
 	          'ida' => $db_ID_user,
 	          'nombre' => $db_nombre,
 	          'apellido' => $db_apellido,
-	          'foto' => $db_foto,
             'coment' => $db_coment,
-            'image' => '<img class="right" width="185" alt="" src="data:image/jpeg;base64,'.base64_encode( $db_imagen ).'"/>',
+            'image' => $tu_foto,
             'fecha' => $db_fecha
 	        );
 		array_push($posta, $json);

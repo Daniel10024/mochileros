@@ -37,25 +37,21 @@ if ($numero > 0) {
         $db_ID=$row['ID_Usuario'];
         $db_nombre=$row['Nombre'];
         $db_apellido=$row['Apellido'];
-        $db_foto=$row['Img_gmail'];
-        $db_foto2=$row['Img_user'];
+
         
-      }
-      if ($db_foto !== $foto) {
-          $editar_foto = "UPDATE usuario SET Img_gmail = '$foto' WHERE ID_Usuario = $id";
-          $mysqli->query($editar_foto);
       }
 
       $_SESSION[‘ID_user’] = "$db_ID";
       $_SESSION[‘Nombre’] = "$db_nombre";
       $_SESSION[‘Apellido’] = "$db_apellido";
-      $_SESSION[‘Foto’] = "$foto";
-      $_SESSION[‘Foto2’] = "$db_foto2";
+
 
 }
 else {
-  $insert_Usuario = "INSERT INTO usuario (ID_Usuario, Nombre, Apellido, Img_gmail)
-                      VALUES ('$id', '$nombre', '$apellido', '$foto')";
+  $aca = getcwd();
+  $insert_Usuario = "INSERT INTO usuario (ID_Usuario, Nombre, Apellido)
+                      VALUES ('$id', '$nombre', '$apellido')";
+  copy($foto, ''.$aca.'/img/foto/'.$id.'.jpg');
  /* echo '<script language="javascript">console.log("grabo algo no me mientas");</script>';*/
   if ($mysqli->query($insert_Usuario) === TRUE) { 
     

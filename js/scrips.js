@@ -42,48 +42,6 @@ var googleUser = {};
   }
 
 
-/*function onSignIn (googleUser)
-{
- 	var profile = googleUser.getBasicProfile();
-      var user_fulname = profile.getName();
-      var user_id = profile.getId();
-      var user_firstname = profile.getGivenName();
-      var user_lastname = profile.getFamilyName();
-      var user_image = profile.getImageUrl();
-      var user_email = profile.getEmail();
-var _urlform ='crear_cuenta.php';
-    $.post(_urlform,{id:user_id, nombre:user_firstname, apellido:user_lastname, foto:user_image, contacto:user_email},
-    function(data){
-        if(data != 1){
-        	
-        	location.href ="p1.php";
-
-          console.log('ID: ' + profile.getId());
-          console.log('Full Name: ' + profile.getName());
-          console.log('first Name: ' + profile.getGivenName());
-          console.log('last Name: ' + profile.getFamilyName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail());
-                      
-        }
-        else{
-        	alert(data)
-        }
-    });
-}
-
-
-function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSignIn,
-      });
-    }*/
-
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -129,7 +87,7 @@ $(document).ready(function amigos() {
           if (item.ida != id_yo) {
             texto += '<tr>'+
                       '<td>'+
-                        '<img class="cardo2" src='+item.foto+' alt="" />'+
+                        '<img class="cardo2" src="img/foto/'+item.ida+'.jpg" alt="" />'+
                       '</td>'+
                       '<td><p>'+item.nombre + " " + item.apellido+'</p></td>'+
                       '<td align="center">'+
@@ -175,7 +133,7 @@ $(document).ready(function solicitudes() {
           if (item.ida != id_yo) {
             texto += '<tr>'+
                       '<td>'+
-                        '<img class="cardo" src='+item.foto+' alt="" />'+
+                        '<img class="cardo" src="img/foto/'+item.ida+'.jpg" alt="" />'+
                       '</td>'+
                       '<td><p>'+item.nombre + " " + item.apellido+'</p></td>'+
                       '<td align="center">'+
@@ -201,8 +159,7 @@ $(document).ready(function solicitudes() {
                                 '</div>'+
                               '</div>'+
                           '</div>';
-              /*<a name="ver1" href="p7.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-thumbs-up"></em></a>
-              <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-thumbs-down"></em></a>*/
+             
           }
         })
         $("#tbody2").html(texto);
@@ -289,7 +246,7 @@ $(document).ready(function publicaciones() {
                           '<div class="col-md-12">'+
                               '<div class="testimonials">'+
                                 '<div class="active item">'+
-                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="'+item.foto+'" class="pull-left cardo">'+
+                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
                                       '<div class="pull-left">'+
                                       '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
                                     '</div></a>'+
@@ -297,7 +254,7 @@ $(document).ready(function publicaciones() {
                                       '</blockquote>'+
                                     '<div class="table-responsive">'+ 
                                       '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
-                                      '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
+                                      '<div class="col-sm-4 col-md-3"><img class="right" width="185" alt="" src="img/publicaciones/'+item.image+'"/></div></div></table>'+
                                     '</div>'+
                                   '</div>'+
                               '</div>'+
@@ -323,14 +280,15 @@ $(document).ready(function publicaciones2() {
                           '<div class="col-md-12">'+
                               '<div class="testimonials">'+
                                 '<div class="active item">'+
-                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="'+item.foto+'" class="pull-left cardo">'+
+                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
                                       '<div class="pull-left">'+
                                       '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
                                     '</div></a>'+
                                         '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
                                       '</blockquote>'+
                                     '<div class="table-responsive">'+
-                                      '<table><p class="coment">'+item.coment+'</p></table>'+
+                                      '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
+                                      '<div class="col-sm-4 col-md-3"><img class="right" width="185" alt="" src="img/publicaciones/'+item.image+'"/></div></div></table>'+
                                     '</div>'+
                                   '</div>'+
                               '</div>'+
@@ -343,7 +301,9 @@ $(document).ready(function publicaciones2() {
     });
 });
 
+/*____________________________________________________________*/
 
+/*previsualizar foto de publicacion*/
 function filePreview(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -359,6 +319,26 @@ $("#publicar-foto").change(function () {
     filePreview(this);
 });
 
+/*____________________________________________________________*/
+
+/*previsualizar foto de perfil*/
+function filePreview2(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#foto_perfil + img').remove();
+            $('#foto_perfil').html('<img src="'+e.target.result+'" />');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#image").change(function () {
+    filePreview2(this);
+});
+/*____________________________________________________________*/
+
+/*cambiar icono public/global*/
 $("#Public").change(function () {
   $("#dibujito").removeClass("glyphicon-user").addClass("glyphicon-globe");
 });

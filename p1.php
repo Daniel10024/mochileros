@@ -12,41 +12,14 @@
 
 <?php 
 
- if(isset($_POST["submit"]))  
- {  
-$coment = $_POST["comentario"];
-$public = $_POST["gender"];
-$fechaactual = date('Y-m-d');
-
-$file = addslashes(file_get_contents($_FILES["image"]["tmp_name"])); 
-
-$agregar_publicacion = "INSERT INTO publicacion (ID_Usuario, Comentario, Publico, Fecha, Imagen)
-                      VALUES ('$use', '$coment', '$public', '$fechaactual', '$file')";
-if ($mysqli->query($agregar_publicacion) === TRUE) { 
  
-  } 
-  else {  
-   /*echo "Error: " . $agregar_publicacion . "<br>" . $mysqli->error;*/
-  }
-  }  
 ?>
-
-<?php 
-$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
-$result = mysqli_query($mysqli, $query);  
-while($row = mysqli_fetch_assoc($result))  
-{  
-	$db_foto=$row['Img_gmail'];
-	$db_foto2=$row['Img_user'];
-}
-  
-?> 
 
 
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 
 
@@ -95,12 +68,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 	                          			<div>
 	                              			<p class="text-center">
 												<?php 
-												if (!is_null($db_foto2)) {
-													echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
-												}
-												else {
-													echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
-												} 
+												echo '<span><img class="cardo" alt="chau" src="img/foto/'.$use.'.jpg"/></span>'; 
 												 ?>
 	                              			</p>
 	                          			</div>
@@ -183,7 +151,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                     		<div class="row">
 					            <div class="col-md-12">
 					                <div class="with-nav-tabs">
-										<form enctype="multipart/form-data" method="post" id="form-publicacion">
+										<form action="publicar.php" enctype="multipart/form-data" method="post" id="form-publicacion">
 						                    <div class="esto">
 						                        <ul class="nav nav-tabs">
 						                            <li class="active"><a data-toggle="tab" href="#posts">publica un comentario</a></li>
@@ -239,32 +207,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
 					            </div>
                     		</div>
                     	</div>
-
                     	<div id="notice"></div>
-                    	  <!-- <div class="noticia">
-
-						  <div class="row">
-						        <div class="col-md-12">
-						            <div class="testimonials">
-						            	<div class="active item">
-						                  <blockquote><a href="p8.php?id=111733596368903726939"><img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left cardo">
-						                  	<div class="pull-left">
-						                  	<span class="testimonials-name">Lina Mars</span>
-						                  </div></a>
-						                      <span class="testimonials-post">dd-mm-aaaa</span>
-						                  	</blockquote>
-						                  <div class="table-responsive">
-						                  	<table>
-						                  	<p class="coment">Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p>
-						                  </table>
-						                  </div>
-						                </div>
-						            </div>
-						        </div>
-						    </div> -->
-
 					</div>
-                    
                     <div class="tab-pane fade muroDeNoticias" id="tab2info">
                     	<div id="notice2"></div>
                     </div>
@@ -288,5 +232,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     
 </body  onload="publicaciones()">
 </html>
-
-<?php } ?>

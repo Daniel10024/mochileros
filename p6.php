@@ -6,17 +6,6 @@
   $ape = $_SESSION["‘Apellido’"];
 ?>
 
-<?php 
-$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
-$result = mysqli_query($mysqli, $query);  
-while($row = mysqli_fetch_assoc($result))  
-{  
-  $db_foto=$row['Img_gmail'];
-  $db_foto2=$row['Img_user'];
-}
-  
-?>
-
 <?php if ($use == 1) {
   header("location: p1.php");
 } ?>
@@ -24,7 +13,7 @@ while($row = mysqli_fetch_assoc($result))
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
-} else {
+}
 ?>
 
 
@@ -66,12 +55,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   <div>
                                       <p class="text-center">
                                       <?php 
-                                        if (!is_null($db_foto2)) {
-                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
-                                        }
-                                        else {
-                                          echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
-                                        } 
+                                        echo '<span><img class="cardo" alt="chau" src="img/foto/'.$use.'.jpg"/></span>'; 
                                       ?>
                                       </p>
                                   </div>
@@ -230,6 +214,3 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <script src="js/scrips.js"></script>
 </body>
 </html>
-
-
-<?php } ?>

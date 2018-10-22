@@ -19,8 +19,7 @@ $queryexist = "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = soli
 UNION
 SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $id AND solisitud.Estado = 1";
 
-/*$queryexist = "SELECT * FROM solisitud INNER JOIN usuario ON usuario.ID_Usuario = solisitud.User OR usuario.ID_Usuario = solisitud.Amigo WHERE  User != $id OR Amigo != $id";*/
-/*$queryexist = "SELECT * FROM solisitud WHERE User = $id OR Amigo = $id";*/
+
 $respuesta = mysqli_query($mysqli, $queryexist);
 $numero = mysqli_num_rows($respuesta);
 if ($numero > 0) 
@@ -34,13 +33,12 @@ if ($numero > 0)
         $db_ID_user=$row['ID_Usuario'];
         $db_nombre=$row['Nombre'];
         $db_apellido=$row['Apellido'];
-        $db_foto=$row['Img_gmail'];
+
 
 		$json = array(
 	          'ida' => $db_ID_user,
 	          'nombre' => $db_nombre,
-	          'apellido' => $db_apellido,
-	          'foto' => $db_foto
+	          'apellido' => $db_apellido
 	        );
 		array_push($posta, $json);
       }

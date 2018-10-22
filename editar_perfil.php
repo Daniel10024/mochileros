@@ -28,29 +28,6 @@ $des = $_POST["des_form"];
 
 
 
-
-/*$new = $_FILES['input_file'];
-$name = $_FILES['input_file']['name'];
-$size = $_FILES['input_file']['size'];
-$type = $_FILES['input_file']['type'];
-$tmp_name = $_FILES['input_file']['tmp_name'];
-
-
-  
-$max_size = 100000;  
-$extension = substr($name, strpos($name, '.') + 1);
-$location = ''.$aca.'/img/foto/';
-$foto_name = $use;
-if(isset($name) && !empty($name)){
-  if(($extension == "jpg" || $extension == "jpeg") && $type == "image/jpeg" && $extension == $size<=$max_size){
-    
-    if(move_uploaded_file($tmp_name, $location.$foto_name)){
-      $smsg = "Uploaded Successfully";
-    }
-  }
-}*/
-
-
 if (!empty($nombre)) {
 
 

@@ -7,16 +7,6 @@
 ?>
 
 <?php 
-$query = "SELECT * FROM usuario WHERE ID_Usuario = $use";  
-$result = mysqli_query($mysqli, $query);  
-while($row = mysqli_fetch_assoc($result))  
-{  
-  $db_foto=$row['Img_gmail'];
-  $db_foto2=$row['Img_user'];
-}
-?>
-
-<?php 
 $queryexist = "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $use AND solisitud.Estado = 2";
 $respuesta = mysqli_query($mysqli, $queryexist);
 $numero = mysqli_num_rows($respuesta);
@@ -73,12 +63,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   <div>
                                       <p class="text-center">
                                       <?php 
-                                        if (!is_null($db_foto2)) {
-                                          echo '<span><img class="cardo" alt="hola" src="data:image/jpeg;base64,'.base64_encode( $db_foto2 ).'"/></span>';
-                                        }
-                                        else {
-                                          echo '<span><img class="cardo" alt="chau" src="'.$db_foto.'"/></span>';
-                                        } 
+                                        echo '<span><img class="cardo" alt="chau" src="img/foto/'.$use.'.jpg"/></span>';
                                       ?>
                                       </p>
                                   </div>
@@ -144,16 +129,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                       <div class="col col-xs-6 col-md-6 text-right form-group">
                           <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span class="badge"><?php echo $numero; ?></span></button></a>
                       </div>
-<!--                       <div class="col-xs-12">
-                        <form action="#" method="get">
-                        <div class="input-group">
-                            <input class="form-control" id="system-search" name="q" placeholder="Buscar" required>
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                            </span>
-                        </div>
-                        </form>
-                      </div> -->
+
                     </div>
                   </div>
                   <div class="panel-body">
