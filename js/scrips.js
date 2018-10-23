@@ -107,8 +107,8 @@ $(document).ready(function amigos() {
                                       '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>'+
                                     '</div>'+
                                     '<div class="modal-footer ">'+
-                                      '<button id="botonsi" onclick="eliminar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span> Si</button>'+
-                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>'+
+                                      '<button id="botonsi" onclick="eliminar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span>Si</button>'+
+                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>'+
                                     '</div>'+
                                 '</div>'+
                               '</div>'+
@@ -153,8 +153,8 @@ $(document).ready(function solicitudes() {
                                       '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>'+
                                     '</div>'+
                                     '<div class="modal-footer ">'+
-                                      '<button id="botonsi" onclick="rechazar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span> Si</button>'+
-                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>'+
+                                      '<button id="botonsi" onclick="rechazar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span>Si</button>'+
+                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>'+
                                     '</div>'+
                                 '</div>'+
                               '</div>'+
@@ -254,7 +254,7 @@ $(document).ready(function publicaciones() {
                                       '</blockquote>'+
                                     '<div class="table-responsive">'+ 
                                       '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
-                                      '<div class="col-sm-4 col-md-3"><img class="right" width="185" alt="" src="img/publicaciones/'+item.image+'"/></div></div></table>'+
+                                      '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
                                     '</div>'+
                                   '</div>'+
                               '</div>'+
@@ -269,9 +269,11 @@ $(document).ready(function publicaciones() {
 
 $(document).ready(function publicaciones2() {
     var _urlform ='publicaciones2.php';
+    console.log("esto esta dentro de publicasiones2");
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},    
     function(data){
+      console.log("esto esta dentro de funcion data");
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         $.each(json, function(i, item) {
@@ -288,7 +290,7 @@ $(document).ready(function publicaciones2() {
                                       '</blockquote>'+
                                     '<div class="table-responsive">'+
                                       '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
-                                      '<div class="col-sm-4 col-md-3"><img class="right" width="185" alt="" src="img/publicaciones/'+item.image+'"/></div></div></table>'+
+                                      '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
                                     '</div>'+
                                   '</div>'+
                               '</div>'+
@@ -298,6 +300,7 @@ $(document).ready(function publicaciones2() {
           
         })
         $("#notice2").html(texto);
+        console.log(texto);
     });
 });
 

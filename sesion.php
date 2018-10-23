@@ -8,5 +8,6 @@
 		exit("error: ".mysqli_errno(). "-". mysql1_error());
 	}
 	$bd = mysqli_select_db($mysqli, "mochileros");
+	//$bd = mysqli_select_db($mysqli, "id7451751_mochilerodb");
 
 ?>

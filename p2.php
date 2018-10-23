@@ -230,7 +230,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
         <div class="row hidden" id="btnedit">
             <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
-                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" data-toggle="modal" data-target="#modal_error" type="submit">Editar</button>
+                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" data-toggle="modal" data-target="#modal_error" type="submit">Guardar</button>
             </div>
             <div class="col-xs-5 col-sm-6">
                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>                       

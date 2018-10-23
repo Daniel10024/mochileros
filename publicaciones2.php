@@ -23,7 +23,7 @@ if ($numero > 0)
 {
       while($row=mysqli_fetch_assoc($respuesta))
       {
-        $tu_foto = NULL;
+        $tu_foto = '<div></div>';
         $db_ID_publi=$row['ID_Publicacion'];
         $db_coment=$row['Comentario'];
         $db_publi=$row['Publico'];
@@ -37,7 +37,7 @@ if ($numero > 0)
         while (($archivo = $dirint->read()) !== false)
         {
             if ($archivo == $db_ID_publi.'.jpg'){
-                $tu_foto = $archivo;
+                $tu_foto = '<img class="right" width="185" alt="" src="img/publicaciones/'.$archivo.'"/>';
             }
         }
         $dirint->close();
