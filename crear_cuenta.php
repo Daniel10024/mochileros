@@ -53,12 +53,14 @@ else {
                       VALUES ('$id', '$nombre', '$apellido')";
   copy($foto, ''.$aca.'/img/foto/'.$id.'.jpg');
  /* echo '<script language="javascript">console.log("grabo algo no me mientas");</script>';*/
-  if ($mysqli->query($insert_Usuario) === TRUE) { 
-    
+  if ($mysqli->query($insert_Usuario) === TRUE) {
+  	$_SESSION[‘ID_user’] = "$id";
+    $_SESSION[‘Nombre’] = "$nombre";
+    $_SESSION[‘Apellido’] = "$apellido";
   } 
   else {  
    
-   echo "1";
+   echo "Error: " . $insert_Usuario . "<br>" . $mysqli->error;
    
   }
 }   

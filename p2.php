@@ -18,9 +18,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $nom = $data_cli['Nombre'];
     $ape = $data_cli['Apellido'];
     $eda = $data_cli['Edad'];
-    $idi = $data_cli['Idioma'];
     $pai = $data_cli['Pais'];
-    $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
     $des = $data_cli['Descripcion_U'];
     }

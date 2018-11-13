@@ -269,11 +269,9 @@ $(document).ready(function publicaciones() {
 
 $(document).ready(function publicaciones2() {
     var _urlform ='publicaciones2.php';
-    console.log("esto esta dentro de publicasiones2");
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},    
     function(data){
-      console.log("esto esta dentro de funcion data");
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         $.each(json, function(i, item) {
@@ -300,7 +298,6 @@ $(document).ready(function publicaciones2() {
           
         })
         $("#notice2").html(texto);
-        console.log(texto);
     });
 });
 
@@ -348,4 +345,25 @@ $("#Public").change(function () {
 
 $("#Friends").change(function () {
   $("#dibujito").removeClass("glyphicon-globe").addClass("glyphicon-user");
+});
+
+//cargar notificaciones
+
+$(document).ready(function notificaciones () {
+    var _urlform ='notificaciones.php';
+    $.post(_urlform,{},    
+    function(data){
+      $("#num_soli").html(data);
+      if (data == 0) {
+        if ($("#notifi").hasClass("sinotifi")) {
+          $("#notifi").removeClass("sinotifi").addClass("nonotifi");
+        };
+      }
+
+      if (data > 0) {
+        if ($("#notifi").hasClass("nonotifi")) {
+          $("#notifi").removeClass("nonotifi").addClass("sinotifi");
+        };
+      }
+    });
 });

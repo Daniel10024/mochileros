@@ -492,3 +492,29 @@ text-decoration:none;
   margin-left: 15px;
   text-align: left;
 }
+
+
+.sinotifi{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  opacity: 1;
+}
+.nonotifi{
+  position: fixed;
+  bottom: 0px;
+  right: 0px; 
+  opacity: 0;
+}
+
+.campanita{
+  font-size: 50px;
+  color: red;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.numleft{
+  float: left;
+  margin-top: 20px;
+}

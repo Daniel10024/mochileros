@@ -186,14 +186,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
 						                                	<div class="navbar-login">
 									                      	<div class="row">
-									                          	<div class="col-sm-12">
-									                              	<p><label class="btn btn-info btn-block botoncitoBorrable" for="Public">Public</label></p>
-									                          	</div>
+									                      		<div class="col-sm-12">
+										                            <p><label class="btn btn-primary btn-block botoncitoBorrable" for="Friends">Amigos</label></p>
+										                        </div>
 									                      	</div>
 										                    <div class="row">
 										                        <div class="col-sm-12">
-										                            <p><label class="btn btn-primary btn-block botoncitoBorrable" for="Friends">Friends</label></p>
-										                        </div>
+									                              	<p><label class="btn btn-info btn-block botoncitoBorrable" for="Public">Publico</label></p>
+									                          	</div>
 										                    </div>
 							                  			</div>
 						                                </div>    
@@ -216,6 +216,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
             </div>
         </div>
     </div>
+    </div>
+    <a href="p9.php" id="notifi" class="sinotifi"><span class="glyphicon glyphicon-bell campanita"><span id="num_soli" class="badge numleft"></span></span></a>
     </div>
     </header>
     <script
