@@ -1,9 +1,24 @@
-$(document).ready(function() {
-	var escala = 1;
-	var origen = "argentina";
-	var idioma = 1;
-	var fecha_ini = new Date(2020,12,27);
-	var fecha_fin = new Date(2020,12,20);
+
+
+function buscarViaje(){
+
+
+	var escala = document.getElementById("escalaInput").value;
+
+	var origen = document.getElementById("paisesInput").value;
+
+	var idioma = document.getElementById("idiomasInput").value;
+
+	var fecha_ini = document.getElementById("fechaDesde").value;
+
+	var fecha_fin = document.getElementById("fechaHasta").value;
+
+	console.log(escala)
+	console.log(origen)
+	console.log(idioma)
+	console.log(fecha_ini)
+	console.log(fecha_fin)
+
 	$.ajax({
     type: "POST",
 	url: "php/buscarViaje.php",
@@ -21,4 +36,4 @@ $(document).ready(function() {
 		console.log("no entro la consulta bien xDDDD");
     }
     })
-});
+}
