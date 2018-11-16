@@ -493,6 +493,110 @@ text-decoration:none;
   text-align: left;
 }
 
+<<<<<<< HEAD
+/* MAQUETADO DEL MAPA */
+
+.contenedorMapa{
+  position: relative;
+  bottom: 15px;
+}
+
+.botonAntSig{
+  width: 100px;
+}
+
+.boton-siguiente{
+  float: right;
+}
+
+.divDeEscala{
+  position: absolute;
+  top: -10px;
+}
+
+.divDeEscalaInput{
+  margin-top: 10px;
+}
+
+.contenedorEscala{
+  position: relative;
+  top: -15px;
+  text-align: center;
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+.divInputViaje{
+  position: relative;
+  top: 10px;
+  width: 92%;
+  left: 4%;
+  background-color: red;
+}
+
+.inputsDivsViaje{
+  float: left;
+  width: 50%;
+  height: 30px;
+  text-align: right;
+  font-weight: bold;
+  /* background-color: green; */
+}
+
+.textoDivsViajes{
+  position: relative;
+  right: 6px;
+}
+
+.inputViaje{
+  width: 60%;
+  position: relative;
+  right: 0px;
+  float: right;
+  height: 27px;
+}
+
+.floatRight{
+  float: right;
+}
+
+.intereses{
+  /* background-color: white; */
+  height: 100px;
+  position: relative;
+  top:5px;
+}
+
+.interes{
+  font-weight: bold;
+  /* background-color: green; */
+  //text-align: center;
+  width: 33%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+
+.interesInside{
+  width: 70%;
+  position: relative;
+  left: 25%;
+}
+
+.checkInteres{
+
+}
+
+#buscar{
+  position: relative;
+  top: 10px;
+}
+
+.parteBusqueda{
+=======
 
 .sinotifi{
   position: fixed;
@@ -517,4 +621,5 @@ text-decoration:none;
 .numleft{
   float: left;
   margin-top: 20px;
+>>>>>>> 63e35667044e6d015765a5a23f0145bac7591e98
 }
