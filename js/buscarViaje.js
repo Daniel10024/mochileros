@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function() {
 	var escala = 1;
 	var origen = "argentina";
@@ -9,6 +10,29 @@ $(document).ready(function() {
 	var intereses = [1];
 	console.log(fecha_ini);
 	console.log(fecha_fin);
+=======
+
+
+function buscarViaje(){
+
+
+	var escala = document.getElementById("escalaInput").value;
+
+	var origen = document.getElementById("paisesInput").value;
+
+	var idioma = document.getElementById("idiomasInput").value;
+
+	var fecha_ini = document.getElementById("fechaDesde").value;
+
+	var fecha_fin = document.getElementById("fechaHasta").value;
+
+	console.log(escala)
+	console.log(origen)
+	console.log(idioma)
+	console.log(fecha_ini)
+	console.log(fecha_fin)
+
+>>>>>>> 581bd5ab80a71577ddf52f6a7764ba8bc044f4e4
 	$.ajax({
     type: "POST",
 	url: "php/buscarViaje.php",
@@ -26,4 +50,4 @@ $(document).ready(function() {
 		console.log("no entro la consulta bien xDDDD");
     }
     })
-});
+}

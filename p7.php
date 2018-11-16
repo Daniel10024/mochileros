@@ -6,11 +6,7 @@
   $ape = $_SESSION["‘Apellido’"];
 ?>
 
-<?php 
-$queryexist = "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $use AND solisitud.Estado = 2";
-$respuesta = mysqli_query($mysqli, $queryexist);
-$numero = mysqli_num_rows($respuesta);
-?>
+
 
 <?php if ($use == 1) {
   header("location: p1.php");
@@ -127,7 +123,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de contactos</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span class="badge"><?php echo $numero; ?></span></button></a>
+                          <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span id="num_soli2" class="badge"></span></button></a>
                       </div>
 
                     </div>
