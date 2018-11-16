@@ -269,7 +269,7 @@ $(document).ready(function publicaciones() {
 
 $(document).ready(function publicaciones2() {
     var _urlform ='publicaciones2.php';
-    console.log("esto esta dentro de publicasiones2");
+    console.log("esto esta dentro de publicaciones2");
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},    
     function(data){
