@@ -50,7 +50,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 				<li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
 			</div>
 			<div class="col-xs-6 col-sm-8 col-md-8">
-				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-block btn-primary textoBuscarViajes"> <span class="glyphicon glyphicon-search"></span> Buscar viajes</button></a></li>
+				<li class="center"><a href="p3.php"><button class="btn btn-sm btn-block btn-primary textoBuscarViajes"> <span class="glyphicon glyphicon-search"></span> Buscar Viajes</button></a></li>
 			</div>
 			<div class="col-xs-3 col-sm-2 col-md-2">
 				<ul class="nav navbar-right">
@@ -78,7 +78,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 	                      			</div>
 			                      <?php if ($use == 1) {?>
 			                      	<div id="customBtn" class="2customGPlusSignIn">
-						              <button class="btn btn-info btn-block botoncitoBorrable">Iniciar sesion</button>
+						              <button class="btn btn-info btn-block botoncitoBorrable">Iniciar Sesion</button>
 						            </div>
 			                        <!-- <div class="g-signin2 botonLoginInvitado" data-onsuccess="onSignIn"></div> -->
 			                     <?php  }; ?> 
@@ -86,14 +86,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
 			                      	<div class="row">
 			                          	<div class="col-sm-12">
 			                              	<p>
-			                                  	<a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+			                                  	<a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
 			                              	</p>
 			                          	</div>
 			                      	</div>
 				                    <div class="row">
 				                        <div class="col-sm-12">
 				                            <p>
-				                                <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+				                                <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
 				                            </p>
 				                        </div>
 				                    </div>
@@ -154,7 +154,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 										<form action="publicar.php" enctype="multipart/form-data" method="post" id="form-publicacion">
 						                    <div class="esto">
 						                        <ul class="nav nav-tabs">
-						                            <li class="active"><a data-toggle="tab" href="#posts">Publicar un comentario</a></li>
+						                            <li class="active"><a data-toggle="tab" href="#posts">Publicar Comentario</a></li>
 						                        </ul>
 						                    </div>
 						                    <div class="card-body">
@@ -173,7 +173,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                        </div>
 						                        <div class="col-md-12">
 						                        	<div class="btn-group">
-						                                <label for="publicar-foto" class="btn btn-info compart">Agregar imagen</label>
+						                                <label for="publicar-foto" class="btn btn-info compart">Agregar Imagen</label>
 						                            </div>
 						                            <input type="file" name="image" id="publicar-foto" class="hidden">
 						                            <div class="btn-group">

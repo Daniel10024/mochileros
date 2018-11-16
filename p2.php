@@ -85,14 +85,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
                                     </p>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label class="licki">Fecha de nacimiento</label>
+                <label class="licki">Fecha de Nacimiento</label>
                 <input type="date" id="eda-form" disabled="" name="edad" value="<?php echo $eda;?>" class="form-control" placeholder="Edad"  />
                 <p id="p-eda" class="error"></p>
             </div>
