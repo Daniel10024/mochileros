@@ -493,6 +493,7 @@ text-decoration:none;
   text-align: left;
 }
 
+<<<<<<< HEAD
 /* MAQUETADO DEL MAPA */
 
 .contenedorMapa{
@@ -595,4 +596,30 @@ text-decoration:none;
 }
 
 .parteBusqueda{
+=======
+
+.sinotifi{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  opacity: 1;
+}
+.nonotifi{
+  position: fixed;
+  bottom: 0px;
+  right: 0px; 
+  opacity: 0;
+}
+
+.campanita{
+  font-size: 50px;
+  color: red;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.numleft{
+  float: left;
+  margin-top: 20px;
+>>>>>>> 63e35667044e6d015765a5a23f0145bac7591e98
 }

@@ -1,17 +1,23 @@
 /*   SCRIPT SQL  - Tablas con Restricciones -   */
 
-CREATE TABLE USUARIO
+
+CREATE DATABASE IF NOT EXISTS mochileros2 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE mochileros2;
+
+
+
+CREATE TABLE usuario
        (
-       ID_USUARIO BIGINT NOT NULL,                              
-       NOMBRE CHAR(16) NOT NULL,                              
-       APELLIDO CHAR(16) NOT NULL,                              
-       FECHA_NAC DATETIME NOT NULL,                              
-       PAIS CHAR(16) NOT NULL,                              
-       DESCRIPCION VARCHAR(255) NOT NULL,                              
-       CONTACTO VARCHAR(30) NOT NULL,                              
+       ID_Usuario varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+       Nombre CHAR(16) NOT NULL,                              
+       Apellido CHAR(16) NOT NULL,                              
+       Edad DATE NOT NULL,                              
+       Pais CHAR(16) NOT NULL,                              
+       Descripcion_U VARCHAR(255) NOT NULL,                              
+       Contacto VARCHAR(30) NOT NULL,                              
        PRIMARY KEY
                (
-               ID_USUARIO
+               ID_Usuario
                )
        );
 
@@ -43,11 +49,11 @@ CREATE TABLE ESCALA
 
 CREATE TABLE INTERES
        (
-       ID_INTERES BIGINT NOT NULL,                              
-       DESCRIPCION VARCHAR(60) NOT NULL,                              
+       ID_Interes BIGINT NOT NULL,                              
+       Nombre VARCHAR(60) NOT NULL,                              
        PRIMARY KEY
                (
-               ID_INTERES
+               ID_Interes
                )
        );
 
@@ -56,21 +62,21 @@ CREATE TABLE INTERES
 CREATE TABLE VIAJE
        (
        ID_VIAJE BIGINT NOT NULL,                              
-       ID_USUARIO BIGINT NOT NULL,                              
+       ID_Usuario varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
        ID_ESCALA BIGINT NULL,                              
        NOMBRE CHAR(60) NOT NULL,                              
        PRIMARY KEY
                (
                ID_VIAJE,
-               ID_USUARIO
+               ID_Usuario
                ),
        FOREIGN KEY
                (
-               ID_USUARIO
+               ID_Usuario
                )
-          REFERENCES USUARIO
+          REFERENCES usuario
                (
-               ID_USUARIO
+               ID_Usuario
                ),
        FOREIGN KEY
                (
@@ -88,7 +94,7 @@ CREATE TABLE PUNTO
        (
        ID_PUNTO BIGINT NOT NULL,                              
        ID_VIAJE BIGINT NOT NULL,                              
-       ID_USUARIO BIGINT NOT NULL,                              
+       ID_Usuario varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
        EJE_X BIGINT NOT NULL,                              
        EJE_Y BIGINT NOT NULL,                              
        FECHA_INICIO DATETIME NOT NULL,                              
@@ -98,47 +104,49 @@ CREATE TABLE PUNTO
                (
                ID_PUNTO,
                ID_VIAJE,
-               ID_USUARIO
+               ID_Usuario
                ),
        FOREIGN KEY
                (
                ID_VIAJE,
-               ID_USUARIO
+               ID_Usuario
                )
           REFERENCES VIAJE
                (
                ID_VIAJE,
-               ID_USUARIO
+               ID_Usuario
                )
        );
 
 
 
-CREATE TABLE AMIGO
+CREATE TABLE solisitud
        (
-       ID_USUARIO BIGINT NOT NULL,                              
-       ID_USUARIO_1 BIGINT NOT NULL,                              
-       ESTADO TINYINT NOT NULL,                              
+       ID_solisitud BIGINT NOT NULL,                              
+       User varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+       Amigo varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+       Estado TINYINT NOT NULL,                              
        PRIMARY KEY
                (
-               ID_USUARIO,
-               ID_USUARIO_1
+               ID_solisitud,
+               User,
+               Amigo
                ),
        FOREIGN KEY
                (
-               ID_USUARIO
+               User
                )
-          REFERENCES USUARIO
+          REFERENCES usuario
                (
-               ID_USUARIO
+               ID_Usuario
                ),
        FOREIGN KEY
                (
-               ID_USUARIO_1
+               Amigo
                )
-          REFERENCES USUARIO
+          REFERENCES usuario
                (
-               ID_USUARIO
+               ID_Usuario
                )
        );
 
@@ -147,11 +155,11 @@ CREATE TABLE AMIGO
 CREATE TABLE HABLA
        (
        ID_IDIOMA BIGINT NOT NULL,                              
-       ID_USUARIO BIGINT NOT NULL,                              
+       ID_Usuario varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
        PRIMARY KEY
                (
                ID_IDIOMA,
-               ID_USUARIO
+               ID_Usuario
                ),
        FOREIGN KEY
                (
@@ -163,11 +171,11 @@ CREATE TABLE HABLA
                ),
        FOREIGN KEY
                (
-               ID_USUARIO
+               ID_Usuario
                )
-          REFERENCES USUARIO
+          REFERENCES usuario
                (
-               ID_USUARIO
+               ID_Usuario
                )
        );
 
@@ -177,37 +185,54 @@ CREATE TABLE LE_INTERESA
        (
        ID_PUNTO BIGINT NOT NULL,                              
        ID_VIAJE BIGINT NOT NULL,                              
-       ID_USUARIO BIGINT NOT NULL,                              
-       ID_INTERES BIGINT NOT NULL,                              
+       ID_Usuario varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+       ID_Interes BIGINT NOT NULL,                              
        PRIMARY KEY
                (
                ID_PUNTO,
                ID_VIAJE,
-               ID_USUARIO,
-               ID_INTERES
+               ID_Usuario,
+               ID_Interes
                ),
        FOREIGN KEY
                (
                ID_PUNTO,
                ID_VIAJE,
-               ID_USUARIO
+               ID_Usuario
                )
           REFERENCES PUNTO
                (
                ID_PUNTO,
                ID_VIAJE,
-               ID_USUARIO
+               ID_Usuario
                ),
        FOREIGN KEY
                (
-               ID_INTERES
+               ID_Interes
                )
           REFERENCES INTERES
                (
-               ID_INTERES
+               ID_Interes
                )
        );
 
 
+CREATE TABLE `publicacion` (
+  `ID_Publicacion` int(11) NOT NULL,
+  `ID_Usuario` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Comentario` varchar(640) NOT NULL,
+  `Publico` int(11) NOT NULL,
+  `Fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+ALTER TABLE `publicacion`
+  ADD PRIMARY KEY (`ID_Publicacion`),
+  ADD KEY `ID_Usuario` (`ID_Usuario`),
+  ADD KEY `ID_Usuario_2` (`ID_Usuario`),
+  ADD KEY `ID_Usuario_3` (`ID_Usuario`);
+
+
+ALTER TABLE `publicacion`
+  MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
