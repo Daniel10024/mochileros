@@ -367,3 +367,11 @@ $(document).ready(function notificaciones () {
       }
     });
 });
+
+$(document).ready(function notificaciones2 () {
+    var _urlform ='notificaciones.php';
+    $.post(_urlform,{},    
+    function(data){
+      $("#num_soli2").html(data);
+    });
+});

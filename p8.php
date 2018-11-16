@@ -33,9 +33,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $nom = $data_cli['Nombre'];
     $ape = $data_cli['Apellido'];
     $eda = $data_cli['Edad'];
-    $idi = $data_cli['Idioma'];
     $pai = $data_cli['Pais'];
-    $int = $data_cli['Intereses'];
     $con = $data_cli['Contacto'];
     $des = $data_cli['Descripcion_U'];
     }
@@ -188,20 +186,20 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <p id="p-eda" class="error"></p>
             </div>
         </div>
-        <div class="row">
+<!--         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Intereses</label>
                 <input type="text" id="int-form" disabled="" name="nombre" value="<?php echo $int;?>" class="form-control" placeholder="Intereses"  />
                 <p id="p-int" class="error"></p>
             </div>
-        </div>
-        <div class="row">
+        </div> -->
+<!--         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Idioma</label>
                 <input type="text" id="idi-form" disabled="" name="nombre" value="<?php echo $idi;?>" class="form-control" placeholder="Idioma"  />
                 <p id="p-idi" class="error"></p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>
