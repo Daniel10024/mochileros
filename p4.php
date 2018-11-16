@@ -74,14 +74,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
                                     </p>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de viajes</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p5.php"><button class="btn btn-primary">Agregar viaje</button> </a> 
+                          <a href="p5.php"><button class="btn btn-primary">Agregar Viaje</button> </a> 
                       </div>
                       <div class="col-xs-12">
                           <form action="#" method="get">
@@ -201,7 +201,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                      <h4 class="modal-title custom_align" id="Heading">Eliminar viaje</h4>
+                      <h4 class="modal-title custom_align" id="Heading">Eliminar Viaje</h4>
                   </div>
                      <div class="modal-body">
                    

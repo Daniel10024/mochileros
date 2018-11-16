@@ -70,14 +70,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
                                     </p>
                                 </div>
                             </div>
@@ -123,18 +123,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <!-- <div class="container"> -->
       <div class="row">
         <div class="col-xs-6">
-          <label class="licki" for="desde">fecha de llegada</label>
+          <label class="licki" for="desde">Fecha de LLegada</label>
           <input id="desde" ="" class="form-control" type="date" disabled="">
         </div>
         <div class="col-xs-6">
-          <label class="licki" for="hasta">fecha de partida</label>
+          <label class="licki" for="hasta">Fecha de Partida</label>
           <input id="hasta" ="" class="form-control" type="date" disabled="">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-xs-6">
-          <label class="licki" for="desde">intereses</label>
+          <label class="licki" for="desde">Intereses</label>
 
 
       <div class="dropdown dropdown-large">
@@ -146,7 +146,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
               <li><div class="row">
                 <div class="col-xs-12 col-sm-4">
                   <div class="checkbox">
-                    <label for="op1" class=""><input type="checkbox" id="op1" class="big-checkbox" value="" disabled="">Extraterrestres</label>
+                    <label for="op1" class=""><input type="checkbox" id="op1" class="big-checkbox" value="" disabled="">Esquiar</label>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
@@ -156,7 +156,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 </div>
                 <div class="col-xs-12 col-sm-4">
                   <div class="checkbox">
-                     <label for="op5" class=""><input type="checkbox" id="op5" class="big-checkbox" checked="" value="" disabled="">escabiar</label>
+                     <label for="op5" class=""><input type="checkbox" id="op5" class="big-checkbox" checked="" value="" disabled="">Fiesta Nocturna</label>
                   </div>
                 </div>
               </div></li>
@@ -164,7 +164,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
               <li><div class="row">
                 <div class="col-xs-12 col-sm-6">
                   <div class="checkbox">
-                    <label for="op3" class=""><input type="checkbox" id="op3" class="big-checkbox" checked="" value="" disabled="">Capturar pokemons</label>
+                    <label for="op3" class=""><input type="checkbox" id="op3" class="big-checkbox" checked="" value="" disabled="">Capturar Pokemons</label>
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">

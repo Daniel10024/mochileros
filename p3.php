@@ -63,21 +63,21 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               </div>
                             <?php if ($use == 1) {?>
                               <div id="customBtn" class="2customGPlusSignIn">
-                                <button class="btn btn-info btn-block botoncitoBorrable">Iniciar sesion</button>
+                                <button class="btn btn-info btn-block botoncitoBorrable">Iniciar Sesion</button>
                               </div>
                            <?php  }; ?> 
                            <?php if ($use != 1) {?>
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
                                     </p>
                                 </div>
                             </div>
@@ -953,7 +953,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
           <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-              <a href="#"><button id="buscar" onclick="buscarViaje()" type="button" class="btn btn-lg  btn-block btn-success">Realizar busqueda</button></a>
+              <a href="#"><button id="buscar" onclick="buscarViaje()" type="button" class="btn btn-lg  btn-block btn-success">Realizar Busqueda</button></a>
             </div>
           </div>
 
