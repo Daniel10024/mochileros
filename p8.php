@@ -75,7 +75,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
       </div>
       <div class="col-xs-6 col-sm-8 col-md-8">
         <?php if ($amigo_id != $use and !in_array($amigo_id, $amigos)): ?>
-          <li class="center"><button class="btn btn-sm btn-block btn-success textoBuscarViajes" onclick="enviar();"> <span class="glyphicon glyphicon-search"></span> Enviar solicitud</button></li>
+          <li class="center"><button class="btn btn-sm btn-block btn-success textoBuscarViajes" onclick="enviar();"> <span class="glyphicon glyphicon-search"></span> Enviar Solicitud</button></li>
         <?php endif ?>
       </div>
       <div class="col-xs-3 col-sm-2 col-md-2">
@@ -106,14 +106,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
                                     </p>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label class="licki">Fecha de nacimiento</label>
+                <label class="licki">Fecha de Nacimiento</label>
                 <input type="date" id="eda-form" disabled="" name="nombre" value="<?php echo $eda;?>" class="form-control" placeholder="Fecha de nacimiento"  />
                 <p id="p-eda" class="error"></p>
             </div>

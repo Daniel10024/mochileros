@@ -74,14 +74,14 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <div class="row">
                                   <div class="col-sm-12">
                                       <p>
-                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi perfil</a>
+                                          <a href="p2.php" class="btn btn-info btn-block botoncitoBorrable">Mi Perfil</a>
                                       </p>
                                   </div>
                               </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <p>
-                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis viajes</a>
+                                        <a href="p4.php" class="btn btn-primary btn-block botoncitoBorrable">Mis Viajes</a>
                                     </p>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   <div class="panel-heading">
                     <div class="row">
                       <div class="col col-xs-6 col-md-6">
-                          <h3 class="panel-title">Lista de contactos</h3>
+                          <h3 class="panel-title">Lista de Contactos</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
                           <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span id="num_soli2" class="badge"></span></button></a>

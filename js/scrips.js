@@ -77,7 +77,6 @@ function invitado(){
 
 $(document).ready(function amigos() {
     var _urlform ='amigos.php';
-    var id_yo = myvar;
     $.post(_urlform,{id:id_yo},
     function(data){
         var json = JSON.parse(JSON.stringify(data));
