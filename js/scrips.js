@@ -77,6 +77,7 @@ function invitado(){
 
 $(document).ready(function amigos() {
     var _urlform ='amigos.php';
+    var id_yo = myvar;
     $.post(_urlform,{id:id_yo},
     function(data){
         var json = JSON.parse(JSON.stringify(data));
@@ -371,7 +372,10 @@ $(document).ready(function notificaciones2 () {
     var _urlform ='notificaciones.php';
     $.post(_urlform,{},    
     function(data){
-      $("#num_soli2").html(data);
+      if (data > 0) {
+        $("#num_soli2").html(data);
+      }
+      
     });
 });
 
