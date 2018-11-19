@@ -595,8 +595,7 @@ text-decoration:none;
   top: 10px;
 }
 
-.parteBusqueda{
-=======
+.parteBusqueda{}
 
 .sinotifi{
   position: fixed;
@@ -621,5 +620,4 @@ text-decoration:none;
 .numleft{
   float: left;
   margin-top: 20px;
->>>>>>> 63e35667044e6d015765a5a23f0145bac7591e98
 }
