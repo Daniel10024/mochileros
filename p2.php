@@ -13,6 +13,7 @@
 
 <?php 
 $usuario_id = 1;
+// "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $id AND solisitud.Estado = 1";
 $query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
 while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
     $nom = $data_cli['Nombre'];
@@ -188,20 +189,15 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <p id="p-int" class="error"></p>
             </div>
         </div> -->
-<!--         <div class="row">
+        <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Idioma</label>
                 <select class="form-control" disabled="" id="select_idioma" name="idioma">
-                  <option selected value="<?php echo $idi; ?>"><?php echo $idi;?></option>
-                  <option value="Español">Español</option>
-                  <option value="Ingles">Ingles</option>
-                  <option value="Frances">Frances</option>
-                  <option value="Otro">Otro</option>
-                  <option value="">(Borrar Dato)</option>
+                  
                 </select>
                 <p id="p-idi" class="error"></p>
             </div>
-        </div> -->
+        </div> 
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>

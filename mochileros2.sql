@@ -1,8 +1,8 @@
 /*   SCRIPT SQL  - Tablas con Restricciones -   */
 
 
-CREATE DATABASE IF NOT EXISTS mochileros2 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE mochileros2;
+CREATE DATABASE IF NOT EXISTS mochileros4 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE mochileros4;
 
 
 
@@ -26,14 +26,15 @@ CREATE TABLE usuario
 CREATE TABLE IDIOMAS
        (
        ID_IDIOMA BIGINT NOT NULL,                              
-       IDIOMA BIGINT NOT NULL,                              
+       IDIOMA varchar(32) NOT NULL,                              
        PRIMARY KEY
                (
                ID_IDIOMA
                )
        );
 
-
+ALTER TABLE `IDIOMAS`
+  MODIFY `ID_IDIOMA` BIGINT NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE ESCALA
        (
@@ -45,7 +46,8 @@ CREATE TABLE ESCALA
                )
        );
 
-
+ALTER TABLE `ESCALA`
+  MODIFY `ID_ESCALA` BIGINT NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE INTERES
        (
@@ -57,7 +59,8 @@ CREATE TABLE INTERES
                )
        );
 
-
+ALTER TABLE `INTERES`
+  MODIFY `ID_Interes` BIGINT NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE VIAJE
        (
@@ -88,7 +91,8 @@ CREATE TABLE VIAJE
                )
        );
 
-
+ALTER TABLE `VIAJE`
+  MODIFY `ID_VIAJE` BIGINT NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE PUNTO
        (
@@ -118,6 +122,8 @@ CREATE TABLE PUNTO
                )
        );
 
+ALTER TABLE `PUNTO`
+  MODIFY `ID_PUNTO` BIGINT NOT NULL AUTO_INCREMENT;
 
 
 CREATE TABLE solisitud
@@ -235,4 +241,12 @@ ALTER TABLE `publicacion`
 
 ALTER TABLE `publicacion`
   MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+
+
+
+
+
+
+
 

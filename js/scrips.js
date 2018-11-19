@@ -375,3 +375,5 @@ $(document).ready(function notificaciones2 () {
       $("#num_soli2").html(data);
     });
 });
+
+$("#select_idioma").load("buscar_idioma.php")
