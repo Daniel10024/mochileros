@@ -39,7 +39,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
-    <link rel="icon" type="image/png" href="img/backpack.png" />
+    <link rel="icon" type="image/png" href="img/logomini.png" />
 
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
@@ -52,7 +52,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
   <ul class="nav nav-tabs">
     <div class="row">
       <div class="col-xs-2">
-        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/logomini.png" alt="" /></span></a></li>
       </div>
       <div class="col-xs-8">
         
@@ -218,21 +218,27 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
 
         <div class="row">
-            <div class="col col-xs-9 col-sm-10 col-md-11">
+            <div class="col col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
                 <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
             </div>
-            <div class="col col-xs-3 col-sm-2 col-md-1">
-                  <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil right"></button>
+            <div class="col-xs-5 col-sm-6">
+                  <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-block btn-create right">Editar</button>
             </div>
+            
         </div>
 
         <div class="row hidden" id="btnedit">
-            <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
-                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" data-toggle="modal" data-target="#modal_error" type="submit">Guardar</button>
+
+
+           <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>
             </div>
             <div class="col-xs-5 col-sm-6">
-                  <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>                       
+                   
+                  <button id="btn_guardar" class="btn btn-lg btn-primary btn-block signup-btn" data-toggle="modal" data-target="#modal_error" type="submit">Guardar</button>
+
             </div>
+
         </div> 
     </form>
 <!-- ventana modal _______________________________________________________________________________________________________ -->
