@@ -6,6 +6,8 @@
   $ape = $_SESSION["‘Apellido’"];
 ?>
 
+
+
 <?php if ($use == 1) {
   header("location: p1.php");
 } ?>
@@ -28,7 +30,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
-    <link rel="icon" type="image/png" href="img/logomini.png" />
+    <link rel="icon" type="image/png" href="img/backpack.png" />
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
@@ -40,7 +42,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
   <ul class="nav nav-tabs">
     <div class="row">
       <div class="col-xs-2">
-        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/logomini.png" alt="" /></span></a></li>
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
       </div>
       <div class="col-xs-8">
       </div>
@@ -113,27 +115,17 @@ if(!isset($_SESSION["‘ID_user’"])) {
     </ul>
   </div>
 </div>
-
-<div class="row nav_muro">
-	<div class="col-md-12">
-        <div class="panel with-nav-tabs panel-info">
-            <div class="panel-heading center">
-                <ul class="nav nav-tabs">
-                    <li class="active col-xs-6"><a href="#tab1info" data-toggle="tab">Amigos</a></li>
-                    <li class="col-xs-6"><a href="#tab2info" data-toggle="tab">Solicitudes <span id="num_soli2" class="badge"></span></a></li>
-                </ul>
-            </div>
-            <div class="panel-body">
-                <div class="tab-content">
-                    <div class="tab-pane fade in active muroDeNoticias" id="tab1info">
-						<!-- tabla1_______________________________________ -->
-                    	<div class="panel panel-default panel-table">
+<br>
+          <div class="panel panel-default panel-table">
                   <div class="panel-heading">
                     <div class="row">
                       <div class="col col-xs-6 col-md-6">
                           <h3 class="panel-title">Lista de Contactos</h3>
                       </div >
-                      <br><br>
+                      <div class="col col-xs-6 col-md-6 text-right form-group">
+                          <a href="p9.php"><button type="button" class="btn btn-sm btn-primary btn-create ">Solicitudes <span id="num_soli2" class="badge"></span></button></a>
+                      </div>
+
                     </div>
                   </div>
                   <div class="panel-body">
@@ -165,74 +157,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   </div>
               </div>
             </div>
-            <div class="row">
-            <div class="col col-xs-12 ">
-              <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
-            </div>
-            </div>
+
+
+          <div class="col col-xs-12 ">
+            <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+        </div>
             <!-- _________________________ventana modal de borrar__________________________ -->
              <div id="modal_aca2">
             </div> 
             <!-- ________________________________________________________ -->
-                    	<!-- ____________________________________________ -->
-					</div>
-                    <div class="tab-pane fade muroDeNoticias" id="tab2info">
-                    	<!-- tabla2__________________________________ -->
-                    	<div class="panel panel-default panel-table">
-                  <div class="panel-heading">
-                    <div class="row">
-                      <div class="col col-xs-6 col-md-6">
-                          <h3 class="panel-title">Lista de Solicitudes</h3>
-                      </div >
-                      <br><br>
-                    </div>
-                  </div>
-                  <div class="panel-body">
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
-                      <thead>
-                        <tr>
-                          <th><p>Foto</p></th>
-                          <th><p>Nombre</p></th>
-                          <th><p>Aceptar/Rechazar</p></th>
-                        </tr> 
-                      </thead>
-                      <tbody id="tbody2">
-                            
-                       </tbody>
-                    </table>
-                  </div>
-                  <div class="panel-footer">
-                  <div class="row">
-                      <div class="col col-xs-12 center">
-                        <ul class="pagination pull-center">
-                          <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
-                          <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
-                        </ul>
-                      </div>
-                  </div>
-              </div>
-            </div>
-        <div class="row">
-          <div class="col col-xs-12 ">
-            <a href="p7.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
-          </div>
-       </div> 
-            <!-- _________________________ventana modal de borrar__________________________ -->
-             <div id="modal_aca">
-            </div> 
-            <!-- ________________________________________________________ -->
-                    	<!-- _________________________________________ -->
-                    </div>
-                </div>
-            </div>
+
+          
         </div>
-    </div>
-    </div>
-    </div>
     </header>
     <script
               src="https://code.jquery.com/jquery-3.2.1.min.js"
