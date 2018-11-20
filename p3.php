@@ -21,7 +21,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-login.css">
-    <link rel="icon" type="image/png" href="img/backpack.png" />
+    <link rel="icon" type="image/png" href="img/logomini.png" />
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
     <script src="js/mapa.js"></script>
 
@@ -35,7 +35,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
   <ul class="nav nav-tabs">
     <div class="row">
       <div class="col-xs-2">
-        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/m.jpg" alt="" /></span></a></li>
+        <li role="presentation"><a href="p1.php"> <span><img class="ovalo" src="img/logomini.png" alt="" /></span></a></li>
       </div>
       <div class="col-xs-8">
 
