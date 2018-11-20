@@ -195,10 +195,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
       </div>
       <div class="row hidden" id="btnedit">
             <div class="col-xs-6">
-                  <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Editar</button>
+                  <a href="p6.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>
             </div>
             <div class="col-xs-6">
-                  <a href="p6.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>
+                  <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Editar</button>
             </div>
       </div>
 </div>
