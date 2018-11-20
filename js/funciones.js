@@ -103,14 +103,19 @@ $(document).ready(function() {
     //validar fecha nacimiento__________________________________________________________________________________
     	var fecha = $("#eda-form").val()
         // revisar el patrón
-        if(!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(fecha)) {
-        	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
-                    '<div class="table-responsive">'+
-                    '<table class="table" id="tr_modal"></table>'+
-                '</div>';
-        	$('#mensaje_modal').html(data);
-            return false;
-		}
+        console.log (fecha+" "+"hola");
+        if (fecha != 0) {
+            console.log (fecha+" "+"chau");
+            /*alert ("hola");*/
+            if(!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(fecha)) {
+            	data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Ingrese una fecha valida </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            	$('#mensaje_modal').html(data);
+                return false;
+    		}
+
         // convertir los numeros a enteros
         var parts = fecha.split("/");
         var day = parseInt(parts[2], 10);
@@ -149,23 +154,7 @@ $(document).ready(function() {
                     '</div>';
             $('#mensaje_modal').html(data);
         };
-  
-    //validar intereses______________________________________________________________________________________
-        if($("#int-form").val().length > 64) {
-            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Los intereses pueden ocupar un maximo de 64 caracteres </div>'+
-                        '<div class="table-responsive">'+
-                        '<table class="table" id="tr_modal"></table>'+
-                    '</div>';
-            $('#mensaje_modal').html(data);
-            return false;   
         }
-        else {
-            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
-                        '<div class="table-responsive">'+
-                        '<table class="table" id="tr_modal"></table>'+
-                    '</div>';
-            $('#mensaje_modal').html(data);
-        };
 
         //validar contacto_________________________________________________________________________________________
         if($("#con-form").val().length > 64) {
@@ -183,9 +172,8 @@ $(document).ready(function() {
                     '</div>';
             $('#mensaje_modal').html(data);
         };
-
         //validar descripcion_______________________________________________________________________________________
-        if($("#nom-form").val().length > 320) {
+        if($("#des-form").val().length > 320) {
             data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> La descripcion no puede ocupar mas de 320 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+

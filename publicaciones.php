@@ -16,11 +16,13 @@ $aca = getcwd();
 $posta = array();
 $id = $_POST["id"];
 
+$querypublic = "SELECT * FROM publicacion JOIN usuario ON publicacion.ID_Usuario = usuario.ID_Usuario AND publicacion.Publico = 2";
+
 $queryamigos = "SELECT ID_Usuario FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.Amigo WHERE solisitud.User = $id AND solisitud.Estado = 1
 UNION
 SELECT ID_Usuario FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $id AND solisitud.Estado = 1";
 
-$queryexist = "SELECT * FROM publicacion JOIN usuario ON publicacion.ID_Usuario = usuario.ID_Usuario WHERE publicacion.ID_Usuario IN ($queryamigos) OR publicacion.ID_Usuario = $id";
+$queryexist = "SELECT * FROM publicacion JOIN usuario ON publicacion.ID_Usuario = usuario.ID_Usuario WHERE publicacion.ID_Usuario IN ($queryamigos) OR publicacion.ID_Usuario = $id UNION ($querypublic) ORDER BY ID_Publicacion DESC";
 
 $respuesta = mysqli_query($mysqli, $queryexist);
 $numero = mysqli_num_rows($respuesta);

@@ -152,7 +152,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                        </tbody>
                     </table>
                   </div>
-                  <div class="panel-footer">
+<!--                   <div class="panel-footer">
                   <div class="row">
                       <div class="col col-xs-12 center">
                         <ul class="pagination pull-center">
@@ -163,7 +163,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                         </ul>
                       </div>
                   </div>
-              </div>
+              </div> -->
             </div>
             <div class="row">
             <div class="col col-xs-12 ">
@@ -203,7 +203,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                        </tbody>
                     </table>
                   </div>
-                  <div class="panel-footer">
+ <!--                  <div class="panel-footer">
                   <div class="row">
                       <div class="col col-xs-12 center">
                         <ul class="pagination pull-center">
@@ -214,7 +214,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                         </ul>
                       </div>
                   </div>
-              </div>
+              </div> -->
             </div>
         <div class="row">
           <div class="col col-xs-12 ">

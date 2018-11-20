@@ -137,16 +137,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <div class="row nav_muro">
 	<div class="col-md-12">
         <div class="panel with-nav-tabs panel-info">
-            <div class="panel-heading center">
-                    <ul class="nav nav-tabs">
+           <!-- <div class="panel-heading center">
+                     <ul class="nav nav-tabs">
                         <li class="active col-xs-6"><a href="#tab1info" data-toggle="tab">Amigos</a></li>
                         <li class="col-xs-6"><a href="#tab2info" data-toggle="tab">Publico</a></li>
-                    </ul>
-            </div>
+                    </ul> 
+            </div>-->
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade in active muroDeNoticias" id="tab1info">
-
+						<?php if ($use != 1): ?>
+							
+						
                     	<div class="pensando">
                     		<div class="row">
 					            <div class="col-md-12">
@@ -207,17 +209,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
 					            </div>
                     		</div>
                     	</div>
+                    	<?php endif ?>
                     	<div id="notice"></div>
 					</div>
-                    <div class="tab-pane fade muroDeNoticias" id="tab2info">
+<!--                     <div class="tab-pane fade muroDeNoticias" id="tab2info">
                     	<div id="notice2"></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
     </div>
-    <a href="p9.php" id="notifi" class="sinotifi"><span class="glyphicon glyphicon-bell campanita"><span id="num_soli" class="badge numleft"></span></span></a>
+    <a href="p7.php" id="notifi" class="nonotifi"><span class="glyphicon glyphicon-bell campanita"><span id="num_soli" class="badge numleft"></span></span></a>
     </div>
     </header>
     <script

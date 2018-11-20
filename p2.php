@@ -189,7 +189,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <p id="p-int" class="error"></p>
             </div>
         </div> -->
-        <div class="row">
+<!--         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Idioma</label>
                 <select class="form-control" disabled="" id="select_idioma" name="idioma">
@@ -197,7 +197,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 </select>
                 <p id="p-idi" class="error"></p>
             </div>
-        </div> 
+        </div>  -->
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>
