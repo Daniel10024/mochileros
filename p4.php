@@ -150,7 +150,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <tr>
                               <th><p>Nº</p></th>
                               <th><p>Viaje</p></th>
-                              <th><p>Ver/Eliminar</p></th>
+                              <th><p>Editar/Eliminar</p></th>
                           </tr> 
                       </thead>
                       <tbody>
@@ -158,7 +158,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <td data-name="ID"><p name="id1">Nº 1</p></td>
                               <td data-name="nom"><p name="nom1">Viaje 1</p></td>
                               <td data-name="opt" align="center">
-                                <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
+                                <a name="ver1" href="p6.php" title="Editar" class="btn btn-primary"><em class="glyphicon glyphicon-pencil"></em></a>
                                 <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
                               </td>
                           </tr>
@@ -166,7 +166,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                               <td data-name="ID"><p name="id1">Nº 2</p></td>
                               <td data-name="nom"><p name="nom1">Viaje 2</p></td>
                               <td data-name="opt" align="center">
-                                <a name="ver1" href="p6.php" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>
+                                <a name="ver1" href="p6.php" title="Editar" class="btn btn-primary"><em class="glyphicon glyphicon-pencil"></em></a>
                                 <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
                               </td>
                           </tr>
