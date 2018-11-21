@@ -13,6 +13,18 @@ if(!isset($_SESSION["‘ID_user’"])) {
 } else {
 ?>
 
+<?php 
+$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
+while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
+    $nom = $data_cli['Nombre'];
+    $ape = $data_cli['Apellido'];
+    $eda = $data_cli['Edad'];
+    $pai = $data_cli['Pais'];
+    $con = $data_cli['Contacto'];
+    $des = $data_cli['Descripcion_U'];
+    }
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,25 +133,26 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
 
         <div class="contenedorMapa">
-          
           <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0;" allowfullscreen></iframe>
-          <button type="button" class="btn btn-primary botonAntSig">Anterior</button>
-          <button type="button" class="btn btn-primary botonAntSig boton-siguiente">Siguiente</button>
-        
+          <div class="row">
+            <div class="col-xs-6">
+              <button type="button" class="btn btn-primary botonAntSig">Anterior</button>
+            </div>
+            <div class="col-xs-6">
+              <button type="button" class="btn btn-primary botonAntSig boton-siguiente">Siguiente</button>
+            </div>
+          </div>
         </div>
-
-        <div class="parteBusqueda">
-          
+        
+        <div class="marco_escala">
           <div class="row contenedorEscala">
-
-            <div class="col-xs-6 col-xs-offset-3 divDeEscala">
+            <div class="col-xs-12 center">
               <span class="negrita">
                 Escala: 
               </span>
             </div> 
-
-            <div class="col-xs-6 col-xs-offset-3 divDeEscalaInput">
-              <input list="escala" placeholder="Global/Continente/Pais" id="escalaInput">
+            <div class="col-xs-12 center divDeEscalaInput">
+              <input class="form-control center" list="escala" placeholder="Global/Continente/Pais" id="escalaInput">
                 <datalist id="escala">
                   <option value="Global">
                   <option value="America">
@@ -384,23 +397,23 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 </datalist> 
               <!-- <input type="text" class="form-control input-sm inputEscala"> -->
             </div> 
-
-
-            <div class="divInputViaje">
-
-              <div class="inputsDivsViaje">
-                <span class="textoDivsViajes">Desde:</span>
-                <input class="inputViaje " required="required" type="date" id="fechaDesde">
-              </div>
-
-              <div class="inputsDivsViaje">
-                <span class="textoDivsViajes">Hasta:</span>
-                <input class="inputViaje " required="required" type="date" id="fechaHasta">
-              </div>
-
-              <div class="inputsDivsViaje">
-                <span class="textoDivsViajes">Idiomas:</span>
-                <input class="inputViaje " required="required" type="text" list="lenguajes" id="idiomasInput">
+          </div>
+        </div>
+            <div class="row">
+            <div class="col-xs-6">
+                <strong>Desde:</strong>
+                <input class="form-control " required="required" type="date" id="fechaDesde">
+            </div>
+            <div class="col-xs-6">
+                <strong>Hasta:</strong>
+                <input class="form-control " required="required" type="date" id="fechaHasta">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-6">
+                <strong>Idiomas:</strong>
+                <input class="form-control " required="required" type="text" list="lenguajes" id="idiomasInput">
                 <datalist id="lenguajes">
                   <option value="Afrikáans">
                   <option value="Akan">
@@ -617,12 +630,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   <option value="Yupik">
                   <option value="Zulú">
                 </datalist>
-
-              </div>
-
-              <div class="inputsDivsViaje">
-                <span class="textoDivsViajes">Origen:</span>
-                <input class="inputViaje " required="required" type="text" list="paises" id="paisesInput">
+            </div>
+            <div class="col-xs-6">
+                <strong>Origen:</strong>
+                <input class="form-control " required="required" type="text" list="paises" id="paisesInput">
                 <datalist id="paises">
                   <option value="Todos">
                   <option value="Afganistán">
@@ -860,13 +871,145 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   <option value="Zambia">
                   <option value="Zimbabue">
                 </datalist> 
-              </div>
-
             </div>
-
           </div>
+          <br> 
 
-          <div class="intereses">
+          
+
+          
+<section class="hidden-xs">
+          <div class="row">
+            <div class="col-sm-4"><input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
+                <label for="citas">
+                  Citas
+                </label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
+                <label for="fotos">
+                  Fotos
+                </label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
+                <label for="comer">
+                  Comer
+                </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
+                <label for="bailar">
+                  Bailar
+                </label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
+                <label for="deportes">
+                  Deportes
+                </label>
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
+                <label for="musica">
+                  Musica
+                </label> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
+                <label for="cultura">
+                  Cultura
+                </label> 
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
+                <label for="amigos">
+                  Amigos
+                </label> 
+            </div>
+            <div class="col-sm-4">
+              <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
+                <label for="todos">
+                  Todo
+                </label> 
+            </div>
+          </div>
+        </section>
+
+        <section class="visible-xs">
+          <div class="row">
+            <div class="col-xs-6"><input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
+                <label for="citas">
+                  Citas
+                </label>
+            </div>
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
+                <label for="fotos">
+                  Fotos
+                </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
+                <label for="comer">
+                  Comer
+                </label>
+            </div>
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
+                <label for="bailar">
+                  Bailar
+                </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
+                <label for="deportes">
+                  Deportes
+                </label>
+            </div>
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
+                <label for="musica">
+                  Musica
+                </label> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
+                <label for="cultura">
+                  Cultura
+                </label> 
+            </div>
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
+                <label for="amigos">
+                  Amigos
+                </label> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
+                <label for="todos">
+                  Todo
+                </label> 
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+        </section>
+            <!--
+              <div class="intereses">
 
             <div class="interes">
               <div class="interesInside">
@@ -885,8 +1028,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 </label>
               </div>
             </div>
-
-            <div class="interes">
+             <div class="interes">
               <div class="interesInside">
                 <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
                 <label for="comer">
@@ -949,7 +1091,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
               </div>
             </div>
 
-          </div>
+          </div> -->
 
           <div class="row">
             <div class="col-xs-8 col-xs-offset-2">

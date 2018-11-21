@@ -10,6 +10,18 @@
   header("location: p1.php");
 } ?>
 
+<?php 
+$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
+while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
+    $nom = $data_cli['Nombre'];
+    $ape = $data_cli['Apellido'];
+    $eda = $data_cli['Edad'];
+    $pai = $data_cli['Pais'];
+    $con = $data_cli['Contacto'];
+    $des = $data_cli['Descripcion_U'];
+    }
+ ?>
+
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");

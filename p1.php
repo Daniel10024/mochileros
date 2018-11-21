@@ -11,9 +11,16 @@
 ?>
 
 <?php 
-
- 
-?>
+$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
+while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
+    $nom = $data_cli['Nombre'];
+    $ape = $data_cli['Apellido'];
+    $eda = $data_cli['Edad'];
+    $pai = $data_cli['Pais'];
+    $con = $data_cli['Contacto'];
+    $des = $data_cli['Descripcion_U'];
+    }
+ ?>
 
 
 <?php
@@ -137,18 +144,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
 <div class="row nav_muro">
 	<div class="col-md-12">
         <div class="panel with-nav-tabs panel-info">
-           <!-- <div class="panel-heading center">
-                     <ul class="nav nav-tabs">
-                        <li class="active col-xs-6"><a href="#tab1info" data-toggle="tab">Amigos</a></li>
-                        <li class="col-xs-6"><a href="#tab2info" data-toggle="tab">Publico</a></li>
-                    </ul> 
-            </div>-->
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="tab-pane fade in active muroDeNoticias" id="tab1info">
-						<?php if ($use != 1): ?>
-							
-						
+						<?php if ($use != 1): ?>				
                     	<div class="pensando">
                     		<div class="row">
 					            <div class="col-md-12">
@@ -165,10 +164,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                                <div class="form-group row">
 						                                		<div class="col-sm-8 col-md-9">
 						                                			<textarea name="comentario" class="form-control" id="message" cols="70" rows="3" placeholder="¿Que estas pensando?"></textarea>
-						                                			
 						                                		</div>
 						                                		<div class="col-sm-4 col-md-3" id="aca">
-						                                			<!-- <img class="right" src="img/1.jpg" alt="soy una foto" width="185"> -->
 						                                		</div>
 						                                </div>
 						                            </div>
@@ -181,7 +178,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                        	<div class="btn-group">
 						                                <label for="publicar-foto" class="btn btn-info compart">Agregar Imagen</label>
 						                            </div>
-						                            
 						                            <div class="btn-group right">
 						                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" >
 						                                    <i id="dibujito" class="glyphicon glyphicon-user"></i>
@@ -213,9 +209,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                     	<?php endif ?>
                     	<div id="notice"></div>
 					</div>
-<!--                     <div class="tab-pane fade muroDeNoticias" id="tab2info">
-                    	<div id="notice2"></div>
-                    </div> -->
                 </div>
             </div>
         </div>

@@ -161,7 +161,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control " placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
-                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control " placeholder="Apellido"  />
+                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control " placeholder=""  />
                             <p id="p-nom" class="error"></p>
                         </div>
 
@@ -186,20 +186,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <p id="p-eda" class="error"></p>
             </div>
         </div>
-<!--         <div class="row">
-            <div class="col-xs-12">
-                <label class="licki">Intereses</label>
-                <input type="text" id="int-form" disabled="" name="nombre" value="<?php echo $int;?>" class="form-control" placeholder="Intereses"  />
-                <p id="p-int" class="error"></p>
-            </div>
-        </div> -->
-<!--         <div class="row">
-            <div class="col-xs-12">
-                <label class="licki">Idioma</label>
-                <input type="text" id="idi-form" disabled="" name="nombre" value="<?php echo $idi;?>" class="form-control" placeholder="Idioma"  />
-                <p id="p-idi" class="error"></p>
-            </div>
-        </div> -->
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>

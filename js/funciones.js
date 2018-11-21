@@ -39,9 +39,8 @@ $(document).ready(function() {
     $("#form_usuario").submit(function(){
     //validar foto ___________________________________________________________________
         var image_name = $('#image').val();  
-           if(image_name == '')  
-           {  
-                /*alert("Please Select Image");*/
+           if(image_name)  
+           /*{  
                 data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Por favor seleccione una imagen </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
@@ -49,7 +48,7 @@ $(document).ready(function() {
                 $('#mensaje_modal').html(data);  
                 return false;  
            }  
-           else  
+           else  */
            {  
                 var extension = $('#image').val().split('.').pop().toLowerCase();  
                 if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  

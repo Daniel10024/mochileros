@@ -43,6 +43,11 @@ html {
 
 }
 
+.centrado {
+  float: center;
+
+}
+
 .ovalo {
   height: 60px;
   width: 70px;
@@ -527,6 +532,12 @@ text-decoration:none;
 .divDeEscala{
   position: absolute;
   top: -10px;
+ 
+}
+
+.marco_escala{
+  width: 60%;
+  margin-left: 20%;
 }
 
 .divDeEscalaInput{
@@ -610,8 +621,6 @@ text-decoration:none;
   top: 10px;
 }
 
-.parteBusqueda{}
-
 .sinotifi{
   position: fixed;
   bottom: 0px;
@@ -635,10 +644,5 @@ text-decoration:none;
 .numleft{
   float: left;
   margin-top: 20px;
-<<<<<<< HEAD
->>>>>>> 63e35667044e6d015765a5a23f0145bac7591e98
-}
 
-=======
 }
->>>>>>> 5dc9513e1e4e40d5a1ffc094b39b3b6b174aa363

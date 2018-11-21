@@ -17,7 +17,17 @@ if(!isset($_SESSION["‘ID_user’"])) {
 }
 ?>
 
-
+<?php 
+$query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
+while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
+    $nom = $data_cli['Nombre'];
+    $ape = $data_cli['Apellido'];
+    $eda = $data_cli['Edad'];
+    $pai = $data_cli['Pais'];
+    $con = $data_cli['Contacto'];
+    $des = $data_cli['Descripcion_U'];
+    }
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -127,18 +137,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
                           <h3 class="panel-title">Lista de viajes</h3>
                       </div >
                       <div class="col col-xs-6 col-md-6 text-right form-group">
-                          <a href="p5.php"><button class="btn btn-primary">Agregar Viaje</button> </a> 
-                      </div>
-                      <div class="col-xs-12">
-                          <form action="#" method="get">
-                              <div class="input-group">
-                                  <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-                                  <input class="form-control" id="system-search" name="q" placeholder="Buscar" required>
-                                  <span class="input-group-btn">
-                                      <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                                  </span>
-                              </div>
-                          </form>
+                         <!--  <a href="p5.php"><button class="btn btn-primary">Agregar Viaje</button> </a>  -->
+                         <br>
                       </div>
                   </div>
               </div>

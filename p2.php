@@ -12,8 +12,6 @@
 } ?>
 
 <?php 
-$usuario_id = 1;
-// "SELECT * FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.User WHERE solisitud.Amigo = $id AND solisitud.Estado = 1";
 $query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $use");
 while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
     $nom = $data_cli['Nombre'];
@@ -155,7 +153,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control nombreUsuario" placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>
                         
-                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control nombreUsuario" placeholder="Apellido"  />
+                            <input type="text" id="ape-form" disabled="" name="apellido" value="<?php echo $ape;?>" class="form-control nombreUsuario" placeholder=""  />
                             <p id="p-ap" class="error"></p>
                         </div>
                     </div>
@@ -183,22 +181,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <p id="p-eda" class="error"></p>
             </div>
         </div>
-<!--         <div class="row">
-            <div class="col-xs-12">
-                <label class="licki">Intereses</label>
-                <input type="text" id="int-form" disabled="" name="intereses" value="<?php echo $int;?>" class="form-control" placeholder="Intereses"  />
-                <p id="p-int" class="error"></p>
-            </div>
-        </div> -->
-<!--         <div class="row">
-            <div class="col-xs-12">
-                <label class="licki">Idioma</label>
-                <select class="form-control" disabled="" id="select_idioma" name="idioma">
-                  
-                </select>
-                <p id="p-idi" class="error"></p>
-            </div>
-        </div>  -->
         <div class="row">
             <div class="col-xs-12">
                 <label class="licki">Contacto</label>
