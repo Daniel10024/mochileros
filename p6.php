@@ -185,17 +185,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
 
 <br>
-      <div class="row">
-        <div class="col col-xs-9 col-sm-10 col-md-11">
-            <a href="p4.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
-        </div>
-        <div class="col col-xs-3 col-sm-2 col-md-1 text-right">
-              <button id="edit2" type="button" title="Editar" class="btn btn-lg btn-primary btn-create glyphicon glyphicon-pencil "></button>
-        </div>
-      </div>
-      <div class="row hidden" id="btnedit">
+      
+      <div class="row" id="btnedit">
             <div class="col-xs-6">
-                  <a href="p6.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>
+                  <a href="p4.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>
             </div>
             <div class="col-xs-6">
                   <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit">Editar</button>
