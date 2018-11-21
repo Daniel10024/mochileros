@@ -134,7 +134,8 @@ if(!isset($_SESSION["‘ID_user’"])) {
                 <div class="avatar">
                     <div class="row">
                         <div class="col-xs-5">
-                          <form action="editar_foto.php" id="form-foto" enctype="multipart/form-data" method="POST" >
+<!--                           <form action="editar_foto.php" id="form-foto" enctype="multipart/form-data" method="POST" > -->
+  <form id="form_usuario" action="editar_perfil.php" enctype="multipart/form-data" method="POST" accept-charset="utf-8" class="form" role="form">
                              <div class="box12">
                               <?php 
                                 echo '<label for="image"><div id="foto_perfil"><img id="foto_user" alt="chau" src="img/foto/'.$use.'.jpg"/></div></label>';
@@ -146,10 +147,10 @@ if(!isset($_SESSION["‘ID_user’"])) {
                                   </div>
                               </div>
                             </div>
-                            <input name="insert" id="insert" type="submit" value="submit" class="hidden" data-toggle="modal" data-target="#modal_error">
-                          </form>  
+<!--                             <input name="insert" id="insert" type="submit" value="submit" class="hidden" data-toggle="modal" data-target="#modal_error">
+                          </form>   -->
                         </div>
-                        <form id="form_usuario" action="editar_perfil.php" method="POST" accept-charset="utf-8" class="form" role="form">
+                        
                         <div class="col-xs-7">
                             <input type="text" id="nom-form" disabled="" name="nombre" value="<?php echo $nom;?>" class="form-control nombreUsuario" placeholder="Nombre"  />
                             <p id="p-nom" class="error"></p>

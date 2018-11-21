@@ -24,15 +24,21 @@ $(document).ready(function() {
 //submit editar foto perfil________________________________________________________
 $(document).ready(function() {
     $("#image").on("click", function() {
-        $("#insert").removeClass("hidden");
+        $('*').prop('disabled', false);
+        $("#atras").addClass("hidden");
+        $("#edit2").addClass("hidden");
+        $("#btnedit").removeClass("hidden");
     });
 
 });
 
-// validar nueva foto de usuario__________________________________________________
- $(document).ready(function(){  
-      $('#form-foto').submit(function(){  
-           var image_name = $('#image').val();  
+
+
+//validaciones editar perfil_______________________________________________________________
+$(document).ready(function() {
+    $("#form_usuario").submit(function(){
+    //validar foto ___________________________________________________________________
+        var image_name = $('#image').val();  
            if(image_name == '')  
            {  
                 /*alert("Please Select Image");*/
@@ -57,14 +63,7 @@ $(document).ready(function() {
                      $('#image').val('');  
                      return false;  
                 }  
-           }  
-      });  
- });  
-
-
-//validaciones editar perfil_______________________________________________________________
-$(document).ready(function() {
-    $("#form_usuario").submit(function(){
+           } 
 
     //validar nombre_____________________________________________________________________________________
         if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 64) {
