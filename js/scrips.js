@@ -240,55 +240,137 @@ $(document).ready(function publicaciones() {
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         $.each(json, function(i, item) {
-          if (item.image == '<div></div>') {
-            texto +='<div class="noticia">'+
-                      '<div class="row">'+
-                          '<div class="col-md-12">'+
-                              '<div class="testimonials">'+
-                                '<div class="active item">'+
-                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
-                                      '<div class="pull-left">'+
-                                      '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
-                                    '</div></a>'+
-                                        '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
-                                      '</blockquote>'+
-                                    '<div class="table-responsive">'+ 
-                                      '<table><div class="row coment"><div class="col-sm-12 col-md-12"><p class="p_coment">'+item.coment+'</p></div>'+
-                                      '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
+          if (item.ida == id_yo) {
+              if (item.image == '<div></div>') {
+                
+              texto +='<div class="noticia">'+
+                        '<div class="row">'+
+                            '<div class="col-md-12">'+
+                                '<div class="testimonials">'+
+                                  '<div class="active item">'+
+                                      '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                        '<div class="pull-left">'+
+                                        '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                      '</div></a>'+
+                                          '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                          '<button type="button" class="close error" onclick="modal_eliminar('+item.idp+')" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'+
+                                        '</blockquote>'+
+                                      '<div class="table-responsive">'+ 
+                                        '<table><div class="row coment"><div class="col-sm-12 col-md-12"><p class="p_coment">'+item.coment+'</p></div>'+
+                                        '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
+                                      '</div>'+
                                     '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                      '</div>';
+
+
+              }
+              else {
+                texto +='<div class="noticia">'+
+                          '<div class="row">'+
+                              '<div class="col-md-12">'+
+                                  '<div class="testimonials">'+
+                                    '<div class="active item">'+
+                                        '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                          '<div class="pull-left">'+
+                                          '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                        '</div></a>'+
+                                            '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                            '<button type="button" class="close error" onclick="modal_eliminar('+item.idp+')" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'+
+                                          '</blockquote>'+
+                                        '<div class="table-responsive">'+ 
+                                          '<table><div class="row coment"><div class="col-md-6"><p class="p_coment">'+item.coment+'</p></div>'+
+                                          '<div class="col-md-6">'+item.image+'</div></div></table>'+
+                                        '</div>'+
+                                      '</div>'+
                                   '</div>'+
                               '</div>'+
                           '</div>'+
-                      '</div>'+
-                    '</div>';
+                        '</div>';
+           
+
+              }
           }
-          else {
-            texto +='<div class="noticia">'+
-                      '<div class="row">'+
-                          '<div class="col-md-12">'+
-                              '<div class="testimonials">'+
-                                '<div class="active item">'+
-                                    '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
-                                      '<div class="pull-left">'+
-                                      '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
-                                    '</div></a>'+
-                                        '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
-                                      '</blockquote>'+
-                                    '<div class="table-responsive">'+ 
-                                      '<table><div class="row coment"><div class="col-md-6"><p class="p_coment">'+item.coment+'</p></div>'+
-                                      '<div class="col-md-6">'+item.image+'</div></div></table>'+
+          else{
+              if (item.image == '<div></div>') {
+              texto +='<div class="noticia">'+
+                        '<div class="row">'+
+                            '<div class="col-md-12">'+
+                                '<div class="testimonials">'+
+                                  '<div class="active item">'+
+                                      '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                        '<div class="pull-left">'+
+                                        '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                      '</div></a>'+
+                                          '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                        '</blockquote>'+
+                                      '<div class="table-responsive">'+ 
+                                        '<table><div class="row coment"><div class="col-sm-12 col-md-12"><p class="p_coment">'+item.coment+'</p></div>'+
+                                        '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
+                                      '</div>'+
                                     '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                      '</div>';
+              }
+              else {
+                texto +='<div class="noticia">'+
+                          '<div class="row">'+
+                              '<div class="col-md-12">'+
+                                  '<div class="testimonials">'+
+                                    '<div class="active item">'+
+                                        '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                          '<div class="pull-left">'+
+                                          '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                        '</div></a>'+
+                                            '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                          '</blockquote>'+
+                                        '<div class="table-responsive">'+ 
+                                          '<table><div class="row coment"><div class="col-md-6"><p class="p_coment">'+item.coment+'</p></div>'+
+                                          '<div class="col-md-6">'+item.image+'</div></div></table>'+
+                                        '</div>'+
+                                      '</div>'+
                                   '</div>'+
                               '</div>'+
                           '</div>'+
-                      '</div>'+
-                    '</div>';
+                        '</div>';
+              }
           }
-          
         })
         $("#notice").html(texto);
+        $("#modal_acap").html(ventana_modalp);
     });
 });
+
+//eliminar publicacion_____________________
+
+function modal_eliminar(valor){
+  var valor = valor;
+  $('#delete_public').modal('show')
+  $('#botonsi_eliminar').on("click", function() {
+    eliminar_publicacion(valor);
+  });
+}
+
+function eliminar_publicacion(soli){
+  var id_yo = myvar;
+  var _urlform ='eliminar_publicacion.php';
+    $.post(_urlform,{soli:soli, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p1.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}
+
 
 /*____________________________________________________________*/
 

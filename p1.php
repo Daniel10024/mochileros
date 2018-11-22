@@ -21,7 +21,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $des = $data_cli['Descripcion_U'];
     }
  ?>
-
+<script> if (a == b) {} </script>
 
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {
@@ -175,7 +175,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                        <div class="col-md-12">
 						                        	<input type="file" name="image" id="publicar-foto" class="hidden">
 						                            <div class="btn-group">
-						                                <button name="submit" type="submit" class="btn btn-primary compart">Compartir</button>
+						                                <button name="submit" type="submit" data-toggle="modal" data-target="#modal_error" class="btn btn-primary compart">Compartir</button>
 						                            </div>
 						                        	<div class="btn-group">
 						                                <label id="label_foto" for="publicar-foto" class="btn btn-info compart">Agregar Imagen</label>
@@ -218,6 +218,35 @@ if(!isset($_SESSION["‘ID_user’"])) {
     </div>
     <a href="p7.php" id="notifi" class="nonotifi"><span class="glyphicon glyphicon-bell campanita"><span id="num_soli" class="badge numleft"></span></span></a>
     </div>
+
+<!-- ventana modal de error _______________________________________________________________________________________________________ -->
+      <div class="modal fade" id="modal_error" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+          <div id="mensaje_modal" class="modal-body"></div>
+        </div>
+      </div>
+<!-- _____________________________________________________________________________________________________________________ -->
+
+<!-- _________________________ventana modal de borrar__________________________ -->
+		<div class="modal fade" id="delete_public" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                  <h4 class="modal-title custom_align" id="Heading">Eliminar contacto</h4>
+              </div>
+                 <div class="modal-body">
+                  <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>
+                </div>
+                <div class="modal-footer ">
+                  <button id="botonsi_eliminar" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span>Si</button>
+                  <button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
+                </div>
+            </div>
+          </div>
+        </div>
+            <!-- ________________________________________________________ -->
+
     </header>
     <script
               src="https://code.jquery.com/jquery-3.2.1.min.js"

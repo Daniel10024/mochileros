@@ -55,7 +55,8 @@ if ($numero > 0)
 	          'apellido' => $db_apellido,
             'coment' => $db_coment,
             'image' => $tu_foto,
-            'fecha' => $db_fecha
+            'fecha' => $db_fecha,
+            'idp' => $db_ID_publi
 	        );
 		array_push($posta, $json);
       }
