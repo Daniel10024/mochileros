@@ -58,8 +58,7 @@ $(document).ready(function() {
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
                     '</div>'; 
-                    $('#mensaje_modal').html(data);   
-                     $('#image').val('');  
+                    $('#mensaje_modal').html(data);    
                      return false;  
                 }  
            } 
@@ -189,6 +188,55 @@ $(document).ready(function() {
    });
 });
 
+
+//validaciones publicacion_______________________________________________________________
+$(document).ready(function() {
+    $("#form-publicacion").submit(function(){
+    //validar foto ___________________________________________________________________
+        var image_name = $('#publicar-foto').val();  
+           if(image_name)  
+           {  
+                var extension = $('#publicar-foto').val().split('.').pop().toLowerCase();  
+                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+                {  
+                     /*alert('Invalid Image File');*/
+                     data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Por favor seleccione una imagen valida </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>'; 
+                    $('#mensaje_modal').html(data);   
+                      
+                     return false;  
+                }  
+           } 
+
+    //validar comentario_____________________________________________________________________________________
+        if($("#message").val().length > 210) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El comentario puede tener como maximo 210 caracteres </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;   
+        }
+        else {
+            data =  '<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span> Datos guardados exitosamente </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+        };
+        if ($("#message").val().length < 1 && !image_name) {
+            data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> Adjunte un comentario o una imagen para compartir </div>'+
+                        '<div class="table-responsive">'+
+                        '<table class="table" id="tr_modal"></table>'+
+                    '</div>';
+            $('#mensaje_modal').html(data);
+            return false;
+        }
+   });
+});
+
 //tiempo de ventana modal de error_______________________________________________________
 $(function(){
     $('#modal_error').on('show.bs.modal', function(){
@@ -248,3 +296,4 @@ $(document).ready(function() {
     });
 
 });
+
