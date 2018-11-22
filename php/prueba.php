@@ -21,7 +21,8 @@ try
             AND (p.fecha_inicio BETWEEN :fecha_ini AND :fecha_fin OR p.fecha_fin BETWEEN :fecha_ini AND :fecha_fin)
             AND i.id_interes IN (".implode(',',$intereses).")
             ");
-        
+
+
         $escala = $_POST['escala'];
         $origen = $_POST['origen'];
         $idioma = $_POST['idioma'];
@@ -29,24 +30,20 @@ try
         $fecha_ini = $_POST['fecha_ini'];
         $fecha_fin = $_POST['fecha_fin'];
 
-        $intereses = $_POST['intereses'];
-
-        //$intervalo = new DateInterval('P1D');
-        //$rangoFechas = new DatePeriod($fecha_ini, $intervalo ,$fecha_fin);
 
         $stmt->bindParam(':escala', $escala);
         $stmt->bindParam(':origen', $origen);
         $stmt->bindParam(':idioma', $idioma);
-        
 
         $stmt->bindParam(':fecha_ini', $fecha_ini);
         $stmt->bindParam(':fecha_fin', $fecha_fin);
-        //$stmt->bindParam(':rangoFechas', $rangoFechas);
+        
 
         $stmt->execute();
 
         $row = $stmt->fetch();
         echo json_encode ($row);
+
     }
 catch(PDOException $e)
     {
