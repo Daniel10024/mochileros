@@ -50,9 +50,9 @@ if ($numero > 0)
         $dirint->close();
 
 		$json = array(
-	          'ida' => $db_ID_user,
-	          'nombre' => $db_nombre,
-	          'apellido' => $db_apellido,
+	        'ida' => $db_ID_user,
+	        'nombre' => $db_nombre,
+	        'apellido' => $db_apellido,
             'coment' => $db_coment,
             'image' => $tu_foto,
             'fecha' => $db_fecha,
