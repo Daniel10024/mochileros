@@ -183,15 +183,16 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label class="licki">Contacto</label>
-                <input type="text" id="con-form" disabled="" name="contacto" value="<?php echo $con;?>" class="form-control" placeholder="Contacto"  />
+                <label class="licki">Contacto <span id="span"> </span></label>
+                
+                <textarea maxlength="64" id="con-form" disabled="" name="contacto" class="form-control alto" placeholder="Contacto"><?php echo $con;?></textarea>
                 <p id="p-con" class="error"></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <label class="licki">Descripcion</label>
-                <textarea name="des_form" id="des-form" rows="2" placeholder="Descripcion" disabled class="form-control"><?php echo $des;?></textarea>
+                <label class="licki">Descripcion <span id="span2"> </span></label>
+                <textarea maxlength="320" name="des_form" id="des-form" rows="2" placeholder="Descripcion" disabled class="form-control"><?php echo $des;?></textarea>
                 <p id="p-des" class="error"></p>
             </div>
         </div>

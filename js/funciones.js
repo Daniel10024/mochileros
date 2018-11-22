@@ -218,8 +218,13 @@ var inputs = $('#message');
                     remainingCharacters = 0;            
                 }
             }
-            espan.html(remainingCharacters);
-            espan2.html(remainingCharacters);
+            if (este.attr('id') == 'con-form' || este.attr('id') == 'message') {
+                espan.html(remainingCharacters);
+            }
+            if (este.attr('id') == 'message' || este.attr('id') == 'des-form') {
+               espan2.html(remainingCharacters); 
+            }
+            
             if (!!maxlength) {
                 var texto = este.val(); 
                 if (texto.length >= maxlength) {

@@ -660,3 +660,19 @@ text-decoration:none;
 .p_coment{
   word-wrap: break-word;
 }
+
+.alto{
+  height: 100%;
+}
+
+@media (max-width: 550px) {
+    #con-form {
+        height: 55px;
+    }
+}
+
+@media (min-width: 550px) {
+    #con-form {
+        height: 35px;
+    }
+}
