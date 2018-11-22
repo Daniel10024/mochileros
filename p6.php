@@ -754,5 +754,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
+    <script src="js/fancywebsocket.js"></script>
 </body>
 </html>

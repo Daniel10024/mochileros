@@ -174,7 +174,6 @@ function enviar(){
     $.post(_urlform,{id_amigo:id_el, id_yo:id_yo},
     function(data){
         if(data != 1){
-          
           location.href ="p1.php";
                       
         }
@@ -191,7 +190,7 @@ function aceptar(soli){
     function(data){
         if(data != 1){
           
-          location.href ="p9.php";
+          location.href ="p7.php";
                       
         }
         else{
@@ -207,7 +206,7 @@ function rechazar(soli){
     function(data){
         if(data != 1){
           
-          location.href ="p9.php";
+          location.href ="p7.php";
                       
         }
         else{
@@ -368,5 +367,3 @@ $(document).ready(function notificaciones2 () {
       
     });
 });
-
-$("#select_idioma").load("buscar_idioma.php")

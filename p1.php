@@ -225,6 +225,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
               crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="js/fancywebsocket.js"></script>
 
 
 

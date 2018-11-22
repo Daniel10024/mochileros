@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2018 a las 08:35:19
+-- Tiempo de generación: 22-11-2018 a las 14:55:30
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.10
 
@@ -157,7 +157,14 @@ INSERT INTO `publicacion` (`ID_Publicacion`, `ID_Usuario`, `Comentario`, `Public
 (4, '110433993825937047664', 'publico 2 ', 2, '2018-11-19'),
 (5, '111733596368903726939', 'esto es nuevo', 2, '2018-11-20'),
 (6, '111733596368903726939', 'esto es mas nuevo', 1, '2018-11-20'),
-(7, '117974607496192147045', 'hola esto es muy nuevo', 1, '2018-11-20');
+(7, '117974607496192147045', 'hola esto es muy nuevo', 1, '2018-11-20'),
+(8, '117974607496192147045', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 1, '2018-11-21'),
+(9, '117974607496192147045', 'a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a ', 1, '2018-11-21'),
+(10, '117974607496192147045', ' a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a', 1, '2018-11-21'),
+(11, '117974607496192147045', '!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important!important', 1, '2018-11-22'),
+(12, '117974607496192147045', 'sadasdasdaaapojfsfjsdnkj nankdjnasdjnak ndkajn dkasndkj asndkjanksdnaskjd nsadjna kjndkasj ndnkajn dkjasn kdjnask jda', 1, '2018-11-22'),
+(13, '117974607496192147045', 'vos seeguis publicanco?', 1, '2018-11-22'),
+(14, '117974607496192147045', 'lo ultimo de ultimo', 1, '2018-11-22');
 
 -- --------------------------------------------------------
 
@@ -205,6 +212,14 @@ CREATE TABLE `solisitud` (
 --       `usuario` -> `ID_Usuario`
 --
 
+--
+-- Volcado de datos para la tabla `solisitud`
+--
+
+INSERT INTO `solisitud` (`ID_solisitud`, `User`, `Amigo`, `Estado`) VALUES
+(3, '111733596368903726939', '117974607496192147045', 1),
+(4, '110433993825937047664', '117974607496192147045', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -233,7 +248,7 @@ INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `Apellido`, `Edad`, `Pais`, `Desc
 ('1', 'Invitado', '', '0000-00-00', '', '', ''),
 ('110433993825937047664', 'daniel', 'galeano', '0000-00-00', '', '', ''),
 ('111733596368903726939', 'pablo', 'kimon', '2018-11-14', '', '', ''),
-('117974607496192147045', 'Daniel', 'Galeano', '2018-11-14', 'Francia', 'asdaasdasdasdasdasdasdasd', 'asdaasdasdasdasdasdasdasdasdaasdasdasdasdasdas');
+('117974607496192147045', 'Daniel', 'Galeano', '2018-11-14', 'Francia', 'asdaasdasdasdassdadadsadssasdasasdasdasdasdasasdsadsadasasdzx', 'asdasdasdasdassdadasdaasdasdasdasdasdasdasdasdasdasdasdasdasdaas');
 
 -- --------------------------------------------------------
 
@@ -356,13 +371,19 @@ ALTER TABLE `interes`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `punto`
 --
 ALTER TABLE `punto`
   MODIFY `ID_PUNTO` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `solisitud`
+--
+ALTER TABLE `solisitud`
+  MODIFY `ID_solisitud` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `viaje`

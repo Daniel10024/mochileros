@@ -9,11 +9,11 @@
 $agregar_amigo = "INSERT INTO solisitud (User, Amigo, Estado)
                       VALUES ('$id_yo', '$id_amigo', '2')";
 if ($mysqli->query($agregar_amigo) === TRUE) { 
-    
+
   } 
-  else {  
-   
-   echo "1";
-   
-  }
+else {  
+
+echo "1";
+
+}
 ?>

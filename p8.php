@@ -202,7 +202,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
         <div class="row">
         <div class="col col-xs-12 ">
-            <a href="p7.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+            <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
         </div>
         </div>
         </div> 
@@ -217,5 +217,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
+    <script src="js/fancywebsocket.js"></script>
 </body>
 </html>

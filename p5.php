@@ -221,5 +221,6 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
+    <script src="js/fancywebsocket.js"></script>
 </body>
 </html>

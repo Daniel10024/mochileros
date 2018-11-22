@@ -165,18 +165,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                        </tbody>
                     </table>
                   </div>
-<!--                   <div class="panel-footer">
-                  <div class="row">
-                      <div class="col col-xs-12 center">
-                        <ul class="pagination pull-center">
-                          <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
-                          <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
-                        </ul>
-                      </div>
-                  </div>
-              </div> -->
             </div>
             <div class="row">
             <div class="col col-xs-12 ">
@@ -216,18 +204,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                        </tbody>
                     </table>
                   </div>
- <!--                  <div class="panel-footer">
-                  <div class="row">
-                      <div class="col col-xs-12 center">
-                        <ul class="pagination pull-center">
-                          <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
-                          <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                          <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
-                        </ul>
-                      </div>
-                  </div>
-              </div> -->
             </div>
         <div class="row">
           <div class="col col-xs-12 ">
@@ -256,5 +232,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
+    <script src="js/fancywebsocket.js"></script>
 </body>
 </html>

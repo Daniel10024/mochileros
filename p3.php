@@ -1008,91 +1008,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
             </div>
           </div>
         </section>
-            <!--
-              <div class="intereses">
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
-                <label for="citas">
-                  Citas
-                </label>
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
-                <label for="fotos">
-                  Fotos
-                </label>
-              </div>
-            </div>
-             <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
-                <label for="comer">
-                  Comer
-                </label>
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
-                <label for="bailar">
-                  Bailar
-                </label>
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
-                <label for="deportes">
-                  Deportes
-                </label>
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
-                <label for="musica">
-                  Musica
-                </label> 
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
-                <label for="cultura">
-                  Cultura
-                </label> 
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
-                <label for="amigos">
-                  Amigos
-                </label> 
-              </div>
-            </div>
-
-            <div class="interes">
-              <div class="interesInside">
-                <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
-                <label for="todos">
-                  Todo
-                </label> 
-              </div>
-            </div>
-
-          </div> -->
-
           <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
               <a href="#"><button id="buscar" onclick="buscarViaje()" type="button" class="btn btn-lg  btn-block btn-success">Realizar Busqueda</button></a>
@@ -1114,6 +1029,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
     <script src="js/buscarViaje.js"></script>
+    <script src="js/fancywebsocket.js"></script>
 </body>
 </html>
 
