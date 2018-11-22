@@ -646,3 +646,17 @@ text-decoration:none;
   margin-top: 20px;
 
 }
+
+.borderojo {
+    outline: none;
+    border: 1px solid #f00 !important;
+}
+.bordegris { border: 1px solid #d4d4d; }
+
+.abajo{
+  margin-top: 17px;
+}
+
+.p_coment{
+  word-wrap: break-word;
+}

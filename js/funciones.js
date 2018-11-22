@@ -199,3 +199,47 @@ $(function(){
         }, 2500));
     });
 });
+
+
+
+var inputs = $('#message');
+    $(document).on('keyup', "[maxlength]", function (e) {
+        var este = $(this),
+            maxlength = este.attr('maxlength'),
+            maxlengthint = parseInt(maxlength),
+            textoActual = este.val(),
+            currentCharacters = este.val().length;
+            remainingCharacters = maxlengthint - currentCharacters,
+            espan = $('#span');  
+            espan2 = $('#span2');          
+            // Detectamos si es IE9 y si hemos llegado al final, convertir el -1 en 0 - bug ie9 porq. no coge directamente el atributo 'maxlength' de HTML5
+            if (document.addEventListener && !window.requestAnimationFrame) {
+                if (remainingCharacters <= -1) {
+                    remainingCharacters = 0;            
+                }
+            }
+            espan.html(remainingCharacters);
+            espan2.html(remainingCharacters);
+            if (!!maxlength) {
+                var texto = este.val(); 
+                if (texto.length >= maxlength) {
+                    este.removeClass("bordegris").addClass("borderojo");
+                    este.val(text.substring(0, maxlength));
+                    e.preventDefault();
+                }
+                else if (texto.length < maxlength) {
+                    este.removeClass("borderojo").addClass("bordegris");
+                }   
+            }   
+        });
+
+
+//publicaciones____________________________________________________________
+$(document).ready(function() {
+    $("#publicar-foto").on("click", function() {
+        $("#content_coment").removeClass("col-md-12");
+        $("#content_coment").addClass("col-md-7");
+        $("#label_foto").text("Cambiar imagen");
+    });
+
+});

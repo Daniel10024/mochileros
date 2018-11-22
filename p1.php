@@ -155,6 +155,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 										<form action="publicar.php" enctype="multipart/form-data" method="post" id="form-publicacion">
 						                    <div class="esto">
 						                        <ul class="nav nav-tabs">
+						                        	<label class="abajo hidden-xs">Caracteres restantes: <span id="span"></span></label>
 						                            <li class="active"><a data-toggle="tab" href="#posts">Publicar Comentario</a></li>
 						                        </ul>
 						                    </div>
@@ -162,10 +163,11 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                        <div class="tab-content" id="myTabContent">
 						                            <div class="tab-pane fade in active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
 						                                <div class="form-group row">
-						                                		<div class="col-sm-8 col-md-9">
-						                                			<textarea name="comentario" class="form-control" id="message" cols="70" rows="3" placeholder="¿Que estas pensando?"></textarea>
+						                                		<div id="content_coment" class="col-xs-12 col-md-12">
+						                                			<textarea maxlength="210" name="comentario" class="form-control ancho" rows="3" id="message" placeholder="¿Que estas pensando?"></textarea>
+						                                			<label class="visible-xs">Caracteres restantes: <span id="span2"></span></label>
 						                                		</div>
-						                                		<div class="col-sm-4 col-md-3" id="aca">
+						                                		<div class="col-md-5" id="aca">
 						                                		</div>
 						                                </div>
 						                            </div>
@@ -176,7 +178,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                                <button name="submit" type="submit" class="btn btn-primary compart">Compartir</button>
 						                            </div>
 						                        	<div class="btn-group">
-						                                <label for="publicar-foto" class="btn btn-info compart">Agregar Imagen</label>
+						                                <label id="label_foto" for="publicar-foto" class="btn btn-info compart">Agregar Imagen</label>
 						                            </div>
 						                            <div class="btn-group right">
 						                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" >

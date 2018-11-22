@@ -241,6 +241,7 @@ $(document).ready(function publicaciones() {
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         $.each(json, function(i, item) {
+          if (item.image == '<div></div>') {
             texto +='<div class="noticia">'+
                       '<div class="row">'+
                           '<div class="col-md-12">'+
@@ -253,7 +254,7 @@ $(document).ready(function publicaciones() {
                                         '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
                                       '</blockquote>'+
                                     '<div class="table-responsive">'+ 
-                                      '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
+                                      '<table><div class="row coment"><div class="col-sm-12 col-md-12"><p class="p_coment">'+item.coment+'</p></div>'+
                                       '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
                                     '</div>'+
                                   '</div>'+
@@ -261,20 +262,8 @@ $(document).ready(function publicaciones() {
                           '</div>'+
                       '</div>'+
                     '</div>';
-          
-        })
-        $("#notice").html(texto);
-    });
-});
-
-$(document).ready(function publicaciones2() {
-    var _urlform ='publicaciones2.php';
-    var id_yo = myvar;
-    $.post(_urlform,{id:id_yo},    
-    function(data){
-        var json = JSON.parse(JSON.stringify(data));
-        var texto = "";
-        $.each(json, function(i, item) {
+          }
+          else {
             texto +='<div class="noticia">'+
                       '<div class="row">'+
                           '<div class="col-md-12">'+
@@ -286,18 +275,19 @@ $(document).ready(function publicaciones2() {
                                     '</div></a>'+
                                         '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
                                       '</blockquote>'+
-                                    '<div class="table-responsive">'+
-                                      '<table><div class="row coment"><div class="col-sm-8 col-md-9"><p class="">'+item.coment+'</p></div>'+
-                                      '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
+                                    '<div class="table-responsive">'+ 
+                                      '<table><div class="row coment"><div class="col-md-6"><p class="p_coment">'+item.coment+'</p></div>'+
+                                      '<div class="col-md-6">'+item.image+'</div></div></table>'+
                                     '</div>'+
                                   '</div>'+
                               '</div>'+
                           '</div>'+
                       '</div>'+
                     '</div>';
+          }
           
         })
-        $("#notice2").html(texto);
+        $("#notice").html(texto);
     });
 });
 
