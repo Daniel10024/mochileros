@@ -11,12 +11,14 @@ $dbname = "mochileros4";
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // prepare sql and bind parameters
-        $stmt = $conn->prepare("INSERT INTO escala (id_escala, escala) 
-            VALUES (1, :escala)");
+        $stmt = $conn->prepare("INSERT INTO idiomas (id_idioma, idioma) 
+            VALUES (:id_idioma, :idioma)");
 
-        $stmt->bindParam(':escala', $escala);
+        $stmt->bindParam(':idioma', $idioma);
+        $stmt->bindParam(':id_idioma', $id_idioma);
 
-        $escala = $_POST['escala'];
+        $idioma = $_POST['idioma'];
+        $id_idioma = $_POST['id_idioma'];
 
         $stmt->execute();
         echo json_encode ("ok");

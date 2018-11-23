@@ -1,303 +1,301 @@
-function formarBaseDeDatos()
+function insertDatos()
 {
-	arrayPais=["Global",
-                  "America",
-                  "Europa",
-                  "Africa",
-                  "Asia",
-                  "Oceania",
-                  "Afganistán",
-                  "Albania",
-                  "Alemania",
-                  "Andorra",
-                  "Angola",
-                  "Anguilla",
-                  "Antártida",
-                  "Antigua y Barbuda",
-                  "Antillas Holandesas",
-                  "Arabia Saudí",
-                  "Argelia",
-                  "Argentina",
-                  "Armenia",
-                  "Aruba",
-                  "Australia",
-                  "Austria",
-                  "Azerbaiyán",
-                  "Bahamas",
-                  "Bahrein",
-                  "Bangladesh",
-                  "Barbados",
-                  "Bélgica",
-                  "Belice",
-                  "Benin",
-                  "Bermudas",
-                  "Bielorrusia",
-                  "Birmania",
-                  "Bolivia",
-                  "Bosnia y Herzegovina",
-                  "Botswana",
-                  "Brasil",
-                  "Brunei",
-                  "Bulgaria",
-                  "Burkina Faso",
-                  "Burundi",
-                  "Bután",
-                  "Cabo Verde",
-                  "Camboya",
-                  "Camerún",
-                  "Canadá",
-                  "Chad",
-                  "Chile",
-                  "China",
-                  "Chipre",
-                  "Ciudad del Vaticano (Santa Sede)",
-                  "Colombia",
-                  "Comores",
-                  "Congo",
-                  "Congo, República Democrática del",
-                  "Corea",
-                  "Corea del Norte",
-                  "Costa de Marfíl",
-                  "Costa Rica",
-                  "Croacia (Hrvatska)",
-                  "Cuba",
-                  "Dinamarca",
-                  "Djibouti",
-                  "Dominica",
-                  "Ecuador",
-                  "Egipto",
-                  "El Salvador",
-                  "Emiratos Árabes Unidos",
-                  "Eritrea",
-                  "Eslovenia",
-                  "España",
-                  "Estados Unidos",
-                  "Estonia",
-                  "Etiopía",
-                  "Fiji",
-                  "Filipinas",
-                  "Finlandia",
-                  "Francia",
-                  "Gabón",
-                  "Gambia",
-                  "Georgia",
-                  "Ghana",
-                  "Gibraltar",
-                  "Granada",
-                  "Grecia",
-                  "Groenlandia",
-                  "Guadalupe",
-                  "Guam",
-                  "Guatemala",
-                  "Guayana",
-                  "Guayana Francesa",
-                  "Guinea",
-                  "Guinea Ecuatorial",
-                  "Guinea-Bissau",
-                  "Haití",
-                  "Honduras",
-                  "Hungría",
-                  "India",
-                  "Indonesia",
-                  "Irak",
-                  "Irán",
-                  "Irlanda",
-                  "Isla Bouvet",
-                  "Isla de Christmas",
-                  "Islandia",
-                  "Islas Caimán",
-                  "Islas Cook",
-                  "Islas de Cocos o Keeling",
-                  "Islas Faroe",
-                  "Islas Heard y McDonald",
-                  "Islas Malvinas",
-                  "Islas Marianas del Norte",
-                  "Islas Marshall",
-                  "Islas menores de Estados Unidos",
-                  "Islas Palau",
-                  "Islas Salomón",
-                  "Islas Svalbard y Jan Mayen",
-                  "Islas Tokelau",
-                  "Islas Turks y Caicos",
-                  "Islas Vírgenes (EEUU)",
-                  "Islas Vírgenes (Reino Unido)",
-                  "Islas Wallis y Futuna",
-                  "Israel",
-                  "Italia",
-                  "Jamaica",
-                  "Japón",
-                  "Jordania",
-                  "Kazajistán",
-                  "Kenia",
-                  "Kirguizistán",
-                  "Kiribati",
-                  "Kuwait",
-                  "Laos",
-                  "Lesotho",
-                  "Letonia",
-                  "Líbano",
-                  "Liberia",
-                  "Libia",
-                  "Liechtenstein",
-                  "Lituania",
-                  "Luxemburgo",
-                  "Macedonia, Ex-República Yugoslava de",
-                  "Madagascar",
-                  "Malasia",
-                  "Malawi",
-                  "Maldivas",
-                  "Malí",
-                  "Malta",
-                  "Marruecos",
-                  "Martinica",
-                  "Mauricio",
-                  "Mauritania",
-                  "Mayotte",
-                  "México",
-                  "Micronesia",
-                  "Moldavia",
-                  "Mónaco",
-                  "Mongolia",
-                  "Montserrat",
-                  "Mozambique",
-                  "Namibia",
-                  "Nauru",
-                  "Nepal",
-                  "Nicaragua",
-                  "Níger",
-                  "Nigeria",
-                  "Niue",
-                  "Norfolk",
-                  "Noruega",
-                  "Nueva Caledonia",
-                  "Nueva Zelanda",
-                  "Omán",
-                  "Países Bajos",
-                  "Panamá",
-                  "Papúa Nueva Guinea",
-                  "Paquistán",
-                  "Paraguay",
-                  "Perú",
-                  "Pitcairn",
-                  "Polinesia Francesa",
-                  "Polonia",
-                  "Portugal",
-                  "Puerto Rico",
-                  "Qatar",
-                  "Reino Unido",
-                  "República Centroafricana",
-                  "República Checa",
-                  "República de Sudáfrica",
-                  "República Dominicana",
-                  "República Eslovaca",
-                  "Reunión",
-                  "Ruanda",
-                  "Rumania",
-                  "Rusia",
-                  "Sahara Occidental",
-                  "Saint Kitts y Nevis",
-                  "Samoa",
-                  "Samoa Americana",
-                  "San Marino",
-                  "San Vicente y Granadinas",
-                  "Santa Helena",
-                  "Santa Lucía",
-                  "Santo Tomé y Príncipe",
-                  "Senegal",
-                  "Seychelles",
-                  "Sierra Leona",
-                  "Singapur",
-                  "Siria",
-                  "Somalia",
-                  "Sri Lanka",
-                  "St Pierre y Miquelon",
-                  "Suazilandia",
-                  "Sudán",
-                  "Suecia",
-                  "Suiza",
-                  "Surinam",
-                  "Tailandia",
-                  "Taiwán",
-                  "Tanzania",
-                  "Tayikistán",
-                  "Territorios franceses del Sur",
-                  "Timor Oriental",
-                  "Togo",
-                  "Tonga",
-                  "Trinidad y Tobago",
-                  "Túnez",
-                  "Turkmenistán",
-                  "Turquía",
-                  "Tuvalu",
-                  "Ucrania",
-                  "Uganda",
-                  "Uruguay",
-                  "Uzbekistán",
-                  "Vanuatu",
-                  "Venezuela",
-                  "Vietnam",
-                  "Yemen",
-                  "Yugoslavia",
-                  "Zambia",
-                  "Zimbabue"]
+	datos = ["Afrikáans",
+                  "Akan",
+                  "Albanés",
+                  "Alemán",
+                  "Amhárico",
+                  "Árabe",
+                  "Armenio",
+                  "Asamés",
+                  "Asirio",
+                  "Azerbaiyano",
+                  "Badini",
+                  "Bambara",
+                  "Baskir",
+                  "Bengalí",
+                  "Bielorruso",
+                  "Birmano",
+                  "Bisaya",
+                  "Bosnio",
+                  "Bravanese",
+                  "Búlgaro",
+                  "Cachemir",
+                  "Caldeo",
+                  "Camboyano",
+                  "Canarés",
+                  "Cantonés",
+                  "Catalán",
+                  "Cebuano",
+                  "Chamorro",
+                  "Chaozhou",
+                  "Chavacano",
+                  "Checo",
+                  "Chichewa",
+                  "Chiluba",
+                  "Chin",
+                  "Chuukés",
+                  "Cingalés",
+                  "Cingalés",
+                  "Coreano",
+                  "Cree",
+                  "Criollo haitiano",
+                  "Croata",
+                  "Dakota",
+                  "Danés",
+                  "Darí",
+                  "Dinka",
+                  "Diula",
+                  "Dzongkha",
+                  "Eslovaco",
+                  "Esloveno",
+                  "Esloveno",
+                  "Español",
+                  "Estonio",
+                  "Ewé",
+                  "Fante",
+                  "Farsi",
+                  "Feroés",
+                  "Finés",
+                  "Flamenco",
+                  "Francés",
+                  "Francés canadiense",
+                  "Frisón",
+                  "Fujianés",
+                  "Fujiano",
+                  "Fula",
+                  "Fula",
+                  "Fulani",
+                  "Fuzhou",
+                  "Ga",
+                  "Gaélico",
+                  "Galés",
+                  "Gallego",
+                  "Ganda",
+                  "Georgiano",
+                  "Gorani",
+                  "Griego",
+                  "Guanxi",
+                  "Gujarati",
+                  "Hakka",
+                  "Hassanía",
+                  "Hausa",
+                  "Hebreo",
+                  "Hiligainón",
+                  "Hindi",
+                  "Hindi de Fiyi",
+                  "Hindú",
+                  "Hmong",
+                  "Holandés",
+                  "Húngaro",
+                  "Ibanag",
+                  "Igbo",
+                  "Ilocano",
+                  "Ilongo",
+                  "Indonesio",
+                  "Inglés",
+                  "Inuit",
+                  "Irlandés",
+                  "Islandés",
+                  "Italiano",
+                  "Jalja",
+                  "Japonés",
+                  "Javanés",
+                  "Jemer",
+                  "Kanjobal",
+                  "Karen",
+                  "Kazajo",
+                  "Kikuyu",
+                  "Kiñaruanda",
+                  "Kirguís",
+                  "Kirundi",
+                  "Kosovar",
+                  "Kotokoli",
+                  "Krio",
+                  "Kurdo",
+                  "Kurmanji",
+                  "Lakota",
+                  "Laosiano",
+                  "Latín",
+                  "Letón",
+                  "Lingala",
+                  "Lituano",
+                  "Luganda",
+                  "Luo",
+                  "Lusoga",
+                  "Luxemburgués",
+                  "Maay",
+                  "Macedonio",
+                  "Malayalam",
+                  "Malayo",
+                  "Maldiviano",
+                  "Malgache",
+                  "Maltés",
+                  "Mandarín",
+                  "Mandinga",
+                  "Mandingo",
+                  "Maorí",
+                  "Maratí",
+                  "Marshalés",
+                  "Mien",
+                  "Mirpuri",
+                  "Mixteco",
+                  "Moldavo",
+                  "Mongol",
+                  "Napolitano",
+                  "Navajo",
+                  "Nepalí",
+                  "Noruego",
+                  "Nuer",
+                  "Ojibwa",
+                  "Oriya",
+                  "Oromo",
+                  "Osetio",
+                  "Pahari",
+                  "Pampango",
+                  "Panyabí",
+                  "Pashto",
+                  "Patois",
+                  "Pidgin inglés",
+                  "Polaco",
+                  "Portugués",
+                  "Pothwari",
+                  "Putián",
+                  "Quechua",
+                  "Romanche",
+                  "Romaní",
+                  "Rumano",
+                  "Rundi",
+                  "Ruso",
+                  "Samoano",
+                  "Sango",
+                  "Sánscrito",
+                  "Serbio",
+                  "Sesotho",
+                  "Setsuana",
+                  "Shangainés",
+                  "Shona",
+                  "Sichuan",
+                  "Siciliano",
+                  "Sindhi",
+                  "Siswati/suazi",
+                  "Somalí",
+                  "Sondanés",
+                  "Soninké",
+                  "Sorani",
+                  "Suajili",
+                  "Sueco",
+                  "Susu",
+                  "Sylheti",
+                  "Tagalo",
+                  "Tailandés",
+                  "Taiwanés",
+                  "Tamil",
+                  "Tayiko",
+                  "Telugú",
+                  "Tibetano",
+                  "Tigriña",
+                  "Tongano",
+                  "Tsonga",
+                  "Turco",
+                  "Turcomano",
+                  "Ucraniano",
+                  "Uigur",
+                  "Urdú",
+                  "Uzbeco",
+                  "Vasco (euskera)",
+                  "Venda",
+                  "Vietnamita",
+                  "Wólof",
+                  "Xhosa",
+                  "Yakartanés",
+                  "Yao",
+                  "Yidis",
+                  "Yoruba",
+                  "Yupik",
+                  "Zulú"]
 
-                  for (var i = 0; i < arrayPais.length; i++) {
-                  	console.log(arrayPais[i]);
+                  for (var i = 1; i <= datos.length; i++) {
+                  	datos[i]
                   	$.ajax({
-					    type: "POST",
-						url: "php/insertarDatos.php",
-						dataType: "json",
-						data: {'escala' : arrayPais[i]},
-						success: function (result) 
-							{
-								console.log(result);
-							},
-					    error: function (xhr, status, error)
-					    {
-					    	console.log(xhr);
-					    	console.log(status);
-					    	console.log(error);
-							console.log("no entro la consulta bien xDDDD");
-					    }
+				    type: "POST",
+					url: "php/insertarDatos.php",
+					dataType: "json",
+					data: {'id_idioma' : i, "idioma": datos[i]},
+					success: function (result) 
+						{
+							console.log(result);
+						},
+				    error: function (xhr, status, error)
+				    {
+				    	console.log(xhr);
+				    	console.log(status);
+				    	console.log(error);
+						console.log("no entro la consulta bien xDDDD");
+				    }
 				    })
                   }
 }
 
-
-formarBaseDeDatos();
-
-
+//insertDatos();
 
 function buscarViaje(){
 
+
+	/*AGARRE DE LA ESCALA*/
 
 	//var escala = 3;
 	var escalaInput = document.getElementById("escalaInput").value;
 	/*Funcion de abajo robada de stack overflow para conseguir el data-value de los options del datalist*/
 	var escala = document.querySelector("#escala option[value='"+escalaInput+"']").dataset.value;
 
+	console.log(escalaInput);
 	console.log(escala);
 
 
-	var origen = "argentina";
-	var idioma = 1;
-	var fecha_in = new Date(2018,10,4);
-	var fecha_fi = new Date(2018,12,20);
+	/*AGARRE DE LA FECHA*/
+
+	// var fecha_in = new Date(2018,10,4);
+	// var fecha_fi = new Date(2018,12,20);
+	var fecha_inF = document.getElementById("fechaDesde").value;
+	var fecha_fiF = document.getElementById("fechaHasta").value;
+	
+	var fecha_in = new Date(fecha_inF);
+	var fecha_fi = new Date(fecha_fiF);
+	
 	var fecha_ini = fecha_in.getFullYear() + "/" +(fecha_in.getMonth()+1) + "/" + fecha_in.getDate();
 	var fecha_fin = fecha_fi.getFullYear() + "/" +(fecha_fi.getMonth()+1) + "/" + fecha_fi.getDate();
-	var intereses = [1];
 
-	/*
+	console.log(fecha_ini)
+	console.log(fecha_fin)
 
 
+	/*AGARRA EL ORIGEN*/
+
+	// IMPORTANTE: CUANDO EL USUARIO CREA SU CUENTA TIENE QUE ELEGIR SU PAIS DE LA MISMA LISTA QUE LOS ELIJE ACA PARA QUE
+	// DESPUES MATCHEE BIEN.
+	//var origen = "argentina";
 	var origen = document.getElementById("paisesInput").value;
 
-	var idioma = document.getElementById("idiomasInput").value;
 
-	var fecha_ini = document.getElementById("fechaDesde").value;
+	/*AGARRA EL IDIOMA*/
+	//var idioma = 50;
+	var idiomaInput = document.getElementById("idiomasInput").value;
+	var idioma = document.querySelector("#idioma option[value='"+idiomaInput+"']").dataset.value;
+	console.log(idiomaInput);
+	console.log(idioma);
 
-	var fecha_fin = document.getElementById("fechaHasta").value;
 
+	/*AGARRA LOS INTERESES*/
+	var intereses = [1];
+
+
+
+
+
+
+
+	/*
 	var intereses = document.getElementsByClassName("checkInteres");
 	var interesesChecked = [];
 
@@ -314,8 +312,6 @@ function buscarViaje(){
 	console.log(origen)
 	console.log(idioma)
 	console.log(intereses)
-	console.log(fecha_ini)
-	console.log(fecha_fin)
 
 	*/
 
