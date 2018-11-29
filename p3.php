@@ -148,9 +148,32 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
         </div>
         
 
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title mensajeErrorCoincidencias">Sin coincidencias</h4>
+        </div>
+        <div class="modal-body">
+          <p class="mensajeErrorCoincidencias">:(</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Ok!</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
         <div class="marco_escala">
           <div class="row contenedorEscala">
             <div class="col-xs-12 center">
+              <!-- <span class="mensajeErrorCoincidencias">Sin coincidencias!</span> -->
               <span class="negrita">
                 Escala: 
               </span>
@@ -890,6 +913,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <br> 
 
+      
 
         <section class="">
           <div class="row">
@@ -967,6 +991,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
         </div>
         
+
 
     </header>
     <script

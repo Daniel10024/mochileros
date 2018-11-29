@@ -13,7 +13,7 @@ try
 
 
         // prepare sql and bind parameters
-        $stmt = $conn->prepare("SELECT id_usuario, eje_x, eje_y FROM punto 
+        $stmt = $conn->prepare("SELECT id_usuario, eje_x, eje_y, fecha_inicio, fecha_fin, radio_extra FROM punto 
             WHERE id_viaje = :id_viaje");
         
         

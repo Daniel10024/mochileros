@@ -3,6 +3,8 @@ function buscarViaje(){
 
 	// DEBUG
 
+	/*
+	
 	var escala = 17;
 	// Argentina
 	var fecha_in = new Date(2018,10,4);
@@ -14,10 +16,10 @@ function buscarViaje(){
 	// Español
 	var interesesChecked = [1,2,3,4,5,6,7,8];	
 
-	/*
 	*/
 
 	/*
+	*/
 
 	// ORIGINALES
 
@@ -61,7 +63,6 @@ function buscarViaje(){
 	}
 
 
-	*/
 	
 
 
@@ -88,6 +89,10 @@ function buscarViaje(){
 			if (result.length != 0)
 			{
 			manejarResultado(result);
+			}
+			else
+			{
+				$("#myModal").modal();
 			}
 		},
     error: function (xhr, status, error)
@@ -133,10 +138,6 @@ function manejarResultado(result)
 /*Trae los puntos. De que viaje? Del que este en el INDEX de id_actual*/
 function traerPuntos()
 {
-	console.log("Test:")
-	console.log(id_actual)
-	console.log(resultados_id)
-	console.log()
 	$.ajax({
 	    type: "POST",
 		url: "php/traerViaje.php",
@@ -181,25 +182,55 @@ function ponerPuntos(puntos)
 	for(var i = 0;  i < puntos.length; i++)
 	{
 
-		/*Busca posicion X e Y y las junta en la variable myLatlng*/
+		//Busca posicion X e Y y las junta en la variable myLatlng
 		var positionX = puntos[i][1];
 		var positionY = puntos[i][2];
 		var myLatlng = new google.maps.LatLng(positionX, positionY);
 
-		/*Los voy poniendo en este array para despues manejarlos (crear la linea que los une o eliminarlos) */
+		//Las fechas inicio y fin
+		var fecha_inicio = puntos[i][3];
+		var fecha_fin = puntos[i][4];
+
+
+		var fecha_inicioF = new Date(fecha_inicio);
+		var fecha_finF = new Date(fecha_fin);
+
+
+		var fecha_inicioF = fecha_inicioF.getDate() + "/" + (fecha_inicioF.getMonth()+1) + "/" + fecha_inicioF.getFullYear();
+		var fecha_finF = fecha_finF.getDate() + "/" + (fecha_finF.getMonth()+1) + "/" + fecha_finF.getFullYear();
+
+
+		//Cuanto se va a alejar el usuario
+		var cuadras_extras = puntos[i][5];
+
+		//Los voy poniendo en este array para despues manejarlos (crear la linea que los une o eliminarlos) 
 		puntosMapa.push(myLatlng);
 
-		/*Se crea un nuevo objeto marker*/
+		//Se crea un nuevo objeto marker
 		var marker = new google.maps.Marker({
+			fecha_inicio: fecha_inicioF,
+			fecha_fin: fecha_finF,
+			cuadras_extras: cuadras_extras,
 			position: myLatlng,
 			title:"Hello World!"
 		});
+		if (i == 0) 
+		{
+			marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
+		}
+		else
+		{
+			marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+		}
+
+	/*
 		var contentString = '<div id="content">' +
 	    '<div id="siteNotice">' +
 	    '</div>' +
 	    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
 	    '<div id="bodyContent">' +
-	    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+	    '<p><b>'+marker.fecha_inicio+'</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
 	    'sandstone rock formation in the southern part of the ' +
 	    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
 	    'south west of the nearest large town, Alice Springs; 450&#160;km ' +
@@ -214,10 +245,36 @@ function ponerPuntos(puntos)
 	    '(last visited June 22, 2009).</p>' +
 	    '</div>' +
 	    '</div>';
+
 		infowindow = new google.maps.InfoWindow({
 	    content: contentString
 	  	});
+
+  	*/
+
 		marker.addListener('click', function() {
+			/*
+			infowindow.setContent(
+				'<div class="divInfoWindow">'+
+				'Desde: '+this.fecha_inicio+'<br>'+
+				'Hasta: '+this.fecha_fin+'<br>'+
+				'Dispuesto a alejarme '+this.cuadras_extras+' cuadras <br><br>'+
+				'<button type="button" class="btn btn-primary">Ver Usuario!</button>'+
+				'</div>'
+				);
+	    	infowindow.open(map, this);
+			*/
+
+			infowindow.setContent(
+				'<div id="content" class="divInfoWindow">' +
+	    		'<div id="siteNotice">' +
+				'Desde: '+this.fecha_inicio+'<br>'+
+				'Hasta: '+this.fecha_fin+'<br>'+
+				'Puedo alejarme '+this.cuadras_extras+' cuadras!<br><br>'+
+				'<button type="button" class="btn btn-primary">Ver Usuario!</button>'+
+				'</div>'+
+				'</div>'
+				);
 	    	infowindow.open(map, this);
 		});
 
@@ -231,7 +288,7 @@ function ponerPuntos(puntos)
 	/*Con esto se crea la linea que los une*/
 	flightPath = new google.maps.Polyline({
 	    path: puntosMapa,
-	    strokeColor: "#FF0000",
+	    strokeColor: "#0000FF",
 	    strokeOpacity: 1.0,
 	    strokeWeight: 2
   	});
@@ -285,5 +342,7 @@ function initMap()
         map.setCenter(initialLocation);
  		});
  	}
+	infowindow = new google.maps.InfoWindow({});
+
  	
 }
