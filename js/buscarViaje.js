@@ -183,6 +183,7 @@ function ponerPuntos(puntos)
 	{
 
 		//Busca posicion X e Y y las junta en la variable myLatlng
+		var ID_usuario = puntos[i][0];
 		var positionX = puntos[i][1];
 		var positionY = puntos[i][2];
 		var myLatlng = new google.maps.LatLng(positionX, positionY);
@@ -271,7 +272,7 @@ function ponerPuntos(puntos)
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
 				'Puedo alejarme hasta'+this.cuadras_extras+' cuadras de aqui!<br><br>'+
-				'<button type="button" class="btn btn-primary">Ver Usuario!</button>'+
+				'<a href="p8.php?id='+ID_usuario+'"><button type="button" class="btn btn-primary">Ver Usuario!</button></a>'+
 				'</div>'+
 				'</div>'
 				);

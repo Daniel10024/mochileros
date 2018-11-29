@@ -592,7 +592,7 @@ INSERT INTO `le_interesa` (`ID_PUNTO`, `ID_VIAJE`, `ID_Usuario`, `ID_Interes`) V
 CREATE TABLE `publicacion` (
   `ID_Publicacion` int(11) NOT NULL,
   `ID_Usuario` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Comentario` varchar(640) NOT NULL,
+  `Comentario` varchar(211) NOT NULL,
   `Publico` int(11) NOT NULL,
   `Fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -657,8 +657,8 @@ CREATE TABLE `usuario` (
   `Apellido` char(16) NOT NULL,
   `Edad` date NOT NULL,
   `Pais` char(16) NOT NULL,
-  `Descripcion_U` varchar(255) NOT NULL,
-  `Contacto` varchar(30) NOT NULL
+  `Descripcion_U` varchar(321) NOT NULL,
+  `Contacto` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

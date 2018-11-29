@@ -154,7 +154,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                           </tr> 
                       </thead>
                       <tbody>
-                          <tr id='addr1' data-id="1" class="hiddenlo">         
+<!--                           <tr id='addr1' data-id="1" class="hiddenlo">         
                               <td data-name="ID"><p name="id1">Nº 1</p></td>
                               <td data-name="nom"><p name="nom1">Viaje 1</p></td>
                               <td data-name="opt" align="center">
@@ -169,12 +169,12 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                                 <a name="ver1" href="p6.php" title="Editar" class="btn btn-primary"><em class="glyphicon glyphicon-pencil"></em></a>
                                 <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
                               </td>
-                          </tr>
+                          </tr> -->
                       </tbody>
                   </table>
               </div>
               <div class="panel-footer">
-                  <div class="row">
+<!--                   <div class="row">
                       <div class="col col-xs-12 center">
                         <ul class="pagination pull-center">
                           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-step-backward"></span></a></li>
@@ -182,10 +182,9 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                           <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
                           <li><a href="#"><span class="glyphicon glyphicon-step-forward"></span></a></li>
                         </ul>
-                      
-                        <!-- <a id="add_row" class="btn btn-default pull-right">Add Row</a> -->
+                        <a id="add_row" class="btn btn-default pull-right">Add Row</a> 
                       </div>
-                  </div>
+                  </div> -->
               </div>
           </div>
 
