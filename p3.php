@@ -133,21 +133,47 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
 
         <div class="contenedorMapa">
-          <iframe src="https://www.google.com/maps/embed" width="100%" height="515" frameborder="0" style="border:0;" allowfullscreen></iframe>
+          <div id="mapaGoogle" width="100%"></div>
+            
+          
+          <!-- <iframe src="https://www.google.com/maps/embed" width="100%" height="515" frameborder="0" style="border:0;" allowfullscreen></iframe> -->
           <div class="row">
             <div class="col-xs-6">
-              <button type="button" class="btn btn-primary botonAntSig">Anterior</button>
+              <button type="button" onclick="puntoAnterior()" class="btn btn-primary botonAntSig">Anterior</button>
             </div>
             <div class="col-xs-6">
-              <button type="button" class="btn btn-primary botonAntSig boton-siguiente">Siguiente</button>
+              <button type="button" onclick="puntoSiguiente()" class="btn btn-primary botonAntSig boton-siguiente">Siguiente</button>
             </div>
           </div>
         </div>
         
 
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title mensajeErrorCoincidencias">Sin coincidencias</h4>
+        </div>
+        <div class="modal-body">
+          <p class="mensajeErrorCoincidencias">:(</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Ok!</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
         <div class="marco_escala">
           <div class="row contenedorEscala">
             <div class="col-xs-12 center">
+              <!-- <span class="mensajeErrorCoincidencias">Sin coincidencias!</span> -->
               <span class="negrita">
                 Escala: 
               </span>
@@ -887,6 +913,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <br> 
 
+      
 
         <section class="">
           <div class="row">
@@ -965,6 +992,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
         </div>
         
 
+
     </header>
     <script
               src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -973,6 +1001,8 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0oZCB95kI3LlHGjXLxhoPYjNvmFYtY1g&callback=initMap"
+          async defer></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
