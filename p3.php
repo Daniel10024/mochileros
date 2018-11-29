@@ -133,13 +133,16 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
 
         <div class="contenedorMapa">
-          <iframe src="https://www.google.com/maps/embed" width="100%" height="515" frameborder="0" style="border:0;" allowfullscreen></iframe>
+          <div id="mapaGoogle" width="100%"></div>
+            
+          
+          <!-- <iframe src="https://www.google.com/maps/embed" width="100%" height="515" frameborder="0" style="border:0;" allowfullscreen></iframe> -->
           <div class="row">
             <div class="col-xs-6">
-              <button type="button" class="btn btn-primary botonAntSig">Anterior</button>
+              <button type="button" onclick="puntoAnterior()" class="btn btn-primary botonAntSig">Anterior</button>
             </div>
             <div class="col-xs-6">
-              <button type="button" class="btn btn-primary botonAntSig boton-siguiente">Siguiente</button>
+              <button type="button" onclick="puntoSiguiente()" class="btn btn-primary botonAntSig boton-siguiente">Siguiente</button>
             </div>
           </div>
         </div>
@@ -973,6 +976,8 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0oZCB95kI3LlHGjXLxhoPYjNvmFYtY1g&callback=initMap"
+          async defer></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>

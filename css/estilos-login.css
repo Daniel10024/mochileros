@@ -679,3 +679,7 @@ text-decoration:none;
 .botonBuscarFondoPantalla{
   margin-bottom: 30px;
 }
+
+#mapaGoogle{
+  height: 515px;
+}
