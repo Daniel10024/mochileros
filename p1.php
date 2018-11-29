@@ -178,7 +178,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 						                                <button name="submit" type="submit" data-toggle="modal" data-target="#modal_error" class="btn btn-primary compart">Compartir</button>
 						                            </div>
 						                        	<div class="btn-group">
-						                                <label id="label_foto" for="publicar-foto" class="btn btn-info compart">Agregar Imagen</label>
+						                                <label id="label_foto" for="publicar-foto" class="btn btn-info compart">Agregar Foto</label>
 						                            </div>
 						                            <div class="btn-group right">
 						                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" >

@@ -80,6 +80,7 @@ $(document).ready(function amigos() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},
     function(data){
+      //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         var ventana_modal2 = "";
@@ -126,6 +127,7 @@ $(document).ready(function solicitudes() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},
     function(data){
+      //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         var ventana_modal = "";
@@ -174,7 +176,7 @@ function enviar(){
     $.post(_urlform,{id_amigo:id_el, id_yo:id_yo},
     function(data){
         if(data != 1){
-          location.href ="p1.php";
+          location.href ="p8.php?id="+id_el+"";
                       
         }
         else{
@@ -237,9 +239,65 @@ $(document).ready(function publicaciones() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},    
     function(data){
+      //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         $.each(json, function(i, item) {
+          if (id_yo == 1) {
+            if (item.image == '<div></div>') {
+              texto +='<div class="noticia">'+
+                        '<div class="row">'+
+                            '<div class="col-md-12">'+
+                                '<div class="testimonials">'+
+                                  '<div class="active item">'+
+                                      '<blockquote><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                        '<div class="pull-left">'+
+                                        '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                      '</div>'+
+                                          '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                          
+                                        '</blockquote>'+
+                                      '<div class="table-responsive">'+ 
+                                        '<table><div class="row coment"><div class="col-sm-12 col-md-12"><p class="p_coment">'+item.coment+'</p></div>'+
+                                        '<div class="col-sm-4 col-md-3">'+item.image+'</div></div></table>'+
+                                      '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                      '</div>';
+
+
+              }
+              else {
+                texto +='<div class="noticia">'+
+                          '<div class="row">'+
+                              '<div class="col-md-12">'+
+                                  '<div class="testimonials">'+
+                                    '<div class="active item">'+
+                                        '<blockquote><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                          '<div class="pull-left">'+
+                                          '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
+                                        '</div>'+
+                                            '<span class="testimonials-post hidden-xs">'+item.fecha+'</span>'+
+                                            
+                                          '</blockquote>'+
+                                        '<div class="table-responsive">'+ 
+                                          '<table><div class="row coment"><div class="col-md-6"><p class="p_coment">'+item.coment+'</p></div>'+
+                                          '<div class="col-md-6">'+item.image+'</div></div></table>'+
+                                        '</div>'+
+                                      '</div>'+
+                                  '</div>'+
+                              '</div>'+
+                          '</div>'+
+                        '</div>';
+           
+
+              }
+          } // if yo == invitado
+          else{
+
+          
           if (item.ida == id_yo) {
               if (item.image == '<div></div>') {
                 
@@ -248,7 +306,7 @@ $(document).ready(function publicaciones() {
                             '<div class="col-md-12">'+
                                 '<div class="testimonials">'+
                                   '<div class="active item">'+
-                                      '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                      '<blockquote><a href="p2.php"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
                                         '<div class="pull-left">'+
                                         '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
                                       '</div></a>'+
@@ -273,7 +331,7 @@ $(document).ready(function publicaciones() {
                               '<div class="col-md-12">'+
                                   '<div class="testimonials">'+
                                     '<div class="active item">'+
-                                        '<blockquote><a href="p8.php?id='+item.ida+'"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
+                                        '<blockquote><a href="p2.php"><img alt="" src="img/foto/'+item.ida+'.jpg" class="pull-left cardo">'+
                                           '<div class="pull-left">'+
                                           '<span class="testimonials-name">'+item.nombre + " " + item.apellido+'</span>'+
                                         '</div></a>'+
@@ -292,7 +350,7 @@ $(document).ready(function publicaciones() {
            
 
               }
-          }
+          } //if mi publicacion
           else{
               if (item.image == '<div></div>') {
               texto +='<div class="noticia">'+
@@ -338,6 +396,7 @@ $(document).ready(function publicaciones() {
                           '</div>'+
                         '</div>';
               }
+          }
           }
         })
         $("#notice").html(texto);
