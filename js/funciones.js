@@ -64,7 +64,7 @@ $(document).ready(function() {
            } 
 
     //validar nombre_____________________________________________________________________________________
-        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 64) {
+        if($("#nom-form").val().length < 1 || $("#nom-form").val().length > 16) {
             data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El nombre es obligatorio max 64 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
@@ -81,7 +81,7 @@ $(document).ready(function() {
         };
 
     //validar apellido_______________________________________________________________________________________
-        if($("#ape-form").val().length > 64) {
+        if($("#ape-form").val().length > 16) {
             data =  '<div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span> El apellido puede ser de un maximo de 64 caracteres </div>'+
                         '<div class="table-responsive">'+
                         '<table class="table" id="tr_modal"></table>'+
