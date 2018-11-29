@@ -300,8 +300,21 @@ function ponerPuntos(puntos)
 				);
 	    	infowindow.open(map, this);
 			*/
-
-			infowindow.setContent(
+			var id_yo = myvar;
+			if (id_yo == 1) {
+				infowindow.setContent(
+				'<div id="content" class="divInfoWindow">' +
+	    		'<div id="siteNotice">' +
+				'Desde: '+this.fecha_inicio+'<br>'+
+				'Hasta: '+this.fecha_fin+'<br>'+
+				'Puedo alejarme hasta'+this.cuadras_extras+' cuadras de aqui!<br><br>'+
+				'<p class= "error">Inicia secion para ver el usuario</p>'+
+				'</div>'+
+				'</div>'
+				);
+			}
+			else{
+				infowindow.setContent(
 				'<div id="content" class="divInfoWindow">' +
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
@@ -311,6 +324,8 @@ function ponerPuntos(puntos)
 				'</div>'+
 				'</div>'
 				);
+			}
+			
 	    	infowindow.open(map, this);
 		});
 

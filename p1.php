@@ -21,7 +21,6 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     $des = $data_cli['Descripcion_U'];
     }
  ?>
-<script> if (a == b) {} </script>
 
 <?php
 if(!isset($_SESSION["‘ID_user’"])) {

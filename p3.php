@@ -25,6 +25,10 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
     }
  ?>
 
+ <script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
