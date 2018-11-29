@@ -133,7 +133,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
 
         <div class="contenedorMapa">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230" width="100%" height="315" frameborder="0" style="border:0;" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed" width="100%" height="315" frameborder="0" style="border:0;" allowfullscreen></iframe>
           <div class="row">
             <div class="col-xs-6">
               <button type="button" class="btn btn-primary botonAntSig">Anterior</button>
@@ -144,256 +144,259 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
         </div>
         
+
         <div class="marco_escala">
           <div class="row contenedorEscala">
             <div class="col-xs-12 center">
               <span class="negrita">
                 Escala: 
               </span>
-            </div> 
+            </div>             
             <div class="col-xs-12 center divDeEscalaInput">
               <input class="form-control center" list="escala" placeholder="Global/Continente/Pais" id="escalaInput">
+
+                <!--################## ESCALA ###############-->
                 <datalist id="escala">
-                  <option value="Global">
-                  <option value="America">
-                  <option value="Europa">
-                  <option value="Africa">
-                  <option value="Asia">
-                  <option value="Oceania">
-                  <option value="Afganistán">
-                  <option value="Albania">
-                  <option value="Alemania">
-                  <option value="Andorra">
-                  <option value="Angola">
-                  <option value="Anguilla">
-                  <option value="Antártida">
-                  <option value="Antigua y Barbuda">
-                  <option value="Antillas Holandesas">
-                  <option value="Arabia Saudí">
-                  <option value="Argelia">
-                  <option value="Argentina">
-                  <option value="Armenia">
-                  <option value="Aruba">
-                  <option value="Australia">
-                  <option value="Austria">
-                  <option value="Azerbaiyán">
-                  <option value="Bahamas">
-                  <option value="Bahrein">
-                  <option value="Bangladesh">
-                  <option value="Barbados">
-                  <option value="Bélgica">
-                  <option value="Belice">
-                  <option value="Benin">
-                  <option value="Bermudas">
-                  <option value="Bielorrusia">
-                  <option value="Birmania">
-                  <option value="Bolivia">
-                  <option value="Bosnia y Herzegovina">
-                  <option value="Botswana">
-                  <option value="Brasil">
-                  <option value="Brunei">
-                  <option value="Bulgaria">
-                  <option value="Burkina Faso">
-                  <option value="Burundi">
-                  <option value="Bután">
-                  <option value="Cabo Verde">
-                  <option value="Camboya">
-                  <option value="Camerún">
-                  <option value="Canadá">
-                  <option value="Chad">
-                  <option value="Chile">
-                  <option value="China">
-                  <option value="Chipre">
-                  <option value="Ciudad del Vaticano (Santa Sede)">
-                  <option value="Colombia">
-                  <option value="Comores">
-                  <option value="Congo">
-                  <option value="Congo, República Democrática del">
-                  <option value="Corea">
-                  <option value="Corea del Norte">
-                  <option value="Costa de Marfíl">
-                  <option value="Costa Rica">
-                  <option value="Croacia (Hrvatska)">
-                  <option value="Cuba">
-                  <option value="Dinamarca">
-                  <option value="Djibouti">
-                  <option value="Dominica">
-                  <option value="Ecuador">
-                  <option value="Egipto">
-                  <option value="El Salvador">
-                  <option value="Emiratos Árabes Unidos">
-                  <option value="Eritrea">
-                  <option value="Eslovenia">
-                  <option value="España">
-                  <option value="Estados Unidos">
-                  <option value="Estonia">
-                  <option value="Etiopía">
-                  <option value="Fiji">
-                  <option value="Filipinas">
-                  <option value="Finlandia">
-                  <option value="Francia">
-                  <option value="Gabón">
-                  <option value="Gambia">
-                  <option value="Georgia">
-                  <option value="Ghana">
-                  <option value="Gibraltar">
-                  <option value="Granada">
-                  <option value="Grecia">
-                  <option value="Groenlandia">
-                  <option value="Guadalupe">
-                  <option value="Guam">
-                  <option value="Guatemala">
-                  <option value="Guayana">
-                  <option value="Guayana Francesa">
-                  <option value="Guinea">
-                  <option value="Guinea Ecuatorial">
-                  <option value="Guinea-Bissau">
-                  <option value="Haití">
-                  <option value="Honduras">
-                  <option value="Hungría">
-                  <option value="India">
-                  <option value="Indonesia">
-                  <option value="Irak">
-                  <option value="Irán">
-                  <option value="Irlanda">
-                  <option value="Isla Bouvet">
-                  <option value="Isla de Christmas">
-                  <option value="Islandia">
-                  <option value="Islas Caimán">
-                  <option value="Islas Cook">
-                  <option value="Islas de Cocos o Keeling">
-                  <option value="Islas Faroe">
-                  <option value="Islas Heard y McDonald">
-                  <option value="Islas Malvinas">
-                  <option value="Islas Marianas del Norte">
-                  <option value="Islas Marshall">
-                  <option value="Islas menores de Estados Unidos">
-                  <option value="Islas Palau">
-                  <option value="Islas Salomón">
-                  <option value="Islas Svalbard y Jan Mayen">
-                  <option value="Islas Tokelau">
-                  <option value="Islas Turks y Caicos">
-                  <option value="Islas Vírgenes (EEUU)">
-                  <option value="Islas Vírgenes (Reino Unido)">
-                  <option value="Islas Wallis y Futuna">
-                  <option value="Israel">
-                  <option value="Italia">
-                  <option value="Jamaica">
-                  <option value="Japón">
-                  <option value="Jordania">
-                  <option value="Kazajistán">
-                  <option value="Kenia">
-                  <option value="Kirguizistán">
-                  <option value="Kiribati">
-                  <option value="Kuwait">
-                  <option value="Laos">
-                  <option value="Lesotho">
-                  <option value="Letonia">
-                  <option value="Líbano">
-                  <option value="Liberia">
-                  <option value="Libia">
-                  <option value="Liechtenstein">
-                  <option value="Lituania">
-                  <option value="Luxemburgo">
-                  <option value="Macedonia, Ex-República Yugoslava de">
-                  <option value="Madagascar">
-                  <option value="Malasia">
-                  <option value="Malawi">
-                  <option value="Maldivas">
-                  <option value="Malí">
-                  <option value="Malta">
-                  <option value="Marruecos">
-                  <option value="Martinica">
-                  <option value="Mauricio">
-                  <option value="Mauritania">
-                  <option value="Mayotte">
-                  <option value="México">
-                  <option value="Micronesia">
-                  <option value="Moldavia">
-                  <option value="Mónaco">
-                  <option value="Mongolia">
-                  <option value="Montserrat">
-                  <option value="Mozambique">
-                  <option value="Namibia">
-                  <option value="Nauru">
-                  <option value="Nepal">
-                  <option value="Nicaragua">
-                  <option value="Níger">
-                  <option value="Nigeria">
-                  <option value="Niue">
-                  <option value="Norfolk">
-                  <option value="Noruega">
-                  <option value="Nueva Caledonia">
-                  <option value="Nueva Zelanda">
-                  <option value="Omán">
-                  <option value="Países Bajos">
-                  <option value="Panamá">
-                  <option value="Papúa Nueva Guinea">
-                  <option value="Paquistán">
-                  <option value="Paraguay">
-                  <option value="Perú">
-                  <option value="Pitcairn">
-                  <option value="Polinesia Francesa">
-                  <option value="Polonia">
-                  <option value="Portugal">
-                  <option value="Puerto Rico">
-                  <option value="Qatar">
-                  <option value="Reino Unido">
-                  <option value="República Centroafricana">
-                  <option value="República Checa">
-                  <option value="República de Sudáfrica">
-                  <option value="República Dominicana">
-                  <option value="República Eslovaca">
-                  <option value="Reunión">
-                  <option value="Ruanda">
-                  <option value="Rumania">
-                  <option value="Rusia">
-                  <option value="Sahara Occidental">
-                  <option value="Saint Kitts y Nevis">
-                  <option value="Samoa">
-                  <option value="Samoa Americana">
-                  <option value="San Marino">
-                  <option value="San Vicente y Granadinas">
-                  <option value="Santa Helena">
-                  <option value="Santa Lucía">
-                  <option value="Santo Tomé y Príncipe">
-                  <option value="Senegal">
-                  <option value="Seychelles">
-                  <option value="Sierra Leona">
-                  <option value="Singapur">
-                  <option value="Siria">
-                  <option value="Somalia">
-                  <option value="Sri Lanka">
-                  <option value="St Pierre y Miquelon">
-                  <option value="Suazilandia">
-                  <option value="Sudán">
-                  <option value="Suecia">
-                  <option value="Suiza">
-                  <option value="Surinam">
-                  <option value="Tailandia">
-                  <option value="Taiwán">
-                  <option value="Tanzania">
-                  <option value="Tayikistán">
-                  <option value="Territorios franceses del Sur">
-                  <option value="Timor Oriental">
-                  <option value="Togo">
-                  <option value="Tonga">
-                  <option value="Trinidad y Tobago">
-                  <option value="Túnez">
-                  <option value="Turkmenistán">
-                  <option value="Turquía">
-                  <option value="Tuvalu">
-                  <option value="Ucrania">
-                  <option value="Uganda">
-                  <option value="Uruguay">
-                  <option value="Uzbekistán">
-                  <option value="Vanuatu">
-                  <option value="Venezuela">
-                  <option value="Vietnam">
-                  <option value="Yemen">
-                  <option value="Yugoslavia">
-                  <option value="Zambia">
-                  <option value="Zimbabue">
+                  <option data-value="0" value="Global">
+                  <option data-value="1" value="America">
+                  <option data-value="2" value="Europa">
+                  <option data-value="3" value="Africa">
+                  <option data-value="4" value="Asia">
+                  <option data-value="5" value="Oceania">
+                  <option data-value="6" value="Afganistán">
+                  <option data-value="7" value="Albania">
+                  <option data-value="8" value="Alemania">
+                  <option data-value="9" value="Andorra">
+                  <option data-value="10" value="Angola">
+                  <option data-value="11" value="Anguilla">
+                  <option data-value="12" value="Antártida">
+                  <option data-value="13" value="Antigua y Barbuda">
+                  <option data-value="14" value="Antillas Holandesas">
+                  <option data-value="15" value="Arabia Saudí">
+                  <option data-value="16" value="Argelia">
+                  <option data-value="17" value="Argentina">
+                  <option data-value="18" value="Armenia">
+                  <option data-value="19" value="Aruba">
+                  <option data-value="20" value="Australia">
+                  <option data-value="21" value="Austria">
+                  <option data-value="22" value="Azerbaiyán">
+                  <option data-value="23" value="Bahamas">
+                  <option data-value="24" value="Bahrein">
+                  <option data-value="25" value="Bangladesh">
+                  <option data-value="26" value="Barbados">
+                  <option data-value="27" value="Bélgica">
+                  <option data-value="28" value="Belice">
+                  <option data-value="29" value="Benin">
+                  <option data-value="30" value="Bermudas">
+                  <option data-value="31" value="Bielorrusia">
+                  <option data-value="32" value="Birmania">
+                  <option data-value="33" value="Bolivia">
+                  <option data-value="34" value="Bosnia y Herzegovina">
+                  <option data-value="35" value="Botswana">
+                  <option data-value="36" value="Brasil">
+                  <option data-value="37" value="Brunei">
+                  <option data-value="38" value="Bulgaria">
+                  <option data-value="39" value="Burkina Faso">
+                  <option data-value="40" value="Burundi">
+                  <option data-value="41" value="Bután">
+                  <option data-value="42" value="Cabo Verde">
+                  <option data-value="43" value="Camboya">
+                  <option data-value="44" value="Camerún">
+                  <option data-value="45" value="Canadá">
+                  <option data-value="46" value="Chad">
+                  <option data-value="47" value="Chile">
+                  <option data-value="48" value="China">
+                  <option data-value="49" value="Chipre">
+                  <option data-value="50" value="Ciudad del Vaticano (Santa Sede)">
+                  <option data-value="51" value="Colombia">
+                  <option data-value="52" value="Comores">
+                  <option data-value="53" value="Congo">
+                  <option data-value="54" value="Congo, República Democrática del">
+                  <option data-value="55" value="Corea">
+                  <option data-value="56" value="Corea del Norte">
+                  <option data-value="57" value="Costa de Marfíl">
+                  <option data-value="58" value="Costa Rica">
+                  <option data-value="59" value="Croacia (Hrvatska)">
+                  <option data-value="60" value="Cuba">
+                  <option data-value="61" value="Dinamarca">
+                  <option data-value="62" value="Djibouti">
+                  <option data-value="63" value="Dominica">
+                  <option data-value="64" value="Ecuador">
+                  <option data-value="65" value="Egipto">
+                  <option data-value="66" value="El Salvador">
+                  <option data-value="67" value="Emiratos Árabes Unidos">
+                  <option data-value="68" value="Eritrea">
+                  <option data-value="69" value="Eslovenia">
+                  <option data-value="70" value="España">
+                  <option data-value="71" value="Estados Unidos">
+                  <option data-value="72" value="Estonia">
+                  <option data-value="73" value="Etiopía">
+                  <option data-value="74" value="Fiji">
+                  <option data-value="75" value="Filipinas">
+                  <option data-value="76" value="Finlandia">
+                  <option data-value="77" value="Francia">
+                  <option data-value="78" value="Gabón">
+                  <option data-value="79" value="Gambia">
+                  <option data-value="80" value="Georgia">
+                  <option data-value="81" value="Ghana">
+                  <option data-value="82" value="Gibraltar">
+                  <option data-value="83" value="Granada">
+                  <option data-value="84" value="Grecia">
+                  <option data-value="85" value="Groenlandia">
+                  <option data-value="86" value="Guadalupe">
+                  <option data-value="87" value="Guam">
+                  <option data-value="88" value="Guatemala">
+                  <option data-value="89" value="Guayana">
+                  <option data-value="90" value="Guayana Francesa">
+                  <option data-value="91" value="Guinea">
+                  <option data-value="92" value="Guinea Ecuatorial">
+                  <option data-value="93" value="Guinea-Bissau">
+                  <option data-value="94" value="Haití">
+                  <option data-value="95" value="Honduras">
+                  <option data-value="96" value="Hungría">
+                  <option data-value="97" value="India">
+                  <option data-value="98" value="Indonesia">
+                  <option data-value="99" value="Irak">
+                  <option data-value="100" value="Irán">
+                  <option data-value="101" value="Irlanda">
+                  <option data-value="102" value="Isla Bouvet">
+                  <option data-value="103" value="Isla de Christmas">
+                  <option data-value="104" value="Islandia">
+                  <option data-value="105" value="Islas Caimán">
+                  <option data-value="106" value="Islas Cook">
+                  <option data-value="107" value="Islas de Cocos o Keeling">
+                  <option data-value="108" value="Islas Faroe">
+                  <option data-value="109" value="Islas Heard y McDonald">
+                  <option data-value="110" value="Islas Malvinas">
+                  <option data-value="111" value="Islas Marianas del Norte">
+                  <option data-value="112" value="Islas Marshall">
+                  <option data-value="113" value="Islas menores de Estados Unidos">
+                  <option data-value="114" value="Islas Palau">
+                  <option data-value="115" value="Islas Salomón">
+                  <option data-value="116" value="Islas Svalbard y Jan Mayen">
+                  <option data-value="117" value="Islas Tokelau">
+                  <option data-value="118" value="Islas Turks y Caicos">
+                  <option data-value="119" value="Islas Vírgenes (EEUU)">
+                  <option data-value="120" value="Islas Vírgenes (Reino Unido)">
+                  <option data-value="121" value="Islas Wallis y Futuna">
+                  <option data-value="122" value="Israel">
+                  <option data-value="123" value="Italia">
+                  <option data-value="124" value="Jamaica">
+                  <option data-value="125" value="Japón">
+                  <option data-value="126" value="Jordania">
+                  <option data-value="127" value="Kazajistán">
+                  <option data-value="128" value="Kenia">
+                  <option data-value="129" value="Kirguizistán">
+                  <option data-value="130" value="Kiribati">
+                  <option data-value="131" value="Kuwait">
+                  <option data-value="132" value="Laos">
+                  <option data-value="133" value="Lesotho">
+                  <option data-value="134" value="Letonia">
+                  <option data-value="135" value="Líbano">
+                  <option data-value="136" value="Liberia">
+                  <option data-value="137" value="Libia">
+                  <option data-value="138" value="Liechtenstein">
+                  <option data-value="139" value="Lituania">
+                  <option data-value="140" value="Luxemburgo">
+                  <option data-value="141" value="Macedonia, Ex-República Yugoslava de">
+                  <option data-value="142" value="Madagascar">
+                  <option data-value="143" value="Malasia">
+                  <option data-value="144" value="Malawi">
+                  <option data-value="145" value="Maldivas">
+                  <option data-value="146" value="Malí">
+                  <option data-value="147" value="Malta">
+                  <option data-value="148" value="Marruecos">
+                  <option data-value="149" value="Martinica">
+                  <option data-value="150" value="Mauricio">
+                  <option data-value="151" value="Mauritania">
+                  <option data-value="152" value="Mayotte">
+                  <option data-value="153" value="México">
+                  <option data-value="154" value="Micronesia">
+                  <option data-value="155" value="Moldavia">
+                  <option data-value="156" value="Mónaco">
+                  <option data-value="157" value="Mongolia">
+                  <option data-value="158" value="Montserrat">
+                  <option data-value="159" value="Mozambique">
+                  <option data-value="160" value="Namibia">
+                  <option data-value="161" value="Nauru">
+                  <option data-value="162" value="Nepal">
+                  <option data-value="163" value="Nicaragua">
+                  <option data-value="164" value="Níger">
+                  <option data-value="165" value="Nigeria">
+                  <option data-value="166" value="Niue">
+                  <option data-value="167" value="Norfolk">
+                  <option data-value="168" value="Noruega">
+                  <option data-value="169" value="Nueva Caledonia">
+                  <option data-value="170" value="Nueva Zelanda">
+                  <option data-value="171" value="Omán">
+                  <option data-value="172" value="Países Bajos">
+                  <option data-value="173" value="Panamá">
+                  <option data-value="174" value="Papúa Nueva Guinea">
+                  <option data-value="175" value="Paquistán">
+                  <option data-value="176" value="Paraguay">
+                  <option data-value="177" value="Perú">
+                  <option data-value="178" value="Pitcairn">
+                  <option data-value="179" value="Polinesia Francesa">
+                  <option data-value="180" value="Polonia">
+                  <option data-value="181" value="Portugal">
+                  <option data-value="182" value="Puerto Rico">
+                  <option data-value="183" value="Qatar">
+                  <option data-value="184" value="Reino Unido">
+                  <option data-value="185" value="República Centroafricana">
+                  <option data-value="186" value="República Checa">
+                  <option data-value="187" value="República de Sudáfrica">
+                  <option data-value="188" value="República Dominicana">
+                  <option data-value="189" value="República Eslovaca">
+                  <option data-value="190" value="Reunión">
+                  <option data-value="191" value="Ruanda">
+                  <option data-value="192" value="Rumania">
+                  <option data-value="193" value="Rusia">
+                  <option data-value="194" value="Sahara Occidental">
+                  <option data-value="195" value="Saint Kitts y Nevis">
+                  <option data-value="196" value="Samoa">
+                  <option data-value="197" value="Samoa Americana">
+                  <option data-value="198" value="San Marino">
+                  <option data-value="199" value="San Vicente y Granadinas">
+                  <option data-value="200" value="Santa Helena">
+                  <option data-value="201" value="Santa Lucía">
+                  <option data-value="202" value="Santo Tomé y Príncipe">
+                  <option data-value="203" value="Senegal">
+                  <option data-value="204" value="Seychelles">
+                  <option data-value="205" value="Sierra Leona">
+                  <option data-value="206" value="Singapur">
+                  <option data-value="207" value="Siria">
+                  <option data-value="208" value="Somalia">
+                  <option data-value="209" value="Sri Lanka">
+                  <option data-value="210" value="St Pierre y Miquelon">
+                  <option data-value="211" value="Suazilandia">
+                  <option data-value="212" value="Sudán">
+                  <option data-value="213" value="Suecia">
+                  <option data-value="214" value="Suiza">
+                  <option data-value="215" value="Surinam">
+                  <option data-value="216" value="Tailandia">
+                  <option data-value="217" value="Taiwán">
+                  <option data-value="218" value="Tanzania">
+                  <option data-value="219" value="Tayikistán">
+                  <option data-value="220" value="Territorios franceses del Sur">
+                  <option data-value="221" value="Timor Oriental">
+                  <option data-value="222" value="Togo">
+                  <option data-value="223" value="Tonga">
+                  <option data-value="224" value="Trinidad y Tobago">
+                  <option data-value="225" value="Túnez">
+                  <option data-value="226" value="Turkmenistán">
+                  <option data-value="227" value="Turquía">
+                  <option data-value="228" value="Tuvalu">
+                  <option data-value="229" value="Ucrania">
+                  <option data-value="230" value="Uganda">
+                  <option data-value="231" value="Uruguay">
+                  <option data-value="232" value="Uzbekistán">
+                  <option data-value="233" value="Vanuatu">
+                  <option data-value="234" value="Venezuela">
+                  <option data-value="235" value="Vietnam">
+                  <option data-value="236" value="Yemen">
+                  <option data-value="237" value="Yugoslavia">
+                  <option data-value="238" value="Zambia">
+                  <option data-value="239" value="Zimbabue">
                 </datalist> 
               <!-- <input type="text" class="form-control input-sm inputEscala"> -->
             </div> 
@@ -410,230 +413,239 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
             </div>
           </div>
           <br>
+
+
           <div class="row">
             <div class="col-xs-6">
                 <strong>Idiomas:</strong>
-                <input class="form-control " required="required" type="text" list="lenguajes" id="idiomasInput">
-                <datalist id="lenguajes">
-                  <option value="Afrikáans">
-                  <option value="Akan">
-                  <option value="Albanés">
-                  <option value="Alemán">
-                  <option value="Amhárico">
-                  <option value="Árabe">
-                  <option value="Armenio">
-                  <option value="Asamés">
-                  <option value="Asirio">
-                  <option value="Azerbaiyano">
-                  <option value="Badini">
-                  <option value="Bambara">
-                  <option value="Baskir">
-                  <option value="Bengalí">
-                  <option value="Bielorruso">
-                  <option value="Birmano">
-                  <option value="Bisaya">
-                  <option value="Bosnio">
-                  <option value="Bravanese">
-                  <option value="Búlgaro">
-                  <option value="Cachemir">
-                  <option value="Caldeo">
-                  <option value="Camboyano">
-                  <option value="Canarés">
-                  <option value="Cantonés">
-                  <option value="Catalán">
-                  <option value="Cebuano">
-                  <option value="Chamorro">
-                  <option value="Chaozhou">
-                  <option value="Chavacano">
-                  <option value="Checo">
-                  <option value="Chichewa">
-                  <option value="Chiluba">
-                  <option value="Chin">
-                  <option value="Chuukés">
-                  <option value="Cingalés">
-                  <option value="Cingalés">
-                  <option value="Coreano">
-                  <option value="Cree">
-                  <option value="Criollo"> haitiano
-                  <option value="Croata">
-                  <option value="Dakota">
-                  <option value="Danés">
-                  <option value="Darí">
-                  <option value="Dinka">
-                  <option value="Diula">
-                  <option value="Dzongkha">
-                  <option value="Eslovaco">
-                  <option value="Esloveno">
-                  <option value="Esloveno">
-                  <option value="Español">
-                  <option value="Estonio">
-                  <option value="Ewé">
-                  <option value="Fante">
-                  <option value="Farsi">
-                  <option value="Feroés">
-                  <option value="Finés">
-                  <option value="Flamenco">
-                  <option value="Francés">
-                  <option value="Francés"> canadiense
-                  <option value="Frisón">
-                  <option value="Fujianés">
-                  <option value="Fujiano">
-                  <option value="Fula">
-                  <option value="Fula">
-                  <option value="Fulani">
-                  <option value="Fuzhou">
-                  <option value="Ga">
-                  <option value="Gaélico">
-                  <option value="Galés">
-                  <option value="Gallego">
-                  <option value="Ganda">
-                  <option value="Georgiano">
-                  <option value="Gorani">
-                  <option value="Griego">
-                  <option value="Guanxi">
-                  <option value="Gujarati">
-                  <option value="Hakka">
-                  <option value="Hassanía">
-                  <option value="Hausa">
-                  <option value="Hebreo">
-                  <option value="Hiligainón">
-                  <option value="Hindi">
-                  <option value="Hindi"> de Fiyi
-                  <option value="Hindú">
-                  <option value="Hmong">
-                  <option value="Holandés">
-                  <option value="Húngaro">
-                  <option value="Ibanag">
-                  <option value="Igbo">
-                  <option value="Ilocano">
-                  <option value="Ilongo">
-                  <option value="Indonesio">
-                  <option value="Inglés">
-                  <option value="Inuit">
-                  <option value="Irlandés">
-                  <option value="Islandés">
-                  <option value="Italiano">
-                  <option value="Jalja">
-                  <option value="Japonés">
-                  <option value="Javanés">
-                  <option value="Jemer">
-                  <option value="Kanjobal">
-                  <option value="Karen">
-                  <option value="Kazajo">
-                  <option value="Kikuyu">
-                  <option value="Kiñaruanda">
-                  <option value="Kirguís">
-                  <option value="Kirundi">
-                  <option value="Kosovar">
-                  <option value="Kotokoli">
-                  <option value="Krio">
-                  <option value="Kurdo">
-                  <option value="Kurmanji">
-                  <option value="Lakota">
-                  <option value="Laosiano">
-                  <option value="Latín">
-                  <option value="Letón">
-                  <option value="Lingala">
-                  <option value="Lituano">
-                  <option value="Luganda">
-                  <option value="Luo">
-                  <option value="Lusoga">
-                  <option value="Luxemburgués">
-                  <option value="Maay">
-                  <option value="Macedonio">
-                  <option value="Malayalam">
-                  <option value="Malayo">
-                  <option value="Maldiviano">
-                  <option value="Malgache">
-                  <option value="Maltés">
-                  <option value="Mandarín">
-                  <option value="Mandinga">
-                  <option value="Mandingo">
-                  <option value="Maorí">
-                  <option value="Maratí">
-                  <option value="Marshalés">
-                  <option value="Mien">
-                  <option value="Mirpuri">
-                  <option value="Mixteco">
-                  <option value="Moldavo">
-                  <option value="Mongol">
-                  <option value="Napolitano">
-                  <option value="Navajo">
-                  <option value="Nepalí">
-                  <option value="Noruego">
-                  <option value="Nuer">
-                  <option value="Ojibwa">
-                  <option value="Oriya">
-                  <option value="Oromo">
-                  <option value="Osetio">
-                  <option value="Pahari">
-                  <option value="Pampango">
-                  <option value="Panyabí">
-                  <option value="Pashto">
-                  <option value="Patois">
-                  <option value="Pidgin"> inglés
-                  <option value="Polaco">
-                  <option value="Portugués">
-                  <option value="Pothwari">
-                  <option value="Putián">
-                  <option value="Quechua">
-                  <option value="Romanche">
-                  <option value="Romaní">
-                  <option value="Rumano">
-                  <option value="Rundi">
-                  <option value="Ruso">
-                  <option value="Samoano">
-                  <option value="Sango">
-                  <option value="Sánscrito">
-                  <option value="Serbio">
-                  <option value="Sesotho">
-                  <option value="Setsuana">
-                  <option value="Shangainés">
-                  <option value="Shona">
-                  <option value="Sichuan">
-                  <option value="Siciliano">
-                  <option value="Sindhi">
-                  <option value="Siswati">/suazi
-                  <option value="Somalí">
-                  <option value="Sondanés">
-                  <option value="Soninké">
-                  <option value="Sorani">
-                  <option value="Suajili">
-                  <option value="Sueco">
-                  <option value="Susu">
-                  <option value="Sylheti">
-                  <option value="Tagalo">
-                  <option value="Tailandés">
-                  <option value="Taiwanés">
-                  <option value="Tamil">
-                  <option value="Tayiko">
-                  <option value="Telugú">
-                  <option value="Tibetano">
-                  <option value="Tigriña">
-                  <option value="Tongano">
-                  <option value="Tsonga">
-                  <option value="Turco">
-                  <option value="Turcomano">
-                  <option value="Ucraniano">
-                  <option value="Uigur">
-                  <option value="Urdú">
-                  <option value="Uzbeco">
-                  <option value="Vasco"> (euskera)
-                  <option value="Venda">
-                  <option value="Vietnamita">
-                  <option value="Wólof">
-                  <option value="Xhosa">
-                  <option value="Yakartanés">
-                  <option value="Yao">
-                  <option value="Yidis">
-                  <option value="Yoruba">
-                  <option value="Yupik">
-                  <option value="Zulú">
+                <input class="form-control " required="required" type="text" list="idioma" id="idiomasInput">
+
+                <!--################## IDIOMAS ###############-->
+                <datalist id="idioma">
+                  <option data-value="0" value="Afrikáans">
+                  <option data-value="1" value="Akan">
+                  <option data-value="2" value="Albanés">
+                  <option data-value="3" value="Alemán">
+                  <option data-value="4" value="Amhárico">
+                  <option data-value="5" value="Árabe">
+                  <option data-value="6" value="Armenio">
+                  <option data-value="7" value="Asamés">
+                  <option data-value="8" value="Asirio">
+                  <option data-value="9" value="Azerbaiyano">
+                  <option data-value="10" value="Badini">
+                  <option data-value="11" value="Bambara">
+                  <option data-value="12" value="Baskir">
+                  <option data-value="13" value="Bengalí">
+                  <option data-value="14" value="Bielorruso">
+                  <option data-value="15" value="Birmano">
+                  <option data-value="16" value="Bisaya">
+                  <option data-value="17" value="Bosnio">
+                  <option data-value="18" value="Bravanese">
+                  <option data-value="19" value="Búlgaro">
+                  <option data-value="20" value="Cachemir">
+                  <option data-value="21" value="Caldeo">
+                  <option data-value="22" value="Camboyano">
+                  <option data-value="23" value="Canarés">
+                  <option data-value="24" value="Cantonés">
+                  <option data-value="25" value="Catalán">
+                  <option data-value="26" value="Cebuano">
+                  <option data-value="27" value="Chamorro">
+                  <option data-value="28" value="Chaozhou">
+                  <option data-value="29" value="Chavacano">
+                  <option data-value="30" value="Checo">
+                  <option data-value="31" value="Chichewa">
+                  <option data-value="32" value="Chiluba">
+                  <option data-value="33" value="Chin">
+                  <option data-value="34" value="Chuukés">
+                  <option data-value="35" value="Cingalés">
+                  <option data-value="36" value="Cingalés">
+                  <option data-value="37" value="Coreano">
+                  <option data-value="38" value="Cree">
+                  <option data-value="39" value="Criollo haitiano">
+                  <option data-value="40" value="Croata">
+                  <option data-value="41" value="Dakota">
+                  <option data-value="42" value="Danés">
+                  <option data-value="43" value="Darí">
+                  <option data-value="44" value="Dinka">
+                  <option data-value="45" value="Diula">
+                  <option data-value="46" value="Dzongkha">
+                  <option data-value="47" value="Eslovaco">
+                  <option data-value="48" value="Esloveno">
+                  <option data-value="49" value="Esloveno">
+                  <option data-value="50" value="Español">
+                  <option data-value="51" value="Estonio">
+                  <option data-value="52" value="Ewé">
+                  <option data-value="53" value="Fante">
+                  <option data-value="54" value="Farsi">
+                  <option data-value="55" value="Feroés">
+                  <option data-value="56" value="Finés">
+                  <option data-value="57" value="Flamenco">
+                  <option data-value="58" value="Francés">
+                  <option data-value="59" value="Francés canadiense">
+                  <option data-value="60" value="Frisón">
+                  <option data-value="61" value="Fujianés">
+                  <option data-value="62" value="Fujiano">
+                  <option data-value="63" value="Fula">
+                  <option data-value="64" value="Fula">
+                  <option data-value="65" value="Fulani">
+                  <option data-value="66" value="Fuzhou">
+                  <option data-value="67" value="Ga">
+                  <option data-value="68" value="Gaélico">
+                  <option data-value="69" value="Galés">
+                  <option data-value="70" value="Gallego">
+                  <option data-value="71" value="Ganda">
+                  <option data-value="72" value="Georgiano">
+                  <option data-value="73" value="Gorani">
+                  <option data-value="74" value="Griego">
+                  <option data-value="75" value="Guanxi">
+                  <option data-value="76" value="Gujarati">
+                  <option data-value="77" value="Hakka">
+                  <option data-value="78" value="Hassanía">
+                  <option data-value="79" value="Hausa">
+                  <option data-value="80" value="Hebreo">
+                  <option data-value="81" value="Hiligainón">
+                  <option data-value="82" value="Hindi">
+                  <option data-value="83" value="Hindi de Fiyi">
+                  <option data-value="84" value="Hindú">
+                  <option data-value="85" value="Hmong">
+                  <option data-value="86" value="Holandés">
+                  <option data-value="87" value="Húngaro">
+                  <option data-value="88" value="Ibanag">
+                  <option data-value="89" value="Igbo">
+                  <option data-value="90" value="Ilocano">
+                  <option data-value="91" value="Ilongo">
+                  <option data-value="92" value="Indonesio">
+                  <option data-value="93" value="Inglés">
+                  <option data-value="94" value="Inuit">
+                  <option data-value="95" value="Irlandés">
+                  <option data-value="96" value="Islandés">
+                  <option data-value="97" value="Italiano">
+                  <option data-value="98" value="Jalja">
+                  <option data-value="99" value="Japonés">
+                  <option data-value="100" value="Javanés">
+                  <option data-value="101" value="Jemer">
+                  <option data-value="102" value="Kanjobal">
+                  <option data-value="103" value="Karen">
+                  <option data-value="104" value="Kazajo">
+                  <option data-value="105" value="Kikuyu">
+                  <option data-value="106" value="Kiñaruanda">
+                  <option data-value="107" value="Kirguís">
+                  <option data-value="108" value="Kirundi">
+                  <option data-value="109" value="Kosovar">
+                  <option data-value="110" value="Kotokoli">
+                  <option data-value="111" value="Krio">
+                  <option data-value="112" value="Kurdo">
+                  <option data-value="113" value="Kurmanji">
+                  <option data-value="114" value="Lakota">
+                  <option data-value="115" value="Laosiano">
+                  <option data-value="116" value="Latín">
+                  <option data-value="117" value="Letón">
+                  <option data-value="118" value="Lingala">
+                  <option data-value="119" value="Lituano">
+                  <option data-value="120" value="Luganda">
+                  <option data-value="121" value="Luo">
+                  <option data-value="122" value="Lusoga">
+                  <option data-value="123" value="Luxemburgués">
+                  <option data-value="124" value="Maay">
+                  <option data-value="125" value="Macedonio">
+                  <option data-value="126" value="Malayalam">
+                  <option data-value="127" value="Malayo">
+                  <option data-value="128" value="Maldiviano">
+                  <option data-value="129" value="Malgache">
+                  <option data-value="130" value="Maltés">
+                  <option data-value="131" value="Mandarín">
+                  <option data-value="132" value="Mandinga">
+                  <option data-value="133" value="Mandingo">
+                  <option data-value="134" value="Maorí">
+                  <option data-value="135" value="Maratí">
+                  <option data-value="136" value="Marshalés">
+                  <option data-value="137" value="Mien">
+                  <option data-value="138" value="Mirpuri">
+                  <option data-value="139" value="Mixteco">
+                  <option data-value="140" value="Moldavo">
+                  <option data-value="141" value="Mongol">
+                  <option data-value="142" value="Napolitano">
+                  <option data-value="143" value="Navajo">
+                  <option data-value="144" value="Nepalí">
+                  <option data-value="145" value="Noruego">
+                  <option data-value="146" value="Nuer">
+                  <option data-value="147" value="Ojibwa">
+                  <option data-value="148" value="Oriya">
+                  <option data-value="149" value="Oromo">
+                  <option data-value="150" value="Osetio">
+                  <option data-value="151" value="Pahari">
+                  <option data-value="152" value="Pampango">
+                  <option data-value="153" value="Panyabí">
+                  <option data-value="154" value="Pashto">
+                  <option data-value="155" value="Patois">
+                  <option data-value="156" value="Pidgin inglés">
+                  <option data-value="157" value="Polaco">
+                  <option data-value="158" value="Portugués">
+                  <option data-value="159" value="Pothwari">
+                  <option data-value="160" value="Putián">
+                  <option data-value="161" value="Quechua">
+                  <option data-value="162" value="Romanche">
+                  <option data-value="163" value="Romaní">
+                  <option data-value="164" value="Rumano">
+                  <option data-value="165" value="Rundi">
+                  <option data-value="166" value="Ruso">
+                  <option data-value="167" value="Samoano">
+                  <option data-value="168" value="Sango">
+                  <option data-value="169" value="Sánscrito">
+                  <option data-value="170" value="Serbio">
+                  <option data-value="171" value="Sesotho">
+                  <option data-value="172" value="Setsuana">
+                  <option data-value="173" value="Shangainés">
+                  <option data-value="174" value="Shona">
+                  <option data-value="175" value="Sichuan">
+                  <option data-value="176" value="Siciliano">
+                  <option data-value="177" value="Sindhi">
+                  <option data-value="178" value="Siswati/suazi">
+                  <option data-value="179" value="Somalí">
+                  <option data-value="180" value="Sondanés">
+                  <option data-value="181" value="Soninké">
+                  <option data-value="182" value="Sorani">
+                  <option data-value="183" value="Suajili">
+                  <option data-value="184" value="Sueco">
+                  <option data-value="185" value="Susu">
+                  <option data-value="186" value="Sylheti">
+                  <option data-value="187" value="Tagalo">
+                  <option data-value="188" value="Tailandés">
+                  <option data-value="189" value="Taiwanés">
+                  <option data-value="190" value="Tamil">
+                  <option data-value="191" value="Tayiko">
+                  <option data-value="192" value="Telugú">
+                  <option data-value="193" value="Tibetano">
+                  <option data-value="194" value="Tigriña">
+                  <option data-value="195" value="Tongano">
+                  <option data-value="196" value="Tsonga">
+                  <option data-value="197" value="Turco">
+                  <option data-value="198" value="Turcomano">
+                  <option data-value="199" value="Ucraniano">
+                  <option data-value="200" value="Uigur">
+                  <option data-value="201" value="Urdú">
+                  <option data-value="202" value="Uzbeco">
+                  <option data-value="203" value="Vasco (euskera)">
+                  <option data-value="204" value="Venda">
+                  <option data-value="205" value="Vietnamita">
+                  <option data-value="206" value="Wólof">
+                  <option data-value="207" value="Xhosa">
+                  <option data-value="208" value="Yakartanés">
+                  <option data-value="209" value="Yao">
+                  <option data-value="210" value="Yidis">
+                  <option data-value="211" value="Yoruba">
+                  <option data-value="212" value="Yupik">
+                  <option data-value="213" value="Zulú">
                 </datalist>
             </div>
+
+
+
             <div class="col-xs-6">
                 <strong>Origen:</strong>
+        
                 <input class="form-control " required="required" type="text" list="paises" id="paisesInput">
+                <!--################## ORIGEN ###############-->
                 <datalist id="paises">
                   <option value="Todos">
                   <option value="Afganistán">
@@ -877,78 +889,78 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
           
 
-          
-<section class="hidden-xs">
-          <div class="row">
-            <div class="col-sm-4"><input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
-                <label for="citas">
-                  Citas
-                </label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
-                <label for="fotos">
-                  Fotos
-                </label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
-                <label for="comer">
-                  Comer
-                </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
-                <label for="bailar">
-                  Bailar
-                </label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
-                <label for="deportes">
-                  Deportes
-                </label>
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
-                <label for="musica">
-                  Musica
-                </label> 
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
-                <label for="cultura">
-                  Cultura
-                </label> 
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
-                <label for="amigos">
-                  Amigos
-                </label> 
-            </div>
-            <div class="col-sm-4">
-              <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
-                <label for="todos">
-                  Todo
-                </label> 
-            </div>
-          </div>
-        </section>
+ <!--          
+ <section class="hidden-xs">
+ <div class="row">
+   <div class="col-sm-4"><input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
+       <label for="citas">
+         Citas
+       </label>
+   </div>
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
+       <label for="fotos">
+         Fotos
+       </label>
+   </div>
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
+       <label for="comer">
+         Comer
+       </label>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
+       <label for="bailar">
+         Bailar
+       </label>
+   </div>
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
+       <label for="deportes">
+         Deportes
+       </label>
+   </div>
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
+       <label for="musica">
+         Musica
+       </label> 
+   </div>
+ </div>
+ <div class="row">
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
+       <label for="cultura">
+         Cultura
+       </label> 
+   </div>
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
+       <label for="amigos">
+         Amigos
+       </label> 
+   </div>
+   <div class="col-sm-4">
+     <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
+       <label for="todos">
+         Todo
+       </label> 
+   </div>
+ </div>
+         </section> -->
 
         <section class="visible-xs">
           <div class="row">
-            <div class="col-xs-6"><input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
+            <div class="col-xs-6"><input type="checkbox" class="checkInteres" name="citas" id="citas" value="citas"> 
                 <label for="citas">
                   Citas
                 </label>
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
+              <input type="checkbox" class="checkInteres" name="fotos" id="fotos" value="fotos"> 
                 <label for="fotos">
                   Fotos
                 </label>
@@ -956,13 +968,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
+              <input type="checkbox" class="checkInteres" name="comer" id="comer" value="comer"> 
                 <label for="comer">
                   Comer
                 </label>
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
+              <input type="checkbox" class="checkInteres" name="bailar" id="bailar" value="bailar"> 
                 <label for="bailar">
                   Bailar
                 </label>
@@ -970,13 +982,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
+              <input type="checkbox" class="checkInteres" name="deportes" id="deportes" value="deportes">
                 <label for="deportes">
                   Deportes
                 </label>
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
+              <input type="checkbox" class="checkInteres" name="musica" id="musica" value="musica">
                 <label for="musica">
                   Musica
                 </label> 
@@ -984,13 +996,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
+              <input type="checkbox" class="checkInteres" name="cultura" id="cultura" value="cultura">
                 <label for="cultura">
                   Cultura
                 </label> 
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
+              <input type="checkbox" class="checkInteres" name="amigos" id="amigos" value="amigos">
                 <label for="amigos">
                   Amigos
                 </label> 
@@ -998,7 +1010,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
+              <input type="checkbox" class="checkInteres" name="todos" id="todos" value="todos">
                 <label for="todos">
                   Todo
                 </label> 
