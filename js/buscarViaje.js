@@ -270,7 +270,7 @@ function ponerPuntos(puntos)
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
-				'Puedo alejarme '+this.cuadras_extras+' cuadras!<br><br>'+
+				'Puedo alejarme hasta'+this.cuadras_extras+' cuadras de aqui!<br><br>'+
 				'<button type="button" class="btn btn-primary">Ver Usuario!</button>'+
 				'</div>'+
 				'</div>'
