@@ -4,12 +4,14 @@ function buscarViaje(){
 	// DEBUG
 
 	var escala = 17;
+	// Argentina
 	var fecha_in = new Date(2018,10,4);
 	var fecha_fi = new Date(2018,12,20);
 	var fecha_ini = fecha_in.getFullYear() + "/" +(fecha_in.getMonth()+1) + "/" + fecha_in.getDate();
 	var fecha_fin = fecha_fi.getFullYear() + "/" +(fecha_fi.getMonth()+1) + "/" + fecha_fi.getDate();
 	var origen = "argentina";
 	var idioma = 50;
+	// Español
 	var interesesChecked = [1,2,3,4,5,6,7,8];	
 
 	/*
@@ -67,7 +69,7 @@ function buscarViaje(){
 	/*
 
 	// DEBUG
-	
+
 	console.log(escala);
 	console.log(fecha_ini);
 	console.log(fecha_fin);
@@ -99,27 +101,38 @@ function buscarViaje(){
 
 }
 
+resultados_id = [];
+id_actual = null;
 
-/*Aca guardo los IDS de los viajes encontrados*/
-var resultados_id = [];
 
 function manejarResultado(result)
 {
+	/*Aca guardo los IDS de los viajes encontrados*/
+	resultados_id = [];
+	id_actual = null;
 	for (var i = 0; i < result.length; i++)
 	{
-		console.log("test1");
-		console.log(result.ID_VIAJE);
-		/*Se fija que ya no haya macheado ese viaje*/
-		if (result[i].resultados_id.includes(result.ID_VIAJE)) 
+		if (resultados_id.includes(result[i].ID_VIAJE)) 
 		{
+
 		}
 		else
 		{
-			resultados_id.push(result.ID_VIAJE);
-			//traerDemasPuntos(result.ID_VIAJE);
+			console.log("clapton");
+			resultados_id.push(result[i].ID_VIAJE);
 		}
 	}
+	if (resultados_id.length=0) 
+	{
+		console.log("No se encontraron datos");
+	}
+	else
+	{
+		// Busca todos los puntos del primer resultado y los pone en el mapa
+		// Setea el id_actual
+	}
 }
+
 
 
 function traerDemasPuntos(id_viaje){
@@ -128,3 +141,6 @@ function traerDemasPuntos(id_viaje){
 
 
 var resultados = [];
+
+// Boton "Anterior" pone en el mapa los puntos del resultado anterior de la lista
+// Boton "Siguiente" pone en el mapa los puntos del resultado siguiente en la lista
