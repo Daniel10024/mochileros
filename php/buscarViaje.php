@@ -45,7 +45,7 @@ try
 
         $stmt->execute();
 
-        $row = $stmt->fetch();
+        $row = $stmt->fetchAll();
         echo json_encode ($row);
     }
 catch(PDOException $e)

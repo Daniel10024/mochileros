@@ -133,7 +133,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
 
         <div class="contenedorMapa">
-          <iframe src="https://www.google.com/maps/embed" width="100%" height="315" frameborder="0" style="border:0;" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed" width="100%" height="515" frameborder="0" style="border:0;" allowfullscreen></iframe>
           <div class="row">
             <div class="col-xs-6">
               <button type="button" class="btn btn-primary botonAntSig">Anterior</button>
@@ -887,80 +887,16 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <br> 
 
-          
 
- <!--          
- <section class="hidden-xs">
- <div class="row">
-   <div class="col-sm-4"><input type="checkbox" class="checkInteres" name="" id="citas" value="citas"> 
-       <label for="citas">
-         Citas
-       </label>
-   </div>
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="fotos" value="Fotos"> 
-       <label for="fotos">
-         Fotos
-       </label>
-   </div>
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="comer" value="comer"> 
-       <label for="comer">
-         Comer
-       </label>
-   </div>
- </div>
- <div class="row">
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="bailar" value="bailar"> 
-       <label for="bailar">
-         Bailar
-       </label>
-   </div>
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="deportes" value="deportes">
-       <label for="deportes">
-         Deportes
-       </label>
-   </div>
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="musica" value="musica">
-       <label for="musica">
-         Musica
-       </label> 
-   </div>
- </div>
- <div class="row">
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="cultura" value="cultura">
-       <label for="cultura">
-         Cultura
-       </label> 
-   </div>
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="amigos" value="amigos">
-       <label for="amigos">
-         Amigos
-       </label> 
-   </div>
-   <div class="col-sm-4">
-     <input type="checkbox" class="checkInteres" name="" id="todos" value="todos">
-       <label for="todos">
-         Todo
-       </label> 
-   </div>
- </div>
-         </section> -->
-
-        <section class="visible-xs">
+        <section class="">
           <div class="row">
-            <div class="col-xs-6"><input type="checkbox" class="checkInteres" name="citas" id="citas" value="citas"> 
+            <div class="col-xs-6"><input type="checkbox" class="checkInteres" name="citas" id="citas" value="1"> 
                 <label for="citas">
                   Citas
                 </label>
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="fotos" id="fotos" value="fotos"> 
+              <input type="checkbox" class="checkInteres" name="fotos" id="fotos" value="2"> 
                 <label for="fotos">
                   Fotos
                 </label>
@@ -968,13 +904,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="comer" id="comer" value="comer"> 
+              <input type="checkbox" class="checkInteres" name="comer" id="comer" value="3"> 
                 <label for="comer">
                   Comer
                 </label>
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="bailar" id="bailar" value="bailar"> 
+              <input type="checkbox" class="checkInteres" name="bailar" id="bailar" value="4"> 
                 <label for="bailar">
                   Bailar
                 </label>
@@ -982,13 +918,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="deportes" id="deportes" value="deportes">
+              <input type="checkbox" class="checkInteres" name="deportes" id="deportes" value="5">
                 <label for="deportes">
                   Deportes
                 </label>
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="musica" id="musica" value="musica">
+              <input type="checkbox" class="checkInteres" name="musica" id="musica" value="6">
                 <label for="musica">
                   Musica
                 </label> 
@@ -996,21 +932,21 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="cultura" id="cultura" value="cultura">
+              <input type="checkbox" class="checkInteres" name="cultura" id="cultura" value="7">
                 <label for="cultura">
                   Cultura
                 </label> 
             </div>
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="amigos" id="amigos" value="amigos">
+              <input type="checkbox" class="checkInteres" name="amigos" id="amigos" value="8">
                 <label for="amigos">
                   Amigos
                 </label> 
             </div>
           </div>
-          <div class="row">
+          <div class="row hidden">
             <div class="col-xs-6">
-              <input type="checkbox" class="checkInteres" name="todos" id="todos" value="todos">
+              <input type="checkbox" class="checkInteres" name="todos" id="todos" value="9">
                 <label for="todos">
                   Todo
                 </label> 
@@ -1022,7 +958,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
         </section>
           <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
-              <a href="#"><button id="buscar" onclick="buscarViaje()" type="button" class="btn btn-lg  btn-block btn-success">Realizar Busqueda</button></a>
+              <a href="#"><button id="buscar" onclick="buscarViaje()" type="button" class="botonBuscarFondoPantalla btn btn-lg  btn-block btn-success">Realizar Busqueda</button></a>
             </div>
           </div>
 
