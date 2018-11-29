@@ -156,10 +156,10 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
       <div class="modal-content">
         <div class="modal-header">
           <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-          <h4 class="modal-title mensajeErrorCoincidencias">Sin coincidencias</h4>
+          <h4 id="t_modal" class="modal-title mensajeErrorCoincidencias">Sin coincidencias</h4>
         </div>
         <div class="modal-body">
-          <p class="mensajeErrorCoincidencias">:(</p>
+          <p id="m_modal" class="mensajeErrorCoincidencias">:(</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Ok!</button>
@@ -179,16 +179,16 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
               </span>
             </div>             
             <div class="col-xs-12 center divDeEscalaInput">
-              <input class="form-control center" list="escala" placeholder="Global/Continente/Pais" id="escalaInput">
+              <input class="form-control center" list="escala" placeholder="Seleccione Pais" id="escalaInput">
 
                 <!--################## ESCALA ###############-->
                 <datalist id="escala">
-                  <option data-value="0" value="Global">
+                  <!-- <option data-value="0" value="Global">
                   <option data-value="1" value="America">
                   <option data-value="2" value="Europa">
                   <option data-value="3" value="Africa">
                   <option data-value="4" value="Asia">
-                  <option data-value="5" value="Oceania">
+                  <option data-value="5" value="Oceania"> -->
                   <option data-value="6" value="Afganistán">
                   <option data-value="7" value="Albania">
                   <option data-value="8" value="Alemania">
@@ -917,7 +917,8 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
         <section class="">
           <div class="row">
-            <div class="col-xs-6"><input type="checkbox" class="checkInteres" name="citas" id="citas" value="1"> 
+            <div class="col-xs-6">
+              <input type="checkbox" class="checkInteres" name="citas" id="citas" value="1"> 
                 <label for="citas">
                   Citas
                 </label>

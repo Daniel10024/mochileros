@@ -25,13 +25,28 @@ function buscarViaje(){
 
 	//AGARRE DE LA ESCALA
 	var escalaInput = document.getElementById("escalaInput").value;
+	if (escalaInput == null || escalaInput == "") {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('porfavor complete el campo de "escala"')
+		$("#myModal").modal();
+	}
 	//Funcion de abajo robada de stack overflow para conseguir el data-value de los options del datalist
 	var escala = document.querySelector("#escala option[value='"+escalaInput+"']").dataset.value;
 
 
 	//AGARRE DE LA FECHA
 	var fecha_inF = document.getElementById("fechaDesde").value;
+	/*if (fecha_inF == null || fecha_inF == "") {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('porfavor complete el campo de "fecha desde"')
+		$("#myModal").modal();
+	}*/
 	var fecha_fiF = document.getElementById("fechaHasta").value;
+	if (fecha_fiF == null || fecha_fiF == "") {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('porfavor complete el campo de "fecha hasta"')
+		$("#myModal").modal();
+	}
 	
 	var fecha_in = new Date(fecha_inF);
 	var fecha_fi = new Date(fecha_fiF);
@@ -43,16 +58,28 @@ function buscarViaje(){
 	// IMPORTANTE: CUANDO EL USUARIO CREA SU CUENTA TIENE QUE ELEGIR SU PAIS DE LA MISMA LISTA QUE LOS ELIJE ACA PARA QUE
 	// DESPUES MATCHEE BIEN.
 	var origen = document.getElementById("paisesInput").value;
+	if (origen == null || origen == "") {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('porfavor complete el campo de "origen"')
+		$("#myModal").modal();
+	}
 
 
 	//AGARRA EL IDIOMA
 	var idiomaInput = document.getElementById("idiomasInput").value;
+	if (idiomaInput == null || idiomaInput == "") {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('porfavor complete el campo de "idioma"')
+		$("#myModal").modal();
+	}
 	var idioma = document.querySelector("#idioma option[value='"+idiomaInput+"']").dataset.value;
 
 
 	//AGARRA LOS INTERESES
 	var intereses = document.getElementsByClassName("checkInteres");
 	var interesesChecked = [];
+	
+
 	for (var i = intereses.length - 1; i >= 0; i--) {
 		if(intereses[i].checked)
 		{
@@ -62,13 +89,21 @@ function buscarViaje(){
 		}
 	}
 
-
+if (interesesChecked == null || interesesChecked == "") {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('porfavor complete el campo de "intereses"')
+		$("#myModal").modal();
+	}
+if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
+	$('#t_modal').text('Sin coincidencias');
+	$('#m_modal').text(':(')
+}
 	
 
 
 
 	/*
-
+	
 	// DEBUG
 
 	console.log(escala);
@@ -76,8 +111,8 @@ function buscarViaje(){
 	console.log(fecha_fin);
 	console.log(idioma);
 	console.log(interesesChecked);
+*/
 
-	*/
 
 	$.ajax({
     type: "POST",
