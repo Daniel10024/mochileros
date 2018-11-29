@@ -6,6 +6,10 @@
   $ape = $_SESSION["‘Apellido’"];
 ?>
 
+<?php if ($use == 1) {
+  header("location: p1.php");
+} ?>
+
 <?php 
 $amigos = array();
 $queryexist = "SELECT ID_Usuario FROM usuario JOIN solisitud ON usuario.ID_Usuario = solisitud.Amigo WHERE solisitud.User = $use
