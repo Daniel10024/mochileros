@@ -135,7 +135,8 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 <br>
 
 
-
+        <!-- ########################### MAPA ########################### -->
+        
         <div class="contenedorMapa">
           <div id="mapaGoogle" width="100%"></div>
             
@@ -1010,6 +1011,8 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
           async defer></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
+    
     <script src="js/scrips.js"></script>
     <script src="js/buscarViaje.js"></script>
     <script src="js/fancywebsocket.js"></script>

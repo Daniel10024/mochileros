@@ -98,6 +98,8 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 	$('#t_modal').text('Sin coincidencias');
 	$('#m_modal').text(':(')
 }
+
+
 	
 
 
@@ -113,31 +115,39 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 	console.log(interesesChecked);
 */
 
+	if(fecha_in == "Invalid Date"){
+	$('#t_modal').text('Complete los campos');
+	$('#m_modal').text('porfavor complete el campo "fecha_desde"')
+	$("#myModal").modal();
+	}
+	else
+	{
 
-	$.ajax({
-    type: "POST",
-	url: "php/buscarViaje.php",
-	dataType: "json",
-	data: {'escala' : escala, 'fecha_ini' : fecha_ini, 'fecha_fin' : fecha_fin, 'idioma' : idioma, 'origen' :origen, 'intereses' : interesesChecked},
-	success: function (result) 
-		{
-			if (result.length != 0)
-			{
-			manejarResultado(result);
-			}
-			else
-			{
-				$("#myModal").modal();
-			}
-		},
-    error: function (xhr, status, error)
-    {
-    	console.log(xhr);
-    	console.log(status);
-    	console.log(error);
-		console.log("error de consulta");
-    }
-    })
+		$.ajax({
+		    type: "POST",
+			url: "php/buscarViaje.php",
+			dataType: "json",
+			data: {'escala' : escala, 'fecha_ini' : fecha_ini, 'fecha_fin' : fecha_fin, 'idioma' : idioma, 'origen' :origen, 'intereses' : interesesChecked},
+			success: function (result) 
+				{
+					if (result.length != 0)
+					{
+					manejarResultado(result);
+					}
+					else
+					{
+						$("#myModal").modal();
+					}
+				},
+		    error: function (xhr, status, error)
+		    {
+		    	console.log(xhr);
+		    	console.log(status);
+		    	console.log(error);
+				console.log("error de consulta");
+		    }
+	    })
+	}
 }
 
 /*
@@ -260,34 +270,6 @@ function ponerPuntos(puntos)
 
 		}
 
-	/*
-		var contentString = '<div id="content">' +
-	    '<div id="siteNotice">' +
-	    '</div>' +
-	    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-	    '<div id="bodyContent">' +
-	    '<p><b>'+marker.fecha_inicio+'</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-	    'sandstone rock formation in the southern part of the ' +
-	    'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-	    'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-	    '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-	    'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-	    'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-	    'Aboriginal people of the area. It has many springs, waterholes, ' +
-	    'rock caves and ancient paintings. Uluru is listed as a World ' +
-	    'Heritage Site.</p>' +
-	    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-	    'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
-	    '(last visited June 22, 2009).</p>' +
-	    '</div>' +
-	    '</div>';
-
-		infowindow = new google.maps.InfoWindow({
-	    content: contentString
-	  	});
-
-  	*/
-
 		marker.addListener('click', function() {
 			/*
 			infowindow.setContent(
@@ -307,8 +289,8 @@ function ponerPuntos(puntos)
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
-				'Puedo alejarme hasta'+this.cuadras_extras+' cuadras de aqui!<br><br>'+
-				'<p class= "error">Inicia secion para ver el usuario</p>'+
+				'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
+				'<p class= "error">Inicia sesion para ver el usuario</p>'+
 				'</div>'+
 				'</div>'
 				);
@@ -319,7 +301,7 @@ function ponerPuntos(puntos)
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
-				'Puedo alejarme hasta'+this.cuadras_extras+' cuadras de aqui!<br><br>'+
+				'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
 				'<a href="p8.php?id='+ID_usuario+'"><button type="button" class="btn btn-primary">Ver Usuario!</button></a>'+
 				'</div>'+
 				'</div>'
@@ -393,7 +375,62 @@ function initMap()
         map.setCenter(initialLocation);
  		});
  	}
-	infowindow = new google.maps.InfoWindow({});
 
- 	
+ 	var centerControlDiv = document.createElement('div');
+    var centerControl = new CenterControl(centerControlDiv, map);
+
+    centerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+
+    // La ventanita que le aparece arriba a los marks con los datos
+	infowindow = new google.maps.InfoWindow({});
 }
+
+
+  /**
+   * The CenterControl adds a control to the map that recenters the map on
+   * Chicago.
+   * This constructor takes the control DIV as an argument.
+   * @constructor
+   */
+
+function CenterControl(controlDiv, map) {
+    // Set CSS for the control border.
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.border = '2px solid #fff';
+    controlUI.style.borderRadius = '3px';
+    controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.marginBottom = '22px';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = 'Click to recenter the map';
+    controlDiv.appendChild(controlUI);
+
+    // Set CSS for the control interior.
+    var controlText = document.createElement('div');
+    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+    controlText.style.fontSize = '16px';
+    controlText.style.lineHeight = '38px';
+    controlText.style.paddingLeft = '5px';
+    controlText.style.paddingRight = '5px';
+    controlText.innerHTML = 'Mi ubicación';
+    controlUI.appendChild(controlText);
+
+    // Setup the click event listeners: simply set the map to Chicago.
+    controlUI.addEventListener('click', function() {
+        if (navigator.geolocation) 
+	  	{
+
+	    	navigator.geolocation.getCurrentPosition(function (position) 
+	    	{
+
+	        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	        map.setCenter(initialLocation);
+	 		
+	 		});
+	 	}
+    });
+
+  }
