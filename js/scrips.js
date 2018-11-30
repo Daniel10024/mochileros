@@ -508,3 +508,48 @@ $(document).ready(function notificaciones2 () {
       
     });
 });
+
+
+$(document).ready(function viajes() {
+    var _urlform ='mis_viajes.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo}, 
+    function(data){
+      //var json = JSON.parse(data);
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        var ventana_modal2 = "";
+        $.each(json, function(i, item) {
+            texto += 
+                            '<tr>'+
+                              '<td><p>'+item.vesca+'</p></td>'+
+                              '<td><p>'+item.vnom+'</p></td>'+
+                              '<td data-name="opt" align="center">'+
+                                '<a name="ver1" href="p6.php?id='+item.vvia+'"" title="Editar" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>'+
+                                '<a name="del1" title="Eliminar" class="btn btn-danger row-remove hidden" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>'+
+                              '</td>'+
+                          '</tr>';
+
+            ventana_modal2 +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
+                              '<div class="modal-dialog">'+
+                                '<div class="modal-content">'+
+                                    '<div class="modal-header">'+
+                                      '<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'+
+                                      '<h4 class="modal-title custom_align" id="Heading">Eliminar contacto</h4>'+
+                                  '</div>'+
+                                     '<div class="modal-body">'+
+                                      '<div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>'+
+                                    '</div>'+
+                                    '<div class="modal-footer ">'+
+                                      '<button id="botonsi" onclick="eliminar('+item.ida+')" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span>Si</button>'+
+                                      '<button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>'+
+                                    '</div>'+
+                                '</div>'+
+                              '</div>'+
+                          '</div>';
+          
+        })
+        $("#misviajes").html(texto);
+        $("#modal_aca2").html(ventana_modal2);
+    });
+});

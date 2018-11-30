@@ -6,6 +6,9 @@
   $ape = $_SESSION["‘Apellido’"];
 ?>
 
+ <script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
 
 <?php if ($use == 1) {
   header("location: p1.php");
@@ -148,13 +151,13 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                   <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
                       <thead>
                           <tr>
-                              <th><p>Nº</p></th>
+                              <th><p>Escala</p></th>
                               <th><p>Viaje</p></th>
-                              <th><p>Editar/Eliminar</p></th>
+                              <th><p>ver</p></th>
                           </tr> 
                       </thead>
-                      <tbody>
-<!--                           <tr id='addr1' data-id="1" class="hiddenlo">         
+                      <tbody id="misviajes">
+                         <!-- <tr id='addr1' data-id="1" class="hiddenlo">         
                               <td data-name="ID"><p name="id1">Nº 1</p></td>
                               <td data-name="nom"><p name="nom1">Viaje 1</p></td>
                               <td data-name="opt" align="center">
@@ -169,7 +172,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                                 <a name="ver1" href="p6.php" title="Editar" class="btn btn-primary"><em class="glyphicon glyphicon-pencil"></em></a>
                                 <a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>
                               </td>
-                          </tr> -->
+                          </tr>  -->
                       </tbody>
                   </table>
               </div>

@@ -181,8 +181,11 @@ function manejarResultado(result)
 }
 
 /*Trae los puntos. De que viaje? Del que este en el INDEX de id_actual*/
-function traerPuntos()
+function traerPuntos(e)
 {
+	if (e) {
+		resultados_id[id_actual] = e;
+	}
 	$.ajax({
 	    type: "POST",
 		url: "php/traerViaje.php",
