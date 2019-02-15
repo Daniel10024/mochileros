@@ -1,0 +1,6 @@
+
+En el archivo scrips.js cuando trabajas localmente tenes que poner 
+"var json = JSON.parse(JSON.stringify(data));"
+Y en el servidor hay que ponerle
+"var json = JSON.parse(data);"
+porque sino no anda

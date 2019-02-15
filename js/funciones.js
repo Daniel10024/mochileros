@@ -297,3 +297,8 @@ $(document).ready(function() {
 
 });
 
+function buscarVariables(){
+    console.log("est");
+    window.location="p3.php";
+    console.log("est22");
+}
