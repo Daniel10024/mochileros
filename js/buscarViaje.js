@@ -114,16 +114,24 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 	console.log(idioma);
 	console.log(interesesChecked);
 */
+	
 
 	if(fecha_in == "Invalid Date"){
+
 	$('#t_modal').text('Complete los campos');
 	$('#m_modal').text('porfavor complete el campo "fecha_desde"')
 	$("#myModal").modal();
 	}
 	else
 	{
+		if (fecha_inF >= fecha_fiF) {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('la fecha desde no puede ser superior a la fecha hasta"')
+		$("#myModal").modal();
+		}
 
-		$.ajax({
+		else {
+			$.ajax({
 		    type: "POST",
 			url: "php/buscarViaje.php",
 			dataType: "json",
@@ -147,6 +155,8 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 				console.log("error de consulta");
 		    }
 	    })
+		}
+		
 	}
 }
 
@@ -186,6 +196,20 @@ function traerPuntos(e)
 	if (e) {
 		resultados_id[id_actual] = e;
 	}
+
+	/*var _urlform ='php/traerViaje.php';
+    $.post(_urlform,{id_viaje : resultados_id[id_actual]},
+    function(data){
+        if(data != 1){
+        	console.log(data);
+          ponerPuntos(result);
+                      
+        }
+        else{
+          alert(data)
+        }
+    });*/
+
 	$.ajax({
 	    type: "POST",
 		url: "php/traerViaje.php",
@@ -193,6 +217,7 @@ function traerPuntos(e)
 		data: {'id_viaje' : resultados_id[id_actual]},
 		success: function (result) 
 			{
+
 				ponerPuntos(result);
 			},
 	    error: function (xhr, status, error)
@@ -299,16 +324,30 @@ function ponerPuntos(puntos)
 				);
 			}
 			else{
-				infowindow.setContent(
+				if (id_yo = this.ID_usuario) {
+					infowindow.setContent(
+					'<div id="content" class="divInfoWindow">' +
+		    		'<div id="siteNotice">' +
+					'Desde: '+this.fecha_inicio+'<br>'+
+					'Hasta: '+this.fecha_fin+'<br>'+
+					'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
+					'</div>'+
+					'</div>'
+					);
+				}
+				else {
+					infowindow.setContent(
 				'<div id="content" class="divInfoWindow">' +
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
 				'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
-				'<a href="p8.php?id='+ID_usuario+'"><button type="button" class="btn btn-primary">Ver Usuario!</button></a>'+
+				'<a href="p8.php?id='+ID_usuario+'&mapa=1"><button type="button" class="btn btn-primary">Ver Usuario!</button></a>'+
+				//'<button type="button" onclick="localsto('+item.ida+')" class="btn btn-primary">Ver Usuario!</button>'+
 				'</div>'+
 				'</div>'
 				);
+				}
 			}
 			
 	    	infowindow.open(map, this);
@@ -333,6 +372,9 @@ function ponerPuntos(puntos)
 	flightPath.setMap(map);
 }
 
+//localstorage _______________________________________________________________
+
+//_____________________________________________________________________________
 
 function puntoSiguiente()
 {
@@ -362,8 +404,8 @@ function puntoAnterior()
 
 /*Con esto se inicia el mapa y de paso se le pide ubicacion al usuario*/
 var map;
-function initMap()
-{
+$(document).ready(function initMap() {
+//function initMap(){
 	map = new google.maps.Map(document.getElementById('mapaGoogle'), {
 		center: {lat: -12.789924, lng: -68.52355},
 		zoom: 4
@@ -387,7 +429,7 @@ function initMap()
 
     // La ventanita que le aparece arriba a los marks con los datos
 	infowindow = new google.maps.InfoWindow({});
-}
+})
 
 
   /**

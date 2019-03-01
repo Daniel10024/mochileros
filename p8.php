@@ -31,6 +31,10 @@ $respuesta = mysqli_query($mysqli, $queryexist);
 
 <?php
 $amigo_id = $_GET['id'];
+if (isset($_GET['mapa'])) {
+  $mapa = $_GET['mapa'];
+}
+
 
 $query_cli = mysqli_query($mysqli, "SELECT * FROM usuario WHERE ID_Usuario = $amigo_id");
 while ($data_cli=mysqli_fetch_assoc($query_cli)) { 
@@ -206,7 +210,13 @@ if(!isset($_SESSION["‘ID_user’"])) {
         </div>
         <div class="row">
         <div class="col col-xs-12 ">
-            <a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a> 
+          <?php if (isset($_GET['mapa'])) {?>
+            <a href="p3.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>
+          <?php } 
+          else {
+            echo '<a href="p1.php"><button id="atras" type="button" class="btn btn-lg  btn-block cancel-btn">Atras</button></a>';
+          } ?>
+             
         </div>
         </div>
         </div> 

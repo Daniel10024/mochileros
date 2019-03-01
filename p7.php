@@ -45,7 +45,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
     <meta name="google-signin-client_id" content="1081528677434-oc751ppavto9boc1ap67sae8tbheo2r2.apps.googleusercontent.com">
 </head>
-<body class="f_PC" onload="amigos()">
+<body class="f_PC">
     <header>
         <div class="container" id="cabezalMenu">
 <div class="row menuArriba">
@@ -174,6 +174,25 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
             <!-- _________________________ventana modal de borrar__________________________ -->
              <div id="modal_aca2">
             </div> 
+            <!-- ________________________________________________________ -->
+            <!-- _________________________ventana modal de borrar__________________________ -->
+    <div class="modal fade" id="delete_amix" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                  <h4 class="modal-title custom_align" id="Heading">Eliminar contacto</h4>
+              </div>
+                 <div class="modal-body">
+                  <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> ¿Seguro que quieres eliminar este registro?</div>
+                </div>
+                <div class="modal-footer ">
+                  <button id="botonsi_eliminar" type="button" class="btn btn-success botonmodal"><span class="glyphicon glyphicon-ok-sign row-remove"></span>Si</button>
+                  <button type="button" class="btn btn-default botonmodal" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>No</button>
+                </div>
+            </div>
+          </div>
+        </div>
             <!-- ________________________________________________________ -->
                     	<!-- ____________________________________________ -->
 					</div>

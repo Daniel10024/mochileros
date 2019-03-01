@@ -93,11 +93,11 @@ $(document).ready(function amigos() {
                       '<td><p>'+item.nombre + " " + item.apellido+'</p></td>'+
                       '<td align="center">'+
                         '<a name="ver1" href="p8.php?id='+item.ida+'" title="Ver" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>'+
-                        '<a name="del1" title="Eliminar" class="btn btn-danger row-remove" data-toggle="modal" data-target="#delete'+item.ida+'"><em class="glyphicon glyphicon-trash"></em></a>'+
+                        '<a name="del1" title="Eliminar" onclick="modal_eliminar_amix('+item.ida+')" class="btn btn-danger row-remove"><em class="glyphicon glyphicon-trash"></em></a>'+
                       '</td>'+
                     '</tr>';
 
-            ventana_modal2 +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
+           /* ventana_modal2 +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
                               '<div class="modal-dialog">'+
                                 '<div class="modal-content">'+
                                     '<div class="modal-header">'+
@@ -113,13 +113,58 @@ $(document).ready(function amigos() {
                                     '</div>'+
                                 '</div>'+
                               '</div>'+
-                          '</div>';
+                          '</div>';*/
           }
         })
         $("#tbody").html(texto);
+        console.log(ventana_modal2);
+        //alert(ventana_modal2);
         $("#modal_aca2").html(ventana_modal2);
     });
 });
+
+
+
+function modal_eliminar_amix(valor){
+  var valor = valor;
+  $('#delete_amix').modal('show')
+  $('#botonsi_eliminar').on("click", function() {
+    eliminar_amix(valor);
+  });
+}
+
+function eliminar_amix(soli){
+  var id_yo = myvar;
+  var _urlform ='eliminar_amigo.php';
+    $.post(_urlform,{id_amigo:soli, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p7.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}
+
+
+/*function eliminar(soli){
+  var id_yo = myvar;
+  var _urlform ='eliminar_amigo.php';
+    $.post(_urlform,{id_amigo:soli, id_yo:id_yo},
+    function(data){
+        if(data != 1){
+          
+          location.href ="p7.php";
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+}*/
 
 
 $(document).ready(function solicitudes() {
@@ -217,21 +262,6 @@ function rechazar(soli){
     });
 }
 
-function eliminar(soli){
-  var id_yo = myvar;
-  var _urlform ='eliminar_amigo.php';
-    $.post(_urlform,{id_amigo:soli, id_yo:id_yo},
-    function(data){
-        if(data != 1){
-          
-          location.href ="p7.php";
-                      
-        }
-        else{
-          alert(data)
-        }
-    });
-}
 
 
 $(document).ready(function publicaciones() {
