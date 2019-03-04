@@ -694,3 +694,22 @@ text-decoration:none;
   color: red;
   font-weight: bold;
 }
+
+.btn-agregar-viaje{
+
+}
+
+.escalaYTitulo{
+  height: 180px;
+  text-align: center;
+}
+
+.inputEscala{
+  width: 30%;
+  margin: auto;
+}
+
+.inputTitulo{
+  width: 50%;
+  margin: auto;
+}
