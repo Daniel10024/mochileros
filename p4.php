@@ -145,7 +145,12 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                       </div>
                   </div>
               </div>
-              <div class="panel-body">
+              <div class="panel-body text-center">
+                <a href="p5.php">
+                  <button class="btn btn-primary" >
+                    Agregar Viaje
+                  </button>
+                </a>
               </div>
               <div class="table-responsive">
                   <table class="table table-striped table-bordered table-hover table-sortable" id="tab_logic">
