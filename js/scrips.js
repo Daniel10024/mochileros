@@ -80,7 +80,7 @@ $(document).ready(function amigos() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},
     function(data){
-      //var json = JSON.parse(data);
+        //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         var ventana_modal2 = "";
@@ -172,7 +172,7 @@ $(document).ready(function solicitudes() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},
     function(data){
-      //var json = JSON.parse(data);
+        //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         var ventana_modal = "";
@@ -269,7 +269,7 @@ $(document).ready(function publicaciones() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo},    
     function(data){
-      //var json = JSON.parse(data);
+        //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         $.each(json, function(i, item) {
@@ -545,7 +545,7 @@ $(document).ready(function viajes() {
     var id_yo = myvar;
     $.post(_urlform,{id:id_yo}, 
     function(data){
-      //var json = JSON.parse(data);
+        //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
         var ventana_modal2 = "";

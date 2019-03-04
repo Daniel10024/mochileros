@@ -133,7 +133,7 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 		else {
 			$.ajax({
 		    type: "POST",
-			url: "php/buscarViaje.php",
+   			url: "http://mochileros.esy.es/php/buscarViaje.php",
 			dataType: "json",
 			data: {'escala' : escala, 'fecha_ini' : fecha_ini, 'fecha_fin' : fecha_fin, 'idioma' : idioma, 'origen' :origen, 'intereses' : interesesChecked},
 			success: function (result) 
@@ -212,7 +212,7 @@ function traerPuntos(e)
 
 	$.ajax({
 	    type: "POST",
-		url: "php/traerViaje.php",
+		url: "http://mochileros.esy.es/php/buscarViaje.php",
 		dataType: "json",
 		data: {'id_viaje' : resultados_id[id_actual]},
 		success: function (result) 
@@ -324,6 +324,7 @@ function ponerPuntos(puntos)
 				);
 			}
 			else{
+<<<<<<< HEAD
 				if (id_yo = this.ID_usuario) {
 					infowindow.setContent(
 					'<div id="content" class="divInfoWindow">' +
@@ -337,6 +338,15 @@ function ponerPuntos(puntos)
 				}
 				else {
 					infowindow.setContent(
+=======
+				localStorage.setItem("markersMapa", JSON.stringify(markersMapa));
+				localStorage.setItem("flightPath", JSON.stringify(flightPath));
+
+				console.log(JSON.parse(localStorage.getItem("lastname")));
+				console.log(JSON.parse(localStorage.getItem("lastname")));
+				/*
+				infowindow.setContent(
+>>>>>>> 3e09fe1c6e514b33407f9137c58628c51ecf5a58
 				'<div id="content" class="divInfoWindow">' +
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
@@ -347,7 +357,11 @@ function ponerPuntos(puntos)
 				'</div>'+
 				'</div>'
 				);
+<<<<<<< HEAD
 				}
+=======
+				*/
+>>>>>>> 3e09fe1c6e514b33407f9137c58628c51ecf5a58
 			}
 			
 	    	infowindow.open(map, this);
@@ -478,4 +492,10 @@ function CenterControl(controlDiv, map) {
 	 	}
     });
 
+<<<<<<< HEAD
   }
+=======
+  }
+
+  
+>>>>>>> 3e09fe1c6e514b33407f9137c58628c51ecf5a58

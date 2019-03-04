@@ -211,7 +211,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
 
 
            <div class="col-xs-5 col-xs-offset-1 col-sm-6 col-sm-offset-0">
-                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Canselar</button></a>
+                   <a href="p2.php"><button type="button" id="atr" class="btn btn-lg  btn-block cancel-btn">Cancelar</button></a>
             </div>
             <div class="col-xs-5 col-sm-6">
                    

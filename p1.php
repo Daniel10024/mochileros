@@ -253,12 +253,12 @@ if(!isset($_SESSION["‘ID_user’"])) {
               crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/funciones.js"></script>
-    <script src="js/fancywebsocket.js"></script>
+    <!-- <script src="js/fancywebsocket.js"></script> -->
 
 
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="js/scrips.js"></script>
     
-</body  onload="publicaciones()">
+</body>
 </html>
