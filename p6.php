@@ -190,7 +190,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                   <option data-value="2" value="Europa">
                   <option data-value="3" value="Africa">
                   <option data-value="4" value="Asia">
-                  <option data-value="5" value="Oceania"> -->
+                  <option data-value="5" value="Oceania"> 
                   <option data-value="6" value="Afganistán">
                   <option data-value="7" value="Albania">
                   <option data-value="8" value="Alemania">
@@ -424,7 +424,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                   <option data-value="236" value="Yemen">
                   <option data-value="237" value="Yugoslavia">
                   <option data-value="238" value="Zambia">
-                  <option data-value="239" value="Zimbabue">
+                  <option data-value="239" value="Zimbabue">-->
                 </datalist> 
               <!-- <input type="text" class="form-control input-sm inputEscala"> -->
             </div> 
@@ -450,7 +450,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
 
                 <!--################## IDIOMAS ###############-->
                 <datalist id="idioma">
-                  <option data-value="0" value="Afrikáans">
+                  <!-- <option data-value="0" value="Afrikáans"> 
                   <option data-value="1" value="Akan">
                   <option data-value="2" value="Albanés">
                   <option data-value="3" value="Alemán">
@@ -663,7 +663,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                   <option data-value="210" value="Yidis">
                   <option data-value="211" value="Yoruba">
                   <option data-value="212" value="Yupik">
-                  <option data-value="213" value="Zulú">
+                  <option data-value="213" value="Zulú">-->
                 </datalist>
             </div>
 
@@ -675,7 +675,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                 <input class="form-control " required="required" type="text" list="paises" id="paisesInput">
                 <!--################## ORIGEN ###############-->
                 <datalist id="paises">
-                  <option value="Todos">
+                  <!-- <option value="Todos"> 
                   <option value="Afganistán">
                   <option value="Albania">
                   <option value="Alemania">
@@ -909,7 +909,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
                   <option value="Yemen">
                   <option value="Yugoslavia">
                   <option value="Zambia">
-                  <option value="Zimbabue">
+                  <option value="Zimbabue">-->
                 </datalist> 
             </div>
           </div>

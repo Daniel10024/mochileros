@@ -583,3 +583,24 @@ $(document).ready(function viajes() {
         $("#modal_aca2").html(ventana_modal2);
     });
 });
+$("#select_idioma").load("idiomas.php");
+
+$(document).ready(function habla() {
+    var _urlform ='habla.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},
+    function(data){
+        //var json = JSON.parse(data);
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        $.each(json, function(i, item) {
+            texto += '<option selected value="'+item.idh+'">'+item.habla+'</option>';
+        })
+        $("#select_idioma").prepend(texto);
+    });
+});
+
+/*$("#select_pais").load("paises.php");
+$("#escala").load("paises.php");
+$("#paises").load("paises.php");
+$("#paises").load("paises.php");*/

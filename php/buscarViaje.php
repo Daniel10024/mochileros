@@ -1,10 +1,8 @@
 <?php
 session_start();
 include("../sesion.php");
-
 try
     {
-
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $intereses = $_POST['intereses'];
@@ -25,23 +23,17 @@ try
         
         $fecha_ini = $_POST['fecha_ini'];
         $fecha_fin = $_POST['fecha_fin'];
-
         $intereses = $_POST['intereses'];
-
         //$intervalo = new DateInterval('P1D');
         //$rangoFechas = new DatePeriod($fecha_ini, $intervalo ,$fecha_fin);
-
         $stmt->bindParam(':escala', $escala);
         $stmt->bindParam(':origen', $origen);
         $stmt->bindParam(':idioma', $idioma);
         
-
         $stmt->bindParam(':fecha_ini', $fecha_ini);
         $stmt->bindParam(':fecha_fin', $fecha_fin);
         //$stmt->bindParam(':rangoFechas', $rangoFechas);
-
         $stmt->execute();
-
         $row = $stmt->fetchAll();
         echo json_encode ($row);
     }
@@ -53,8 +45,3 @@ catch(PDOException $e)
 /*Asi se cierran los PDO*/
 $conn = null;
 ?>
-
-
-
-
-                  

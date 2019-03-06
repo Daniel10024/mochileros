@@ -7,6 +7,7 @@
 ?>
 
 
+
 <?php if ($use == 1) {
   header("location: p1.php");
 } ?>
@@ -28,7 +29,9 @@ if(!isset($_SESSION["‘ID_user’"])) {
  header("location: index.html");
 }
 ?>
-
+<script type="text/javascript">
+    var myvar='<?php echo $use;?>';
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -172,6 +175,15 @@ if(!isset($_SESSION["‘ID_user’"])) {
                   <option value="">(Borrar Dato)</option>
                 </select>
                 <p id="p-pai" class="error"></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label class="licki">idioma</label>
+                <select class="form-control" disabled="" id="select_idioma" name="idioma">
+                </select>
+                
             </div>
         </div>
         <div class="row">

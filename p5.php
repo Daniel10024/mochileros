@@ -156,7 +156,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <option data-value="2" value="Europa">
             <option data-value="3" value="Africa">
             <option data-value="4" value="Asia">
-            <option data-value="5" value="Oceania"> -->
+            <option data-value="5" value="Oceania"> 
             <option data-value="6" value="Afganistán">
             <option data-value="7" value="Albania">
             <option data-value="8" value="Alemania">
@@ -390,7 +390,7 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <option data-value="236" value="Yemen">
             <option data-value="237" value="Yugoslavia">
             <option data-value="238" value="Zambia">
-            <option data-value="239" value="Zimbabue">
+            <option data-value="239" value="Zimbabue">-->
           </datalist> 
 
       </div>

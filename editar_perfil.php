@@ -3,14 +3,8 @@
   include("sesion.php");
   $use = $_SESSION["‘ID_user’"];
 
-
-
-
 if(isset($_FILES['image']['name'])) {  //comprovamos que se haya cargado el archivo 
-
-   if(is_uploaded_file($_FILES['image']['tmp_name'])) { 
-    
-    
+   if(is_uploaded_file($_FILES['image']['tmp_name'])) {   
    //empieza la redimension, tomamos la imagen temporal subida que puede ser jpg, png o gif 
    $info = getimagesize($_FILES['image']['tmp_name']);  
    //segun el caso sera jpg, gif, png 
@@ -23,13 +17,10 @@ if(isset($_FILES['image']['name'])) {  //comprovamos que se haya cargado el arch
     $imagen = imagecreatefrompng($_FILES['image'] ['tmp_name']); break; 
   // etcétera //  
   } 
-
 $original = $imagen; 
 $original_w = imagesx($original); 
 $original_h = imagesy($original); 
-
 $max = 150;  //AQUI PONES EL TAMAÑO DE LA IMAGEN A LO QUE QUIERAS segun la tabla donde la muestres 
-
 if($original_w>$original_h) {
     $muestra_w = $max; 
     $muestra_h = intval(($original_h/$original_w)*$max); 
@@ -38,14 +29,10 @@ else {
     $muestra_w = intval(($original_w/$original_h)*$max); 
     $muestra_h = $max; 
     } 
-
 $muestra = imagecreatetruecolor($muestra_w,$muestra_h);  
 imagecopyresampled($muestra,$original,0,0,0,0, $muestra_w,$muestra_h,$original_w,$original_h);//aqui se crea la imagen en la variable $muestra 
-
 imagedestroy($original); // aqui destruyo el original, pues no hace falta ya 
-
 $aca = getcwd();
-
 $ruta_destino = ''.$aca.'/img/foto/';
 // comenzamos a guardar el archivo 
         //$ruta_destino = "thumbnails/"; //ponemos la ruta donde queremos almacenar los archivos en el server 
@@ -61,11 +48,6 @@ $ruta_destino = ''.$aca.'/img/foto/';
                         echo "<br><hr><br>";  
 
                      }   }}
-                    
-
-
-
-
 $aca = getcwd();
 $location = ''.$aca.'/img/foto/';
 $foto_name = $use;
@@ -73,17 +55,49 @@ $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $pais = $_POST["pais"];
 $edad = $_POST["edad"];
-$intereses = $_POST['intereses'];
+//$intereses = $_POST['intereses'];
 $idioma = $_POST['idioma'];
 $contacto = $_POST['contacto'];
 $des = $_POST["des_form"];
+$idi = $_POST["idioma"];
+
+$queryexist = "SELECT * FROM habla WHERE ID_Usuario = $use";
+$respuesta = mysqli_query($mysqli, $queryexist);
+$numero = mysqli_num_rows($respuesta);
+
 if (!empty($nombre)) {
     $editar_perfil = "UPDATE usuario SET Nombre = '$nombre', Apellido = '$apellido', Edad = '$edad', Pais = '$pais', Contacto = '$contacto', Descripcion_U = '$des' WHERE ID_Usuario = $use";
-    if ($mysqli->query($editar_perfil) === TRUE) {header("location: p2.php");exit();}
-    else 
-    {
+    if ($numero > 0) {
+      $editar_idioma = "UPDATE habla SET ID_IDIOMA = '$idi', ID_Usuario = '$use' WHERE ID_Usuario = $use";
+      if ($mysqli->query($editar_perfil) === TRUE) {
+        if ($mysqli->query($editar_idioma) === TRUE) {
+          header("location: p2.php");exit();
+        }
+      }
+      else 
+      {
         echo "Error al modificar el usuario.";
         echo "Error: " . $editar_perfil . "<br>" . $mysqli->error; 
-    }   
-}  
+      }
+    }
+    else {
+      $insert_idioma = "INSERT INTO habla (ID_IDIOMA, ID_Usuario)
+                         VALUES ('$idi', '$use')";
+      if ($mysqli->query($editar_perfil) === TRUE) {
+        if ($mysqli->query($insert_idioma) === TRUE) {
+          header("location: p2.php");exit();
+        }
+        else
+        {
+          echo "Error al modificar el usuario.";
+          echo "Error: " . $editar_perfil . "<br>" . $mysqli->error;
+        }
+      }
+      else
+      {
+        echo "Error al modificar el usuario.";
+        echo "Error: " . $editar_perfil . "<br>" . $mysqli->error;
+      }
+    }
+}
 ?>

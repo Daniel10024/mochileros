@@ -43,9 +43,3 @@
 	//$bd = mysqli_select_db($mysqli, "id7451751_mochilerodb");
 	//$bd = mysqli_select_db($mysqli, "u173991785_mochi");
  ?>
-
-
-
-?>
-
-
