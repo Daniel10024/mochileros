@@ -627,3 +627,37 @@ $(document).ready(function habla() {
         $("#select_idioma").prepend(texto);
     });
 });
+
+
+$(document).ready(function paises() {
+    var _urlform ='paises.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},
+    function(data){
+        var json = JSON.parse(data);
+        var texto = "";
+        var pais_origen = "";
+        
+        $.each(json, function(i, item) {
+            texto += '<option selected value="'+item.idp+'">'+item.pais+'</option>';
+        })
+        $("#select_pais").html(texto);
+        //$("#select_pais").prepend(pais_origen);
+    });
+});
+
+
+$(document).ready(function origen() {
+    var _urlform ='origen.php';
+    var id_yo = myvar;
+    $.post(_urlform,{id:id_yo},
+    function(data){
+        //var json = JSON.parse(data);
+        var json = JSON.parse(JSON.stringify(data));
+        var texto = "";
+        $.each(json, function(i, item) {
+            texto += '<option selected value="'+item.idh+'">'+item.habla+'</option>';
+        })
+        $("#select_pais").prepend(texto);
+    });
+});

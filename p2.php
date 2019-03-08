@@ -167,12 +167,12 @@ if(!isset($_SESSION["‘ID_user’"])) {
             <div class="col-xs-12">
                 <label class="licki">Pais</label>
                 <select class="form-control" disabled="" id="select_pais" name="pais">
-                  <option selected value="<?php echo $pai; ?>"><?php echo $pai; ?></option>
+                  <!-- <option selected value="<?php echo $pai; ?>"><?php echo $pai; ?></option>
                   <option value="Argentina">Argentina</option>
                   <option value="Inglaterra">Inglaterra</option>
                   <option value="Francia">Francia</option>
                   <option value="Otro">Otro</option>
-                  <option value="">(Borrar Dato)</option>
+                  <option value="">(Borrar Dato)</option> -->
                 </select>
                 <p id="p-pai" class="error"></p>
             </div>

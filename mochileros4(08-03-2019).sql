@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-03-2019 a las 00:05:33
--- Versión del servidor: 10.2.17-MariaDB
--- Versión de PHP: 7.2.10
+-- Tiempo de generación: 08-03-2019 a las 13:31:27
+-- Versión del servidor: 10.1.28-MariaDB
+-- Versión de PHP: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,11 +19,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `u173991785_mochi`
+-- Base de datos: `mochileros4`
 --
-
-DROP DATABASE [IF EXISTS] `mochileros4`;
-
 CREATE DATABASE IF NOT EXISTS `mochileros4` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `mochileros4`;
 
@@ -39,12 +36,14 @@ CREATE TABLE `escala` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `escala`:
+--
+
+--
 -- Volcado de datos para la tabla `escala`
 --
 
 INSERT INTO `escala` (`ID_ESCALA`, `ESCALA`) VALUES
-('0', 'global'),
-('1', 'America'),
 ('10', 'Angola'),
 ('100', 'IrÃ¡n'),
 ('101', 'Irlanda'),
@@ -282,7 +281,8 @@ INSERT INTO `escala` (`ID_ESCALA`, `ESCALA`) VALUES
 ('96', 'HungrÃ­a'),
 ('97', 'India'),
 ('98', 'Indonesia'),
-('99', 'Irak');
+('99', 'Irak'),
+('999', '[SELECCIONE]');
 
 -- --------------------------------------------------------
 
@@ -296,12 +296,22 @@ CREATE TABLE `habla` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `habla`:
+--   `ID_IDIOMA`
+--       `idiomas` -> `ID_IDIOMA`
+--   `ID_Usuario`
+--       `usuario` -> `ID_Usuario`
+--
+
+--
 -- Volcado de datos para la tabla `habla`
 --
 
 INSERT INTO `habla` (`ID_IDIOMA`, `ID_Usuario`) VALUES
+(11, '110433993825937047664'),
+(12, '117974607496192147045'),
 (50, '105330132474270054108'),
-(50, '117974607496192147045');
+(999, '111733596368903726939');
 
 -- --------------------------------------------------------
 
@@ -313,6 +323,10 @@ CREATE TABLE `idiomas` (
   `ID_IDIOMA` bigint(20) NOT NULL,
   `IDIOMA` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `idiomas`:
+--
 
 --
 -- Volcado de datos para la tabla `idiomas`
@@ -532,7 +546,8 @@ INSERT INTO `idiomas` (`ID_IDIOMA`, `IDIOMA`) VALUES
 (210, 'Yidis'),
 (211, 'Yoruba'),
 (212, 'Yupik'),
-(213, 'ZulÃº');
+(213, 'ZulÃº'),
+(999, '[SELECCIONE]');
 
 -- --------------------------------------------------------
 
@@ -544,6 +559,10 @@ CREATE TABLE `interes` (
   `ID_Interes` bigint(20) NOT NULL,
   `Nombre` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `interes`:
+--
 
 --
 -- Volcado de datos para la tabla `interes`
@@ -574,6 +593,18 @@ CREATE TABLE `le_interesa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `le_interesa`:
+--   `ID_PUNTO`
+--       `punto` -> `ID_PUNTO`
+--   `ID_VIAJE`
+--       `punto` -> `ID_VIAJE`
+--   `ID_Usuario`
+--       `punto` -> `ID_Usuario`
+--   `ID_Interes`
+--       `interes` -> `ID_Interes`
+--
+
+--
 -- Volcado de datos para la tabla `le_interesa`
 --
 
@@ -589,8 +620,33 @@ INSERT INTO `le_interesa` (`ID_PUNTO`, `ID_VIAJE`, `ID_Usuario`, `ID_Interes`) V
 (9, 2, '105330132474270054108', 3),
 (10, 3, '105330132474270054108', 1),
 (11, 3, '105330132474270054108', 5),
-(12, 3, '105330132474270054108', 4),
-(13, 4, '117974607496192147045', 6);
+(12, 3, '105330132474270054108', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `origen`
+--
+
+CREATE TABLE `origen` (
+  `ID_ORIGEN` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ID_Usuario` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `origen`:
+--   `ID_Usuario`
+--       `usuario` -> `ID_Usuario`
+--   `ID_ORIGEN`
+--       `escala` -> `ID_ESCALA`
+--
+
+--
+-- Volcado de datos para la tabla `origen`
+--
+
+INSERT INTO `origen` (`ID_ORIGEN`, `ID_Usuario`) VALUES
+('106', '117974607496192147045');
 
 -- --------------------------------------------------------
 
@@ -607,24 +663,21 @@ CREATE TABLE `publicacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `publicacion`:
+--
+
+--
 -- Volcado de datos para la tabla `publicacion`
 --
 
 INSERT INTO `publicacion` (`ID_Publicacion`, `ID_Usuario`, `Comentario`, `Publico`, `Fecha`) VALUES
-(2, '117863009342621190676', 'Primero?', 2, '2018-11-30'),
-(4, '117974607496192147045', 'publicamos', 1, '2018-11-30'),
-(5, '117974607496192147045', 'esto esta muy publico :D', 2, '2018-11-30'),
-(6, '107956598533646051969', 'Hola Hola Publico', 2, '2018-11-30'),
-(10, '110433993825937047664', 'esto es un comentario publico :D', 2, '2018-11-30'),
-(11, '107956598533646051969', 'Mi viaje a Bolivia ', 1, '2018-11-30'),
-(12, '107956598533646051969', '\r\n????', 2, '2018-11-30'),
-(13, '105330132474270054108', 'Test', 1, '2018-11-30'),
-(14, '100047976351922140591', 'alguno viajó a chile alguna vez?', 2, '2018-11-30'),
-(15, '116561301230441017246', 'Estoy pensando en viajar al Chalten ????', 1, '2018-11-30'),
-(16, '105330132474270054108', 'Alguien sabe si va a estar donald trump en mar de las pampas estas vacaciones?', 1, '2019-02-08'),
-(17, '117974607496192147045', 'ponele que no ¬_¬\r\n', 1, '2019-02-11'),
-(18, '110833609325138280882', 'Che esta página esta muertísima xddddd', 1, '2019-02-15'),
-(19, '110833609325138280882', 'Che esta página está muertísima xdddd', 2, '2019-02-15');
+(1, '117974607496192147045', 'todavia publicas no?', 2, '2018-11-29'),
+(2, '117974607496192147045', 'asd', 1, '2019-03-04'),
+(3, '117974607496192147045', 'sad\r\n', 1, '2019-03-04'),
+(4, '117974607496192147045', 'sad', 1, '2019-03-04'),
+(5, '117974607496192147045', 'sad', 1, '2019-03-04'),
+(6, '117974607496192147045', 'muy sad', 1, '2019-03-04'),
+(7, '117974607496192147045', 'sad', 1, '2019-03-06');
 
 -- --------------------------------------------------------
 
@@ -644,6 +697,14 @@ CREATE TABLE `punto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `punto`:
+--   `ID_VIAJE`
+--       `viaje` -> `ID_VIAJE`
+--   `ID_Usuario`
+--       `viaje` -> `ID_Usuario`
+--
+
+--
 -- Volcado de datos para la tabla `punto`
 --
 
@@ -659,8 +720,7 @@ INSERT INTO `punto` (`ID_PUNTO`, `ID_VIAJE`, `ID_Usuario`, `EJE_X`, `EJE_Y`, `FE
 (9, 2, '105330132474270054108', '-46.080784', '-70.673619', '2018-11-19', '2018-11-25', 22),
 (10, 3, '105330132474270054108', '-29.908856', '-64.354678', '2018-11-06', '2018-11-15', 20),
 (11, 3, '105330132474270054108', '-33.148225', '-65.354678', '2018-11-16', '2018-11-21', 15),
-(12, 3, '105330132474270054108', '-32.501982', '-63.014346', '2018-11-22', '2018-11-24', 15),
-(13, 4, '117974607496192147045', '-32.501982', '-63.014346', '2018-11-30', '2018-12-01', 60);
+(12, 3, '105330132474270054108', '-32.501982', '-63.014346', '2018-11-22', '2018-11-24', 15);
 
 -- --------------------------------------------------------
 
@@ -676,20 +736,20 @@ CREATE TABLE `solisitud` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `solisitud`:
+--   `User`
+--       `usuario` -> `ID_Usuario`
+--   `Amigo`
+--       `usuario` -> `ID_Usuario`
+--
+
+--
 -- Volcado de datos para la tabla `solisitud`
 --
 
 INSERT INTO `solisitud` (`ID_solisitud`, `User`, `Amigo`, `Estado`) VALUES
-(1, '117974607496192147045', '107956598533646051969', 1),
-(2, '117974607496192147045', '117863009342621190676', 1),
-(3, '117974607496192147045', '105330132474270054108', 1),
-(7, '117974607496192147045', '110433993825937047664', 1),
-(8, '107956598533646051969', '117863009342621190676', 2),
-(9, '117863009342621190676', '105330132474270054108', 1),
-(10, '105330132474270054108', '100047976351922140591', 1),
-(11, '107956598533646051969', '100047976351922140591', 1),
-(12, '116561301230441017246', '117974607496192147045', 2),
-(13, '105330132474270054108', '110833609325138280882', 1);
+(0, '110433993825937047664', '105330132474270054108', 1),
+(0, '110433993825937047664', '117974607496192147045', 1);
 
 -- --------------------------------------------------------
 
@@ -708,21 +768,19 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `usuario`:
+--
+
+--
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`ID_Usuario`, `Nombre`, `Apellido`, `Edad`, `Pais`, `Descripcion_U`, `Contacto`) VALUES
 ('1', 'Invitado', '', '0000-00-00', '', '', ''),
-('100047976351922140591', 'Federico', 'Brucchieri', '0000-00-00', '', '', ''),
-('105330132474270054108', 'Roman', 'Venica', '1993-02-11', 'argentina', 'Si van a hacer asado o tocar la guitarra contactenme!', '11-23992996'),
-('106517872431394531965', 'Osman2', 'Canaza2', '0000-00-00', '', '', ''),
-('107956598533646051969', 'osman', 'canaza', '0000-00-00', '', '', ''),
-('110433993825937047664', 'daniel', 'galeano', '0000-00-00', '', 'sadasdasdsadasdasd', ''),
-('110833609325138280882', 'Ezequiel', 'Atencio', '0000-00-00', '', '', ''),
+('105330132474270054108', 'Roman', 'Venica', '0000-00-00', 'argentina', '', ''),
+('110433993825937047664', 'daniel', 'galeano', '0000-00-00', 'Inglaterra', 'sadasdasdsadasdasd', ''),
 ('111733596368903726939', 'pablo', 'kimon', '0000-00-00', '', '', ''),
-('116561301230441017246', 'Matias', 'Bassi', '0000-00-00', '', '', ''),
-('117863009342621190676', 'Federico', 'Torres aguirre', '1996-05-19', 'Argentina', '', 'Llama a Batman para que te de mi numero'),
-('117974607496192147045', 'Daniel', 'Galeano', '2018-11-08', 'Argentina', 'descripciones :D', 'contactos :D');
+('117974607496192147045', 'Daniel', 'Galeano', '2019-03-05', 'Argentina', 'asdasdasdas', 'sad toho');
 
 -- --------------------------------------------------------
 
@@ -738,14 +796,17 @@ CREATE TABLE `viaje` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `viaje`:
+--
+
+--
 -- Volcado de datos para la tabla `viaje`
 --
 
 INSERT INTO `viaje` (`ID_VIAJE`, `ID_Usuario`, `ID_ESCALA`, `NOMBRE`) VALUES
 (1, '105330132474270054108', 17, 'Viaje por el norte'),
 (2, '105330132474270054108', 17, 'Viaje por el pais'),
-(3, '105330132474270054108', 17, 'Viaje por cordoba'),
-(4, '117974607496192147045', 17, 'mi viaje :D');
+(3, '105330132474270054108', 17, 'Viaje por cordoba');
 
 --
 -- Índices para tablas volcadas
@@ -782,6 +843,13 @@ ALTER TABLE `interes`
 ALTER TABLE `le_interesa`
   ADD PRIMARY KEY (`ID_PUNTO`,`ID_VIAJE`,`ID_Usuario`,`ID_Interes`),
   ADD KEY `ID_Interes` (`ID_Interes`);
+
+--
+-- Indices de la tabla `origen`
+--
+ALTER TABLE `origen`
+  ADD PRIMARY KEY (`ID_ORIGEN`,`ID_Usuario`),
+  ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
 -- Indices de la tabla `publicacion`
@@ -829,13 +897,7 @@ ALTER TABLE `viaje`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT de la tabla `solisitud`
---
-ALTER TABLE `solisitud`
-  MODIFY `ID_solisitud` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
@@ -854,6 +916,13 @@ ALTER TABLE `habla`
 ALTER TABLE `le_interesa`
   ADD CONSTRAINT `le_interesa_ibfk_1` FOREIGN KEY (`ID_PUNTO`,`ID_VIAJE`,`ID_Usuario`) REFERENCES `punto` (`ID_PUNTO`, `ID_VIAJE`, `ID_Usuario`),
   ADD CONSTRAINT `le_interesa_ibfk_2` FOREIGN KEY (`ID_Interes`) REFERENCES `interes` (`ID_Interes`);
+
+--
+-- Filtros para la tabla `origen`
+--
+ALTER TABLE `origen`
+  ADD CONSTRAINT `origen_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario` (`ID_Usuario`),
+  ADD CONSTRAINT `origen_ibfk_2` FOREIGN KEY (`ID_ORIGEN`) REFERENCES `escala` (`ID_ESCALA`);
 
 --
 -- Filtros para la tabla `punto`

@@ -4,10 +4,6 @@
 ?>
 
 <?php 
-header('Content-Type: text/html; charset=utf-8');
-
-$mysqli->query("SET NAMES 'utf8'");
-$mysqli->query("SET CHARACTER SET utf8");
 
 $query_idioma = mysqli_query($mysqli, "SELECT * FROM idiomas");
     while($data_idioma=mysqli_fetch_assoc($query_idioma))
@@ -20,4 +16,4 @@ $query_idioma = mysqli_query($mysqli, "SELECT * FROM idiomas");
                  
           <?php  
              }
-      ?>  
+      ?> 

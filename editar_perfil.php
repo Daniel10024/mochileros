@@ -56,48 +56,45 @@ $apellido = $_POST["apellido"];
 $pais = $_POST["pais"];
 $edad = $_POST["edad"];
 //$intereses = $_POST['intereses'];
-$idioma = $_POST['idioma'];
+//$idioma = $_POST['idioma'];
 $contacto = $_POST['contacto'];
 $des = $_POST["des_form"];
 $idi = $_POST["idioma"];
 
-$queryexist = "SELECT * FROM habla WHERE ID_Usuario = $use";
-$respuesta = mysqli_query($mysqli, $queryexist);
-$numero = mysqli_num_rows($respuesta);
+$queryhabla = "SELECT * FROM habla WHERE ID_Usuario = $use";
+$respuesta_habla = mysqli_query($mysqli, $queryhabla);
+$numero_habla = mysqli_num_rows($respuesta_habla);
+$queryorigen = "SELECT * FROM origen WHERE ID_Usuario = $use";
+$respuesta_origen = mysqli_query($mysqli, $queryorigen);
+$numero_origen = mysqli_num_rows($respuesta_origen);
 
+// editar perfil ________________________________________________________________________________________________________
 if (!empty($nombre)) {
-    $editar_perfil = "UPDATE usuario SET Nombre = '$nombre', Apellido = '$apellido', Edad = '$edad', Pais = '$pais', Contacto = '$contacto', Descripcion_U = '$des' WHERE ID_Usuario = $use";
-    if ($numero > 0) {
+    $editar_perfil = "UPDATE usuario SET Nombre = '$nombre', Apellido = '$apellido', Edad = '$edad', Contacto = '$contacto', Descripcion_U = '$des' WHERE ID_Usuario = $use";
+    // editar idioma ________________________________________________________________________________________________
+    if ($numero_habla > 0) {
       $editar_idioma = "UPDATE habla SET ID_IDIOMA = '$idi', ID_Usuario = '$use' WHERE ID_Usuario = $use";
-      if ($mysqli->query($editar_perfil) === TRUE) {
-        if ($mysqli->query($editar_idioma) === TRUE) {
-          header("location: p2.php");exit();
-        }
-      }
-      else 
-      {
-        echo "Error al modificar el usuario.";
-        echo "Error: " . $editar_perfil . "<br>" . $mysqli->error; 
-      }
     }
     else {
-      $insert_idioma = "INSERT INTO habla (ID_IDIOMA, ID_Usuario)
+      $editar_idioma = "INSERT INTO habla (ID_IDIOMA, ID_Usuario)
                          VALUES ('$idi', '$use')";
-      if ($mysqli->query($editar_perfil) === TRUE) {
-        if ($mysqli->query($insert_idioma) === TRUE) {
-          header("location: p2.php");exit();
-        }
-        else
-        {
-          echo "Error al modificar el usuario.";
-          echo "Error: " . $editar_perfil . "<br>" . $mysqli->error;
-        }
-      }
-      else
-      {
-        echo "Error al modificar el usuario.";
-        echo "Error: " . $editar_perfil . "<br>" . $mysqli->error;
-      }
     }
+    // editar origen _______________________________________________________________________________________________
+    if ($numero_origen > 0) {
+      $editar_origen = "UPDATE origen SET ID_ORIGEN = '$pais', ID_Usuario = '$use' WHERE ID_Usuario = $use";
+    } 
+    else 
+    {
+     $editar_origen = "INSERT INTO origen (ID_ORIGEN, ID_Usuario)
+                       VALUES ('$pais', '$use')";
+    }
+    // _____________________________________________________________________________________________
+  if ($mysqli->query($editar_perfil) === TRUE and $mysqli->query($editar_idioma) === TRUE and $mysqli->query($editar_origen) === TRUE) {
+    header("location: p2.php");exit();
+  }
+  else {
+    echo "Error al modificar el usuario.";
+    echo "Error: " . $editar_perfil . "<br>" . $mysqli->error;
+  }
 }
 ?>
