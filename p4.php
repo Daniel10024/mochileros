@@ -203,7 +203,7 @@ while ($data_cli=mysqli_fetch_assoc($query_cli)) {
             <!-- _________________________ventana modal de borrar__________________________ -->
              
 
-                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                <div class="modal fade" id="delete_viaje" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">

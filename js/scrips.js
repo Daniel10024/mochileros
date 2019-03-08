@@ -548,7 +548,7 @@ $(document).ready(function viajes() {
         //var json = JSON.parse(data);
         var json = JSON.parse(JSON.stringify(data));
         var texto = "";
-        var ventana_modal2 = "";
+        //var ventana_modal2 = "";
         $.each(json, function(i, item) {
             texto += 
                             '<tr>'+
@@ -556,11 +556,12 @@ $(document).ready(function viajes() {
                               '<td><p>'+item.vnom+'</p></td>'+
                               '<td data-name="opt" align="center">'+
                                 '<a name="ver1" href="p6.php?id='+item.vvia+'"" title="Editar" class="btn btn-primary"><em class="glyphicon glyphicon-eye-open"></em></a>'+
-                                '<a name="del1" title="Eliminar" class="btn btn-danger row-remove hidden" data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>'+
+                                //'<a name="del1" title="Eliminar" class="btn btn-danger row-remove " data-toggle="modal" data-target="#delete"><em class="glyphicon glyphicon-trash"></em></a>'+
+                                '<a name="del1" title="Eliminar" onclick="modal_eliminar_viaje('+item.vvia+')" class="btn btn-danger row-remove"><em class="glyphicon glyphicon-trash"></em></a>'+
                               '</td>'+
                           '</tr>';
 
-            ventana_modal2 +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
+            /*ventana_modal2 +=  '<div class="modal fade" id="delete'+item.ida+'" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">'+
                               '<div class="modal-dialog">'+
                                 '<div class="modal-content">'+
                                     '<div class="modal-header">'+
@@ -576,13 +577,40 @@ $(document).ready(function viajes() {
                                     '</div>'+
                                 '</div>'+
                               '</div>'+
-                          '</div>';
+                          '</div>';*/
           
         })
         $("#misviajes").html(texto);
-        $("#modal_aca2").html(ventana_modal2);
+        //$("#modal_aca2").html(ventana_modal2);
     });
 });
+
+
+function modal_eliminar_viaje(valor){
+  var valor = valor;
+  $('#delete_viaje').modal('show')
+  $('#botonsi').on("click", function() {
+    eliminar_viaje(valor);
+  });
+}
+
+function eliminar_viaje(soli){
+  //alert ("eliminar viaje");
+  var _urlform ='eliminar_viaje.php';
+    $.post(_urlform,{id_viaje:soli},
+    function(data){
+        if(data != 1){
+          //alert ("eliminar viaje 2");
+          location.href ="p4.php";
+        }
+        else{
+          alert ("error al eliminar el viaje");
+          //alert(data)
+        }
+    });
+}
+
+
 $("#select_idioma").load("idiomas.php");
 
 $(document).ready(function habla() {
@@ -599,5 +627,3 @@ $(document).ready(function habla() {
         $("#select_idioma").prepend(texto);
     });
 });
-
-
