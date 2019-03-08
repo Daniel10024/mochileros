@@ -600,7 +600,4 @@ $(document).ready(function habla() {
     });
 });
 
-/*$("#select_pais").load("paises.php");
-$("#escala").load("paises.php");
-$("#paises").load("paises.php");
-$("#paises").load("paises.php");*/
+

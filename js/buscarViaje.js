@@ -123,7 +123,10 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 
 		$.ajax({
 		    type: "POST",
-   			url: "http://mochileros.esy.es/php/buscarViaje.php",
+		    // este es para local
+   			url: "php/buscarViaje.php",
+   			// el de abajo es para el servidor
+   			//url: "http://mochileros.esy.es/php/buscarViaje.php",
 			dataType: "json",
 			data: {'escala' : escala, 'fecha_ini' : fecha_ini, 'fecha_fin' : fecha_fin, 'idioma' : idioma, 'origen' :origen, 'intereses' : interesesChecked},
 			success: function (result) 
@@ -186,7 +189,11 @@ function traerPuntos(e)
 	}
 	$.ajax({
 	    type: "POST",
-		url: "http://mochileros.esy.es/php/buscarViaje.php",
+	    // haci es en local__________________________________
+	    url: "php/traerViaje.php",
+
+	    // y haci en servidor_______________________________
+		//url: "http://mochileros.esy.es/php/buscarViaje.php",
 		dataType: "json",
 		data: {'id_viaje' : resultados_id[id_actual]},
 		success: function (result) 
