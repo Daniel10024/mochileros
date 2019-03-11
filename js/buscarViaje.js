@@ -202,6 +202,8 @@ function manejarResultado(result)
 	traerPuntos();
 }
 
+
+var id_my_viaje;
 /*Trae los puntos. De que viaje? Del que este en el INDEX de id_actual*/
 function traerPuntos(e)
 {
@@ -223,6 +225,7 @@ function traerPuntos(e)
     });
 	
 	*/
+	id_my_viaje = resultados_id[id_actual]
 	    $.ajax({
 	    type: "POST",
 		url: "php/traerViaje.php",
@@ -246,7 +249,7 @@ function traerPuntos(e)
 /*Necesito que estas dos cosas sean globales para poder agarrarlas y eliminarlar despues*/
 var markersMapa = [];
 var flightPath;
-var id_my_viaje;
+
 
 function ponerPuntos(puntos)
 {
@@ -327,6 +330,12 @@ function ponerPuntos(puntos)
 				);
 	    	infowindow.open(map, this);
 			*/
+			console.log (this.id_punto + " este es el id del punto");
+					console.log (parseInt(id_actual) + parseInt(1) +" este es el id del viaje");
+					console.log (id_actual+" este es el id del viaje");
+					console.log (parseInt(id_actual)+" este es el id del viaje (?)");
+					
+					console.log (id_my_viaje);
 			var id_yo = myvar;
 			if (id_yo == 1) {
 				infowindow.setContent(
@@ -342,11 +351,11 @@ function ponerPuntos(puntos)
 			}
 			else{
 				if (id_yo == ID_usuario) {
-					console.log (this.id_punto + " este es el id del punto");
+					/*console.log (this.id_punto + " este es el id del punto");
 					console.log (parseInt(id_actual) + parseInt(1) +" este es el id del viaje");
 					console.log (id_actual+" este es el id del viaje");
 					console.log (parseInt(id_actual)+" este es el id del viaje (?)");
-					id_my_viaje = parseInt(id_actual) + parseInt(1);
+					id_my_viaje = parseInt(id_actual) + parseInt(1);*/
 					infowindow.setContent(
 					'<div id="content" class="divInfoWindow">' +
 		    		'<div id="siteNotice">' +
