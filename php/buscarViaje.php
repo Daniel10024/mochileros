@@ -12,7 +12,8 @@ try
             JOIN usuario AS u ON v.id_usuario = u.id_usuario
             JOIN habla AS h ON u.id_usuario = h.id_usuario
             JOIN le_interesa AS i ON i.id_punto = p.id_punto
-            WHERE (v.id_escala = :escala) AND (u.pais = :origen AND h.id_idioma = :idioma)
+            JOIN origen AS o ON u.id_usuario = o.id_usuario
+            WHERE (v.id_escala = :escala) AND (o.ID_ORIGEN = :origen AND h.id_idioma = :idioma)
             AND (p.fecha_inicio BETWEEN :fecha_ini AND :fecha_fin OR p.fecha_fin BETWEEN :fecha_ini AND :fecha_fin)
             AND i.id_interes IN (".implode(',',$intereses).")
             ");

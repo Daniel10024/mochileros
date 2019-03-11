@@ -6,7 +6,7 @@ try
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // prepare sql and bind parameters
-        $stmt = $conn->prepare("SELECT id_usuario, eje_x, eje_y, fecha_inicio, fecha_fin, radio_extra FROM punto 
+        $stmt = $conn->prepare("SELECT id_usuario, eje_x, eje_y, fecha_inicio, fecha_fin, radio_extra, ID_PUNTO FROM punto 
             WHERE id_viaje = :id_viaje");
         
         

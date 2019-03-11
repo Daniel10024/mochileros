@@ -11,10 +11,14 @@ function buscarViaje(){
 	var fecha_fi = new Date(2018,12,20);
 	var fecha_ini = fecha_in.getFullYear() + "/" +(fecha_in.getMonth()+1) + "/" + fecha_in.getDate();
 	var fecha_fin = fecha_fi.getFullYear() + "/" +(fecha_fi.getMonth()+1) + "/" + fecha_fi.getDate();
+	var fecha_inF = fecha_ini;
+	var fecha_fiF = fecha_fin;
 	var origen = "argentina";
 	var idioma = 50;
 	// Español
 	var interesesChecked = [1,2,3,4,5,6,7,8];	
+
+    
 	*/
 
 	/*
@@ -22,6 +26,7 @@ function buscarViaje(){
 
 	// ORIGINALES
 
+    
 	//AGARRE DE LA ESCALA
 	var escalaInput = document.getElementById("escalaInput").value;
 	if (escalaInput == null || escalaInput == "") {
@@ -31,16 +36,16 @@ function buscarViaje(){
 	}
 	//Funcion de abajo robada de stack overflow para conseguir el data-value de los options del datalist
 	var escala = document.querySelector("#escala option[value='"+escalaInput+"']").dataset.value;
-
+	
+    localStorage.setItem("escala", JSON.stringify(escalaInput));
 
 	//AGARRE DE LA FECHA
 	var fecha_inF = document.getElementById("fechaDesde").value;
-	/*if (fecha_inF == null || fecha_inF == "") {
-		$('#t_modal').text('Complete los campos');
-		$('#m_modal').text('porfavor complete el campo de "fecha desde"')
-		$("#myModal").modal();
-	}*/
+    localStorage.setItem("fecha_ini", JSON.stringify(fecha_inF));
+
 	var fecha_fiF = document.getElementById("fechaHasta").value;
+	localStorage.setItem("fecha_fin", JSON.stringify(fecha_fiF));
+	
 	if (fecha_fiF == null || fecha_fiF == "") {
 		$('#t_modal').text('Complete los campos');
 		$('#m_modal').text('porfavor complete el campo de "fecha hasta"')
@@ -57,15 +62,19 @@ function buscarViaje(){
 	// IMPORTANTE: CUANDO EL USUARIO CREA SU CUENTA TIENE QUE ELEGIR SU PAIS DE LA MISMA LISTA QUE LOS ELIJE ACA PARA QUE
 	// DESPUES MATCHEE BIEN.
 	var origen = document.getElementById("paisesInput").value;
+	localStorage.setItem("origen", JSON.stringify(origen));
+	
 	if (origen == null || origen == "") {
 		$('#t_modal').text('Complete los campos');
 		$('#m_modal').text('porfavor complete el campo de "origen"')
 		$("#myModal").modal();
 	}
-
+	var ID_origen = document.querySelector("#paises option[value='"+origen+"']").dataset.value;
 
 	//AGARRA EL IDIOMA
 	var idiomaInput = document.getElementById("idiomasInput").value;
+	localStorage.setItem("idiomas", JSON.stringify(idiomaInput));
+	
 	if (idiomaInput == null || idiomaInput == "") {
 		$('#t_modal').text('Complete los campos');
 		$('#m_modal').text('porfavor complete el campo de "idioma"')
@@ -78,6 +87,7 @@ function buscarViaje(){
 	var intereses = document.getElementsByClassName("checkInteres");
 	var interesesChecked = [];
 	
+	
 
 	for (var i = intereses.length - 1; i >= 0; i--) {
 		if(intereses[i].checked)
@@ -86,7 +96,9 @@ function buscarViaje(){
 			numConverted = parseInt(num);
 			interesesChecked.push(numConverted);
 		}
+		localStorage.setItem("intereses", JSON.stringify(interesesChecked));
 	}
+	
 
 if (interesesChecked == null || interesesChecked == "") {
 		$('#t_modal').text('Complete los campos');
@@ -94,6 +106,8 @@ if (interesesChecked == null || interesesChecked == "") {
 		$("#myModal").modal();
 	}
 if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
+	console.log (ID_origen);
+	console.log (idioma);
 	$('#t_modal').text('Sin coincidencias');
 	$('#m_modal').text(':(')
 }
@@ -106,6 +120,7 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 	/*
 	
 	// DEBUG
+
 	console.log(escala);
 	console.log(fecha_ini);
 	console.log(fecha_fin);
@@ -121,14 +136,18 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 	else
 	{
 
-		$.ajax({
+		if (fecha_inF >= fecha_fiF) {
+		$('#t_modal').text('Complete los campos');
+		$('#m_modal').text('la fecha desde no puede ser superior a la fecha hasta"')
+		$("#myModal").modal();
+		}
+
+		else {
+			$.ajax({
 		    type: "POST",
-		    // este es para local
-   			url: "php/buscarViaje.php",
-   			// el de abajo es para el servidor
-   			//url: "http://mochileros.esy.es/php/buscarViaje.php",
+			url: "php/buscarViaje.php",
 			dataType: "json",
-			data: {'escala' : escala, 'fecha_ini' : fecha_ini, 'fecha_fin' : fecha_fin, 'idioma' : idioma, 'origen' :origen, 'intereses' : interesesChecked},
+			data: {'escala' : escala, 'fecha_ini' : fecha_ini, 'fecha_fin' : fecha_fin, 'idioma' : idioma, 'origen' :ID_origen, 'intereses' : interesesChecked},
 			success: function (result) 
 				{
 					if (result.length != 0)
@@ -138,6 +157,7 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 					else
 					{
 						$("#myModal").modal();
+						console.log (result);
 					}
 				},
 		    error: function (xhr, status, error)
@@ -148,6 +168,7 @@ if (escalaInput && fecha_fiF && origen && idiomaInput && interesesChecked) {
 				console.log("error de consulta");
 		    }
 	    })
+		}
 	}
 }
 
@@ -187,17 +208,29 @@ function traerPuntos(e)
 	if (e) {
 		resultados_id[id_actual] = e;
 	}
-	$.ajax({
+	
+	/*var _urlform ='php/traerViaje.php';
+    $.post(_urlform,{id_viaje : resultados_id[id_actual]},
+    function(data){
+        if(data != 1){
+            alert("esto es success");
+          ponerPuntos(data);
+                      
+        }
+        else{
+          alert(data)
+        }
+    });
+	
+	*/
+	    $.ajax({
 	    type: "POST",
-	    // haci es en local__________________________________
-	    url: "php/traerViaje.php",
-
-	    // y haci en servidor_______________________________
-		//url: "http://mochileros.esy.es/php/buscarViaje.php",
+		url: "php/traerViaje.php",
 		dataType: "json",
 		data: {'id_viaje' : resultados_id[id_actual]},
 		success: function (result) 
 			{
+			    
 				ponerPuntos(result);
 			},
 	    error: function (xhr, status, error)
@@ -213,7 +246,7 @@ function traerPuntos(e)
 /*Necesito que estas dos cosas sean globales para poder agarrarlas y eliminarlar despues*/
 var markersMapa = [];
 var flightPath;
-
+var id_my_viaje;
 
 function ponerPuntos(puntos)
 {
@@ -257,6 +290,9 @@ function ponerPuntos(puntos)
 		//Cuanto se va a alejar el usuario
 		var cuadras_extras = puntos[i][5];
 
+		// este es el id del punto
+		var id_punto = puntos[i][6];
+
 		//Los voy poniendo en este array para despues manejarlos (crear la linea que los une o eliminarlos) 
 		puntosMapa.push(myLatlng);
 
@@ -265,6 +301,7 @@ function ponerPuntos(puntos)
 			fecha_inicio: fecha_inicioF,
 			fecha_fin: fecha_finF,
 			cuadras_extras: cuadras_extras,
+			id_punto: id_punto,
 			position: myLatlng,
 			title:"Hello World!"
 		});
@@ -298,29 +335,49 @@ function ponerPuntos(puntos)
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
 				'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
-				'<p class= "error">Inicia sesion para ver el usuario</p>'+
+				'<p class= "error">Inicie sesion para ver el usuario</p>'+
 				'</div>'+
 				'</div>'
 				);
 			}
 			else{
-				localStorage.setItem("markersMapa", JSON.stringify(markersMapa));
-				localStorage.setItem("flightPath", JSON.stringify(flightPath));
+				if (id_yo == ID_usuario) {
+					console.log (this.id_punto + " este es el id del punto");
+					console.log (parseInt(id_actual) + parseInt(1) +" este es el id del viaje");
+					console.log (id_actual+" este es el id del viaje");
+					console.log (parseInt(id_actual)+" este es el id del viaje (?)");
+					id_my_viaje = parseInt(id_actual) + parseInt(1);
+					infowindow.setContent(
+					'<div id="content" class="divInfoWindow">' +
+		    		'<div id="siteNotice">' +
+					'Desde: '+this.fecha_inicio+'<br>'+
+					'Hasta: '+this.fecha_fin+'<br>'+
+					'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
+					'el id del punto es:'+this.id_punto+' !<br><br>'+
+					'<a name="del1" title="Eliminar" onclick="modal_eliminar_punto('+this.id_punto+')" class="btn btn-danger row-remove"><em class="glyphicon glyphicon-trash"></em></a>'+
+					'</div>'+
+					'</div>'
+					);
+				}
+				else {
+				    localStorage.setItem("resultados_id", JSON.stringify(resultados_id));
+				    localStorage.setItem("id_actual", JSON.stringify(id_actual));
+				    console.log(JSON.parse(localStorage.getItem("resultados_id")));
+				    console.log(JSON.parse(localStorage.getItem("id_actual")));
 
-				console.log(JSON.parse(localStorage.getItem("lastname")));
-				console.log(JSON.parse(localStorage.getItem("lastname")));
-				/*
-				infowindow.setContent(
+				    
+					infowindow.setContent(
 				'<div id="content" class="divInfoWindow">' +
 	    		'<div id="siteNotice">' +
 				'Desde: '+this.fecha_inicio+'<br>'+
 				'Hasta: '+this.fecha_fin+'<br>'+
 				'Puedo alejarme hasta '+this.cuadras_extras+' cuadras de aqui!<br><br>'+
-				'<a href="p8.php?id='+ID_usuario+'"><button type="button" class="btn btn-primary">Ver Usuario!</button></a>'+
+				'<a href="p8.php?id='+ID_usuario+'&mapa=1"><button type="button" class="btn btn-primary">Ver Usuario!</button></a>'+
 				'</div>'+
 				'</div>'
 				);
-				*/
+				
+				}
 			}
 			
 	    	infowindow.open(map, this);
@@ -343,6 +400,31 @@ function ponerPuntos(puntos)
 
   	/*Con esto se setea la linea en el mapa*/
 	flightPath.setMap(map);
+}
+
+
+/**/function modal_eliminar_punto(valor){
+  var valor = valor;
+  $('#delete_punto').modal('show')
+  $('#botonsi').on("click", function() {
+    eliminar_punto(valor);
+  });
+}
+
+function eliminar_punto(soli){
+  //alert ("eliminar viaje");
+  var _urlform ='eliminar_punto.php';
+    $.post(_urlform,{id_punto1:soli},
+    function(data){
+        if(data != 1){
+          //alert ("eliminar viaje 2");
+          location.href ='p6.php?id='+id_my_viaje+'';
+        }
+        else{
+          alert ("error al eliminar el punto");
+          //alert(data)
+        }
+    });
 }
 
 
@@ -374,11 +456,12 @@ function puntoAnterior()
 
 /*Con esto se inicia el mapa y de paso se le pide ubicacion al usuario*/
 var map;
-function initMap()
-{
+$(document).ready(function initMap() {
+//function initMap(){
 	map = new google.maps.Map(document.getElementById('mapaGoogle'), {
 		center: {lat: -12.789924, lng: -68.52355},
-		zoom: 4
+		zoom: 4,
+		mapTypeControl: false
 	});
   	if (navigator.geolocation) 
   	{
@@ -399,7 +482,7 @@ function initMap()
 
     // La ventanita que le aparece arriba a los marks con los datos
 	infowindow = new google.maps.InfoWindow({});
-}
+});
 
 
   /**
@@ -435,6 +518,9 @@ function CenterControl(controlDiv, map) {
 
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function() {
+        
+        
+        /*
         if (navigator.geolocation) 
 	  	{
 
@@ -446,6 +532,72 @@ function CenterControl(controlDiv, map) {
 	 		
 	 		});
 	 	}
+	 	*/
+	 	
+	 	var options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        };
+        
+        function success(pos) {
+          var crd = pos.coords;
+        
+          console.log('Your current position is:');
+          console.log('Latitude : ' + crd.latitude);
+          console.log('Longitude: ' + crd.longitude);
+          console.log('More or less ' + crd.accuracy + ' meters.');
+        };
+        
+        function error(err) {
+          console.warn('ERROR(' + err.code + '): ' + err.message);
+        };
+        
+        navigator.geolocation.getCurrentPosition(success, error, options);
+	 	
+	 	
     });
 
-}
+  }
+
+
+setTimeout(function()
+{
+    console.log(JSON.parse(localStorage.getItem("resultados_id")));
+    console.log(JSON.parse(localStorage.getItem("id_actual")));
+    if (JSON.parse(localStorage.getItem("resultados_id")) == null || JSON.parse(localStorage.getItem("id_actual")) == null)
+    {
+        null;
+    }
+    else{
+        resultados_id = JSON.parse(localStorage.getItem("resultados_id"));
+        id_actual = JSON.parse(localStorage.getItem("id_actual"));
+        
+        document.getElementById("escalaInput").value = JSON.parse(localStorage.getItem("escala"));
+        document.getElementById("fechaDesde").value = JSON.parse(localStorage.getItem("fecha_ini"));
+        document.getElementById("fechaHasta").value = JSON.parse(localStorage.getItem("fecha_fin"));
+        document.getElementById("idiomasInput").value = JSON.parse(localStorage.getItem("idiomas"));
+        document.getElementById("paisesInput").value = JSON.parse(localStorage.getItem("origen"));
+        
+        var checked = JSON.parse(localStorage.getItem("intereses"));
+    	var intereses = document.getElementsByClassName("checkInteres");
+    	console.log(checked);
+
+    	
+    	for (var i = intereses.length - 1; i >= 0; i--) 
+    	{
+
+    		if(checked.includes(parseInt(intereses[i].value)))
+    		{
+
+    			intereses[i].checked = true;
+    		}
+	    }
+	
+        	
+        traerPuntos();
+        localStorage.setItem("resultados_id", JSON.stringify(null));
+        localStorage.setItem("id_actual", JSON.stringify(null));
+    }
+    
+}, 2000);
